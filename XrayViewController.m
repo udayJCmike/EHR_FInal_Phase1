@@ -14,6 +14,9 @@
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
 @interface XrayViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -83,7 +86,11 @@
 
 - (void)viewDidLoad
 {
+    
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     [super viewDidLoad];
+    
     
     for (UIView *v in [self.view subviews])
     {
@@ -234,6 +241,7 @@
     [super dealloc];
 }
 - (IBAction)save:(id)sender {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:recorddict];
     a=1;
@@ -250,13 +258,13 @@
        ([temp5 length]!=0))
     {
         
-        if([self validateNames:temp1]==1)
+        if([du patname:temp1]==1)
         {
             if([self validateDate:temp2]==1)
             {
                 if([self validateDate:temp3]==1)
                 {
-                    if([self validateNames:temp4]==1)
+                    if([du patname:temp4]==1)
                     {
                         if([self validateDate:temp5]==1)
                         {
@@ -271,7 +279,7 @@
                         {
                             a=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid date."
+                                                                           description:@"Please enter valid date."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -281,7 +289,7 @@
                     {
                         a=0;
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid signature."
+                                                                       description:@"Please enter valid signature."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -291,7 +299,7 @@
                 {
                     a=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid date due."
+                                                                   description:@"Please enter valid due date."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -301,7 +309,7 @@
             {
                 a=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid date borrowed."
+                                                               description:@"Please enter valid date borrowed."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -312,7 +320,7 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid name."
+                                                           description:@"Please enter valid signature."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -323,7 +331,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

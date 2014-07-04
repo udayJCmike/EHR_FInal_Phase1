@@ -15,5 +15,20 @@
 +(databaseurl*)sharedInstance;
 - (NSString*) DBurl;
 -(BOOL)username:(NSString *)name;
+-(BOOL)firstname:(NSString*)email;
 -(BOOL)email:(NSString*)email;
+-(BOOL)password:(NSString *)pass;
+-(BOOL)date:(NSString*)date;
+-(BOOL)mobilenumber:(NSString*)mobnum;
+-(BOOL)age:(NSString*)age;
+-(BOOL)address:(NSString*)address;
+-(BOOL)comments:(NSString*)cmts;
+-(BOOL)zipcode:(NSString *)zip;
+-(BOOL)time:(NSString*)tim;
+-(BOOL)numbofmsgs:(NSString*)nof;
+-(BOOL)formreg:(NSString*)formregg;
+-(BOOL)ssn:(NSString*)ssn;
+-(BOOL)otherfields:(NSString *)other;
+-(BOOL)percentage:(NSString *)date;
+-(BOOL)patname:(NSString *)name;
 @end

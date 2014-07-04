@@ -18,6 +18,10 @@
 
 
 @interface AdminFormViewController ()
+{
+    
+    databaseurl *du;
+}
 
 @end
 
@@ -68,6 +72,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -88,7 +93,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty36=@"null";
     texty37=@"null";
     texty38=@"null";
-
+    
     other.hidden=YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -97,7 +102,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [self.view addGestureRecognizer:tap];
     AKNumericFormatterMode mode = AKNumericFormatterMixed;
     tofax.numericFormatter = [AKNumericFormatter formatterWithMask:@"(***)***-****" placeholderCharacter:'*'mode:mode];
-	 [self Getdata];
+    [self Getdata];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,9 +117,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [tofax resignFirstResponder];
 }
 - (void)dealloc {
-     
-  
-
+    
+    
+    
     [reset2 release];
     [cancel2 release];
     [cancel release];
@@ -192,7 +197,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
 }
 - (IBAction)cancel:(id)sender {
-     [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
+    [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
 }
 - (IBAction)reset:(id)sender {
     tofax.text=@"";
@@ -268,170 +273,154 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 
 - (IBAction)save:(id)sender {
+    du=[[databaseurl alloc]init];
     texty1=[other.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[clinicrepsign.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[toaddress.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty4=[tofax.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-
     
-        if(check1.selected){
-            texty27=@"on";
-          //  texty27=@"on";
-            
-        }
-        else{
-            texty27=@"null";
-        }
-        if(check2.selected){
-            texty28=@"on";
-         
-        }
-        else{
-            texty28=@"null";
-        }
-        if(check3.selected){
-            texty29=@"on";
-        }
-        else{
-            texty29=@"null";
-        }
-        if(check4.selected){
-            texty30=@"on";
-        }
-        else{
-            texty30=@"null";
-        }
-        if(check5.selected){
-            texty31=@"on";
-        }
-        else{
-            texty31=@"null";
-        }
-        if(check6.selected){
-            other.hidden=NO;
-            
-            texty32=@"Other";
-            text32other=[other text];
-        }
-        else{
-            texty32=@"null";
-            text32other=@"";
-        }
+    
+    if(check1.selected){
+        texty27=@"on";
+        //  texty27=@"on";
         
-        if(check7.selected){
-            texty33=@"on";
-        }
-        else{
-            texty33=@"null";
-        }
-        if(check8.selected){
-            texty34=@"on";
-        }
-        else{
-            texty34=@"null";
-        }
-        if(check9.selected){
-            texty35=@"on";
-        }
-        else{
-            texty35=@"null";
-        }
-        if(check10.selected){
-            texty36=@"on";
-        }
-        else{
-            texty36=@"null";
-        }
-        if(check11.selected){
-            texty37=@"on";
-        }
-        else{
-            texty37=@"null";
-        }
-        if(check12.selected){
-            texty38=@"on";
-        }
-        else{
-            texty38=@"null";
-        }
+    }
+    else{
+        texty27=@"null";
+    }
+    if(check2.selected){
+        texty28=@"on";
+        
+    }
+    else{
+        texty28=@"null";
+    }
+    if(check3.selected){
+        texty29=@"on";
+    }
+    else{
+        texty29=@"null";
+    }
+    if(check4.selected){
+        texty30=@"on";
+    }
+    else{
+        texty30=@"null";
+    }
+    if(check5.selected){
+        texty31=@"on";
+    }
+    else{
+        texty31=@"null";
+    }
+    if(check6.selected){
+        other.hidden=NO;
+        
+        texty32=@"Other";
+        text32other=[other text];
+    }
+    else{
+        texty32=@"null";
+        text32other=@"";
+    }
+    
+    if(check7.selected){
+        texty33=@"on";
+    }
+    else{
+        texty33=@"null";
+    }
+    if(check8.selected){
+        texty34=@"on";
+    }
+    else{
+        texty34=@"null";
+    }
+    if(check9.selected){
+        texty35=@"on";
+    }
+    else{
+        texty35=@"null";
+    }
+    if(check10.selected){
+        texty36=@"on";
+    }
+    else{
+        texty36=@"null";
+    }
+    if(check11.selected){
+        texty37=@"on";
+    }
+    else{
+        texty37=@"null";
+    }
+    if(check12.selected){
+        texty38=@"on";
+    }
+    else{
+        texty38=@"null";
+    }
     if(([clinicrepsign.text length]!=0)&&([toaddress.text length]!=0)&&([tofax.text length]!=0))
     {
-    
-            if ([self validateString2:texty3])
+        
+        if ([du patname:texty3])
+        {
+            if ([du mobilenumber:texty4])
             {
-                if ([self validateMobile:texty4])
+                if([other.text length]==0||([du patname:texty1]==1))
                 {
-                    if([other.text length]==0||([self validateString1:texty1]==1))
+                    if(([du patname:texty2]==1))
                     {
-                        if(([self validateString:texty2]==1))
-                        {
-                    suc=1;
-                    
-                    recorddict=[[NSMutableDictionary alloc]init];
-                    [recorddict setObject:other.text forKey:@"requestdemandother"];
-                    [recorddict setObject:clinicrepsign.text forKey:@"requestdemandclinicsignature"];
-                    
-                    [recorddict setObject:texty27 forKey:@"requestdemandcheck1"];
-                    [recorddict setObject:texty28 forKey:@"requestdemandcheck2"];
-                    [recorddict setObject:texty29 forKey:@"requestdemandcheck3"];
-                    [recorddict setObject:texty30 forKey:@"requestdemandcheck4"];
-                    [recorddict setObject:texty31 forKey:@"requestdemandcheck5"];
-                    [recorddict setObject:texty32 forKey:@"requestdemandcheck6"];
-                    [recorddict setObject:text32other forKey:@"requestdemandcheck6other"];
-                    [recorddict setObject:texty33 forKey:@"requestdemandcheck7"];
-                    [recorddict setObject:texty34 forKey:@"requestdemandcheck8"];
-                    [recorddict setObject:texty35 forKey:@"requestdemandcheck9"];
-                    [recorddict setObject:texty36 forKey:@"requestdemandcheck10"];
-                    [recorddict setObject:texty37 forKey:@"requestdemandcheck11"];
-                    [recorddict setObject:texty38 forKey:@"requestdemandcheck12"];
-//NSLog(@"Record dict in request demand form::%@",recorddict);
-                 
-                    
-                        }
-                        else
-                        {
-                            suc=0;
-                            
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid clinic representative signature."
-                                                                                  type:TWMessageBarMessageTypeError
-                                                                        statusBarStyle:UIStatusBarStyleLightContent
-                                                                              callback:nil];
-                            
-
-                            
-                            
-                           
-                            
-                        }
-                    }else
+                        suc=1;
+                        
+                        recorddict=[[NSMutableDictionary alloc]init];
+                        [recorddict setObject:other.text forKey:@"requestdemandother"];
+                        [recorddict setObject:clinicrepsign.text forKey:@"requestdemandclinicsignature"];
+                        
+                        [recorddict setObject:texty27 forKey:@"requestdemandcheck1"];
+                        [recorddict setObject:texty28 forKey:@"requestdemandcheck2"];
+                        [recorddict setObject:texty29 forKey:@"requestdemandcheck3"];
+                        [recorddict setObject:texty30 forKey:@"requestdemandcheck4"];
+                        [recorddict setObject:texty31 forKey:@"requestdemandcheck5"];
+                        [recorddict setObject:texty32 forKey:@"requestdemandcheck6"];
+                        [recorddict setObject:text32other forKey:@"requestdemandcheck6other"];
+                        [recorddict setObject:texty33 forKey:@"requestdemandcheck7"];
+                        [recorddict setObject:texty34 forKey:@"requestdemandcheck8"];
+                        [recorddict setObject:texty35 forKey:@"requestdemandcheck9"];
+                        [recorddict setObject:texty36 forKey:@"requestdemandcheck10"];
+                        [recorddict setObject:texty37 forKey:@"requestdemandcheck11"];
+                        [recorddict setObject:texty38 forKey:@"requestdemandcheck12"];
+                        //NSLog(@"Record dict in request demand form::%@",recorddict);
+                        
+                        
+                    }
+                    else
                     {
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid other field."
+                                                                       description:@"Please enter valid clinic representative signature."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
-
+                        
+                        
                         
                         
                         
                     }
-                }
-                else
+                }else
                 {
                     suc=0;
                     
-                    
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid fax number."
+                                                                   description:@"Please enter valid name."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-
+                    
                     
                     
                     
@@ -441,19 +430,36 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             {
                 suc=0;
                 
+                
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid to address."
+                                                               description:@"Please enter valid fax number."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
                 
                 
-               
+                
+                
             }
+        }
+        else
+        {
+            suc=0;
+            
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                           description:@"Enter valid to address."
+                                                                  type:TWMessageBarMessageTypeError
+                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                              callback:nil];
+            
+            
+            
+            
+            
+        }
         
-
+        
         
     }else
     {
@@ -467,9 +473,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-
         
-       
+        
+        
     }
     if (suc==1) {
         UIButton *buton=(UIButton*)sender;
@@ -502,7 +508,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-
+        
     }
 }
 -(void)Getdata
@@ -543,8 +549,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             temp10=[arrayList1 objectForKey:@"greencard"];
             temp11 =[arrayList1 objectForKey:@"defaultattorney"];
             temp12 =[arrayList1 objectForKey:@"clinicrep"];
-             temp13 =[arrayList1 objectForKey:@"tonum"];
-             temp14 =[arrayList1 objectForKey:@"fax"];
+            temp13 =[arrayList1 objectForKey:@"tonum"];
+            temp14 =[arrayList1 objectForKey:@"fax"];
             
             toaddress.text=temp13;
             tofax.text=temp14;
@@ -580,16 +586,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check3 setSelected:NO];
                 [check3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-             if([temp3 isEqualToString:@"on"])
+            if([temp3 isEqualToString:@"on"])
             {
                 [check4 setSelected:YES];
                 [check4 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-             else
-             {
-                 [check4 setSelected:NO];
-                 [check4 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-             }
+            else
+            {
+                [check4 setSelected:NO];
+                [check4 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
             if([temp4 isEqualToString:@"on"])
             {
                 [check5 setSelected:YES];
@@ -600,83 +606,83 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check5 setSelected:NO];
                 [check5 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-           if([temp5 isEqualToString:@"Other"])
-               
+            if([temp5 isEqualToString:@"Other"])
+                
             {
                 other.hidden=NO;
                 other.text=temp6;
                 [check6 setSelected:YES];
                 [check6 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-           else
-           {
-               other.hidden=YES;
-               other.text=@"";
-               [check6 setSelected:NO];
-               [check6 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-           }
-             if([temp15 isEqualToString:@"on"])
+            else
+            {
+                other.hidden=YES;
+                other.text=@"";
+                [check6 setSelected:NO];
+                [check6 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp15 isEqualToString:@"on"])
             {
                 [check7 setSelected:YES];
                 [check7 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
-             else
-             {
-                 [check7 setSelected:NO];
-                 [check7 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-             }
-           if([temp7 isEqualToString:@"on"])
+            else
+            {
+                [check7 setSelected:NO];
+                [check7 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp7 isEqualToString:@"on"])
             {
                 [check8 setSelected:YES];
                 [check8 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-           else
-           {
-               [check8 setSelected:NO];
-               [check8 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-           }
-             if([temp8 isEqualToString:@"on"])
+            else
+            {
+                [check8 setSelected:NO];
+                [check8 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp8 isEqualToString:@"on"])
             {
                 [check9 setSelected:YES];
                 [check9 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-             else
-             {
-                 [check9 setSelected:NO];
-                 [check9 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-             }
-          if([temp9 isEqualToString:@"on"])
+            else
+            {
+                [check9 setSelected:NO];
+                [check9 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp9 isEqualToString:@"on"])
             {
                 [check10 setSelected:YES];
                 [check10 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-          else
-          {
-              [check10 setSelected:NO];
-              [check10 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-          }
-         if([temp10 isEqualToString:@"on"])
+            else
+            {
+                [check10 setSelected:NO];
+                [check10 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp10 isEqualToString:@"on"])
             {
                 [check11 setSelected:YES];
                 [check11 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-         else
-         {
-             [check11 setSelected:NO];
-             [check11 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-         }
-        if([temp11 isEqualToString:@"on"])
+            else
+            {
+                [check11 setSelected:NO];
+                [check11 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            if([temp11 isEqualToString:@"on"])
             {
                 [check12 setSelected:YES];
                 [check12 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             }
-        else
-        {
-            [check12 setSelected:NO];
-            [check12 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-        }
-          
+            else
+            {
+                [check12 setSelected:NO];
+                [check12 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+            
             
             
             
@@ -688,7 +694,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         cancel.hidden=YES;
         reset2.hidden=NO;
         cancel2.hidden=NO;
-    
+        
         
         
         //  NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
@@ -741,11 +747,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                description:@"Form updation successful."
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
-
                 
                 
                 
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                 
@@ -762,10 +768,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
                 
                 
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                 
@@ -860,10 +866,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                description:@"Form submission successful."
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
-
                 
                 
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                 
@@ -880,10 +886,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
                 
                 
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                 
@@ -935,9 +941,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                    description:@"Form deletion successful."
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
-
                     
-                  
+                    
+                    
                     
                     [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                     
@@ -954,10 +960,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-
                     
                     
-                   
+                    
+                    
                     
                     [self performSegueWithIdentifier:@"requesttowelcome" sender:self];
                     

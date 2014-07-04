@@ -13,8 +13,12 @@
 
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
+#import "databaseurl.h"
 
 @interface dcfee3ViewController ()
+{
+    databaseurl * du;
+}
 
 @end
 
@@ -117,6 +121,7 @@
 }
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -271,6 +276,7 @@
 }
 
 - (IBAction)next:(id)sender {
+    du=[[databaseurl alloc]init];
     //recorddict=[[NSMutableDictionary alloc]init];
     temp1 =[supplies.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[materials.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -295,53 +301,53 @@
     temp21=[ankle.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp22=[foot.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp23=[readother.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if((([temp1 length]>0)&&([self validateNumbers:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du date:temp1]==1))||([temp1 length]==0))
     {
-        if((([temp2 length]>0)&&([self validateNumbers:temp2]==1))||([temp2 length]==0))
+        if((([temp2 length]>0)&&([du date:temp2]==1))||([temp2 length]==0))
         {
-            if((([temp3 length]>0)&&([self validateNumbers:temp3]==1))||([temp3 length]==0))
+            if((([temp3 length]>0)&&([du date:temp3]==1))||([temp3 length]==0))
             {
-                if((([temp4 length]>0)&&([self validateNumbers:temp4]==1))||([temp4 length]==0))
+                if((([temp4 length]>0)&&([du date:temp4]==1))||([temp4 length]==0))
                 {
-                    if((([temp5 length]>0)&&([self validateNumbers:temp5]==1))||([temp5 length]==0))
+                    if((([temp5 length]>0)&&([du date:temp5]==1))||([temp5 length]==0))
                     {
                         //                        if ([self validateDate:temp23]==1)
                         //                        {
-                        if((([temp6 length]>0)&&([self validateNumbers:temp6]==1))||([temp6 length]==0))
+                        if((([temp6 length]>0)&&([du date:temp6]==1))||([temp6 length]==0))
                         {
-                            if((([temp7 length]>0)&&([self validateNumbers:temp7]==1))||([temp7 length]==0))
+                            if((([temp7 length]>0)&&([du date:temp7]==1))||([temp7 length]==0))
                             {
-                                if((([temp8 length]>0)&&([self validateNumbers:temp8]==1))||([temp8 length]==0))
+                                if((([temp8 length]>0)&&([du date:temp8]==1))||([temp8 length]==0))
                                 {
-                                    if((([temp9 length]>0)&&([self validateNumbers:temp9]==1))||([temp9 length]==0))
+                                    if((([temp9 length]>0)&&([du date:temp9]==1))||([temp9 length]==0))
                                     {
-                                        if((([temp10 length]>0)&&([self validateNumbers:temp10 ]==1))||([temp10 length]==0))
+                                        if((([temp10 length]>0)&&([du date:temp10 ]==1))||([temp10 length]==0))
                                         {
-                                            if((([temp11 length]>0)&&([self validateNumbers:temp11]==1))||([temp11 length]==0))
+                                            if((([temp11 length]>0)&&([du date:temp11]==1))||([temp11 length]==0))
                                             {
-                                                if((([temp12 length]>0)&&([self validateNumbers:temp12]==1))||([temp12 length]==0))
+                                                if((([temp12 length]>0)&&([du date:temp12]==1))||([temp12 length]==0))
                                                 {
-                                                    if((([temp13 length]>0)&&([self validateNumbers:temp13]==1))||([temp13 length]==0))
+                                                    if((([temp13 length]>0)&&([du date:temp13]==1))||([temp13 length]==0))
                                                     {
-                                                        if((([temp14 length]>0)&&([self validateNumbers:temp14]==1))||([temp14 length]==0))
+                                                        if((([temp14 length]>0)&&([du date:temp14]==1))||([temp14 length]==0))
                                                         {
-                                                            if((([temp15 length]>0)&&([self validateNumbers:temp15]==1))||([temp15 length]==0))
+                                                            if((([temp15 length]>0)&&([du date:temp15]==1))||([temp15 length]==0))
                                                             {
-                                                                if((([temp16 length]>0)&&([self validateNumbers:temp16]==1))||([temp16 length]==0))
+                                                                if((([temp16 length]>0)&&([du date:temp16]==1))||([temp16 length]==0))
                                                                 {
-                                                                    if((([temp17 length]>0)&&([self validateNumbers:temp17]==1))||([temp17 length]==0))
+                                                                    if((([temp17 length]>0)&&([du date:temp17]==1))||([temp17 length]==0))
                                                                     {
-                                                                        if((([temp18 length]>0)&&([self validateNumbers:temp18]==1))||([temp18 length]==0))
+                                                                        if((([temp18 length]>0)&&([du date:temp18]==1))||([temp18 length]==0))
                                                                         {
-                                                                            if((([temp19 length]>0)&&([self validateNumbers:temp19]==1))||([temp19 length]==0))
+                                                                            if((([temp19 length]>0)&&([du date:temp19]==1))||([temp19 length]==0))
                                                                             {
-                                                                                if((([temp20 length]>0)&&([self validateNumbers:temp20]==1))||([temp20 length]==0))
+                                                                                if((([temp20 length]>0)&&([du date:temp20]==1))||([temp20 length]==0))
                                                                                 {
-                                                                                    if((([temp21 length]>0)&&([self validateNumbers:temp21]==1))||([temp21 length]==0))
+                                                                                    if((([temp21 length]>0)&&([du date:temp21]==1))||([temp21 length]==0))
                                                                                     {
-                                                                                        if((([temp22 length]>0)&&([self validateNumbers:temp22]==1))||([temp22 length]==0))
+                                                                                        if((([temp22 length]>0)&&([du date:temp22]==1))||([temp22 length]==0))
                                                                                         {
-                                                                                            if((([temp23 length]>0)&&([self validateNumbers:temp23]==1))||([temp23 length]==0))
+                                                                                            if((([temp23 length]>0)&&([du date:temp23]==1))||([temp23 length]==0))
                                                                                             {
                                                                                                 calc4=([supplies.text floatValue]+[materials.text floatValue]+[testimony.text floatValue]+[insurance.text floatValue]+[conference.text floatValue]+[spine.text floatValue]+[cervicalview1.text floatValue]+[cervicalview2.text floatValue]+[cervicalview3.text floatValue]+[thoracic.text floatValue]+[thoracicview.text floatValue]+[scoliosis.text floatValue]+[lumbview1.text floatValue]+[lumbview2.text floatValue]+[pelvis.text floatValue]+[lumbar.text floatValue]+[elbow.text floatValue]+[wrist.text floatValue]+[hand.text floatValue]+[knee.text floatValue]+[ankle.text floatValue]+[foot.text floatValue]+[readother.text floatValue]);
                                                                                                 page4.text=[[NSString alloc] initWithFormat:@"%f",calc4];
@@ -387,13 +393,13 @@
                                                                                                 
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid read other films field."
+                                                                                                                                               description:@"Please enter valid read other films field."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
                                                                                                 
                                                                                                 
-                                                                                             
+                                                                                                
                                                                                                 
                                                                                             }
                                                                                             
@@ -403,14 +409,14 @@
                                                                                             c=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid foot:2 views field."
+                                                                                                                                           description:@"Please enter valid foot:2 views field."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
                                                                                             
                                                                                             
                                                                                             
-                                                                                           
+                                                                                            
                                                                                         }
                                                                                         
                                                                                     }
@@ -420,12 +426,12 @@
                                                                                         
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid ankle:2 views field."
+                                                                                                                                       description:@"Please enter valid ankle:2 views field."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
                                                                                         
-
+                                                                                        
                                                                                     }
                                                                                 }
                                                                                 else
@@ -433,13 +439,13 @@
                                                                                     c=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid knee:2 views field."
+                                                                                                                                   description:@"Please enter valid knee:2 views field."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
                                                                                     
                                                                                     
-                                                                                  
+                                                                                    
                                                                                     
                                                                                 }
                                                                             }
@@ -448,27 +454,27 @@
                                                                                 c=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid hand:2 views field."
+                                                                                                                               description:@"Please enter valid hand:2 views field."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
                                                                                 
                                                                                 
                                                                                 
-                                                                               
+                                                                                
                                                                             }
                                                                         }
                                                                         else
                                                                         {
                                                                             c=0;
-                                                                          
+                                                                            
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid wrist:2 views field."
+                                                                                                                           description:@"Please enter valid wrist:2 views field."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
                                                                             
-                                                                         
+                                                                            
                                                                             
                                                                         }
                                                                     }
@@ -477,12 +483,12 @@
                                                                         c=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid elbow:2 views field."
+                                                                                                                       description:@"Please enter valid elbow:2 views field."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
                                                                         
-
+                                                                        
                                                                     }
                                                                 }
                                                                 else
@@ -491,11 +497,11 @@
                                                                     
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid lumbar complete incl blending field."
+                                                                                                                   description:@"Please enter valid lumbar complete incl blending field."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
-                                                                 
+                                                                    
                                                                 }
                                                             }
                                                             else
@@ -503,14 +509,14 @@
                                                                 c=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid range of pelvis 2 views field."
+                                                                                                               description:@"Please enter valid range of pelvis 2 views field."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
                                                                 
                                                                 
                                                                 
-                                                              
+                                                                
                                                             }
                                                         }
                                                         else
@@ -518,14 +524,14 @@
                                                             c=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid lumbosacral 4 views field."
+                                                                                                           description:@"Please enter valid lumbosacral 4 views field."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
                                                             
                                                             
                                                             
-                                                           
+                                                            
                                                             
                                                         }
                                                     }
@@ -534,14 +540,14 @@
                                                         c=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid lumbosacral 2-3 views field."
+                                                                                                       description:@"Please enter valid lumbosacral 2-3 views field."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
                                                         
                                                         
                                                         
-                                                       
+                                                        
                                                     }
                                                 }
                                                 else
@@ -550,13 +556,13 @@
                                                     
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid scoliosis study field."
+                                                                                                   description:@"Please enter valid scoliosis study field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
                                                     
                                                     
-                                                   
+                                                    
                                                     
                                                 }
                                                 
@@ -566,13 +572,13 @@
                                                 c=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid thoracic 2 views field."
+                                                                                               description:@"Please enter valid thoracic 2 views field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
                                                 
-                                               
+                                                
                                                 
                                             }
                                             
@@ -583,12 +589,12 @@
                                             
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid thoaracic 4 views field."
+                                                                                           description:@"Please enter valid thoaracic 4 views field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
-                                           
+                                            
                                             
                                         }
                                         
@@ -599,12 +605,12 @@
                                         
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid cervical 6-7 views field."                                                                                              type:TWMessageBarMessageTypeError
+                                                                                       description:@"Please enter valid cervical 6-7 views field."                                                                                              type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
-                                      
+                                        
                                         
                                     }
                                     
@@ -614,13 +620,13 @@
                                     c=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid cervical 4 views field."
+                                                                                   description:@"Please enter valid cervical 4 views field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
-                                  
+                                    
                                 }
                                 
                             }
@@ -630,12 +636,12 @@
                                 
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid cervical 2-3 views field."
+                                                                               description:@"Please enter valid cervical 2-3 views field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
-                               
+                                
                                 
                             }
                             
@@ -645,14 +651,14 @@
                             c=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid complete spine field."
+                                                                           description:@"Please enter valid complete spine field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
                             
                             
-                           
+                            
                             
                         }
                         
@@ -677,26 +683,26 @@
                         c=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid team conference field."
+                                                                       description:@"Please enter valid team conference field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
                         
-
+                        
                     }
                 }
                 else
                 {
                     c=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid insurance form/report field."
+                                                                   description:@"Please enter valid insurance form/report field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
                     
-                   
+                    
                     
                 }
             }
@@ -707,12 +713,12 @@
                 c=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid medical testimony field."
+                                                               description:@"Please enter valid medical testimony field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-               
+                
                 
             }
         }
@@ -721,12 +727,12 @@
             c=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid  patient education materials field."
+                                                           description:@"Please enter valid  patient education materials field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-         
+            
             
         }
     }
@@ -736,12 +742,12 @@
         c=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid supplies field."
+                                                       description:@"Please enter valid supplies field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-       
+        
         
     }
     

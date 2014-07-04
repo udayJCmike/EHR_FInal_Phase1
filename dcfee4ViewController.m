@@ -23,6 +23,9 @@
 #import "StringConstants.h"
 
 @interface dcfee4ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -142,10 +145,10 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag==2) {
-         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-//        NSLog(@"VALUES %@%@",chargeslabel.text,newString);
-//        NSLog(@"VALUES %D %D",[chargeslabel.text intValue],[newString intValue]);
-      int res= [chargeslabel.text intValue]-[newString intValue];
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        //        NSLog(@"VALUES %@%@",chargeslabel.text,newString);
+        //        NSLog(@"VALUES %D %D",[chargeslabel.text intValue],[newString intValue]);
+        int res= [chargeslabel.text intValue]-[newString intValue];
         balancelabel.text=[NSString stringWithFormat:@"%d",res];
         return YES;
         
@@ -156,6 +159,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     
 }
 - (IBAction)save:(id)sender {
+    du=[[databaseurl alloc]init];
     
     
     if(checkbut1.selected){
@@ -235,38 +239,38 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     {
         c=0;
         
-        if ([self validateNames:temp17]==1)
+        if ([du patname:temp17]==1)
         {
-            if ([self validateNames:temp18]==1)
+            if ([du patname:temp18]==1)
             {
                 if ([self validateDate:temp16]==1)
                 {
-                    if((([temp1 length]>0)&&([self validateNumbers:temp1]==1))||([temp1 length]==0))
+                    if((([temp1 length]>0)&&([du date:temp1]==1))||([temp1 length]==0))
                     {
-                        if((([temp2 length]>0)&&([self validateNumbers:temp2]==1))||([temp2 length]==0))
+                        if((([temp2 length]>0)&&([du date:temp2]==1))||([temp2 length]==0))
                         {
-                            if((([temp3 length]>0)&&([self validateNumbers:temp3]==1))||([temp3 length]==0))
+                            if((([temp3 length]>0)&&([du date:temp3]==1))||([temp3 length]==0))
                             {
-                                if((([temp4 length]>0)&&([self validateNumbers:temp4]==1))||([temp4 length]==0))
+                                if((([temp4 length]>0)&&([du date:temp4]==1))||([temp4 length]==0))
                                 {
-                                    if((([temp5 length]>0)&&([self validateNumbers:temp5]==1))||([temp5 length]==0))
+                                    if((([temp5 length]>0)&&([du date:temp5]==1))||([temp5 length]==0))
                                     {
                                         
-                                        if((([temp6 length]>0)&&([self validateNumbers:temp6]==1))||([temp6 length]==0))
+                                        if((([temp6 length]>0)&&([du date:temp6]==1))||([temp6 length]==0))
                                         {
-                                            if((([temp7 length]>0)&&([self validateNumbers:temp7]==1))||([temp7 length]==0))
+                                            if((([temp7 length]>0)&&([du date:temp7]==1))||([temp7 length]==0))
                                             {
-                                                if((([temp8 length]>0)&&([self validateNumbers:temp8]==1))||([temp8 length]==0))
+                                                if((([temp8 length]>0)&&([du date:temp8]==1))||([temp8 length]==0))
                                                 {
-                                                    if((([temp9 length]>0)&&([self validateNumbers:temp9]==1))||([temp9 length]==0))
+                                                    if((([temp9 length]>0)&&([du date:temp9]==1))||([temp9 length]==0))
                                                     {
-                                                        if((([temp10 length]>0)&&([self validateNumbers:temp10 ]==1))||([temp10 length]==0))
+                                                        if((([temp10 length]>0)&&([du date:temp10 ]==1))||([temp10 length]==0))
                                                         {
-                                                            if((([temp11 length]>0)&&([self validateNumbers:temp11]==1))||([temp11 length]==0))
+                                                            if((([temp11 length]>0)&&([du date:temp11]==1))||([temp11 length]==0))
                                                             {
                                                                 if(([temp12 length]>0)||([temp12 length]==0))
                                                                 {
-                                                                    if((([temp13 length]>0)&&([self validateNumbers:temp13]==1))||([temp13 length]==0))
+                                                                    if((([temp13 length]>0)&&([du date:temp13]==1))||([temp13 length]==0))
                                                                     {
                                                                         if(([temp14 length]>0)||([temp14 length]==0))
                                                                         {
@@ -275,11 +279,11 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                             {
                                                                                 
                                                                                 
-                                                                                if((([temp19 length]>0)&&([self validateNumbers:temp19]==1))||([temp19 length]==0))
+                                                                                if((([temp19 length]>0)&&([du date:temp19]==1))||([temp19 length]==0))
                                                                                     
                                                                                 {
                                                                                     
-                                                                                    if((([temp20 length]>0)&&([self validateNumbers:temp20]==1))||([temp20 length]==0))
+                                                                                    if((([temp20 length]>0)&&([du date:temp20]==1))||([temp20 length]==0))
                                                                                         
                                                                                     {
                                                                                         NSString *page1=[recorddict objectForKey:@"calc1"];
@@ -334,7 +338,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                                         c=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid months field."
+                                                                                                                                       description:@"Please enter valid month."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -351,29 +355,29 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                                     
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid weeks field."
+                                                                                                                                   description:@"Please enter valid week."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
                                                                                     
                                                                                     
-                                                                                  
+                                                                                    
                                                                                     
                                                                                 }
                                                                                 
-                                                                                                                                                            }
+                                                                            }
                                                                             else
                                                                             {
                                                                                 c=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid amt field."
+                                                                                                                               description:@"Please enter valid amount."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
                                                                                 
                                                                                 
-                                                                               
+                                                                                
                                                                             }
                                                                         }
                                                                         else
@@ -381,14 +385,14 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                             c=0;
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid balance field."
+                                                                                                                           description:@"Please enter valid balance."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
                                                                             
                                                                             
                                                                             
-                                                                          
+                                                                            
                                                                             
                                                                         }
                                                                     }
@@ -398,13 +402,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                         
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid less field."
+                                                                                                                       description:@"Please enter valid less."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
                                                                         
                                                                         
-
+                                                                        
                                                                     }
                                                                 }
                                                                 else
@@ -413,7 +417,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                     
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid charges field."
+                                                                                                                   description:@"Please enter valid charges."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -427,14 +431,14 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                 c=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid routine unlisted item field."
+                                                                                                               description:@"Please enter valid routine unlisted item."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
                                                                 
                                                                 
                                                                 
-                                                               
+                                                                
                                                                 
                                                             }
                                                             
@@ -444,7 +448,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                             c=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid exercise band field."
+                                                                                                           description:@"Please enter valid exercise band."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -458,15 +462,15 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                     else
                                                     {
                                                         c=0;
-
+                                                        
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid exercise ball field."
+                                                                                                       description:@"Please enter valid exercise ball."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
                                                         
-
+                                                        
                                                     }
                                                     
                                                 }
@@ -475,7 +479,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                     c=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid heel lift field."
+                                                                                                   description:@"Please enter valid heel lift."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -492,13 +496,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                 
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid wrist splint field."
+                                                                                               description:@"Please enter valid wrist splint."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
                                                 
-                                               
+                                                
                                                 
                                             }
                                             
@@ -508,14 +512,14 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                             c=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid cold pack field."
+                                                                                           description:@"Please enter valid cold pack."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
                                             
                                             
-                                           
+                                            
                                         }
                                         
                                         
@@ -527,13 +531,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                         c=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid tens unit field."
+                                                                                       description:@"Please enter valid tens unit."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
-                                       
+                                        
                                     }
                                 }
                                 else
@@ -542,13 +546,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                     
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid orthotic custom right field."
+                                                                                   description:@"Please enter valid orthotic custom right."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
-                                 
+                                    
                                 }
                             }
                             
@@ -558,13 +562,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                 c=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid orthotic custom left field."
+                                                                               description:@"Please enter valid orthotic custom left."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
-                               
+                                
                                 
                             }
                         }
@@ -573,7 +577,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                             c=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid  lumbar support field."
+                                                                           description:@"Please enter valid  lumbar support."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -587,12 +591,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                         c=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid cervical pillow field."
+                                                                       description:@"Please enter valid cervical pillow."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
-                      
+                        
                         
                     }
                     
@@ -603,12 +607,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                     c=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid date."
+                                                                   description:@"Please enter valid date."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-                   
+                    
                     
                     
                 }
@@ -620,13 +624,13 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                 c=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid Dr sign."
+                                                               description:@"Please enter valid sign."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
-              
+                
                 
                 
             }
@@ -637,12 +641,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
             c=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid parentsign."
+                                                           description:@"Please enter valid parent sign."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-         
+            
             
             
         }
@@ -652,12 +656,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
         c=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-
+        
         
     }
     if(c==1)
@@ -788,7 +792,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                 
                 
                 
-               
+                
                 
                 [self performSegueWithIdentifier:@"dctowelcome" sender:self];
                 
@@ -805,7 +809,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                   callback:nil];
                 
                 
-              
+                
                 
                 [self performSegueWithIdentifier:@"dctowelcome" sender:self];
                 
@@ -919,7 +923,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                  
+                    
                     
                     [self performSegueWithIdentifier:@"dctowelcome" sender:self];
                     
@@ -977,7 +981,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     seggyval=@"Cash";
     cardownersig.text=@"";
     chargelabtext.text=@"";
-     [seggy setSelectedSegmentIndex:0];
+    [seggy setSelectedSegmentIndex:0];
 }
 
 
@@ -1367,7 +1371,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                   callback:nil];
                 
                 
-               
+                
                 
                 [self performSegueWithIdentifier:@"dctowelcome" sender:self];
                 

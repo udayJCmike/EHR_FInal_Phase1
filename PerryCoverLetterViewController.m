@@ -16,6 +16,9 @@
 #import "databaseurl.h"
 #import "JSON.h"
 @interface PerryCoverLetterViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -55,7 +58,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     return self;
 }
 -(void)dismissKeyboard {
-  //  [physicianname resignFirstResponder];
+    //  [physicianname resignFirstResponder];
     [patname resignFirstResponder];
     [patattory resignFirstResponder];
     [dearname resignFirstResponder];
@@ -68,15 +71,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     patname.text=@"";
     patattory.text=@"";
     dearname.text=@"";
-     dofacc.text=@"";
-     addrs.text=@"";
-     reg.text=@"";
+    dofacc.text=@"";
+    addrs.text=@"";
+    reg.text=@"";
 }
 - (IBAction)cancel:(id)sender {
-      [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+    [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
 }
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
@@ -87,7 +91,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
-     patname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
+    patname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     sincname.text=@"";
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"SENT BY CERTIFIED MAIL"];
     [attributeString addAttribute:NSUnderlineStyleAttributeName
@@ -131,9 +135,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             temp1 =[arrayList1 objectForKey:@"address"];
             temp2 =[arrayList1 objectForKey:@"reg"];
             temp3 =[arrayList1 objectForKey:@"nameofperson"];
-             temp4 =[arrayList1 objectForKey:@"DateofAccident"];
-             temp5 =[arrayList1 objectForKey:@"subject"];
-           
+            temp4 =[arrayList1 objectForKey:@"DateofAccident"];
+            temp5 =[arrayList1 objectForKey:@"subject"];
+            
             patattory.text=temp;
             addrs.text=temp1;
             reg.text=temp2;
@@ -206,7 +210,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-              [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                 
                 
             }
@@ -219,7 +223,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-              [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                 
                 
             }
@@ -378,7 +382,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 
 - (void)dealloc {
- 
+    
     [reset2 release];
     [cancel2 release];
     [super dealloc];
@@ -457,58 +461,60 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
 }
 - (IBAction)submit:(id)sender {
+    
+    du=[[databaseurl alloc]init];
     texty1=[patattory.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[reg.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[[addrs.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[texty3 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
-   texty3=[texty3 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
+    texty3=[texty3 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
     texty4=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty5=[dofacc.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty6=[dearname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-   // texty8=[physicianname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    // texty8=[physicianname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if([patattory.text length]!=0&&[reg.text length]!=0&&[addrs.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0){
-        if([patattory.text length]==0||([self validateNames:texty1]==1))
+        if([patattory.text length]==0||([du patname:texty1]==1))
         {
-            if([reg.text length]==0||([self validateString1:texty2]==1))
+            if([reg.text length]==0||([du patname:texty2]==1))
             {
-                if([addrs.text length]==0||([self validateaddress:texty3]==1))
+                if([addrs.text length]==0||([du address:texty3]==1))
                 {
-                    if([patname.text length]==0||([self validateNames1:texty4]==1))
+                    if([patname.text length]==0||([du patname:texty4]==1))
                     {
                         if([dofacc.text length]==0||([self validateDate:texty5]==1))
                         {
-                            if([dearname.text length]==0||([self validateNames:texty6]==1))
+                            if([dearname.text length]==0||([du patname:texty6]==1))
                             {
                                 
-                                        suc=1;
-                                        recorddict=[[NSMutableDictionary alloc]init];
-                                        
-                                        [recorddict setValue:patattory.text forKey:@"InsuranceCompany"];
-                                        
-                                        [recorddict setValue:reg.text forKey:@"regarding"];
-                                        
-                                        [recorddict setValue:addrs.text forKey:@"address"];
-                                        
-                                        [recorddict setValue:patname.text forKey:@"patient name"];
-                                        
-                                        [recorddict setValue:dofacc.text forKey:@"date field"];
-                                        
-                                        [recorddict setValue:dearname.text forKey:@"doctor name"];
-                                        [recorddict setValue:sincname.text forKey:@"doctor signature"];
-                                       // [recorddict setValue:physicianname.text forKey:@"physician name"];
+                                suc=1;
+                                recorddict=[[NSMutableDictionary alloc]init];
+                                
+                                [recorddict setValue:patattory.text forKey:@"InsuranceCompany"];
+                                
+                                [recorddict setValue:reg.text forKey:@"regarding"];
+                                
+                                [recorddict setValue:addrs.text forKey:@"address"];
+                                
+                                [recorddict setValue:patname.text forKey:@"patient name"];
+                                
+                                [recorddict setValue:dofacc.text forKey:@"date field"];
+                                
+                                [recorddict setValue:dearname.text forKey:@"doctor name"];
+                                [recorddict setValue:sincname.text forKey:@"doctor signature"];
+                                // [recorddict setValue:physicianname.text forKey:@"physician name"];
                                 
                                 
-                                    
                                 
-                               
+                                
+                                
                                 
                             }
                             else{
                                 suc=0;
-                               
+                                
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid name."
+                                                                               description:@"Please enter valid name."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -517,10 +523,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         }
                         else{
                             suc=0;
-                           
+                            
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid date of accident."
+                                                                           description:@"Please enter valid date of accident."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -532,7 +538,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid patient's name."
+                                                                       description:@"Please enter valid patient's name."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -541,11 +547,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 }
                 else{
                     suc=0;
-                   
+                    
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid address field."
+                                                                   description:@"Please enter valid address field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -556,7 +562,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid regarding field."
+                                                               description:@"Please enter valid regarding field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -568,7 +574,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid insurance company name."
+                                                           description:@"Please enter valid insurance company name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -579,7 +585,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -616,7 +622,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-
+        
         //[self performSegueWithIdentifier:@"perrytowelcome" sender:self];
     }
 }
@@ -705,8 +711,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-
-              [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                
+                [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                 
                 
             }
@@ -719,7 +725,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-              [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                 
                 
             }
@@ -769,7 +775,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
-                  [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                     
                     
                 }
@@ -782,7 +788,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                  [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"perrytowelcome" sender:self];
                     
                     
                 }

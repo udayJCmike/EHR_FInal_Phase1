@@ -16,6 +16,10 @@
 #import "UITextField+AKNumericFormatter.h"
 #import "AKNumericFormatter.h"
 @interface insuranceverifyViewController ()
+{
+    databaseurl *du;
+    
+}
 
 @end
 
@@ -209,8 +213,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
- 
+    
     
     if(checkbut1.selected){
         [recorddict setValue:@"CM" forKey:@"CM"];
@@ -235,14 +240,14 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     
     if([manipulationcoveredswitchlabel.text isEqual:@"Yes"])
     {
-        a=[self validatealphanumeric:[manipulationpercent text]];
+        a=[du percentage:[manipulationpercent text]];
     }
     
     
     
     if([xraycoveredswitchlabel.text isEqual:@"Yes"])
     {
-        d =[self validatealphanumeric:[xraypercent text]];
+        d =[du percentage:[xraypercent text]];
     }
     
     if(([patientname.text length]!=0)&&
@@ -257,24 +262,24 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
        ([address.text length]!=0))
         
     {
-        if([self validateNames2:[patientname text]]==1)
+        if([du patname:[patientname text]]==1)
         {
-            if([self validateNames1:[spokewith text]]==1)
+            if([du patname:[spokewith text]]==1)
             {
                 if([self validateDate:[date text]]==1)
                 {
-                    if([self validateMobile:[fax text]]==1)
+                    if([du mobilenumber:[fax text]]==1)
                     {
-                        if ([self validatealphanumeric1:[amountdeduct text]]==1)
+                        if ([du date:[amountdeduct text]]==1)
                         {
-                            if([self validatealphanumeric1:[deductmet text]]==1)
+                            if([du date:[deductmet text]]==1)
                             {
-                                if([self validatealphanumeric1:[visits text]]==1){
-                                    if([self validatealphanumeric1:[deductible text]]==1)
+                                if([du date:[visits text]]==1){
+                                    if([du otherfields:[deductible text]]==1)
                                     {
-                                        if([self validatealphanumeric1:[percentcovered text]]==1)
+                                        if([du percentage:[percentcovered text]]==1)
                                         {
-                                            if([self validateEmail:[address text]]==1)
+                                            if([du email:[address text]]==1)
                                             {
                                                 
                                                 [recorddict setValue:patientname.text forKey:@"patientname"];
@@ -298,20 +303,20 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                                                 
                                                 
                                                 [recorddict setValue:manipulationpercent.text forKey:@"manipultionpercent"];
-                                                            [recorddict setValue:xraypercent.text forKey:@"xray percent"];
+                                                [recorddict setValue:xraypercent.text forKey:@"xray percent"];
                                                 
-                                                    
-                                                    
+                                                
+                                                
                                                 b=1;
                                                 
-                                                    
+                                                
                                             }
                                             
                                             else
                                             {
                                                 b=0;
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid emailid."
+                                                                                               description:@"Please enter valid email id."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -319,9 +324,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                                             }
                                         }
                                         else{
-                                           b=0;
+                                            b=0;
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid percentage covered in non-provider benefits."
+                                                                                           description:@"Please enter valid percentage covered in non-provider benefits."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -330,29 +335,29 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                                     }
                                     else
                                     {
-                                     b=0;
+                                        b=0;
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid deductible data in non-provider benefits."
+                                                                                       description:@"Please enter valid deductible data in non-provider benefits."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
-
+                                        
                                         
                                     }
                                 }
                                 else{
-                                     b=0;
+                                    b=0;
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid maximum visit's/year in provider benefits."
+                                                                                   description:@"Please enter valid maximum visit's/year in provider benefits."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
-                                                                    }
+                                }
                             }
                             else{
-                                 b=0;
+                                b=0;
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid amount of deductible met in provider benefits."
+                                                                               description:@"Please enter valid amount of deductible met in provider benefits."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -360,9 +365,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                             }
                         }
                         else{
-                             b=0;
+                            b=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid amount of deductible in provider benefits."
+                                                                           description:@"Please enter valid amount of deductible in provider benefits."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -371,9 +376,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                     }
                     else
                     {
-                         b=0;
+                        b=0;
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid fax number."
+                                                                       description:@"Please enter valid fax number."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -382,9 +387,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                 }
                 else
                 {
-                     b=0;
+                    b=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid date."
+                                                                   description:@"Please enter valid date."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -393,9 +398,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                 }
             }
             else{
-                 b=0;
+                b=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid spokewith person name."
+                                                               description:@"Please enter valid spoke with person name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -405,9 +410,9 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
         }
         else
         {
-             b=0;
+            b=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid patientname."
+                                                           description:@"Please enter valid patient name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -416,13 +421,13 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     }
     else
     {
-         b=0;
+        b=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
-       
+        
     }
     if (b==1) {
         
@@ -678,7 +683,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-  //  NSLog(@"values in record dictionaries::%@",recorddict);
+    //  NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&verify_name=%@&spoke_with=%@&date=%@&fax=%@&amount_deduct=%@&amount_deduct_met=%@&max_visit=%@&is_chiropractic=%@&at_what=%@&xray_cover=%@&atwhat=%@&subject_deduct=%@&benefits_honored=%@&network_benefits=%@&deductible=%@&covered=%@&cm=%@&pt=%@&ov=%@&xray_deduct=%@&doctors_assign=%@&mail_claims=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"spokewith"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"fax"],[recorddict objectForKey:@"amountdeduct"],[recorddict objectForKey:@"deductment"],[recorddict objectForKey:@"visits"],[recorddict objectForKey:@"manipulationcovered"],[recorddict objectForKey:@"manipultionpercent"],[recorddict objectForKey:@"xraycovered"],[recorddict objectForKey:@"xray percent"],[recorddict objectForKey:@"subjectdeduct"],[recorddict objectForKey:@"benefitshonored"],[recorddict objectForKey:@"networkbenefits"],[recorddict objectForKey:@"deductible"],[recorddict objectForKey:@"percentcovered"],[recorddict objectForKey:@"CM"],[recorddict objectForKey:@"PT"],[recorddict objectForKey:@"OV"],[recorddict objectForKey:@"xraycoveredswitchlabel"],[recorddict objectForKey:@"honouredswitchlabel"],[recorddict objectForKey:@"addresstext"],secondEntity,value2];
@@ -688,7 +693,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     
     NSURL *url = [NSURL URLWithString:url2];
     
-   // NSLog(@"postvalue%@",post);
+    // NSLog(@"postvalue%@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -708,7 +713,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -870,6 +875,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     recorddict=[[NSMutableDictionary alloc]init];
     
     [super viewDidLoad];
@@ -881,7 +887,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
-     patientname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
+    patientname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     update.hidden=YES;
     delete.hidden=YES;
     reset1.hidden=YES;
@@ -892,7 +898,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     
     [self.view addGestureRecognizer:tap];
     AKNumericFormatterMode mode = AKNumericFormatterMixed;
-   fax.numericFormatter = [AKNumericFormatter formatterWithMask:@"(***)***-****" placeholderCharacter:'*'mode:mode];
+    fax.numericFormatter = [AKNumericFormatter formatterWithMask:@"(***)***-****" placeholderCharacter:'*'mode:mode];
 	
     [self Getdata];
 	// Do any additional setup after loading the view.
@@ -921,16 +927,16 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     NSString *resultResponse=[self HttpPostGetdetails:@"pusername" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-   // NSLog(@"response %@",json);
+    // NSLog(@"response %@",json);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-   // NSLog(@"luckynumbers %@",luckyNumbers);
+    // NSLog(@"luckynumbers %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
-   // NSLog(@"items app %@",itemsApp);
+    // NSLog(@"items app %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"insuranceverif List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-   // NSLog(@"items1app %d",[items1App count]);
+    // NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -939,7 +945,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-           // NSLog(@"arraylist count %d",[arrayList1 count]);
+            // NSLog(@"arraylist count %d",[arrayList1 count]);
             
             temp1 =[arrayList1 objectForKey:@"form_no"];
             temp2 =[arrayList1 objectForKey:@"pusername"];
@@ -982,7 +988,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
         
         
         [[NSUserDefaults standardUserDefaults]setObject:@"Datas read" forKey:@"status"];
-       // NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        // NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -1001,7 +1007,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
 }
 -(void)setdatas
 {
-   // NSLog(@"In setdatas before condition");
+    // NSLog(@"In setdatas before condition");
     patientname.text=temp3;
     spokewith.text=temp4;
     date.text=temp6;
@@ -1139,7 +1145,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     

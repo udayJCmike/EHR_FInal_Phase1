@@ -11,9 +11,12 @@
 
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
-
+#import "databaseurl.h"
 
 @interface dcfee1ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -121,6 +124,7 @@
 }
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -267,6 +271,7 @@
 
 - (IBAction)next:(id)sender {
     // recorddict=[[NSMutableDictionary alloc]init];
+    du=[[databaseurl alloc]init];
     c=1;
     temp1 =[mechanical.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[unattended.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -292,51 +297,51 @@
     temp22=[grouptheraphy.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     
-    if((([temp1 length]>0)&&([self validateNumbers:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du date:temp1]==1))||([temp1 length]==0))
     {
-        if((([temp2 length]>0)&&([self validateNumbers:temp2]==1))||([temp2 length]==0))
+        if((([temp2 length]>0)&&([du date:temp2]==1))||([temp2 length]==0))
         {
-            if((([temp3 length]>0)&&([self validateNumbers:temp3]==1))||([temp3 length]==0))
+            if((([temp3 length]>0)&&([du date:temp3]==1))||([temp3 length]==0))
             {
-                if((([temp4 length]>0)&&([self validateNumbers:temp4]==1))||([temp4 length]==0))
+                if((([temp4 length]>0)&&([du date:temp4]==1))||([temp4 length]==0))
                 {
-                    if((([temp5 length]>0)&&([self validateNumbers:temp5]==1))||([temp5 length]==0))
+                    if((([temp5 length]>0)&&([du date:temp5]==1))||([temp5 length]==0))
                     {
                         //                        if ([self validateDate:temp23]==1)
                         //                        {
-                        if((([temp6 length]>0)&&([self validateNumbers:temp6]==1))||([temp6 length]==0))
+                        if((([temp6 length]>0)&&([du date:temp6]==1))||([temp6 length]==0))
                         {
-                            if((([temp7 length]>0)&&([self validateNumbers:temp7]==1))||([temp7 length]==0))
+                            if((([temp7 length]>0)&&([du date:temp7]==1))||([temp7 length]==0))
                             {
-                                if((([temp8 length]>0)&&([self validateNumbers:temp8]==1))||([temp8 length]==0))
+                                if((([temp8 length]>0)&&([du date:temp8]==1))||([temp8 length]==0))
                                 {
-                                    if((([temp9 length]>0)&&([self validateNumbers:temp9]==1))||([temp9 length]==0))
+                                    if((([temp9 length]>0)&&([du date:temp9]==1))||([temp9 length]==0))
                                     {
-                                        if((([temp10 length]>0)&&([self validateNumbers:temp10 ]==1))||([temp10 length]==0))
+                                        if((([temp10 length]>0)&&([du date:temp10 ]==1))||([temp10 length]==0))
                                         {
-                                            if((([temp11 length]>0)&&([self validateNumbers:temp11]==1))||([temp11 length]==0))
+                                            if((([temp11 length]>0)&&([du date:temp11]==1))||([temp11 length]==0))
                                             {
-                                                if((([temp12 length]>0)&&([self validateNumbers:temp12]==1))||([temp12 length]==0))
+                                                if((([temp12 length]>0)&&([du date:temp12]==1))||([temp12 length]==0))
                                                 {
-                                                    if((([temp13 length]>0)&&([self validateNumbers:temp13]==1))||([temp13 length]==0))
+                                                    if((([temp13 length]>0)&&([du date:temp13]==1))||([temp13 length]==0))
                                                     {
-                                                        if((([temp14 length]>0)&&([self validateNumbers:temp14]==1))||([temp14 length]==0))
+                                                        if((([temp14 length]>0)&&([du date:temp14]==1))||([temp14 length]==0))
                                                         {
-                                                            if((([temp15 length]>0)&&([self validateNumbers:temp15]==1))||([temp15 length]==0))
+                                                            if((([temp15 length]>0)&&([du date:temp15]==1))||([temp15 length]==0))
                                                             {
-                                                                if((([temp16 length]>0)&&([self validateNumbers:temp16]==1))||([temp16 length]==0))
+                                                                if((([temp16 length]>0)&&([du date:temp16]==1))||([temp16 length]==0))
                                                                 {
-                                                                    if((([temp17 length]>0)&&([self validateNumbers:temp17]==1))||([temp17 length]==0))
+                                                                    if((([temp17 length]>0)&&([du date:temp17]==1))||([temp17 length]==0))
                                                                     {
-                                                                        if((([temp18 length]>0)&&([self validateNumbers:temp18]==1))||([temp18 length]==0))
+                                                                        if((([temp18 length]>0)&&([du date:temp18]==1))||([temp18 length]==0))
                                                                         {
-                                                                            if((([temp19 length]>0)&&([self validateNumbers:temp19]==1))||([temp19 length]==0))
+                                                                            if((([temp19 length]>0)&&([du date:temp19]==1))||([temp19 length]==0))
                                                                             {
-                                                                                if((([temp20 length]>0)&&([self validateNumbers:temp20]==1))||([temp20 length]==0))
+                                                                                if((([temp20 length]>0)&&([du date:temp20]==1))||([temp20 length]==0))
                                                                                 {
-                                                                                    if((([temp21 length]>0)&&([self validateNumbers:temp21]==1))||([temp21 length]==0))
+                                                                                    if((([temp21 length]>0)&&([du date:temp21]==1))||([temp21 length]==0))
                                                                                     {
-                                                                                        if((([temp22 length]>0)&&([self validateNumbers:temp22]==1))||([temp22 length]==0))
+                                                                                        if((([temp22 length]>0)&&([du date:temp22]==1))||([temp22 length]==0))
                                                                                         {
                                                                                             calc=([unlisted.text floatValue]+[ultrasound.text floatValue]+[contrastbaths.text floatValue]+[iontophoresis.text floatValue]+[stim.text floatValue]+[hydrotheraphy.text floatValue]+[mechanical.text floatValue]+[ultraviolet.text floatValue]+[infrared.text floatValue]+[diathermy.text floatValue]+[microwave.text floatValue]+[bath.text floatValue]+[device.text floatValue]+[unattended.text floatValue]+[therapy.text floatValue]+[re.text floatValue]+[exersice.text floatValue]+[gait.text floatValue]+[massage.text floatValue]+[other.text floatValue]+[manualtheraphy.text floatValue]+[grouptheraphy.text floatValue]);
                                                                                             page2.text=[[NSString alloc] initWithFormat:@"%f",calc];
@@ -379,7 +384,7 @@
                                                                                             c=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid consult group theraphy field."
+                                                                                                                                           description:@"Please enter valid consult group theraphy field."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -396,12 +401,12 @@
                                                                                         c=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid consult unlisted/other field."
+                                                                                                                                       description:@"Please enter valid consult unlisted/other field."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
                                                                                         
-                                                                                      
+                                                                                        
                                                                                         
                                                                                     }
                                                                                 }
@@ -411,12 +416,12 @@
                                                                                     
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid manual theraphy field."
+                                                                                                                                   description:@"Please enter valid manual theraphy field."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
                                                                                     
-                                                                                  
+                                                                                    
                                                                                     
                                                                                 }
                                                                             }
@@ -426,14 +431,14 @@
                                                                                 
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid massage field."
+                                                                                                                               description:@"Please enter valid massage field."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
                                                                                 
                                                                                 
                                                                                 
-                                                                               
+                                                                                
                                                                             }
                                                                         }
                                                                         else
@@ -442,13 +447,13 @@
                                                                             
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid gait training field."
+                                                                                                                           description:@"Please enter valid gait training field."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
                                                                             
                                                                             
-                                                                          
+                                                                            
                                                                             
                                                                         }
                                                                     }
@@ -458,13 +463,13 @@
                                                                         
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid aquatic theraphy field."
+                                                                                                                       description:@"Please enter valid aquatic theraphy field."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
                                                                         
                                                                         
-                                                                      
+                                                                        
                                                                     }
                                                                 }
                                                                 else
@@ -473,13 +478,13 @@
                                                                     
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid neuromuscular field."
+                                                                                                                   description:@"Please enter valid neuromuscular field."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
                                                                     
                                                                     
-                                                                   
+                                                                    
                                                                     
                                                                 }
                                                             }
@@ -490,13 +495,13 @@
                                                                 
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid therapeutic exercise field."
+                                                                                                               description:@"Please enter valid therapeutic exercise field."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
                                                                 
                                                                 
-                                                   
+                                                                
                                                                 
                                                             }
                                                         }
@@ -506,7 +511,7 @@
                                                             
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid other/unlisted field."
+                                                                                                           description:@"Please enter valid other/unlisted field."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -521,14 +526,14 @@
                                                         c=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid ultrasound field."
+                                                                                                       description:@"Please enter valid ultrasound field."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
                                                         
                                                         
                                                         
-                                                       
+                                                        
                                                         
                                                     }
                                                 }
@@ -537,13 +542,13 @@
                                                     c=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid contrast baths field."
+                                                                                                   description:@"Please enter valid contrast baths field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
                                                     
                                                     
-                                                  
+                                                    
                                                     
                                                 }
                                                 
@@ -553,14 +558,14 @@
                                                 c=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid lontophoresis field."
+                                                                                               description:@"Please enter valid lontophoresis field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
                                                 
                                                 
-                                             
+                                                
                                                 
                                             }
                                             
@@ -570,14 +575,14 @@
                                             c=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid manual electrical stim field."
+                                                                                           description:@"Please enter valid manual electrical stim field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
                                             
                                             
-                                         
+                                            
                                         }
                                         
                                     }
@@ -587,14 +592,14 @@
                                         
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid ultra violet field."
+                                                                                       description:@"Please enter valid ultra violet field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
                                         
-                                       
+                                        
                                         
                                     }
                                     
@@ -605,14 +610,14 @@
                                     
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid infrared field."
+                                                                                   description:@"Please enter valid infrared field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
                                     
-                                   
+                                    
                                     
                                 }
                                 
@@ -624,14 +629,14 @@
                                 
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid diathermy field."
+                                                                               description:@"Please enter valid diathermy field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
                                 
-                              
+                                
                             }
                             
                         }
@@ -640,12 +645,12 @@
                             c=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid whirlpool/hydrotheraphy field."
+                                                                           description:@"Please enter valid whirlpool/hydrotheraphy field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
-                           
+                            
                             
                         }
                         
@@ -670,11 +675,11 @@
                         c=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid  microwave."
+                                                                       description:@"Please enter valid  microwave."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
-                       
+                        
                     }
                 }
                 else
@@ -683,7 +688,7 @@
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid  paraffin bath."
+                                                                   description:@"Please enter valid  paraffin bath."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -699,13 +704,13 @@
                 
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid  vasopneumatic device."
+                                                               description:@"Please enter valid  vasopneumatic device."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
-               
+                
                 
             }
         }
@@ -714,12 +719,12 @@
             c=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid  electric stim unattended."
+                                                           description:@"Please enter valid  electric stim unattended."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-         
+            
             
         }
     }
@@ -730,13 +735,13 @@
         
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid traction mechanical field."
+                                                       description:@"Please enter valid traction mechanical field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
-      
+        
     }
     
     

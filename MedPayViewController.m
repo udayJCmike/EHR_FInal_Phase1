@@ -15,6 +15,10 @@
 #import "JSON.h"
 
 @interface MedPayViewController ()
+{
+    databaseurl *du;
+    
+}
 
 @end
 
@@ -65,6 +69,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
@@ -106,16 +111,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-   // NSLog(@"response %@",json);
+    // NSLog(@"response %@",json);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-   // NSLog(@"luckynumbers %@",luckyNumbers);
+    // NSLog(@"luckynumbers %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
-   // NSLog(@"items app %@",itemsApp);
+    // NSLog(@"items app %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"medpayuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-  //  NSLog(@"items1app %d",[items1App count]);
+    //  NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -199,7 +204,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -286,13 +291,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
 }
 - (IBAction)submit:(id)sender {
- 
+    
+    du=[[databaseurl alloc]init];
     texty1=[patattory.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[reg.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[addrs.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[texty3 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
     texty3=[texty3 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
-
+    
     texty4=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty5=[dofacc.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty6=[dearname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -300,60 +306,60 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty8=[physicianname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if([patattory.text length]!=0&&[reg.text length]!=0&&[addrs.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0
        ){
-        if([patattory.text length]==0||([self validateString1:texty1]==1))
+        if([patattory.text length]==0||([du patname:texty1]==1))
         {
-            if([reg.text length]==0||([self validateString:texty2]==1))
+            if([reg.text length]==0||([du patname:texty2]==1))
             {
-                if([addrs.text length]==0||([self validateAddress:texty3]==1))
+                if([addrs.text length]==0||([du address:texty3]==1))
                 {
-                    if([patname.text length]==0||([self validateString2:texty4]==1))
+                    if([patname.text length]==0||([du patname:texty4]==1))
                     {
                         if([dofacc.text length]==0||([self validateDate:texty5]==1))
                         {
-                            if([dearname.text length]==0||([self validateString1:texty6]==1))
+                            if([dearname.text length]==0||([du patname:texty6]==1))
                             {
-                               
-                                    
-                                    
-                                    suc=1;
-                                    recorddict=[[NSMutableDictionary alloc]init];
-                                    
-                                    [recorddict setValue:patattory.text forKey:@"patatorry"];
-                                    
-                                    [recorddict setValue:reg.text forKey:@"regarding"];
-                                    
-                                    [recorddict setValue:addrs.text forKey:@"address"];
-                                    
-                                    [recorddict setValue:patname.text forKey:@"patient name"];
-                                    
-                                    [recorddict setValue:dofacc.text forKey:@"date field"];
-                                    
-                                    [recorddict setValue:dearname.text forKey:@"doctor name"];
-                                    [recorddict setValue:sincname.text forKey:@"doctor signature"];
-                                    
-                                    NSLog(@"Record dict Value in MedPay:%@",recorddict);
-                                    
-                              
+                                
+                                
+                                
+                                suc=1;
+                                recorddict=[[NSMutableDictionary alloc]init];
+                                
+                                [recorddict setValue:patattory.text forKey:@"patatorry"];
+                                
+                                [recorddict setValue:reg.text forKey:@"regarding"];
+                                
+                                [recorddict setValue:addrs.text forKey:@"address"];
+                                
+                                [recorddict setValue:patname.text forKey:@"patient name"];
+                                
+                                [recorddict setValue:dofacc.text forKey:@"date field"];
+                                
+                                [recorddict setValue:dearname.text forKey:@"doctor name"];
+                                [recorddict setValue:sincname.text forKey:@"doctor signature"];
+                                
+                                NSLog(@"Record dict Value in MedPay:%@",recorddict);
+                                
+                                
                                 
                             }
                             else{
                                 suc=0;
-                              
                                 
                                 
-                              [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                  description:@"Enter valid name."
-                                                                                         type:TWMessageBarMessageTypeError
-                                                                               statusBarStyle:UIStatusBarStyleLightContent
-                                                                                     callback:nil];
+                                
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                               description:@"Please enter valid name."
+                                                                                      type:TWMessageBarMessageTypeError
+                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                  callback:nil];
                             }
                             
                         }
                         else{
                             suc=0;
-                           
+                            
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid date of accident."
+                                                                           description:@"Please enter valid date of accident."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -362,9 +368,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     }
                     else{
                         suc=0;
-                      
+                        
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid patient's name."
+                                                                       description:@"Please enter valid patient's name."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -373,10 +379,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 }
                 else{
                     suc=0;
-                 
+                    
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid address field."
+                                                                   description:@"Please enter valid address."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -385,10 +391,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             else{
                 suc=0;
-              
+                
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid regarding field."
+                                                               description:@"Please enter valid regarding field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -397,10 +403,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         }
         else{
             suc=0;
-         
+            
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid insurance company name."
+                                                           description:@"Please enter valid insurance company name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -408,10 +414,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     else{
         suc=0;
-      
+        
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -666,7 +672,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-   // NSLog(@"values in record dictionaries::%@",recorddict);
+    // NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&insurance=%@&address=%@&reg=%@&nameofperson=%@&dateofaccident=%@&subject=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patatorry"],[recorddict objectForKey:@"address"],[recorddict objectForKey:@"regarding"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date field"],[recorddict objectForKey:@"doctor name"],secondEntity,value2];
@@ -676,7 +682,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     NSURL *url = [NSURL URLWithString:url2];
     
-   // NSLog(@"postvalue%@",post);
+    // NSLog(@"postvalue%@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -696,7 +702,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-  //  NSLog(@"data %@",data);
+    //  NSLog(@"data %@",data);
     
     return data;
     

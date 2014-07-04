@@ -14,6 +14,9 @@
 #import "databaseurl.h"
 #import "JSON.h"
 @interface reductionViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -96,6 +99,7 @@
 
 - (IBAction)save:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     suc=1;
     temp1 =[attorney.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -103,7 +107,7 @@
     temp2=[address.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2=[temp2 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
-     temp2=[temp2 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
+    temp2=[temp2 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
     temp3 =[regarding.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp4 =[dateofacci.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp5 =[claim.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -111,138 +115,138 @@
     temp7 =[name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp8 =[sign.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-      if(([temp1 length]!=0)&&
-         ([temp2 length]!=0)&&
-         ([temp3 length]!=0)&&
-         ([temp4 length]!=0)&&
-         ([temp5 length]!=0)&&
-         ([temp6 length]!=0)&&
-         ([temp7 length]!=0)&&
-         ([temp8 length]!=0))
+    if(([temp1 length]!=0)&&
+       ([temp2 length]!=0)&&
+       ([temp3 length]!=0)&&
+       ([temp4 length]!=0)&&
+       ([temp5 length]!=0)&&
+       ([temp6 length]!=0)&&
+       ([temp7 length]!=0)&&
+       ([temp8 length]!=0))
+    {
+        if([du patname:temp1]==1)
+        {
+            if([du address:temp2]==1)
             {
-                 if([self validateNames:temp1]==1)
-                 {
-                     if([self validateaddress:temp2]==1)
-                     {
-                         if([self validateNames1:temp3]==1)
-                         {
-                             if([self validateDate:temp4]==1)
-                             {
-                                 if([self validateNumber:temp5]==1)
-                                 {
-                                     if([self validateDate:temp6]==1)
-                                     {
-                                     if([self validateNames:temp7]==1)
-                                     {
-                                         if([self validateNames:temp8]==1)
-                                         {
-                                         
-                                             suc=1;                                                                                                                     [recorddict setValue:attorney.text forKey:@"attorney"];
-                                         [recorddict setValue:address.text forKey:@"address"];
-                                         [recorddict setValue:regarding.text forKey:@"regarding"];
-                                         [recorddict setValue:dateofacci.text forKey:@"date of accident"];
-                                         [recorddict setValue:claim.text forKey:@"claim"];
-                                         [recorddict setValue:date.text forKey:@"date"];
-                                         [recorddict setValue:name.text forKey:@"dear name"];
-                                             [recorddict setValue:sign.text forKey:@"sign"];
-                                         NSLog(@"success %@",recorddict);
-                                         }
-                                         else
-                                         {
-                                             suc=0;
-                                                                                                   [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                          description:@"Enter valid signature."
-                                                                                                                                                                                                                                                                 type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                                       statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                                             callback:nil];
-                                         }
-                                     }
-                                     else
-                                     {
-                                         suc=0;
-                                                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                      description:@"Enter valid dear name."
-                                                                                                                                                                                                                                                             type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                                   statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                                         callback:nil];
-                                     }
-                                         
-                                     }
-                                     else
-                                     {
-                                         suc=0;
-                                         
-                                                                                               [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                          description:@"Enter valid date."
-                                                                                                                                                                                                                                                                 type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                                       statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                
-                                                                                                                                                 callback:nil];
-                                     }
-                                     
-                                 }
-                                 else
-                                 {
-                                     suc=0;
-                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                     description:@"Enter valid claim number."
-                                                                                                                                                                                                                                                            type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                                  statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                                        callback:nil];
-                                 }
+                if([du patname:temp3]==1)
+                {
+                    if([self validateDate:temp4]==1)
+                    {
+                        if([du time:temp5]==1)
+                        {
+                            if([self validateDate:temp6]==1)
+                            {
+                                if([du patname:temp7]==1)
+                                {
+                                    if([du patname:temp8]==1)
+                                    {
+                                        
+                                        suc=1;                                                                                                                     [recorddict setValue:attorney.text forKey:@"attorney"];
+                                        [recorddict setValue:address.text forKey:@"address"];
+                                        [recorddict setValue:regarding.text forKey:@"regarding"];
+                                        [recorddict setValue:dateofacci.text forKey:@"date of accident"];
+                                        [recorddict setValue:claim.text forKey:@"claim"];
+                                        [recorddict setValue:date.text forKey:@"date"];
+                                        [recorddict setValue:name.text forKey:@"dear name"];
+                                        [recorddict setValue:sign.text forKey:@"sign"];
+                                        NSLog(@"success %@",recorddict);
+                                    }
+                                    else
+                                    {
+                                        suc=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Please enter valid signature."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+                                    }
+                                }
+                                else
+                                {
+                                    suc=0;
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                   description:@"Please enter valid name."
+                                                                                          type:TWMessageBarMessageTypeError
+                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                      callback:nil];
+                                }
+                                
+                            }
+                            else
+                            {
+                                suc=0;
+                                
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                               description:@"Please enter valid date."
+                                                                                      type:TWMessageBarMessageTypeError
+                                                                            statusBarStyle:UIStatusBarStyleLightContent
                                  
-                             }
-                             else
-                             {
-                                 suc=0;
-                                                                                       [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                     description:@"Enter valid date of accident."
-                                                                                                                                                                                                                                                            type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                                  statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                                        callback:nil];
-                             }
-                             
-                         }
-                         else
-                         {
-                             suc=0;
-                                                                                  [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                          description:@"Enter valid regarding."
-                                                                                                                                                                                                                                                 type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                       statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                             callback:nil];
-                         }
-                         
-                     }
-                     else
-                     {
-                         suc=0;
-                         
-                                                                           [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                    description:@"Enter valid address."
-                                                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                       callback:nil];
-                     }
-                     
-                 }
-                 else
-                 {
-                     suc=0;
-                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                          description:@"Enter valid patients attorney."
-                                                                                                                                                                                                                                                 type:TWMessageBarMessageTypeError
-                                                                                                                                                                                                                                       statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                                                                                                                                                             callback:nil];
-                 }
+                                                                                  callback:nil];
+                            }
+                            
+                        }
+                        else
+                        {
+                            suc=0;
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                           description:@"Please enter valid claim number."
+                                                                                  type:TWMessageBarMessageTypeError
+                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                              callback:nil];
+                        }
+                        
+                    }
+                    else
+                    {
+                        suc=0;
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                       description:@"Please enter valid date of accident."
+                                                                              type:TWMessageBarMessageTypeError
+                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                          callback:nil];
+                    }
+                    
+                }
+                else
+                {
+                    suc=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                   description:@"Please enter valid regarding."
+                                                                          type:TWMessageBarMessageTypeError
+                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                      callback:nil];
+                }
                 
             }
-      else
-      {
-          suc=0;
-         
-          [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields."   type:TWMessageBarMessageTypeError  statusBarStyle:UIStatusBarStyleLightContent   callback:nil];
-      }
+            else
+            {
+                suc=0;
+                
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                               description:@"Please enter valid address."
+                                                                      type:TWMessageBarMessageTypeError
+                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                  callback:nil];
+            }
+            
+        }
+        else
+        {
+            suc=0;
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                           description:@"Please enter valid patients attorney."
+                                                                  type:TWMessageBarMessageTypeError
+                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                              callback:nil];
+        }
+        
+    }
+    else
+    {
+        suc=0;
+        
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required field should not be empty."   type:TWMessageBarMessageTypeError  statusBarStyle:UIStatusBarStyleLightContent   callback:nil];
+    }
     if (suc==1) {
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
@@ -274,12 +278,14 @@
             
             
         }
-
+        
     }
     
 }
 - (void)viewDidLoad
 {
+    
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -293,7 +299,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-        [self Getdata];
+    [self Getdata];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -432,7 +438,7 @@
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-                 [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                 
                 
             }
@@ -445,7 +451,7 @@
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-                 [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                 
                 
             }
@@ -537,7 +543,7 @@
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-                 [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                 
                 
             }
@@ -550,7 +556,7 @@
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-                 [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                 
                 
             }
@@ -599,7 +605,7 @@
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
-                     [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                     
                     
                 }
@@ -612,7 +618,7 @@
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                     [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"reductiontowelcome" sender:self];
                     
                     
                 }
@@ -667,8 +673,8 @@
     NSString *url1=@"Feereduction.php?service=feereductionedit";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&patient=%@&address=%@&regarding=%@&dateofaccident=%@&claimnumber=%@&todaydate=%@&dear=%@&sign=%@&%@=%@",firstEntity,value1,attorney.text,address.text,regarding.text,dateofacci.text,claim.text,date.text,name.text,sign.text,secondEntity,value2];
-       // NSLog(@"POST:%@",post);
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&patient=%@&address=%@&regarding=%@&dateofaccident=%@&claimnumber=%@&todaydate=%@&dear=%@&sign=%@&%@=%@",firstEntity,value1,attorney.text,address.text,regarding.text,dateofacci.text,claim.text,date.text,name.text,sign.text,secondEntity,value2];
+    // NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);

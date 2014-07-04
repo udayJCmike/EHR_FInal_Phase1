@@ -15,6 +15,10 @@
 #import "databaseurl.h"
 #import "JSON.h"
 @interface PatientAttorneyCoverViewController ()
+{
+    databaseurl *du;
+    
+}
 
 @end
 
@@ -80,6 +84,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
@@ -101,7 +106,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-   [self Getdata];
+    [self Getdata];
 	// Do any additional setup after loading the view.
 }
 -(void)Getdata
@@ -157,7 +162,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         reset2.hidden=NO;
         cancel2.hidden=NO;
         
-              //  NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //  NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -207,7 +212,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-               [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                 
                 
             }
@@ -220,7 +225,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-               [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                 
                 
             }
@@ -312,7 +317,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-               [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                 
                 
             }
@@ -325,7 +330,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-               [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                 
                 
             }
@@ -375,7 +380,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
-                   [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                     
                     
                 }
@@ -388,7 +393,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                   [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+                    [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
                     
                     
                 }
@@ -517,7 +522,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-  //   NSLog(@"POST:%@",post);
+    //   NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);
@@ -538,7 +543,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-NSLog(@"data %@",data);
+    NSLog(@"data %@",data);
     
     return data;
     
@@ -624,6 +629,7 @@ NSLog(@"data %@",data);
     
 }
 - (IBAction)submit:(id)sender {
+    du=[[databaseurl alloc]init];
     texty1=[patattory.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[reg.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[[addrs.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -633,21 +639,21 @@ NSLog(@"data %@",data);
     texty7=[sincname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty8=[physicianname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if([patattory.text length]!=0&&[reg.text length]!=0&&[addrs.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0&&[sincname.text length]!=0&&[physicianname.text length]!=0){
-        if([patattory.text length]==0||([self validateNames:texty1]==1))
+        if([patattory.text length]==0||([du patname:texty1]==1))
         {
-            if([reg.text length]==0||([self validateString1:texty2]==1))
+            if([reg.text length]==0||([du patname:texty2]==1))
             {
-                if([addrs.text length]==0||([self validateAdds:texty3]==1))
+                if([addrs.text length]==0||([du address:texty3]==1))
                 {
-                    if([patname.text length]==0||([self validateNames:texty4]==1))
+                    if([patname.text length]==0||([du patname:texty4]==1))
                     {
                         if([dofacc.text length]==0||([self validateDate:texty5]==1))
                         {
-                            if([dearname.text length]==0||([self validateNames:texty6]==1))
+                            if([dearname.text length]==0||([du patname:texty6]==1))
                             {
-                                if([sincname.text length]==0||([self validateNames:texty7]==1))
+                                if([sincname.text length]==0||([du patname:texty7]==1))
                                 {
-                                    if([physicianname.text length]==0||([self validateNames:texty8]==1))
+                                    if([physicianname.text length]==0||([du patname:texty8]==1))
                                     {
                                         suc=1;
                                         recorddict=[[NSMutableDictionary alloc]init];
@@ -667,14 +673,14 @@ NSLog(@"data %@",data);
                                         [recorddict setValue:physicianname.text forKey:@"physician name"];
                                         NSLog(@"Record dict Value in Patient Attorney cover::%@",recorddict);
                                         
-                                       
+                                        
                                         
                                     }
                                     else{
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid physician name."
+                                                                                       description:@"Please enter valid physician name."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -685,7 +691,7 @@ NSLog(@"data %@",data);
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid signature name."
+                                                                                   description:@"Please enter valid signature."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -694,9 +700,9 @@ NSLog(@"data %@",data);
                             }
                             else{
                                 suc=0;
-                               
+                                
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid name."
+                                                                               description:@"Please enter valid name."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -707,7 +713,7 @@ NSLog(@"data %@",data);
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid date of accident."
+                                                                           description:@"Please enter valid date of accident."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -718,7 +724,7 @@ NSLog(@"data %@",data);
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid patient's name."
+                                                                       description:@"Please enter valid patient's name."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -727,11 +733,11 @@ NSLog(@"data %@",data);
                 }
                 else{
                     suc=0;
-                   
+                    
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid address field."
+                                                                   description:@"Please enter valid address."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -740,9 +746,9 @@ NSLog(@"data %@",data);
             }
             else{
                 suc=0;
-               
+                
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid regarding field."
+                                                               description:@"Please enter valid regarding field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -751,10 +757,10 @@ NSLog(@"data %@",data);
         }
         else{
             suc=0;
-           
+            
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid patient's attorney name."
+                                                           description:@"Please enter valid patient's attorney name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -762,10 +768,10 @@ NSLog(@"data %@",data);
     }
     else{
         suc=0;
-       
+        
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -780,7 +786,7 @@ NSLog(@"data %@",data);
             HUD.delegate = self;
             HUD.labelText = @"Submitting";
             [HUD show:YES];
-       
+            
             if ([[self submitvalues]isEqualToString:@"success"])
             {
                 [self insertdata];
@@ -795,15 +801,15 @@ NSLog(@"data %@",data);
             HUD.delegate = self;
             HUD.labelText = @"Submitting";
             [HUD show:YES];
-        
+            
             if ([[self submitvalues]isEqualToString:@"success"]) {
                 [self updatedata];
             }
             
             
         }
-
-       // [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
+        
+        // [self performSegueWithIdentifier:@"attorneytowelcome" sender:self];
     }
 }
 

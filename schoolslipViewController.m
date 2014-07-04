@@ -16,6 +16,9 @@
 
 
 @interface schoolslipViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -52,7 +55,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     NSString *countryFormat1 =@"[A-Za-z]+";
     
-   // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
     return [countryTest1 evaluateWithObject:country1];
     
@@ -80,7 +83,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 -(BOOL)validateDate:(NSString *)country1
 {
     NSString *countryFormat1 =  @"[0-9]{2}+[/]+[0-9]{2}+[/]+[0-9]{4}";
-
+    
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
     return [countryTest1 evaluateWithObject:country1];
     
@@ -229,6 +232,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)save:(id)sender
 {
+    du=[[databaseurl alloc]init];
     texty1=text1.text;
     texty2=text2.text;
     texty3=text3.text;
@@ -367,17 +371,17 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     {
         if([self validateDate:temp1]==1)
         {
-            if([self validateNames:temp2]==1)
+            if([du patname:temp2]==1)
             {
                 if([self validateDate:temp3]==1)
                 {
                     if([self validateDate:temp4]==1)
                     {
-                        if([self validateNames1:temp5]==1)
+                        if([du otherfields:temp5]==1)
                         {
                             if([self validateDate:temp6]==1)
                             {
-                                if([self validateNames1:temp7]==1)
+                                if([du otherfields:temp7]==1)
                                 {
                                     
                                     [recorddict setValue:date.text forKey:@"Date"];
@@ -387,8 +391,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     [recorddict setValue:ret.text forKey:@"returntext"];
                                     [recorddict setValue:ondate.text forKey:@"Ondate"];
                                     [recorddict setValue:diagn.text forKey:@"Diagnosis"];
-//                                    NSLog(@"Success!!! %@",recorddict);
-//                                    NSLog(@"recorddict count %d",[recorddict count]);
+                                    //                                    NSLog(@"Success!!! %@",recorddict);
+                                    //                                    NSLog(@"recorddict count %d",[recorddict count]);
                                     
                                 }
                                 else
@@ -396,12 +400,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid diagnosis."
+                                                                                   description:@"Please enter valid diagnosis."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
-
+                                    
                                 }
                                 
                             }
@@ -410,11 +414,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid on date."
+                                                                               description:@"Please enter valid date."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
-                               
+                                
                                 
                             }
                             
@@ -424,7 +428,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid return."
+                                                                           description:@"Please enter valid return."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -440,12 +444,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid to date."
+                                                                       description:@"Please enter valid date."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
-
+                        
                     }
                     
                 }
@@ -454,12 +458,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid from date."
+                                                                   description:@"Please enter valid date."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-                   
+                    
                     
                 }
                 
@@ -469,13 +473,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid name."
+                                                               description:@"Please enter valid name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
-               
+                
             }
             
         }
@@ -484,13 +488,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid date."
+                                                           description:@"Please enter valid date."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
             
-           
+            
             
         }
         
@@ -500,7 +504,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -585,7 +589,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-
+                
                 
                 
                 [self performSegueWithIdentifier:@"schooltowelcome" sender:self];
@@ -732,7 +736,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
-
+                
                 
                 
                 [self performSegueWithIdentifier:@"schooltowelcome" sender:self];
@@ -748,7 +752,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-               
+                
                 
                 [self performSegueWithIdentifier:@"schooltowelcome" sender:self];
             }
@@ -768,7 +772,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-   // NSLog(@"values in record dictionaries::%@",recorddict);
+    // NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&date=%@&letter=%@&beexcused=%@&excused=%@&beconfined=%@&confined=%@&lifting=%@&lift=%@&pushing=%@&push=%@&drive=%@&sitting=%@&sit=%@&standing=%@&stand=%@&bend=%@&entry=%@&light=%@&froms=%@&tos=%@&returns=%@&regular=%@&returndate=%@&diagnosis=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"Date"],[recorddict objectForKey:@"Name"],[recorddict objectForKey:@"beexcused"],[recorddict objectForKey:@"excused"],[recorddict objectForKey:@"beconfined"],[recorddict objectForKey:@"confined"],[recorddict objectForKey:@"lifting"],[recorddict objectForKey:@"maximum lifting"],[recorddict objectForKey:@"pushing"],[recorddict objectForKey:@"low force"],[recorddict objectForKey:@"drive"],[recorddict objectForKey:@"sitt"],[recorddict objectForKey:@"sitting"],[recorddict objectForKey:@"stand"],[recorddict objectForKey:@"standing"],[recorddict objectForKey:@"bend"],[recorddict objectForKey:@"entry"],[recorddict objectForKey:@"light"],[recorddict objectForKey:@"Fromdate"],[recorddict objectForKey:@"Todate"],[recorddict objectForKey:@"returntext"],[recorddict objectForKey:@"return seg"],[recorddict objectForKey:@"Ondate"],[recorddict objectForKey:@"Diagnosis"],secondEntity,value2];
@@ -777,12 +781,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     NSURL *url = [NSURL URLWithString:url2];
     
-   // NSLog(@"postvalue%@",post);
+    // NSLog(@"postvalue%@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-   // NSLog(@"postrequest %@",url);
+    // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -797,7 +801,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -845,9 +849,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
-
                     
-
+                    
+                    
                     [self performSegueWithIdentifier:@"schooltowelcome" sender:self];
                 }
                 else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
@@ -859,7 +863,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                  
+                    
                     
                     [self performSegueWithIdentifier:@"schooltowelcome" sender:self];
                 }
@@ -961,6 +965,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -996,16 +1001,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-   // NSLog(@"response %@",json);
+    // NSLog(@"response %@",json);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-   // NSLog(@"luckynumbers %@",luckyNumbers);
+    // NSLog(@"luckynumbers %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
-   // NSLog(@"items app %@",itemsApp);
+    // NSLog(@"items app %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"workschooluser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
- //   NSLog(@"items1app %d",[items1App count]);
+    //   NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -1014,7 +1019,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-           // NSLog(@"arraylist count %d",[arrayList1 count]);
+            // NSLog(@"arraylist count %d",[arrayList1 count]);
             
             
             temp10=[arrayList1 objectForKey:@"date"];

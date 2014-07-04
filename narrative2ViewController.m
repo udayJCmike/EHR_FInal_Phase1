@@ -12,10 +12,14 @@
 
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
+#import "databaseurl.h"
 
 
 
 @interface narrative2ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -561,6 +565,8 @@
 }
 
 - (IBAction)next:(id)sender {
+    
+    du=[[databaseurl alloc]init];
     //recorddict=[[NSMutableDictionary alloc]init];
     
     a=1;
@@ -576,29 +582,29 @@
     temp10 =[o6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     
-    if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du otherfields:temp1]==1))||([temp1 length]==0))
     {
         
-        if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
+        if((([temp2 length]>0)&&([du percentage:temp2]==1))||([temp2 length]==0))
         {
             
-                    if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+            if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
+            {
+                
+                if((([temp6 length]>0)&&([du otherfields:temp6]==1))||([temp6 length]==0))
+                {
+                    if((([temp7 length]>0)&&([du otherfields:temp7 ]==1))||([temp7 length]==0))
                     {
-                        
-                        if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                        if((([temp8 length]>0)&&([du otherfields:temp8 ]==1))||([temp8 length]==0))
                         {
-                            if((([temp7 length]>0)&&([self validateNames:temp7 ]==1))||([temp7 length]==0))
+                            if((([temp9 length]>0)&&([du otherfields:temp9 ]==1))||([temp9 length]==0))
                             {
-                                if((([temp8 length]>0)&&([self validateNames:temp8 ]==1))||([temp8 length]==0))
+                                if((([temp10 length]>0)&&([du otherfields:temp10 ]==1))||([temp10 length]==0))
                                 {
-                                    if((([temp9 length]>0)&&([self validateNames:temp9 ]==1))||([temp9 length]==0))
+                                    if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
                                     {
-                                        if((([temp10 length]>0)&&([self validateNames:temp10 ]==1))||([temp10 length]==0))
+                                        if((([temp4 length]>0)&&([du otherfields:temp4 ]==1))||([temp4 length]==0))
                                         {
-                                            if((([temp3 length]>0)&&([self validateNames:temp3 ]==1))||([temp3 length]==0))
-                                            {
-                                                if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
-                                                {
                                             [recorddict setValue:text1.text forKey:@"textl1"];
                                             [recorddict setValue:text2.text forKey:@"textl2"];
                                             [recorddict setValue:text3.text forKey:@"textl3"];
@@ -653,54 +659,16 @@
                                             [recorddict setValue:ls5l forKey:@"ls5"];
                                             
                                             NSLog(@"success!!!recorddict %@",recorddict);
-                                                }
-                                                else
-                                                {
-                                                    a=0;
-                                                    
-                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid present at field."
-                                                                                                          type:TWMessageBarMessageTypeError
-                                                                                                statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                      callback:nil];
-                                                    
-                                                    
-                                                   
-                                                    
-                                                    
-                                                }
-                                            }
-                                            else
-                                            {
-                                                a=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid osteophytes field."
-                                                                                                      type:TWMessageBarMessageTypeError
-                                                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                                                  callback:nil];
-                                                
-                                                
-                                              
-                                                
-                                                
-                                            }
-
-                                            
                                         }
-                                        
-                                        
-                                        
                                         else
                                         {
                                             a=0;
                                             
-                                            
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid orthopedic test6."
+                                                                                           description:@"Please enter valid present field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
-                                            
                                             
                                             
                                             
@@ -711,63 +679,70 @@
                                     else
                                     {
                                         a=0;
-                                        
-                                        
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid orthopedic test5."
+                                                                                       description:@"Please enter valid osteophytes field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
-                                      
+                                        
+                                        
                                         
                                     }
+                                    
+                                    
                                 }
+                                
+                                
+                                
                                 else
                                 {
                                     a=0;
                                     
+                                    
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid  orthopedic test4."
+                                                                                   description:@"Please enter valid orthopedic test6."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
-                                   
+                                    
+                                    
+                                    
                                     
                                 }
-                                
                             }
                             else
                             {
                                 a=0;
                                 
+                                
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid  orthopedic test3."
+                                                                               description:@"Please enter valid orthopedic test5."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
-                              
+                                
                                 
                             }
-                            
                         }
                         else
                         {
                             a=0;
+                            
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid orthopedic test2."
+                                                                           description:@"Please enter valid  orthopedic test4."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
                             
                             
-                           
+                            
                         }
                         
                     }
@@ -776,30 +751,61 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid orthopedic test1."
+                                                                       description:@"Please enter valid  orthopedic test3."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
                         
                         
-                       
                         
                     }
                     
+                }
+                else
+                {
+                    a=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                   description:@"Please enter valid orthopedic test2."
+                                                                          type:TWMessageBarMessageTypeError
+                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                      callback:nil];
                     
-                        }
+                    
+                    
+                    
+                }
+                
+            }
+            else
+            {
+                a=0;
+                
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                               description:@"Please enter valid orthopedic test1."
+                                                                      type:TWMessageBarMessageTypeError
+                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                  callback:nil];
+                
+                
+                
+                
+                
+            }
+            
+            
+        }
         else
         {
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid level field."
+                                                           description:@"Please enter valid level field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-           
+            
             
             
         }
@@ -809,13 +815,13 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid dermatome level."
+                                                       description:@"Please enter valid dermatome level."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
-       
+        
         
         
     }
@@ -836,6 +842,8 @@
 
 - (void)viewDidLoad
 {
+    
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {

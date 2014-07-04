@@ -20,6 +20,9 @@
 
 
 @interface narrative3ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -170,6 +173,7 @@
 }
 
 - (IBAction)save:(id)sender {
+    du=[[databaseurl alloc]init];
     
     a=1;
     
@@ -196,23 +200,23 @@
     if(([temp19 length]!=0)&&([temp11 length]!=0))
         
     {
-        if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
+        if((([temp4 length]>0)&&([du otherfields:temp4 ]==1))||([temp4 length]==0))
         {
-            if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+            if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
             {
-                if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                if((([temp6 length]>0)&&([du otherfields:temp6]==1))||([temp6 length]==0))
                 {
-                    if((([temp20 length]>0)&&([self validateNames:temp20]==1))||([temp20 length]==0))
+                    if((([temp20 length]>0)&&([du otherfields:temp20]==1))||([temp20 length]==0))
                     {
-                        if((([temp7 length]>0)&&([self validateNames:temp7]==1))||([temp7 length]==0))
+                        if((([temp7 length]>0)&&([du otherfields:temp7]==1))||([temp7 length]==0))
                         {
-                            if((([temp8 length]>0)&&([self validateNames:temp8]==1))||([temp8 length]==0))
+                            if((([temp8 length]>0)&&([du otherfields:temp8]==1))||([temp8 length]==0))
                             {
-                                if((([temp9 length]>0)&&([self validateNames:temp9]==1))||([temp9 length]==0))
+                                if((([temp9 length]>0)&&([du otherfields:temp9]==1))||([temp9 length]==0))
                                 {
-                                    if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
+                                    if((([temp21 length]>0)&&([du otherfields:temp21]==1))||([temp21 length]==0))
                                     {
-                                        if((([temp11 length]>0)&&([self validateNames2:temp11]==1))||([temp11 length]==0))
+                                        if((([temp11 length]>0)&&([du otherfields:temp11]==1))||([temp11 length]==0))
                                         {
                                             
                                             if((([temp13 length]>0)&&([self validateDate:temp13]==1))||([temp13 length]==0))
@@ -222,7 +226,7 @@
                                                     
                                                     
                                                     
-                                                    if((([temp19 length]>0)&&([self validateNames1:temp19]==1))||([temp19 length]==0))
+                                                    if((([temp19 length]>0)&&([du patname:temp19]==1))||([temp19 length]==0))
                                                     {
                                                         
                                                         
@@ -258,14 +262,14 @@
                                                         a=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid signature."
+                                                                                                       description:@"Please enter valid signature."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
                                                         
                                                         
                                                         
-                                                     
+                                                        
                                                         
                                                     }
                                                     
@@ -279,7 +283,7 @@
                                                     a=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid improved on date field."
+                                                                                                   description:@"Please enter valid improved on date."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -297,12 +301,12 @@
                                                 
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid date."
+                                                                                               description:@"Please enter valid date."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
-                                               
+                                                
                                                 
                                             }
                                             
@@ -313,12 +317,12 @@
                                             a=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid name."
+                                                                                           description:@"Please enter valid name."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
-                                           
+                                            
                                             
                                         }
                                     }
@@ -328,7 +332,7 @@
                                         
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid description 4."
+                                                                                       description:@"Please enter valid description."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -344,12 +348,12 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid description 3."
+                                                                                   description:@"Please enter valid description."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
-                                   
+                                    
                                     
                                 }
                             }
@@ -358,14 +362,14 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid  description 2."
+                                                                               description:@"Please enter valid  description."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
                                 
-                               
+                                
                                 
                             }
                         }
@@ -374,14 +378,14 @@
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid  description 1."
+                                                                           description:@"Please enter valid  description."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
                             
                             
-                          
+                            
                         }
                     }
                     else
@@ -389,14 +393,14 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid ICD 4."
+                                                                       description:@"Please enter valid ICD."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
                         
                         
-                       
+                        
                         
                     }
                 }
@@ -406,14 +410,14 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid ICD 3."
+                                                                   description:@"Please enter valid ICD"
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
                     
                     
-                   
+                    
                     
                 }
             }
@@ -421,13 +425,13 @@
             {
                 a=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid ICD 2."
+                                                               description:@"Please enter valid ICD."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
-               
+                
             }
         }
         else
@@ -436,14 +440,14 @@
             
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid ICD 1."
+                                                           description:@"Please enter valid ICD."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
             
             
-           
+            
             
         }
     }
@@ -452,14 +456,14 @@
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
         
-       
+        
         
     }
     if (a==1) {
@@ -552,7 +556,7 @@
                                                                   callback:nil];
                 
                 
-               
+                
                 
                 [self performSegueWithIdentifier:@"narrativetowelcome" sender:self];
                 
@@ -650,7 +654,7 @@
                                                                   callback:nil];
                 
                 
-             
+                
                 
                 [self performSegueWithIdentifier:@"narrativetowelcome" sender:self];
                 
@@ -668,7 +672,7 @@
                                                                   callback:nil];
                 
                 
-               
+                
                 
                 [self performSegueWithIdentifier:@"narrativetowelcome" sender:self];
                 
@@ -722,7 +726,7 @@
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
                     
-                 
+                    
                     
                     [self performSegueWithIdentifier:@"narrativetowelcome" sender:self];
                     
@@ -953,6 +957,8 @@
 }
 - (void)viewDidLoad
 {
+    
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {

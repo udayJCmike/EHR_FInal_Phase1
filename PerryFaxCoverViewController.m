@@ -19,6 +19,9 @@
 #import "UITextField+AKNumericFormatter.h"
 #import "AKNumericFormatter.h"
 @interface PerryFaxCoverViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -66,10 +69,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
+    
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
-   
+    
     texty11=@"Urgent";
-   
+    
     [check1 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"Todays's Date:"];
     [attributeString addAttribute:NSUnderlineStyleAttributeName
@@ -84,8 +89,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [self.view addGestureRecognizer:tap];
     AKNumericFormatterMode mode = AKNumericFormatterMixed;
     fax.numericFormatter = [AKNumericFormatter formatterWithMask:@"(***)***-****" placeholderCharacter:'*'mode:mode];
-
-     [self Getdata];
+    
+    [self Getdata];
 }
 -(void)Getdata
 {
@@ -129,22 +134,22 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             if([temp4 isEqualToString:@"Urgent"])
             {
                 [self rad1:nil];
-
+                
             }
             else  if([temp4 isEqualToString:@"For Review"])
             {
-                 [self rad2:nil];
+                [self rad2:nil];
             }
             else  if([temp4 isEqualToString:@"Please Comment"])
             {
-              [self rad3:nil];
+                [self rad3:nil];
             }
             else  if([temp4 isEqualToString:@"Please Reply"])
             {
                 [self rad4:nil];
             }
-
-
+            
+            
             re.text=temp5;
             nubofpag.text=temp6;
             msg.text=temp7;
@@ -161,7 +166,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         cancel.hidden=YES;
         reset2.hidden=NO;
         cancel2.hidden=NO;
-       
+        
         
         //  NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
@@ -211,9 +216,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                description:@"Form updation successful."
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
-
                 
-              
+                
+                
                 
                 [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
                 
@@ -230,9 +235,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-
                 
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
                 
@@ -343,7 +348,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-
+                
                 
                 
                 [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
@@ -411,9 +416,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-
                     
-
+                    
+                    
                     [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
                     
                     
@@ -433,7 +438,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url1=@"Faxcover.php?service=faxcoverinsert";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-   NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&date=%@&tos=%@&faxno=%@&froms=%@&reply=%@&regarding=%@&pages=%@&msg=%@&claimno=%@&doi=%@&%@=%@",firstEntity,value1,date.text,to.text,fax.text,from.text,texty11,re.text,nubofpag.text,msg.text,claim.text,doi.text,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&date=%@&tos=%@&faxno=%@&froms=%@&reply=%@&regarding=%@&pages=%@&msg=%@&claimno=%@&doi=%@&%@=%@",firstEntity,value1,date.text,to.text,fax.text,from.text,texty11,re.text,nubofpag.text,msg.text,claim.text,doi.text,secondEntity,value2];
     
     //    NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
@@ -608,12 +613,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [check3 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
     
     [check4 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
-  
+    
     
 }
 
 - (IBAction)rad2:(id)sender {
-  
+    
     texty11=@"For Review";
     
     [check1 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
@@ -682,8 +687,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [claim resignFirstResponder];
 }
 - (void)dealloc {
-  
-  
+    
+    
     [reset release];
     [reset2 release];
     [cancel release];
@@ -691,7 +696,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [super dealloc];
 }
 - (IBAction)cancel:(id)sender {
-        [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
+    [self performSegueWithIdentifier:@"faxcovertowelcome" sender:self];
 }
 - (IBAction)reset:(id)sender {
     date.text=@"";
@@ -699,10 +704,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     fax.text=@"";
     from.text=@"";
     re.text=@"";
-   msg.text=@"";
+    msg.text=@"";
     doi.text=@"";
     nubofpag.text=@"";
-     claim.text=@"";
+    claim.text=@"";
     [self rad1:nil];
     
 }
@@ -749,6 +754,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 
 - (IBAction)submit:(id)sender {
+    
+    du=[[databaseurl alloc]init];
     texty1=[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[to.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[fax.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -762,58 +769,73 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty9=[doi.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if([date.text length]!=0&&[to.text length]!=0&&[from.text length]!=0&&[msg.text length]!=0&&[doi.text length]!=0&&[re.text length]!=0&&[fax.text length]!=0&&[claim.text length]!=0&&[nubofpag.text length]!=0){
         
-            if([to.text length]==0||([self validateString:texty2]==1))
+        if([to.text length]==0||([du patname:texty2]==1))
+        {
+            if(([self validateDate:texty1]==1))
             {
-                if(([self validateDate:texty1]==1))
+                if([fax.text length]==0||([du mobilenumber:texty3]==1))
                 {
-                if([fax.text length]==0||([self validateMobile:texty3]==1))
-                {
-                    if([from.text length]==0||([self validateString:texty4]==1))
+                    if([from.text length]==0||([du patname:texty4]==1))
                     {
-                        if([re.text length]==0||([self validateString:texty5]==1))
+                        if([re.text length]==0||([du patname:texty5]==1))
                         {
-                            if([nubofpag.text length]==0||([self validateNumber1:texty6]==1))
+                            if([nubofpag.text length]==0||([du date:texty6]==1))
                             {
-                                if([msg.text length]==0||([self validateString:texty7]==1))
+                                if([msg.text length]==0||([du address:texty7]==1))
                                 {
-                                    if([claim.text length]==0||([self validateNumber1:texty8]==1))
+                                    if([claim.text length]==0||([du time:texty8]==1))
                                     {
                                         if([doi.text length]==0||([self validateDate:texty9]==1))
                                         {
-                                        suc=1;
-                                        recorddict=[[NSMutableDictionary alloc]init];
-                                        
-                                        [recorddict setValue:to.text forKey:@"to"];
-                                        
-                                        [recorddict setValue:re.text forKey:@"re"];
-                                        
-                                        [recorddict setValue:msg.text forKey:@"msg"];
-                                        
-                                        [recorddict setValue:claim.text forKey:@"claim"];
-                                        
-                                        [recorddict setValue:doi.text forKey:@"doi field"];
-                                        [recorddict setValue:nubofpag.text forKey:@"Number of pages"];
-                                        [recorddict setValue:date.text forKey:@"Date"];
-                                        [recorddict setValue:from.text forKey:@"from"];
-                                        [recorddict setValue:fax.text forKey:@"fax"];
+                                            suc=1;
+                                            recorddict=[[NSMutableDictionary alloc]init];
+                                            
+                                            [recorddict setValue:to.text forKey:@"to"];
+                                            
+                                            [recorddict setValue:re.text forKey:@"re"];
+                                            
+                                            [recorddict setValue:msg.text forKey:@"msg"];
+                                            
+                                            [recorddict setValue:claim.text forKey:@"claim"];
+                                            
+                                            [recorddict setValue:doi.text forKey:@"doi field"];
+                                            [recorddict setValue:nubofpag.text forKey:@"Number of pages"];
+                                            [recorddict setValue:date.text forKey:@"Date"];
+                                            [recorddict setValue:from.text forKey:@"from"];
+                                            [recorddict setValue:fax.text forKey:@"fax"];
                                             [recorddict setObject:texty11 forKey:@"checkselected1"];
-                                           
-                                        NSLog(@"Record dict Value perry fax cover ::%@",recorddict);
-                                        
-                                      
+                                            
+                                            NSLog(@"Record dict Value perry fax cover ::%@",recorddict);
+                                            
+                                            
+                                            
+                                        }
+                                        else{
+                                            suc=0;
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Please enter valid DOI field."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                            
+                                            
+                                        }
                                         
                                     }
                                     else{
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid DOI field."
+                                                                                       description:@"Please enter valid claim number."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
-
                                         
-                                       
+                                        
+                                        
+                                        
                                     }
                                     
                                 }
@@ -821,13 +843,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid claim number."
+                                                                                   description:@"Please enter valid message."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
-
                                     
-                                   
+                                    
+                                    
+                                    
                                     
                                 }
                                 
@@ -836,14 +859,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid message."
+                                                                               description:@"Please enter valid number of pages."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
-
                                 
                                 
-                               
+                                
+                                
                                 
                             }
                             
@@ -852,14 +875,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid number of pages."
+                                                                           description:@"Please enter valid Reg field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
-
                             
-                            
-                          
                             
                         }
                         
@@ -868,11 +888,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid Reg field."
+                                                                       description:@"Please enter valid From field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
-
+                        
+                        
                         
                     }
                     
@@ -881,11 +902,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid From field."
+                                                                   description:@"Please enter valid fax field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-
+                    
+                    
                     
                     
                 }
@@ -895,43 +917,28 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid fax field."
+                                                               description:@"Please enter valid date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-
                 
-               
+                
+                
+                
                 
             }
-            
         }
         else{
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid date."
+                                                           description:@"Please enter valid to field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
-
             
             
-           
             
-        }
-    }
-        else{
-            suc=0;
-            
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid to field."
-                                                                  type:TWMessageBarMessageTypeError
-                                                        statusBarStyle:UIStatusBarStyleLightContent
-                                                              callback:nil];
-
-            
-           
             
         }
     }
@@ -939,11 +946,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
-
+        
         
         
         
@@ -979,7 +986,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
- 
+        
     }
 }
 

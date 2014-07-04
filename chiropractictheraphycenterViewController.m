@@ -18,6 +18,10 @@
 
 
 @interface chiropractictheraphycenterViewController ()
+{
+    databaseurl *du;
+    
+}
 
 @end
 
@@ -125,7 +129,7 @@
     }
     else
         return 0;
-
+    
     
 }
 -(BOOL)validateDate:(NSString *)country1
@@ -139,6 +143,7 @@
 
 
 - (IBAction)next:(id)sender {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     a=1;
     temp1 =[re.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -153,19 +158,19 @@
        ([date2.text length]!=0)&&
        ([doi.text length]!=0)&&([text1.text length]!=0))
     {
-        if([self validateNames2:re.text]==1)
+        if([du patname:re.text]==1)
         {
-            if([self validatessn:ssn.text]==1)
+            if([du ssn:ssn.text]==1)
             {
-                if([self validateNames2:claim.text]==1)
+                if([du time:claim.text]==1)
                 {
                     if([self validateDate:doi.text]==1)
                     {
-                        if([self validateNames1:adjust.text]==1)
+                        if([du patname:adjust.text]==1)
                         {
                             if([self validateDate:date.text]==1)
                             {
-                                if([self validateNames3:dear.text]==1)
+                                if([du patname:dear.text]==1)
                                 {
                                     
                                     
@@ -177,7 +182,7 @@
                                         
                                         if([self validateDate:date2.text]==1)
                                         {
-                                            if ([self validateNames2:text1.text]==1) {
+                                            if ([du patname:text1.text]==1) {
                                                 
                                                 
                                                 a=1;
@@ -200,14 +205,14 @@
                                             else{
                                                 a=0;
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid center field."
+                                                                                               description:@"Please enter valid center field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
-
                                                 
-                                               
+                                                
+                                                
                                                 
                                             }
                                         }
@@ -217,15 +222,15 @@
                                             a=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter the date."
+                                                                                           description:@"Please enter valid date."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
-
                                             
                                             
-                                           
+                                            
+                                            
                                         }
                                         
                                     }
@@ -237,15 +242,15 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter the date."
+                                                                                       description:@"Please enter valid date."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
-
                                         
                                         
-                                       
+                                        
+                                        
                                         
                                     }
                                     
@@ -258,12 +263,12 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter the valid dear field."
+                                                                                   description:@"Please enter the valid name."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
-
+                                    
                                     
                                     
                                     
@@ -276,12 +281,12 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter the  valid date."
+                                                                               description:@"Please enter valid date."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
-
+                                
                                 
                                 
                                 
@@ -294,13 +299,13 @@
                             
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter the valid adjuster field."
+                                                                           description:@"Please enter the valid adjuster name."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
-
-                          
+                            
+                            
                         }
                         
                     }
@@ -310,15 +315,15 @@
                         
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter the valid  DOI date."
+                                                                       description:@"Please enter valid  DOI date."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
-
                         
                         
-                       
+                        
+                        
                     }
                     
                 }
@@ -328,15 +333,15 @@
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter the  valid claim field."
+                                                                   description:@"Please enter valid claim number."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-
                     
                     
-                   
+                    
+                    
                     
                 }
             }
@@ -346,14 +351,14 @@
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter the  valid SSN."
+                                                               description:@"Please enter valid SSN."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
                 
-               
+                
+                
                 
             }
             
@@ -364,16 +369,16 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter the valid re field."
+                                                           description:@"Please enter valid name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-
             
             
             
-           
+            
+            
         }
         
         
@@ -387,14 +392,14 @@
         
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-
         
-       
+        
+        
         
     }
     if (a==1) {
@@ -656,8 +661,8 @@
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
-               
+                
+                
                 
                 [self performSegueWithIdentifier:@"lettertopatienttowelcome" sender:self];
                 
@@ -751,7 +756,7 @@
                                                                       type:TWMessageBarMessageTypeSuccess
                                                             statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
                 
-
+                
                 
                 
                 [self performSegueWithIdentifier:@"lettertopatienttowelcome" sender:self];
@@ -769,7 +774,7 @@
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-
+                
                 
                 
                 
@@ -826,10 +831,10 @@
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault                                                                  callback:nil];
                     
-
                     
                     
-                   
+                    
+                    
                     
                     [self performSegueWithIdentifier:@"lettertopatienttowelcome" sender:self];
                     
@@ -846,10 +851,10 @@
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
-
                     
                     
-                   
+                    
+                    
                     
                     [self performSegueWithIdentifier:@"lettertopatienttowelcome" sender:self];
                     

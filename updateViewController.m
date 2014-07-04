@@ -16,6 +16,9 @@
 #import "databaseurl.h"
 #import "JSON.h"
 @interface updateViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -105,6 +108,8 @@
 
 - (IBAction)save:(id)sender
 {
+    du=[[databaseurl alloc]init];
+    
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:recorddict];
     a=1;
@@ -121,14 +126,14 @@
        ([temp3 length]!=0)&& ([temp5 length]!=0)&& ([temp6 length]!=0)&&
        ([temp4 length]!=0))
     {
-        if([self validateNames1:temp1]==1)
+        if([du patname:temp1]==1)
         {
-            if([self validateNames1:temp5]==1)
+            if([du patname:temp5]==1)
             {
-                if([self validateNames1:temp6]==1)
+                if([du patname:temp6]==1)
                 {
                     
-                    if([self validateNames1:temp2]==1)
+                    if([du patname:temp2]==1)
                     {
                         if([self validateDate:temp3]==1)
                         {
@@ -149,7 +154,7 @@
                             {
                                 a=0;
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid todays date."
+                                                                               description:@"Please enter valid date."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -159,7 +164,7 @@
                         {
                             a=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid date of injury."
+                                                                           description:@"Please enter valid date of injury."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -169,7 +174,7 @@
                     {
                         a=0;
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid regards to."
+                                                                       description:@"Please enter valid regards to."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -179,7 +184,7 @@
                 {
                     a=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid to attorney."
+                                                                   description:@"Please enter valid to attorney."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -189,7 +194,7 @@
             {
                 a=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid to attorney."
+                                                               description:@"Please enter valid to attorney."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -205,7 +210,7 @@
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle                                                                                                                                                                                                                             description:@"Enter all the required fields."                                                                                                                                                                                                                                    type:TWMessageBarMessageTypeError                                                                                                                                                                                                                          statusBarStyle:UIStatusBarStyleLightContent                                                                                                                                                                                                                                callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle                                                                                                                                                                                                                             description:@"Required field should not be empty."                                                                                                                                                                                                                                    type:TWMessageBarMessageTypeError                                                                                                                                                                                                                          statusBarStyle:UIStatusBarStyleLightContent                                                                                                                                                                                                                                callback:nil];
     }
     if (a==1) {
         NSLog(@"recorddict in updateletter %@",recorddict);
@@ -244,6 +249,7 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])

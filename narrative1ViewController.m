@@ -12,9 +12,13 @@
 
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
+#import "databaseurl.h"
 
 
 @interface narrative1ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -100,6 +104,7 @@
 }
 
 - (IBAction)next:(id)sender {
+    du=[[databaseurl alloc]init];
     a=1;
     temp1 =[flexionpain.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[extensionpain.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -130,62 +135,62 @@
     temp29=[note.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp30=[range.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if((([temp28 length]>0)&&([self validatestring:temp28]==1))||([temp28 length]==0))
+    if((([temp28 length]>0)&&([du otherfields:temp28]==1))||([temp28 length]==0))
     {
         
-        if((([temp29 length]>0)&&([self validatestring:temp29]==1))||([temp29 length]==0))
+        if((([temp29 length]>0)&&([du otherfields:temp29]==1))||([temp29 length]==0))
         {
             
-            if((([temp30 length]>0)&&([self validateNames:temp30]==1))||([temp30 length]==0))
+            if((([temp30 length]>0)&&([du percentage:temp30]==1))||([temp30 length]==0))
             {
-                if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+                if((([temp1 length]>0)&&([du percentage:temp1]==1))||([temp1 length]==0))
                 {
                     
-                    if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
+                    if((([temp2 length]>0)&&([du percentage:temp2]==1))||([temp2 length]==0))
                     {
-                        if((([temp5 length]>0)&&([self validateNames:temp5 ]==1))||([temp5 length]==0))
+                        if((([temp5 length]>0)&&([du percentage:temp5 ]==1))||([temp5 length]==0))
                         {
-                            if((([temp6 length]>0)&&([self validateNames:temp6 ]==1))||([temp6 length]==0))
+                            if((([temp6 length]>0)&&([du percentage:temp6 ]==1))||([temp6 length]==0))
                             {
-                                if((([temp3 length]>0)&&([self validateNames:temp3]==1))||([temp3 length]==0))
+                                if((([temp3 length]>0)&&([du percentage:temp3]==1))||([temp3 length]==0))
                                 {
-                                    if((([temp4 length]>0)&&([self validateNames:temp4]==1))||([temp4 length]==0))
+                                    if((([temp4 length]>0)&&([du percentage:temp4]==1))||([temp4 length]==0))
                                     {
-                                        if((([temp7 length]>0)&&([self validateNames:temp7]==1))||([temp7 length]==0))
+                                        if((([temp7 length]>0)&&([du percentage:temp7]==1))||([temp7 length]==0))
                                         {
-                                            if((([temp8 length]>0)&&([self validateNames:temp8]==1))||([temp8 length]==0))
+                                            if((([temp8 length]>0)&&([du percentage:temp8]==1))||([temp8 length]==0))
                                             {
-                                                if((([temp9 length]>0)&&([self validateNames:temp9]==1))||([temp9 length]==0))
+                                                if((([temp9 length]>0)&&([du percentage:temp9]==1))||([temp9 length]==0))
                                                 {
-                                                    if((([temp10 length]>0)&&([self validateNames:temp10 ]==1))||([temp10 length]==0))
+                                                    if((([temp10 length]>0)&&([du percentage:temp10 ]==1))||([temp10 length]==0))
                                                     {
-                                                        if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
+                                                        if((([temp11 length]>0)&&([du percentage:temp11]==1))||([temp11 length]==0))
                                                         {
-                                                            if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0))
+                                                            if((([temp12 length]>0)&&([du percentage:temp12]==1))||([temp12 length]==0))
                                                             {
-                                                                if((([temp13 length]>0)&&([self validateNames:temp13]==1))||([temp13 length]==0))
+                                                                if((([temp13 length]>0)&&([du percentage:temp13]==1))||([temp13 length]==0))
                                                                 {
-                                                                    if((([temp14 length]>0)&&([self validateNames:temp14]==1))||([temp14 length]==0))
+                                                                    if((([temp14 length]>0)&&([du percentage:temp14]==1))||([temp14 length]==0))
                                                                     {
-                                                                        if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
+                                                                        if((([temp17 length]>0)&&([du percentage:temp17]==1))||([temp17 length]==0))
                                                                         {
-                                                                            if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
+                                                                            if((([temp18 length]>0)&&([du percentage:temp18]==1))||([temp18 length]==0))
                                                                             {
-                                                                                if((([temp15 length]>0)&&([self validateNames:temp15]==1))||([temp15 length]==0))
+                                                                                if((([temp15 length]>0)&&([du percentage:temp15]==1))||([temp15 length]==0))
                                                                                 {
-                                                                                    if((([temp16 length]>0)&&([self validateNames:temp16]==1))||([temp16 length]==0))
+                                                                                    if((([temp16 length]>0)&&([du percentage:temp16]==1))||([temp16 length]==0))
                                                                                     {
-                                                                                        if((([temp19 length]>0)&&([self validateNames:temp19]==1))||([temp19 length]==0))
+                                                                                        if((([temp19 length]>0)&&([du percentage:temp19]==1))||([temp19 length]==0))
                                                                                         {
-                                                                                            if((([temp20 length]>0)&&([self validateNames:temp20]==1))||([temp20 length]==0))
+                                                                                            if((([temp20 length]>0)&&([du percentage:temp20]==1))||([temp20 length]==0))
                                                                                             {
-                                                                                                if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
+                                                                                                if((([temp21 length]>0)&&([du percentage:temp21]==1))||([temp21 length]==0))
                                                                                                 {
-                                                                                                    if((([temp22 length]>0)&&([self validateNames:temp22]==1))||([temp22 length]==0))
+                                                                                                    if((([temp22 length]>0)&&([du percentage:temp22]==1))||([temp22 length]==0))
                                                                                                     {
-                                                                                                        if((([temp23 length]>0)&&([self validateNames:temp23 ]==1))||([temp23 length]==0))
+                                                                                                        if((([temp23 length]>0)&&([du percentage:temp23 ]==1))||([temp23 length]==0))
                                                                                                         {
-                                                                                                            if((([temp24 length]>0)&&([self validateNames:temp24]==1))||([temp24 length]==0))
+                                                                                                            if((([temp24 length]>0)&&([du percentage:temp24]==1))||([temp24 length]==0))
                                                                                                             {
                                                                                                                 
                                                                                                                 
@@ -247,7 +252,7 @@
                                                                                                                 a=0;
                                                                                                                 
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid lumbar left rotation tonicity."
+                                                                                                                                                               description:@"Please enter valid lumbar left rotation tonicity."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -261,13 +266,13 @@
                                                                                                             a=0;
                                                                                                             
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid lumbar right rotation tonicity."
+                                                                                                                                                           description:@"Please enter valid lumbar right rotation tonicity."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
                                                                                                             
                                                                                                             
-                                                                                                           
+                                                                                                            
                                                                                                             
                                                                                                         }
                                                                                                         
@@ -278,12 +283,12 @@
                                                                                                         
                                                                                                         
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid lumbar left lateral tonicity."
+                                                                                                                                                       description:@"Please enter valid lumbar left lateral tonicity."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
                                                                                                         
-                                                                                                       
+                                                                                                        
                                                                                                         
                                                                                                     }
                                                                                                     
@@ -293,13 +298,13 @@
                                                                                                     a=0;
                                                                                                     
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid lumbar right lateral tonicity."
+                                                                                                                                                   description:@"Please enter valid lumbar right lateral tonicity."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
                                                                                                     
                                                                                                     
-                                                                                                   
+                                                                                                    
                                                                                                     
                                                                                                 }
                                                                                                 
@@ -309,13 +314,13 @@
                                                                                                 a=0;
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid lumbar exetension tonicity."
+                                                                                                                                               description:@"Please enter valid lumbar exetension tonicity."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
                                                                                                 
                                                                                                 
-
+                                                                                                
                                                                                             }
                                                                                             
                                                                                         }
@@ -325,13 +330,13 @@
                                                                                             
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid lumbar flexion tonicity."
+                                                                                                                                           description:@"Please enter valid lumbar flexion tonicity."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
                                                                                             
                                                                                             
-                                                                                          
+                                                                                            
                                                                                             
                                                                                         }
                                                                                     }
@@ -341,7 +346,7 @@
                                                                                         a=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter the valid  lumbar left rotation pain."
+                                                                                                                                       description:@"Please enter the valid  lumbar left rotation pain."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -357,13 +362,13 @@
                                                                                     a=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid  lumbar right rotation pain."
+                                                                                                                                   description:@"Please enter valid  lumbar right rotation pain."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
                                                                                     
                                                                                     
-                                                                                  
+                                                                                    
                                                                                     
                                                                                 }
                                                                                 
@@ -374,13 +379,13 @@
                                                                                 
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid lumbar left lateral pain."
+                                                                                                                               description:@"Please enter valid lumbar left lateral pain."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
                                                                                 
                                                                                 
-                                                                               
+                                                                                
                                                                                 
                                                                             }
                                                                             
@@ -391,7 +396,7 @@
                                                                             
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid lumbar right lateral pain."
+                                                                                                                           description:@"Please enter valid lumbar right lateral pain."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -406,14 +411,14 @@
                                                                     {
                                                                         a=0;
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid lumbar exetension pain."
+                                                                                                                       description:@"Please enter valid lumbar exetension pain."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
                                                                         
                                                                         
                                                                         
-
+                                                                        
                                                                     }
                                                                     
                                                                 }
@@ -422,13 +427,13 @@
                                                                     a=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid lumbar flexion pain."
+                                                                                                                   description:@"Please enter valid lumbar flexion pain."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
                                                                     
                                                                     
-                                                                  
+                                                                    
                                                                     
                                                                 }
                                                             }
@@ -438,13 +443,13 @@
                                                                 a=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter the valid  cervical leftrotation tonicity."
+                                                                                                               description:@"Please enter the valid  cervical leftrotation tonicity."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
                                                                 
                                                                 
-                                                               
+                                                                
                                                                 
                                                             }
                                                             
@@ -454,7 +459,7 @@
                                                             a=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid  cervical rightrotation tonicity."
+                                                                                                           description:@"Please enter valid  cervical rightrotation tonicity."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -471,13 +476,13 @@
                                                         
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid  cervical left lateral tonicity."
+                                                                                                       description:@"Please enter valid  cervical left lateral tonicity."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
                                                         
                                                         
-                                                       
+                                                        
                                                         
                                                     }
                                                     
@@ -487,14 +492,14 @@
                                                     a=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid  cervical right lateral tonicity."
+                                                                                                   description:@"Please enter valid  cervical right lateral tonicity."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
                                                     
                                                     
                                                     
-                                                   
+                                                    
                                                 }
                                                 
                                             }
@@ -504,13 +509,13 @@
                                                 
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid cervical extension tonicity."
+                                                                                               description:@"Please enter valid cervical extension tonicity."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
                                                 
-                                               
+                                                
                                                 
                                             }
                                             
@@ -520,14 +525,14 @@
                                             a=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid cervical flexion tonicity."
+                                                                                           description:@"Please enter valid cervical flexion tonicity."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
                                             
                                             
-
+                                            
                                         }
                                     }
                                     
@@ -536,13 +541,13 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter the valid cervical left rotation pain."
+                                                                                       description:@"Please enter the valid cervical left rotation pain."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
-                                       
+                                        
                                         
                                     }
                                     
@@ -552,13 +557,13 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid  cervical right rotation pain."
+                                                                                   description:@"Please enter valid  cervical right rotation pain."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
-                                   
+                                    
                                     
                                 }
                                 
@@ -569,14 +574,14 @@
                                 
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid cervical left lateral pain."
+                                                                               description:@"Please enter valid cervical left lateral pain."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
                                 
-                               
+                                
                                 
                             }
                             
@@ -587,7 +592,7 @@
                             
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid cervical right lateral pain."
+                                                                           description:@"Please enter valid cervical right lateral pain."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -601,7 +606,7 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid cervical extension pain."
+                                                                       description:@"Please enter valid cervical extension pain."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -618,14 +623,14 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid cervical flexion pain."
+                                                                   description:@"Please enter valid cervical flexion pain."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
                     
                     
-                   
+                    
                     
                 }
             }
@@ -634,13 +639,13 @@
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter the valid range."
+                                                               description:@"Please enter the valid range."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
-               
+                
                 
             }
             
@@ -649,12 +654,12 @@
         {
             a=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter the valid note."
+                                                           description:@"Please enter the valid note."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-         
+            
             
         }
         
@@ -664,13 +669,13 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter the valid tender."
+                                                       description:@"Please enter the valid tender."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
-       
+        
         
     }
     
@@ -688,6 +693,7 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
     
     for (UIView *v in [self.view subviews])

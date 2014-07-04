@@ -31,6 +31,9 @@
 #import "noticeandrequestViewController.h"
 
 @interface staffautocheckViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -221,6 +224,7 @@ int y;
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     
     selectforms=[[NSMutableArray alloc]init];
     /* if(button1.selected)
@@ -363,22 +367,22 @@ int y;
        ([remdate.text length]!=0))
     {
         a=1;
-        if ([self onlyalphabetsexpress2:temp20]==1)
+        if ([du patname:temp20]==1)
         {
-            if([self onlyalphabetsexpress:temp21]==1)
+            if([du patname:temp21]==1)
             {
-                if([self number:[damageamount text]]==1)
+                if([du date:[damageamount text]]==1)
                 {
                     
-                    if([self onlyalphabetsexpress:temp23]==1)
+                    if([du patname:temp23]==1)
                     {
                         
-                        if([self onlyalphabetsexpress:temp24]==1)
+                        if([du patname:temp24]==1)
                         {
                             
-                            if([self onlyalphabetsexpress:temp25]==1)
+                            if([du patname:temp25]==1)
                             {
-                                if([self onlyalphabetsexpress:temp26]==1)
+                                if([du patname:temp26]==1)
                                 {
                                     
                                     
@@ -403,7 +407,7 @@ int y;
                                         {
                                             a=0;
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid date."
+                                                                                           description:@"Please enter valid date."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -414,7 +418,7 @@ int y;
                                     {
                                         a=0;
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid billed date."
+                                                                                       description:@"Please enter valid billed date."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -426,7 +430,7 @@ int y;
                                 {
                                     a=0;
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid protection details."
+                                                                                   description:@"Please enter valid protection details."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -437,7 +441,7 @@ int y;
                             {
                                 a=0;
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid attorney."
+                                                                               description:@"Please enter valid attorney."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -448,7 +452,7 @@ int y;
                         {
                             a=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid med pay."
+                                                                           description:@"Please enter valid med pay."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -459,7 +463,7 @@ int y;
                     {
                         a=0;
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid fault insurance."
+                                                                       description:@"Please enter valid fault insurance."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -470,7 +474,7 @@ int y;
                 {
                     a=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid damge value."
+                                                                   description:@"Please enter valid damage value."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -481,7 +485,7 @@ int y;
             {
                 a=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid insurance attorney."
+                                                               description:@"Please enter valid insurance attorney."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -492,7 +496,7 @@ int y;
         {
             a=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid name."
+                                                           description:@"Please enter valid name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -503,7 +507,7 @@ int y;
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -884,6 +888,7 @@ int y;
 
 - (void)viewDidLoad
 {
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     selectforms=[[NSMutableArray alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     
