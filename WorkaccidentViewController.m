@@ -168,7 +168,7 @@
         carryanything.text = @"No";
         carrything.hidden=YES;
         carrythinglabel.hidden=YES;
-        carrything.text=@"";
+        
         
     }
 }
@@ -186,7 +186,7 @@
         jobinjury.text = @"No";
         jobinjuryyes.hidden=YES;
         jobinjuryyeslabel.hidden=YES;
-        jobinjuryyes.text=@"";
+       
         
     }
 }
