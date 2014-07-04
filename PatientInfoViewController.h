@@ -97,5 +97,7 @@
 @property (nonatomic, retain)NSMutableDictionary *resultset;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *areyou;
-
+@property (retain, nonatomic) IBOutlet UILabel *sl1;
+@property (retain, nonatomic) IBOutlet UILabel *sl2;
+@property (retain, nonatomic) IBOutlet UILabel *sl3;
 @end

@@ -148,29 +148,28 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if (bodypositionsegment.selectedSegmentIndex==0)
     {
         _14=@"Good";
-        _16=@"null";
-        bodypositionotherlabel.text=@"";
+       
+      
         bodypositionotherlabel.hidden=YES;
     }
     if (bodypositionsegment.selectedSegmentIndex==1)
     {
         _14=@"Forward";
-        _16=@"null";
-        bodypositionotherlabel.text=@"";
+       
         bodypositionotherlabel.hidden=YES;
     }
     if (bodypositionsegment.selectedSegmentIndex==2)
     {
         _14=@"Leaning";
-        _16=@"null";
-        bodypositionotherlabel.text=@"";
+       
+      
         bodypositionotherlabel.hidden=YES;
     }
     if (bodypositionsegment.selectedSegmentIndex==3)
     {
         _14=@"Unknown";
-        _16=@"null";
-        bodypositionotherlabel.text=@"";
+        
+      
         bodypositionotherlabel.hidden=YES;
     }
     if (bodypositionsegment.selectedSegmentIndex==4)
@@ -188,42 +187,42 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if (headpositionsegment.selectedSegmentIndex==0)
     {
         _17=@"Forward";
-        _18=@"null";
+      
         headpositionotherlabel.text=@"";
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==1)
     {
         _17=@"Left";
-        _18=@"null";
+       
         headpositionotherlabel.text=@"";
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==2)
     {
         _17=@"Right";
-        _18=@"null";
+        
         headpositionotherlabel.text=@"";
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==3)
     {
         _17=@"Up";
-        _18=@"null";
+     
         headpositionotherlabel.text=@"";
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==4)
     {
         _17=@"Down";
-        _18=@"null";
+       
         headpositionotherlabel.text=@"";
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==5)
     {
         _17=@"UnKnown";
-        _18=@"null";
+       
         headpositionotherlabel.hidden=YES;
     }
     if (headpositionsegment.selectedSegmentIndex==6)
@@ -296,7 +295,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     else
     {
         _23=@"No";
-        _35=@"null";
+        _35=@"";
         furtherinjurylabel.text=@"No";
         pleaseexplain2.hidden=YES;
         injuryexplainlabel.hidden=YES;
@@ -508,7 +507,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     else{
         
-        _16=@"null";
+        _16=@"";
+        bodypositionotherlabel.text=@"";
         
     }
     
@@ -519,7 +519,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
     }
     else{
-        _25=@"null";
+        _25=@"";
+         patientbodyotherlabel.text=@"";
     }
     if (headpositionsegment.selectedSegmentIndex==6)
     {
@@ -528,7 +529,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
     }
     else{
-        _18=@"null";
+        _18=@"";
+         headpositionotherlabel.text=@"";
     }
     if (unconsiousswitch.on)
     {
@@ -538,8 +540,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
     }
     else{
-        _29=@"null";
+        _29=@"";
+         unconsiousforlabel.text=@"";
     }
+    
     
     
     if (furtherinjuryswitch.on)
@@ -549,9 +553,35 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
     }
     else{
-        _35=@"null";
+        _35=@"";
+         injuryexplainlabel.text=@"";
     }
-    
+    if([patientbodystrikelabel.text isEqual:@"Yes"])
+    {
+        
+    }
+    if (patientbodystrikeswitch.on)
+    {
+        _31=@"Yes";
+        patientbodystrikelabel.text=@"Yes";
+       
+       
+    }
+    else
+    {
+        _31=@"No";
+        patientbodystrikelabel.text=@"No";
+       
+        myheadhitlabel.text=@"";
+        rLhiphitlabel.text=@"";
+        chesthitlabel.text=@"";
+        rlleghitlabel.text=@"";
+        rlshoulderhitlabel.text=@"";
+        rlkneehitlabel.text=@"";
+        rlarmhitlabel.text=@"";
+        otherparthitlabel.text=@"";
+    }
+
     
     NSLog(@"16th value::%@",_16);
     recorddict=[[NSMutableDictionary alloc]init];
@@ -571,406 +601,171 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty12=[rlleghitlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty13=[unconsiousforlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty14=[injuryexplainlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    
-    
-    
-    if (bodypositionsegment.selectedSegmentIndex==4) {
-        bodypositionlabel.text=bodypositionotherlabel.text;
-        NSLog(@"body position text field:%@",bodypositionotherlabel.text);
-        a=[self validateUsername:texty1];
-    }
-    else{
-        a=1;
-    }
-    
-    if (headpositionsegment.selectedSegmentIndex==6) {
-        headpositionlabel.text=headpositionotherlabel.text;
-        b=[self validateUsername:texty2];
-    }
-    else{
-        b=1;
-    }
-    if (patientbodysegment.selectedSegmentIndex==6) {
-        patientbodylabel.text=patientbodyotherlabel.text;
-        d =[self validateUsername:texty3];
-    }
-    else{
-        d =1;
-    }
-    
-    
-    
-    if([propertydamagelabel.text length]!=0)
+    c=1;
+    if((([bodypositionotherlabel.text length]>0)&&([self validateUsername:bodypositionotherlabel.text]==1))||([bodypositionotherlabel.text length]==0))
     {
-        c=0;
-        if ([self numbervalidate:texty4]==1)
+        if((([headpositionotherlabel.text length]>0)&&([self validateUsername:headpositionotherlabel.text]==1))||([headpositionotherlabel.text length]==0))
         {
-            
-            
-            
-            [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-            [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-            [recorddict setValue:furtherinjurylabel.text forKey:@"furtherinjury"];
-            [recorddict setValue:_13 forKey:@"wereyou"];
-            [recorddict setValue:_14 forKey:@"bodyposition"];
-            [recorddict setValue:_16 forKey:@"bodyposition1"];
-            [recorddict setValue:_17 forKey:@"headposition"];
-            [recorddict setValue:_18 forKey:@"headposition1"];
-            [recorddict setValue:_19 forKey:@"handsonwheel"];
-            [recorddict setValue:_20 forKey:@"awareofcrash"];
-            [recorddict setValue:_21 forKey:@"braceoption"];
-            [recorddict setValue:_22 forKey:@"braceseg"];
-            [recorddict setValue:_24 forKey:@"patientbodyseg"];
-            [recorddict setValue:_25 forKey:@"patientbodyother"];
-            [recorddict setValue:_30 forKey:@"damageseg"];
-            [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
-            [recorddict setValue:wearingglasslabel.text forKey:@"wearingglasslabel"];
-            [recorddict setValue:glassesstilllabel.text forKey:@"glassesstilllabel"];
-            [recorddict setValue:propertydamagelabel.text forKey:@"propertydamagelabel"];
-            [recorddict setValue:damagecarlabel.text forKey:@"damagecarlabel"];
-            [recorddict setValue:patientbodystrikelabel.text forKey:@"patientbodystrikelabel"];
-            
-            
-            
-            NSLog(@"d value:%@",bodypositionlabel.text);
-            
-            if(a==1)
+            if((([injuryexplainlabel.text length]>0)&&([self validateUsername:injuryexplainlabel.text]==1))||([injuryexplainlabel.text length]==0))
             {
-                [recorddict setValue:bodypositionlabel.text forKey:@"bodypositionlabel"];
-                if(b==1)
+                if((([patientbodyotherlabel.text length]>0)&&([self validateUsername:patientbodyotherlabel.text]==1))||([patientbodyotherlabel.text length]==0))
                 {
-                    [recorddict setValue:headpositionlabel.text forKey:@"headpositionlabel"];
-                    if(d==1)
+                    if((([unconsiousforlabel.text length]>0)&&([self validateUsername:unconsiousforlabel.text]==1))||([unconsiousforlabel.text length]==0))
                     {
-                        [recorddict setValue:patientbodylabel.text forKey:@"patientbodylabel"];
-                        
-                        
-                        
-                        if(([unconsiouslabel.text isEqual:@"Yes"])&&([self numbervalidate:texty13]==1))
+                        if((([propertydamagelabel.text length]>0)&&([self validateUsername:propertydamagelabel.text]==1))||([propertydamagelabel.text length]==0))
                         {
-                            [recorddict setValue:unconsiouslabel.text forKey:@"unconsiouslabel"];
-                            [recorddict setValue:_29 forKey:@"unconsiousforlabel"];
-                            
-                            
-                            
-                            
-                            if([patientbodystrikelabel.text isEqual:@"Yes"])
-                            {
-                                
-                                
-                                if(([self validateUsername:texty5]==1)&&
-                                   ([self validateUsername:texty6]==1)&&
-                                   ([self validateUsername:texty7]==1)&&
-                                   ([self validateUsername:texty8]==1)&&
-                                   ([self validateUsername:texty9]==1)&&
-                                   ([self validateUsername:texty10]==1)&&
-                                   ([self validateUsername:texty11]==1)&&
-                                   ([self validateUsername:texty12]==1))
-                                {
-                                    c=1;
-                                    [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-                                    [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-                                    [recorddict setValue:_13 forKey:@"wereyou"];
-                                    [recorddict setValue:_14 forKey:@"bodyposition"];
-                                    [recorddict setValue:_16 forKey:@"bodyposition1"];
-                                    [recorddict setValue:_17 forKey:@"headposition"];
-                                    [recorddict setValue:_18 forKey:@"headposition1"];
-                                    [recorddict setValue:_19 forKey:@"handsonwheel"];
-                                    [recorddict setValue:_20 forKey:@"awareofcrash"];
-                                    [recorddict setValue:_21 forKey:@"braceoption"];
-                                    [recorddict setValue:_24 forKey:@"patientbodyseg"];
-                                    [recorddict setValue:_25 forKey:@"patientbodyother"];
-                                    [recorddict setValue:_30 forKey:@"damageseg"];
-                                    [recorddict setValue:myheadhitlabel.text forKey:@"myheadhitlabel"];
-                                    [recorddict setValue:rLhiphitlabel.text forKey:@"rlhiphitlabel"];
-                                    [recorddict setValue:chesthitlabel.text forKey:@"chesthitlabel"];
-                                    [recorddict setValue:rlleghitlabel.text forKey:@"rlleghitlabel"];
-                                    [recorddict setValue:rlshoulderhitlabel.text forKey:@"rlshoulderhitlabel"];
-                                    [recorddict setValue:rlkneehitlabel.text forKey:@"rlkneehitlabel"];
-                                    [recorddict setValue:rlarmhitlabel.text forKey:@"rlarmhitlabel"];
-                                    [recorddict setValue:otherparthitlabel.text forKey:@"otherparthitlabel"];
-                                    if(([furtherinjurylabel.text isEqual:@"Yes"])&&
-                                       ([self onlyalphabetvalidate:texty14]))
-                                    {
-                                        [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
-                                        c=1;
-                                        
-                                    }
-                                    else if ([furtherinjurylabel.text isEqual:@"No"])
-                                    {
-                                        c=1;
-                                        
-                                    }
-                                    else
-                                    {
-                                        c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid further injury explain data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                    }
-                                    
-                                }
-                                else
-                                {
-                                    c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient body strike data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                }
-                            }
-                            else if([patientbodystrikelabel.text isEqual:@"No"])
-                            {
-                                if(([furtherinjurylabel.text isEqual:@"Yes"])&&
-                                   ([self onlyalphabetvalidate:texty14]))
-                                {
-                                    [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
-                                    c=1;
-                                    
-                                }
-                                else if ([furtherinjurylabel.text isEqual:@"No"])
-                                {
-                                    c=1;
-                                    
-                                }
-                                else
-                                {
-                                    c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid further injury explain data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                }
-                                
-                                
-                                //c=1;
-                                [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-                                [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-                                [recorddict setValue:_13 forKey:@"wereyou"];
-                                [recorddict setValue:_14 forKey:@"bodyposition"];
-                                [recorddict setValue:_16 forKey:@"bodyposition1"];
-                                [recorddict setValue:_17 forKey:@"headposition"];
-                                [recorddict setValue:_18 forKey:@"headposition1"];
-                                [recorddict setValue:_19 forKey:@"handsonwheel"];
-                                [recorddict setValue:_20 forKey:@"awareofcrash"];
-                                [recorddict setValue:_21 forKey:@"braceoption"];
-                                [recorddict setValue:_24 forKey:@"patientbodyseg"];
-                                [recorddict setValue:_25 forKey:@"patientbodyother"];
-                                [recorddict setValue:_30 forKey:@"damageseg"];
-                                [recorddict setValue:@"" forKey:@"myheadhitlabel"];
-                                [recorddict setValue:@"" forKey:@"rlhiphitlabel"];
-                                [recorddict setValue:@"" forKey:@"chesthitlabel"];
-                                [recorddict setValue:@"" forKey:@"rlleghitlabel"];
-                                [recorddict setValue:@"" forKey:@"rlshoulderhitlabel"];
-                                [recorddict setValue:@"" forKey:@"rlkneehitlabel"];
-                                [recorddict setValue:@"" forKey:@"rlarmhitlabel"];
-                                [recorddict setValue:@"" forKey:@"otherparthitlabel"];
-                                
-                            }
-                            else
-                            {
-                                if(([furtherinjurylabel.text isEqual:@"Yes"])&&
-                                   ([self onlyalphabetvalidate:texty14]))
-                                {
-                                    [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
-                                    c=1;
-                                    
-                                }
-                                else if ([furtherinjurylabel.text isEqual:@"No"])
-                                {
-                                    c=1;
-                                    
-                                }
-                                else
-                                {
-                                    c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid further injury explain data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                }
-                            }
-                            
-                        }
-                        else if([unconsiouslabel.text isEqual:@"No"])
+                        if((([myheadhitlabel.text length]>0)&&([self validateUsername:myheadhitlabel.text]==1))||([myheadhitlabel.text length]==0))
                         {
-                            c=1;
-                            [recorddict setValue:unconsiouslabel.text forKey:@"unconsiouslabel"];
-                            [recorddict setValue:_29 forKey:@"unconsiousforlabel"];
-                            [recorddict setValue:@"" forKey:@"myheadhitlabel"];
-                            [recorddict setValue:@"" forKey:@"rlhiphitlabel"];
-                            [recorddict setValue:@"" forKey:@"chesthitlabel"];
-                            [recorddict setValue:@"" forKey:@"rlleghitlabel"];
-                            [recorddict setValue:@"" forKey:@"rlshoulderhitlabel"];
-                            [recorddict setValue:@"" forKey:@"rlkneehitlabel"];
-                            [recorddict setValue:@"" forKey:@"rlarmhitlabel"];
-                            [recorddict setValue:@"" forKey:@"otherparthitlabel"];
-                            
-                            if(([furtherinjurylabel.text isEqual:@"Yes"])&&
-                               ([self onlyalphabetvalidate:texty14]))
+                            if((([rLhiphitlabel.text length]>0)&&([self validateUsername:rLhiphitlabel.text]==1))||([rLhiphitlabel.text length]==0))
                             {
-                                [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
-                                c=1;
-                                if([patientbodystrikelabel.text isEqual:@"Yes"])
+                                if((([chesthitlabel.text length]>0)&&([self validateUsername:chesthitlabel.text]==1))||([chesthitlabel.text length]==0))
                                 {
-                                    
-                                    
-                                    if(([self validateUsername:texty5]==1)&&
-                                       ([self validateUsername:texty6]==1)&&
-                                       ([self validateUsername:texty7]==1)&&
-                                       ([self validateUsername:texty8]==1)&&
-                                       ([self validateUsername:texty9]==1)&&
-                                       ([self validateUsername:texty10]==1)&&
-                                       ([self validateUsername:texty11]==1)&&
-                                       ([self validateUsername:texty12]==1))
+                                    if((([rlleghitlabel.text length]>0)&&([self validateUsername:rlleghitlabel.text]==1))||([rlleghitlabel.text length]==0))
                                     {
-                                        [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-                                        [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-                                        [recorddict setValue:_13 forKey:@"wereyou"];
-                                        [recorddict setValue:_14 forKey:@"bodyposition"];
-                                        [recorddict setValue:_16 forKey:@"bodyposition1"];
-                                        [recorddict setValue:_17 forKey:@"headposition"];
-                                        [recorddict setValue:_18 forKey:@"headposition1"];
-                                        [recorddict setValue:_19 forKey:@"handsonwheel"];
-                                        [recorddict setValue:_20 forKey:@"awareofcrash"];
-                                        [recorddict setValue:_21 forKey:@"braceoption"];
-                                        [recorddict setValue:_24 forKey:@"patientbodyseg"];
-                                        [recorddict setValue:_25 forKey:@"patientbodyother"];
-                                        [recorddict setValue:_30 forKey:@"damageseg"];
-                                        [recorddict setValue:myheadhitlabel.text forKey:@"myheadhitlabel"];
-                                        [recorddict setValue:rLhiphitlabel.text forKey:@"rlhiphitlabel"];
-                                        [recorddict setValue:chesthitlabel.text forKey:@"chesthitlabel"];
-                                        [recorddict setValue:rlleghitlabel.text forKey:@"rlleghitlabel"];
-                                        [recorddict setValue:rlshoulderhitlabel.text forKey:@"rlshoulderhitlabel"];
-                                        [recorddict setValue:rlkneehitlabel.text forKey:@"rlkneehitlabel"];
-                                        [recorddict setValue:rlarmhitlabel.text forKey:@"rlarmhitlabel"];
-                                        [recorddict setValue:otherparthitlabel.text forKey:@"otherparthitlabel"];
-                                        
-                                        
+                                        if((([rlshoulderhitlabel.text length]>0)&&([self validateUsername:rlshoulderhitlabel.text]==1))||([rlshoulderhitlabel.text length]==0))
+                                        {
+                                            if((([rlkneehitlabel.text length]>0)&&([self validateUsername:rlkneehitlabel.text]==1))||([rlkneehitlabel.text length]==0))
+                                            {
+                                                if((([rlarmhitlabel.text length]>0)&&([self validateUsername:rlarmhitlabel.text]==1))||([rlarmhitlabel.text length]==0))
+                                                {
+                                                    if((([otherparthitlabel.text length]>0)&&([self validateUsername:otherparthitlabel.text]==1))||([otherparthitlabel.text length]==0))
+                                                    {
+                                                        c=1;
+                                                        [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
+                                                        [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
+                                                        [recorddict setValue:furtherinjurylabel.text forKey:@"furtherinjury"];
+                                                        [recorddict setValue:_13 forKey:@"wereyou"];
+                                                        [recorddict setValue:_14 forKey:@"bodyposition"];
+                                                        [recorddict setValue:_16 forKey:@"bodyposition1"];
+                                                        [recorddict setValue:_17 forKey:@"headposition"];
+                                                        [recorddict setValue:_18 forKey:@"headposition1"];
+                                                        [recorddict setValue:_19 forKey:@"handsonwheel"];
+                                                        [recorddict setValue:_20 forKey:@"awareofcrash"];
+                                                        [recorddict setValue:_21 forKey:@"braceoption"];
+                                                        [recorddict setValue:_22 forKey:@"braceseg"];
+                                                        [recorddict setValue:_24 forKey:@"patientbodyseg"];
+                                                        [recorddict setValue:_25 forKey:@"patientbodyother"];
+                                                        [recorddict setValue:_30 forKey:@"damageseg"];
+                                                        [recorddict setValue:_35 forKey:@"injuryexplainlabel"];
+                                                        [recorddict setValue:wearingglasslabel.text forKey:@"wearingglasslabel"];
+                                                        [recorddict setValue:glassesstilllabel.text forKey:@"glassesstilllabel"];
+                                                        [recorddict setValue:propertydamagelabel.text forKey:@"propertydamagelabel"];
+                                                        [recorddict setValue:damagecarlabel.text forKey:@"damagecarlabel"];
+                                                        [recorddict setValue:patientbodystrikelabel.text forKey:@"patientbodystrikelabel"];
+                                                        
+                                                        [recorddict setValue:bodypositionlabel.text forKey:@"bodypositionlabel"];
+                                                        [recorddict setValue:headpositionlabel.text forKey:@"headpositionlabel"];
+                                                        
+                                                        [recorddict setValue:patientbodylabel.text forKey:@"patientbodylabel"];
+                                                        [recorddict setValue:unconsiouslabel.text forKey:@"unconsiouslabel"];
+                                                        [recorddict setValue:_29 forKey:@"unconsiousforlabel"];
+                                                        
+                                                        
+                                                        
+                                                        [recorddict setValue:myheadhitlabel.text forKey:@"myheadhitlabel"];
+                                                        [recorddict setValue:rLhiphitlabel.text forKey:@"rlhiphitlabel"];
+                                                        [recorddict setValue:chesthitlabel.text forKey:@"chesthitlabel"];
+                                                        [recorddict setValue:rlleghitlabel.text forKey:@"rlleghitlabel"];
+                                                        [recorddict setValue:rlshoulderhitlabel.text forKey:@"rlshoulderhitlabel"];
+                                                        [recorddict setValue:rlkneehitlabel.text forKey:@"rlkneehitlabel"];
+                                                        [recorddict setValue:rlarmhitlabel.text forKey:@"rlarmhitlabel"];
+                                                        [recorddict setValue:otherparthitlabel.text forKey:@"otherparthitlabel"];
+                                                    }
+                                                    else
+                                                    {
+                                                        c=0;
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other body part hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    }
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    c=0;
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my right left arm hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                }
+                                                
+                                            }
+                                            else
+                                            {
+                                                c=0;
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my right left knee hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            }
+                                            
+                                        }
+                                        else
+                                        {
+                                            c=0;
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my right left shoulder hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        }
                                     }
                                     else
                                     {
                                         c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient body strike data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my right left leg hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
+
                                 }
                                 else
                                 {
-                                    c=1;
-                                    [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-                                    [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-                                    [recorddict setValue:_13 forKey:@"wereyou"];
-                                    [recorddict setValue:_14 forKey:@"bodyposition"];
-                                    [recorddict setValue:_16 forKey:@"bodyposition1"];
-                                    [recorddict setValue:_17 forKey:@"headposition"];
-                                    [recorddict setValue:_18 forKey:@"headposition1"];
-                                    [recorddict setValue:_19 forKey:@"handsonwheel"];
-                                    [recorddict setValue:_20 forKey:@"awareofcrash"];
-                                    [recorddict setValue:_21 forKey:@"braceoption"];
-                                    [recorddict setValue:_24 forKey:@"patientbodyseg"];
-                                    [recorddict setValue:_25 forKey:@"patientbodyother"];
-                                    [recorddict setValue:_30 forKey:@"damageseg"];
-                                    [recorddict setValue:@"" forKey:@"myheadhitlabel"];
-                                    [recorddict setValue:@"" forKey:@"rlhiphitlabel"];
-                                    [recorddict setValue:@"" forKey:@"chesthitlabel"];
-                                    [recorddict setValue:@"" forKey:@"rlleghitlabel"];
-                                    [recorddict setValue:@"" forKey:@"rlshoulderhitlabel"];
-                                    [recorddict setValue:@"" forKey:@"rlkneehitlabel"];
-                                    [recorddict setValue:@"" forKey:@"rlarmhitlabel"];
-                                    [recorddict setValue:@"" forKey:@"otherparthitlabel"];
-                                    
+                                    c=0;
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my chest hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
-                                
-                                
-                            }
-                            else if ([furtherinjurylabel.text isEqual:@"No"])
-                            {
-                                c=1;
-                                if([patientbodystrikelabel.text isEqual:@"Yes"])
-                                {
-                                    
-                                    
-                                    if(([self validateUsername:texty5]==1)&&
-                                       ([self validateUsername:texty6]==1)&&
-                                       ([self validateUsername:texty7]==1)&&
-                                       ([self validateUsername:texty8]==1)&&
-                                       ([self validateUsername:texty9]==1)&&
-                                       ([self validateUsername:texty10]==1)&&
-                                       ([self validateUsername:texty11]==1)&&
-                                       ([self validateUsername:texty12]==1))
-                                    {
-                                        [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];
-                                        [recorddict setValue:airbagdeployedlabel.text forKey:@"airbagdeployed"];
-                                        [recorddict setValue:_13 forKey:@"wereyou"];
-                                        [recorddict setValue:_14 forKey:@"bodyposition"];
-                                        [recorddict setValue:_16 forKey:@"bodyposition1"];
-                                        [recorddict setValue:_17 forKey:@"headposition"];
-                                        [recorddict setValue:_18 forKey:@"headposition1"];
-                                        [recorddict setValue:_19 forKey:@"handsonwheel"];
-                                        //[recorddict setValue:_20 forKey:@"awareof crash"];
-                                        [recorddict setValue:_21 forKey:@"braceoption"];
-                                        [recorddict setValue:_24 forKey:@"patientbodyseg"];
-                                        [recorddict setValue:_25 forKey:@"patientbodyother"];
-                                        [recorddict setValue:_30 forKey:@"damageseg"];
-                                        [recorddict setValue:myheadhitlabel.text forKey:@"myheadhitlabel"];
-                                        [recorddict setValue:rLhiphitlabel.text forKey:@"rlhiphitlabel"];
-                                        [recorddict setValue:chesthitlabel.text forKey:@"chesthitlabel"];
-                                        [recorddict setValue:rlleghitlabel.text forKey:@"rlleghitlabel"];
-                                        [recorddict setValue:rlshoulderhitlabel.text forKey:@"rlshoulderhitlabel"];
-                                        [recorddict setValue:rlkneehitlabel.text forKey:@"rlkneehitlabel"];
-                                        [recorddict setValue:rlarmhitlabel.text forKey:@"rlarmhitlabel"];
-                                        [recorddict setValue:otherparthitlabel.text forKey:@"otherparthitlabel"];
-                                        
-                                        
-                                    }
-                                    else
-                                    {
-                                        c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient body strike data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                    }
-                                }
-                                
-                                
+
                             }
                             else
                             {
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid further injury explain data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my right left hip hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
-                            
-                            
-                            
+
                         }
                         else
                         {
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid unconsiousfor data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid my head hit field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
-                        
+                        }
+                        else
+                        {
+                            c=0;
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid property damage amount field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        }
+                       
+
                     }
-                    
                     else
                     {
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient body data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid unconscious field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
+ 
                 }
                 else
                 {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid head position data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient body field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid body position data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid further injury field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
-            
+ 
         }
-        
-        
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid damage value." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid head position." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid body position at the time of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
+    
+ 
     if (c==1)
     {
         NSLog(@"record dict in auto 2nd page:%@",recorddict);

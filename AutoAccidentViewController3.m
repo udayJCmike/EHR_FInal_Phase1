@@ -310,56 +310,56 @@ int a,b,c,d;
         NSLog(@"INSIDE BUTTON ONE CLICK");
         _1=@"Headache";
         
-        _11=@"null";
+        _11=@"";
         
     }
     else
     {
-        _1=@"null";
+        _1=@"";
     }
     
     if(button2.currentImage!=img)
     {
         _2=@"Dizziness";
-        _11=@"null";
+        _11=@"";
         
         
     }
     
     else
     {
-        _2=@"null";
+        _2=@"";
     }
     if(button3.currentImage!=img)
     {
         _3=@"Nausea";
         
-        _11=@"null";
+        _11=@"";
         
         
     }
     else
     {
-        _3=@"null";
+        _3=@"";
     }
     
     if(button4.currentImage!=img)
     {
         _4=@"Confusion";
         
-        _11=@"null";
+        _11=@"";
         
     }
     else
     {
-        _4=@"null";
+        _4=@"";
     }
     
     if(button5.currentImage!=img)
     {
         _5=@"Disorientation";
         
-        _11=@"null";
+        _11=@"";
         
         
     }
@@ -367,36 +367,81 @@ int a,b,c,d;
     
     else
     {
-        _5=@"null";
+        _5=@"";
     }
     if(button6.currentImage!=img)
     {
         _6=@"Neck Pain";
         
-        _11=@"null";
+        _11=@"";
         
         
         
     }
     else
     {
-        _6=@"null";
+        _6=@"";
         
     }
     if(button7.currentImage!=img)
     {
         _7=@"Other";
         _11=accidentother.text;
-        f=[self onlyalphanumericvalidate:_11];
+       
     }
     else
     {
-        _11=@"null";
+        _11=@"";
         _7=@"null";
-        f=1;
+       
+    }
+    
+    if((symptomssegment.selectedSegmentIndex==1)||(symptomssegment.selectedSegmentIndex==3))
+        
+    {
+    }
+    else  {
+        symptomshours.text=@"";
+    }
+    
+    if(afteraccidentwentsegment.selectedSegmentIndex==5){
+        _14=afteraccidentother.text;
+        
+    }
+    
+    else {
+        afteraccidentother.text=@"";
+        _14=@"";
     }
     
     
+    
+    if(hospitalgoingsegment.selectedSegmentIndex==1)
+    {
+        _13=hospitalgoingother.text;
+        
+    }
+    else
+    {
+        hospitalgoingother.text=@"";
+        _13=@"";
+        
+    }
+    if(afteraccidentwentsegment.selectedSegmentIndex==2){
+       
+        
+    }
+    
+    else {
+        hospitalname.text=@"";
+        hospitalcity.text=@"";
+        hospitalstay.text=@"";
+        treatmentgiven.text=@"";
+        waswrong.text=@"";
+        hospitalgoingsegmentlabel.text=@"";
+    }
+
+
     texty1=[hospitalname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[hospitalcity.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[hospitalstay.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -409,197 +454,111 @@ int a,b,c,d;
     //texty10=[other6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // texty11=[other7.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // texty12=[other8.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    
-    [recorddict setValue:anyoneciteswitchlabel.text forKey:@"anyonesited"];
-    [recorddict setValue:afteraccidentwentsegmentlabel.text forKey:@"afteraccidentwent"];
-    [recorddict setValue:anyonecitedsegmentlabel.text forKey:@"anyonesitedseglabel"];
-    [recorddict setValue:_12 forKey:@"symptomsappearedsegmentlabel"];
-    // [recorddict setValue:afteraccidentsegmentlabel.text forKey:@"afteraccidentsegmentlabel"];
-    [recorddict setValue:_1 forKey:@"button1"];
-    [recorddict setValue:_2 forKey:@"button2"];
-    [recorddict setValue:_3 forKey:@"button3"];
-    [recorddict setValue:_4 forKey:@"button4"];
-    [recorddict setValue:_5 forKey:@"button5"];
-    [recorddict setValue:_6 forKey:@"button6"];
-    [recorddict setValue:_7 forKey:@"button7"];
-    [recorddict setValue:_11 forKey:@"afteraccidentwhere"];
-    [recorddict setValue:afteraccidentother.text forKey:@"afteraccidentwentother"];
-    
-    
-    if(symptomssegment.selectedSegmentIndex==1)
+    c=1;
+    if((([accidentother.text length]>0)&&([self onlyalphanumericvalidate:accidentother.text]==1))||([accidentother.text length]==0))
     {
-        a=[self onlyalphanumericvalidate:[symptomshours text]];
-    }
-    else a=1;
-    
-    if(symptomssegment.selectedSegmentIndex==3)
-    {
-        b=[self onlyalphanumericvalidate:[symptomshours text]];
-    }
-    else b=1;
-    if(afteraccidentwentsegment.selectedSegmentIndex==5){
-        _14=afteraccidentother.text;
-        texty7=[_14 stringByReplacingOccurrencesOfString:@" " withString:@""];
-        e=[self onlyalphanumericvalidate:texty7];
-    }
-    
-    else {e=1;
-        afteraccidentother.text=@"";}
-    
-    
-    if(hospitalgoingsegment.selectedSegmentIndex==1)
-    {
-        _13=hospitalgoingother.text;
-        d=[self onlyalphanumericvalidate:texty6];
-        NSLog(@"d value::%d",d);
-    }
-    else d=1;
-    
-    if (afteraccidentwentsegment.selectedSegmentIndex==2)
-    {
-        if(([self onlyalphanumericvalidate:texty1]==1)&&
-           ([self onlyalphanumericvalidate:texty2]==1)&&
-           ([self onlyalphanumericvalidate:texty3]==1)&&
-           ([self onlyalphanumericvalidate:texty4]==1)&&
-           ([self onlyalphanumericvalidate:texty5]==1)&&
-           (d==1))
+        if((([symptomshours.text length]>0)&&([self onlyalphanumericvalidate:symptomshours.text]==1))||([symptomshours.text length]==0))
         {
-            c=1;
-            [recorddict setValue:hospitalname.text forKey:@"hospitalname"];
-            [recorddict setValue:hospitalcity.text forKey:@"hospitalcity"];
-            [recorddict setValue:hospitalstay.text forKey:@"hospitalstay"];
-            [recorddict setValue:treatmentgiven.text forKey:@"treatmentgiven"];
-            [recorddict setValue:waswrong.text forKey:@"waswrong"];
-            [recorddict setValue:_13 forKey:@"hospitalgoingother"];
-            [recorddict setValue:afteraccidentother.text forKey:@"afteraccidentwentother"];
-            
-            [recorddict setValue:hospitalgoingsegmentlabel.text forKey:@"hospitalgoing"];
-            
-            if(a==1)
+            if((([afteraccidentother.text length]>0)&&([self onlyalphanumericvalidate:afteraccidentother.text]==1))||([afteraccidentother.text length]==0))
             {
-                
-                c=1;
-                
-                [recorddict setValue:symptomshours.text forKey:@"symptomshours"];
-                //  [recorddict setValue:@"null" forKey:@"symptomsdays"];
-                
+                if((([hospitalname.text length]>0)&&([self onlyalphanumericvalidate:hospitalname.text]==1))||([hospitalname.text length]==0))
+                {
+                    if((([hospitalcity.text length]>0)&&([self onlyalphanumericvalidate:hospitalcity.text]==1))||([hospitalcity.text length]==0))
+                    {
+                        if((([hospitalstay.text length]>0)&&([self onlyalphanumericvalidate:hospitalstay.text]==1))||([hospitalstay.text length]==0))
+                        {
+                            if((([hospitalgoingother.text length]>0)&&([self onlyalphanumericvalidate:hospitalgoingother.text]==1))||([hospitalgoingother.text length]==0))
+                            {
+                                if((([treatmentgiven.text length]>0)&&([self onlyalphanumericvalidate:treatmentgiven.text]==1))||([treatmentgiven.text length]==0))
+                                {
+                                    if((([waswrong.text length]>0)&&([self onlyalphanumericvalidate:waswrong.text]==1))||([waswrong.text length]==0))
+                                    {
+                                        c=1;
+                                        [recorddict setValue:anyoneciteswitchlabel.text forKey:@"anyonesited"];
+                                        [recorddict setValue:afteraccidentwentsegmentlabel.text forKey:@"afteraccidentwent"];
+                                        [recorddict setValue:anyonecitedsegmentlabel.text forKey:@"anyonesitedseglabel"];
+                                        [recorddict setValue:_12 forKey:@"symptomsappearedsegmentlabel"];
+                                        // [recorddict setValue:afteraccidentsegmentlabel.text forKey:@"afteraccidentsegmentlabel"];
+                                        [recorddict setValue:_1 forKey:@"button1"];
+                                        [recorddict setValue:_2 forKey:@"button2"];
+                                        [recorddict setValue:_3 forKey:@"button3"];
+                                        [recorddict setValue:_4 forKey:@"button4"];
+                                        [recorddict setValue:_5 forKey:@"button5"];
+                                        [recorddict setValue:_6 forKey:@"button6"];
+                                        [recorddict setValue:_7 forKey:@"button7"];
+                                        [recorddict setValue:_11 forKey:@"afteraccidentwhere"];
+                                        [recorddict setValue:afteraccidentother.text forKey:@"afteraccidentwentother"];
+                                        
+                                        [recorddict setValue:symptomshours.text forKey:@"symptomshours"];
+                                        [recorddict setValue:hospitalname.text forKey:@"hospitalname"];
+                                        [recorddict setValue:hospitalcity.text forKey:@"hospitalcity"];
+                                        [recorddict setValue:hospitalstay.text forKey:@"hospitalstay"];
+                                        [recorddict setValue:treatmentgiven.text forKey:@"treatmentgiven"];
+                                        [recorddict setValue:waswrong.text forKey:@"waswrong"];
+                                        [recorddict setValue:_13 forKey:@"hospitalgoingother"];
+                                        [recorddict setValue:afteraccidentother.text forKey:@"afteraccidentwentother"];
+                                        
+                                        [recorddict setValue:hospitalgoingsegmentlabel.text forKey:@"hospitalgoing"];
+                                    }
+                                    else
+                                    {
+                                        c=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid was wrong field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    }
+                                }
+                                else
+                                {
+                                    c=0;
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid treatment given field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                }
+                            }
+                            else
+                            {
+                                c=0;
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            }
+                        }
+                        else
+                        {
+                            c=0;
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid length of stay." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        }
+                    }
+                    else
+                    {
+                        c=0;
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid city." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    }
+                }
+                else
+                {
+                    c=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name of hospital." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                }
             }
-            else if(b==1)
+            else
             {
-                
-                c=1;
-                [recorddict setValue:symptomshours.text forKey:@"symptomshours"];
-                //[recorddict setValue:symptomsdays.text forKey:@"symptomsdays"];
-            }
-            else if(symptomssegment.selectedSegmentIndex==0||symptomssegment.selectedSegmentIndex==2)
-            {
-                c=1;
-                [recorddict setValue:@"null" forKey:@"symptomshours"];
-                // [recorddict setValue:@"null" forKey:@"symptomsdays"];
-            }
-            
-            else{
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid after days or hours data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid after accident i went field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
-            
-            
         }
-        
-        
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter Valid Hospital details." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-        }
-        
-        
-    }
-    else{
-        [recorddict setValue:@"" forKey:@"hospitalname"];
-        [recorddict setValue:@"" forKey:@"hospitalcity"];
-        [recorddict setValue:@"" forKey:@"hospitalstay"];
-        [recorddict setValue:@"" forKey:@"treatmentgiven"];
-        [recorddict setValue:@"" forKey:@"waswrong"];
-        [recorddict setValue:@"" forKey:@"hospitalgoing"];
-        [recorddict setValue:@"" forKey:@"symptomshours"];
-        //[recorddict setValue:@"null" forKey:@"symptomsdays"];
-        [recorddict setValue:@"" forKey:@"hospitalgoingother"];
-        [recorddict setValue:afteraccidentother.text forKey:@"afteraccidentwentother"];
-        
-        if(a==1&&[symptomshours.text length]!=0)
-        {
-            
-            
-            [recorddict setValue:symptomshours.text forKey:@"symptomshours"];
-            if(e==1){
-                if(f==1){
-                    c=1;
-                }
-                else{
-                    c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid had following other data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                }
-            }
-            else{
-                c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid afteraccident went data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-            }
-        }
-        else if(b==1&&[symptomshours.text length]!=0)
-        {
-            
-            [recorddict setValue:symptomshours.text forKey:@"symptomshours"];
-            
-            //[recorddict setValue:symptomsdays.text forKey:@"symptomsdays"];
-            if(e==1){
-                if(f==1){
-                    c=1;
-                }
-                else{
-                    c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid had following othe data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                }
-            }
-            else{
-                c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid afteraccident went data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-            }
-            
-        }
-        else if(symptomssegment.selectedSegmentIndex==0||symptomssegment.selectedSegmentIndex==2)
-        {
-            if(e==1){
-                if(f==1){
-                    c=1;
-                }
-                else{
-                    c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid had following othe data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                }
-            }
-            else{
-                c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid afteraccident went data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-            }
-            
-            
-        }
-        
-        else{
-            c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid after days or hours data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid symptoms first appeared field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
-    if(c==1)
+    else
     {
         c=0;
-        a=0;
-        b=0;
-        NSLog(@"value at %@",symptomsdays.text);
-        NSLog(@"value at %@",symptomshours.text);
-        NSLog(@"Final result %@",recorddict);
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid after accident i had field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+    }
+  
+    
+         if(c==1)
+    {
+        
+       
         int num=[recorddict count];
         NSLog(@"recorddict count in autoaccident second page %d",num);
         

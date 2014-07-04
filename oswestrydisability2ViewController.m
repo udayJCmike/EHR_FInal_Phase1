@@ -719,19 +719,25 @@
 }
 - (IBAction)save:(id)sender {
     
-    c=1;
+ 
     
-    //    NSString *temp3=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *temp11=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp11=[[temp11 stringByReplacingOccurrencesOfString:@"\t" withString:@" "]stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+   
     NSString *temp1 = [name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *temp2 = [date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (([temp1 length]>0)&&([temp2 length]>0))
     {
+        c=1;
         if ([self validatePNames:temp1]==1)
         {
             if ([self validateDate:temp2]==1)
             {
-                //if ([self validateNames:temp3]==1)
+                if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
                 {
+                    if((([workmodtv.text length]>0)&&([self validateNames:workmodtv.text]==1))||([workmodtv.text length]==0))
+                    {
+                
                     [recorddict setValue:comments.text forKey:@"comment"];
                     [recorddict setValue:workmodtv.text  forKey:@"jobwork"];
                     [recorddict setValue:val10 forKey:@"sec10"];
@@ -758,35 +764,40 @@
                     }
                     
                     
+                }
+                    else
+                    {
+                        c =0;
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid work field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    }
+                    
                     
                     //                    NSLog(@"recorddict %@",recorddict);
                     
                 }
-                /*else
-                 {
-                 c=0;
-                 BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap!" message:@"Enter valid comment."];
-                 [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                 [alert show];
-                 
-                 }*/
+                else
+                {
+                    c =0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid comment." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                }
+
                 
             }
             else
             {
                 c =0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             c =0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else{
         c =0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     
     

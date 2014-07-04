@@ -425,19 +425,20 @@
     [recorddict setValue:painresult forKey:@"painresult"];
     [recorddict setValue:headresult forKey:@"headresult"];
     if( ([temp1 length]!=0)&&
-       ([temp2 length]!=0)&&
-       ([temp3 length]!=0)&&
-       ([temp4 length]!=0)&&
-       ([temp5 length]!=0))
+      // ([temp2 length]!=0)&&
+       //([temp3 length]!=0)&&
+       ([temp4 length]!=0)
+      // &&([temp5 length]!=0)
+       )
     {
         if ([self validateDate:temp1]==1) {
-            if ([self validateNames:temp2]==1)
+            if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
             {
-                if ([self validateNames:temp3]==1)
+                if((([temp3 length]>0)&&([self validateNames:temp3]==1))||([temp3 length]==0))
                 {
                     if ([self validatePNames:temp4]==1)
                     {
-                        if ([self validateNames:temp5]==1)
+                       if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
                         {
                             [recorddict setValue:date.text forKey:@"date"];
                             [recorddict setValue:scoretotal.text forKey:@"scoretotal"];
@@ -448,39 +449,39 @@
                         else
                         {
                             a=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid age." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid age." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                         
                     }
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                     
                 }
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid [48]F." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid [48]F." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
                 
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid scores." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid scores." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else{
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

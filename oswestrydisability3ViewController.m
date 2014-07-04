@@ -737,27 +737,47 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(BOOL)validatePNames:(NSString *)country1
+{
+    NSString *countryFormat1 = @"[A-Za-z0-9@_]+";
+    
+    [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
+    return [countryTest1 evaluateWithObject:country1];
+    
+}
+
 - (IBAction)save:(id)sender
 {
     int move=1;
-    [recorddict setValue:sport.text forKey:@"sport"];
-    
-    if (dontplay.selected) {
-        [recorddict setValue:@"on" forKey:@"dontplay"];
-        [recorddict setValue:@"null" forKey:@"segsport1"];
-        [recorddict setValue:@"null" forKey:@"segsport2"];
-        [recorddict setValue:@"null" forKey:@"segsport3"];
-        [recorddict setValue:@"null" forKey:@"segsport4"];
+    if((([sport.text length]>0)&&([self validatePNames:sport.text]==1))||([sport.text length]==0))
+    {
+        [recorddict setValue:sport.text forKey:@"sport"];
+        
+        if (dontplay.selected) {
+            [recorddict setValue:@"on" forKey:@"dontplay"];
+            [recorddict setValue:@"null" forKey:@"segsport1"];
+            [recorddict setValue:@"null" forKey:@"segsport2"];
+            [recorddict setValue:@"null" forKey:@"segsport3"];
+            [recorddict setValue:@"null" forKey:@"segsport4"];
+        }
+        else
+        {
+            [recorddict setValue:@"null" forKey:@"dontplay"];
+            [recorddict setValue:seg1val forKey:@"segsport1"];
+            [recorddict setValue:seg2val forKey:@"segsport2"];
+            [recorddict setValue:seg3val forKey:@"segsport3"];
+            [recorddict setValue:seg4val forKey:@"segsport4"];
+        }
+
     }
     else
     {
-        [recorddict setValue:@"null" forKey:@"dontplay"];
-        [recorddict setValue:seg1val forKey:@"segsport1"];
-        [recorddict setValue:seg2val forKey:@"segsport2"];
-        [recorddict setValue:seg3val forKey:@"segsport3"];
-        [recorddict setValue:seg4val forKey:@"segsport4"];
+        move =0;
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid sport field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
-    if (move==1)
+
+        if (move==1)
     {
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)

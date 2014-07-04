@@ -3585,25 +3585,26 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         c=0;
         if([self validatePNames:texty1]==1)
         {
-            //if([self validateNames:texty3]==1)
+            if([self validateDate:texty2]==1)
             {
-                if([self validateDate:texty2]==1)
-                {
-                    //if([self validateNames:texty4]==1)
+           if((([jobdescription.text length]>0)&&([self validatePNames:jobdescription.text]==1))||([jobdescription.text length]==0))
+            {
+                
+                      if((([other.text length]>0)&&([self validatePNames:other.text]==1))||([other.text length]==0))
                     {
-                        //if([self validateNames:texty5]==1)
+                       if((([other1.text length]>0)&&([self validatePNames:other1.text]==1))||([other1.text length]==0))
                         {
-                            //if([self validateNames:texty6]==1)
+                            if((([other2.text length]>0)&&([self validatePNames:other2.text]==1))||([other2.text length]==0))
                             {
-                                //if([self validateNames:texty7]==1)
+                               if((([other3.text length]>0)&&([self validatePNames:other3.text]==1))||([other3.text length]==0))
                                 {
-                                    //if([self validateNames:texty8]==1)
+                                    if((([other4.text length]>0)&&([self validatePNames:other4.text]==1))||([other4.text length]==0))
                                     {
-                                        //if([self validateNames:texty9]==1)
+                                       if((([other5.text length]>0)&&([self validatePNames:other5.text]==1))||([other5.text length]==0))
                                         {
-                                            //if([self validateNames:texty10]==1)
+                                            if((([other6.text length]>0)&&([self validatePNames:other6.text]==1))||([other6.text length]==0))
                                             {
-                                                //if([self validateNames:texty11]==1)
+                                              if((([other7.text length]>0)&&([self validatePNames:other7.text]==1))||([other7.text length]==0))
                                                 {
                                                     c=1;
                                                     
@@ -3621,105 +3622,87 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                     // NSLog(@"success!!!recorddict %@",recorddict);
                                                 }
                                                 
-                                                //                                                               else
-                                                //                                                                     {
-                                                //                                                                         c=0;
-                                                //                                                                        BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other7."];
-                                                //                                                                      [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                                //                                                                      [alert show];
-                                                //                                                                     }
+                                              else
+                                              {
+                                                  c=0;
+                                                  [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                              }
                                             }
                                             
-                                            //                                                            else
-                                            //                                                          {
-                                            //                                                              c=0;
-                                            //                                                               BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other6."];
-                                            //                                                               [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                            //                                                               [alert show];
-                                            //                                                          }
+                                            else
+                                            {
+                                                c=0;
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            }
                                         }
                                         
                                         
-                                        //                                             else
-                                        //                                             {
-                                        //                                                 c=0;
-                                        //                                                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other5."];
-                                        //                                                 [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                        //                                                 [alert show];
-                                        //                                             }
+                                                                                      else
+                                        {
+                                            c=0;
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        }
                                     }
                                     
-                                    //                                         else
-                                    //                                         {
-                                    //                                             c=0;
-                                    //                                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other4."];
-                                    //                                             [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                    //                                             [alert show];
-                                    //                                         }
+                                    else
+                                    {
+                                        c=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    }
                                 }
                                 
                                 
-                                //                                     else
-                                //                                     {
-                                //                                         c=0;
-                                //                                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other3."];
-                                //                                         [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                //                                         [alert show];
-                                //                                     }
+                               else
+                               {
+                                   c=0;
+                                   [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                               }
                             }
                             
-                            //                                 else
-                            //                                 {
-                            //                                     c=0;
-                            //                                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other2."];
-                            //                                     [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                            //                                     [alert show];
-                            //                                 }
+                            else
+                            {
+                                c=0;
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            }
                         }
                         
-                        //                             else
-                        //                             {
-                        //                                 c=0;
-                        //                                 BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other1."];
-                        //                                 [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                        //                                 [alert show];
-                        //                             }
+                       else
+                       {
+                           c=0;
+                           [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                       }
                     }
                     
-                    //                         else
-                    //                         {
-                    //                             c=0;
-                    //                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"enter valid other."];
-                    //                             [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                    //                             [alert show];
-                    //                         }
+                      else
+                      {
+                          c=0;
+                          [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                      }
                 }
                 
                 else
                 {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid job description." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
-            //                         else
-            //                    {
-            //                        c=0;
-            //                           BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid job description ."];
-            //                           [alert setDestructiveButtonWithTitle:@"x" block:nil];
-            //                         [alert show];
-            //                    }
+            else
+            {
+                c=0;
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            }
         }
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     
     else
     {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (c==1) {
         // NSLog(@"recorddict in authro %@",recorddict);

@@ -103,7 +103,7 @@
 	else
     {resLabel4.text = @"No";
         optwhen.hidden=YES;
-        optwhen.text=@" ";
+        
     }
 }
 
@@ -477,6 +477,13 @@
        ([setdate.text length]!=0)
        )
     {c=1;
+        if ([resLabel4.text isEqualToString:@"Yes"]) {
+            
+        }
+        else
+        {
+            optwhen.text=@"";
+        }
         
         
         if([self validateNames:temp2]==1)
@@ -513,6 +520,7 @@
                                                                     {
                                                                         if([self validateDate:temp19]==1)
                                                                         {
+                                                                            
                                                                             c=1;
                                                                             
                                                                             [recorddict setValue:other.text forKey:@"otheracc"];
@@ -526,7 +534,13 @@
                                                                             [recorddict setValue:reslabel6.text forKey:@"res6"];
                                                                             [recorddict setValue:reslabel7.text forKey:@"res7"];
                                                                             [recorddict setValue:setdate.text forKey:@"medwhen"];
-                                                                            
+                                                                            if ([resLabel4.text isEqualToString:@"Yes"]) {
+                                                                                [recorddict setValue:optwhen.text forKey:@"prevauto"];
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                [recorddict setValue:@"" forKey:@"prevauto"];
+                                                                            }
                                                                             
                                                                             [recorddict setValue:resLabel1.text forKey:@"symduetoacc"];
                                                                             [recorddict setValue:resLabel2.text forKey:@"accreported"];
@@ -559,36 +573,21 @@
                                                                             {
                                                                                 [[NSUserDefaults standardUserDefaults]setInteger:3 forKey:@"typeofacc"];
                                                                             }
-                                                                            if ([resLabel4.text isEqualToString:@"Yes"])
-                                                                            {
-                                                                                if ([temp20 length]!=0)
-                                                                                {
-                                                                                    if ([self validateDate:temp20])
-                                                                                    {
-                                                                                        [recorddict setValue:optwhen.text forKey:@"prevauto"];
-                                                                                    }
-                                                                                    else
-                                                                                    {
-                                                                                        c=0;
-                                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid previous accident date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                                                                    }
-                                                                                }
-                                                                                else
-                                                                                {
-                                                                                    c=0;
-                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                                                                }
-                                                                            }
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
                                                                             
                                                                         }
                                                                         else{
                                                                             c=0;
-                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid medical treatment date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                         }
                                                                     }
                                                                     /*else{
                                                                      c=0;
-                                                                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid body parts x-rayed field."];
+                                                                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid body parts x-rayed field."];
                                                                      
                                                                      //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                                                                      [alert setDestructiveButtonWithTitle:@"x" block:nil];
@@ -597,13 +596,13 @@
                                                                 }
                                                                 else{
                                                                     c=0;
-                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid damages field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid damages field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                 }
                                                                 
                                                             }
                                                             /*else{
                                                              c=0;
-                                                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Physician Phone."];
+                                                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid Physician Phone."];
                                                              
                                                              //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                                                              [alert setDestructiveButtonWithTitle:@"x" block:nil];
@@ -612,7 +611,7 @@
                                                         }
                                                         /*else{
                                                          c=0;
-                                                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter Valid Physician Name."];
+                                                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid Physician Name."];
                                                          
                                                          //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
                                                          [alert setDestructiveButtonWithTitle:@"x" block:nil];
@@ -622,73 +621,73 @@
                                                     }
                                                     else{
                                                         c=0;
-                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid healthInsurance phonenumber." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid healthInsurance phonenumber." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                     }
                                                 }
                                                 else{
                                                     c=0;
-                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid healthinsurance name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid healthinsurance name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                 }
                                             }
                                             else
                                             {
                                                 c=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid auto insurance policy name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid auto insurance policy name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                             }
                                         }
                                         else{
                                             c=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid auto insurance phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid auto insurance phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                         }
                                     }
                                     else{
                                         c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid auto insurance name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid auto insurance name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
                                 }
                                 else{
                                     c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid company phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid company phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
                             }
                             else{
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid insurance company name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid insurance company name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                         }
                         else{
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid person name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid person name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                     }
                     else
                     {
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid attorney phone." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid attorney phone." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name of attorney." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name of attorney." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
                 
             }
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else{
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid medical treatment location." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment location." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
         
     }
     else{
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (c==1) {
         [self performSegueWithIdentifier:@"Patientdetail2" sender:self];
@@ -742,7 +741,7 @@
     {
         return [mobileTest1 evaluateWithObject:mobilenumber];
     }
-
+    
     
 }
 
@@ -770,6 +769,7 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.staff=staff;
+        NSLog(@"record %@",recorddict);
     }
     
     

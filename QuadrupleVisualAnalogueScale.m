@@ -170,7 +170,7 @@
                                     action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap1];
-    
+     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     for (UIView *v in [self.view subviews])
     {
         if ([v isKindOfClass:[UITextField class]])
@@ -505,7 +505,13 @@
     tempp1 = [number.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     tempp2 = [name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    
+    if ([segval isEqualToString:@"Other"]) {
+       
+    }
+    else
+    {
+        segval=@"";
+    }
     
     if (//([tempp1 length]>0)&&
         ([tempp2 length]>0)&&([date.text length]>0))
@@ -514,7 +520,14 @@
         // if ([self validateNames:tempp1]==1)
         //{
         if ([self validatePNames:tempp2]==1)
-        { c=1;
+        {
+             if((([tempp1 length]>0)&&([self validatePNames:tempp1]==1))||([tempp1 length]==0))
+             {
+                 if((([painname.text length]>0)&&([self validatePNames:painname.text]==1))||([painname.text length]==0))
+                 {
+                     if((([percentage.text length]>0)&&([self validatePNames:percentage.text]==1))||([percentage.text length]==0))
+                     {
+             c=1;
             
             [recorddict setValue:name.text forKey:@"name"];
             [recorddict setValue:number.text forKey:@"number"];
@@ -526,19 +539,37 @@
             [recorddict setValue:scale3.text forKey:@"scale3"];
             [recorddict setValue:scale4.text forKey:@"scale4"];
             [recorddict setValue:percentage.text forKey:@"worst"];
-            
+                     }
+                     else
+                     {
+                         c=0;
+                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid percentage of awake hours field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                     }
+                     
+                 }
+                 else
+                 {
+                     c=0;
+                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid other field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                 }
+             }
+             else
+             {
+                 c=0;
+                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+             }
             
         }
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
         /*   }
          else
          {
          c=0;
-         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Enter valid name."];
+         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter valid name."];
          [alert setDestructiveButtonWithTitle:@"x" block:nil];
          [alert show];
          }*/
@@ -547,7 +578,7 @@
     else
     {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     
     if (c==1) {

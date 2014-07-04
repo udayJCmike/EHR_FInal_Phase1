@@ -232,8 +232,9 @@
 {
     //    move=0;
     
-    //    NSString *temp1=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //if ((temp1.length>0)&&([self validateNames:temp1]==1))
+       NSString *temp1=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
+      temp1=[[temp1 stringByReplacingOccurrencesOfString:@"\t" withString:@" "]stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+   if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
     {
         move=1;
         NSNumber *a=[recorddict objectForKey:@"total1"];
@@ -275,14 +276,12 @@
         //NSLog(@"recorddict %@",recorddict);
         
     }
-    /*else
-     {
+    else
+    {
      move=0;
-     BlockAlertView *alert=[[BlockAlertView alloc]initWithTitle:@"Oh snap!" message:@"Enter valid comments"];
-     [alert setDestructiveButtonWithTitle:@"x" block:nil];
-     [alert show];
-     
-     }*/
+    
+         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid comment." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+     }
     if (move==1)
     {
         UIButton *buton=(UIButton*)sender;

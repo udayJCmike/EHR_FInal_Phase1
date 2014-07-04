@@ -35,6 +35,9 @@
 @synthesize resultset;
 @synthesize recorddict;
 @synthesize staff;
+@synthesize sl1;
+@synthesize sl2;
+@synthesize sl3;
 - (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
 {
     self = [super init];
@@ -131,14 +134,32 @@
     if(segmarital.selectedSegmentIndex==0)
     {
         marital.text=@"Single";
+        sl1.hidden=NO;
+        sl2.hidden=NO;
+        sl3.hidden=NO;
+        spouseemp.hidden=NO;
+        spousename.hidden=NO;
+        spouseph.hidden=NO;
     }
     else if (segmarital.selectedSegmentIndex==1)
     {
         marital.text=@"Married";
+        sl1.hidden=YES;
+        sl2.hidden=YES;
+        sl3.hidden=YES;
+        spouseemp.hidden=YES;
+        spousename.hidden=YES;
+        spouseph.hidden=YES;
     }
     else if (segmarital.selectedSegmentIndex==2)
     {
         marital.text=@"Divorced";
+        sl1.hidden=YES;
+        sl2.hidden=YES;
+        sl3.hidden=YES;
+        spouseemp.hidden=YES;
+        spousename.hidden=YES;
+        spouseph.hidden=YES;
     }
 }
 
@@ -194,7 +215,7 @@
     }
     else
         return 0;
-
+    
     
 }
 /*-(BOOL)validateAddress:(NSString *)zipnumber{
@@ -244,7 +265,7 @@
     {
         return [mobileTest1 evaluateWithObject:mobilenumber];
     }
-
+    
     
 }
 -(BOOL)validateNames:(NSString *)country1
@@ -316,7 +337,7 @@
     }
     else
         return 0;
-
+    
     
 }
 
@@ -355,7 +376,12 @@
     
     
     
-    
+    sl1.hidden=NO;
+    sl2.hidden=NO;
+    sl3.hidden=NO;
+    spouseemp.hidden=NO;
+    spousename.hidden=NO;
+    spouseph.hidden=NO;
     resLabel.text=@"Full time";
     areyoulabel=@"Student";
     seg.text=@"Male";
@@ -560,20 +586,36 @@
             {
                 [segmarital setSelectedSegmentIndex:0];
                 marital.text=@"Single";
+                sl1.hidden=NO;
+                sl2.hidden=NO;
+                sl3.hidden=NO;
+                spouseemp.hidden=NO;
+                spousename.hidden=NO;
+                spouseph.hidden=NO;
                 
             }
             else  if ([temp13 isEqualToString:@"Married"])
             {
                 [segmarital setSelectedSegmentIndex:1];
                 marital.text=@"Married";
-                
+                sl1.hidden=YES;
+                sl2.hidden=YES;
+                sl3.hidden=YES;
+                spouseemp.hidden=YES;
+                spousename.hidden=YES;
+                spouseph.hidden=YES;
                 
             }
             if ([temp13 isEqualToString:@"Divorced"])
             {
                 [segmarital setSelectedSegmentIndex:2];
                 marital.text=@"Divorced";
-                
+                sl1.hidden=YES;
+                sl2.hidden=YES;
+                sl3.hidden=YES;
+                spouseemp.hidden=YES;
+                spousename.hidden=YES;
+                spouseph.hidden=YES;
             }
             
             
@@ -640,7 +682,7 @@
         
         NSError *error1;
         SBJSON *json1 = [[SBJSON new] autorelease];
-      //  NSLog(@"response %@",resultResponse1);
+        //  NSLog(@"response %@",resultResponse1);
         NSDictionary *luckyNumbers1 = [json1 objectWithString:resultResponse1 error:&error1];
         NSDictionary *itemsApp1 = [luckyNumbers1 objectForKey:@"serviceresponse"];
         NSArray *items1App1=[itemsApp1 objectForKey:@"patientinfodiagnosisuser List"];
@@ -796,7 +838,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -874,9 +916,9 @@
        ///([workcity.text length]!=0)&&
        //([workstate.text length]!=0)&&
        //([workzip.text length]!=0)&&
-       ([spousename.text length]!=0)&&
-       ([spouseemp.text length]!=0)&&
-       ([spouseph.text length]!=0)&&
+       //       ([spousename.text length]!=0)&&
+       //       ([spouseemp.text length]!=0)&&
+       //       ([spouseph.text length]!=0)&&
        ([relativeph.text length]!=0)&&
        
        ([resLabel.text length]!=0)&&
@@ -884,13 +926,24 @@
        ([relativename.text length]!=0))
     {
         c=1;
- 
-           NSLog(@"resu %hhd",[du username:temp1]);
         
+        NSLog(@"resu %hhd",[du username:temp1]);
+        
+        if  ([marital.text isEqualToString:@"Single"]) {
             
-     
-
-      
+            
+        }
+        else
+        {
+            spouseemp.text=@"";
+            spousename.text=@"";
+            spouseph.text=@"";
+            
+        }
+        
+        
+        
+        
         if ([self validateNames:temp1]==1)
         {
             if([self validatePNames:temp3]==1)
@@ -908,12 +961,13 @@
                                     if([self validatessn:temp10]==1)
                                     {
                                         
-                                        if([self validateNames:temp11]==1)
+                                        if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                         {
-                                            if([self validateNames:temp12]==1)
+                                            if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                             {
-                                                if([self validateMobile:temp13]==1)
+                                                if((([temp13 length]>0)&&([self validateMobile:temp13]==1))||([temp13 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                                 {
+                                                    
                                                     if([self validateMobile:temp14]==1)
                                                     {
                                                         if ([self validateDate:temp2]==1)
@@ -924,6 +978,20 @@
                                                                 {
                                                                     if ([self validateDate:temp16]==1)
                                                                     {
+                                                                        if  ([marital.text isEqualToString:@"Single"]) {
+                                                                            
+                                                                            [recorddict setValue:spousename.text forKey:@"spousename"];
+                                                                            [recorddict setValue:spouseemp.text forKey:@"spouseemp"];
+                                                                            [recorddict setValue:spouseph.text forKey:@"spousephone"];
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            [recorddict setValue:@"" forKey:@"spousename"];
+                                                                            [recorddict setValue:@"" forKey:@"spouseemp"];
+                                                                            [recorddict setValue:@""  forKey:@"spousephone"];
+                                                                            
+                                                                        }
+                                                                        
                                                                         
                                                                         [recorddict setValue:name.text forKey:@"name"];
                                                                         [recorddict setValue:streetaddress.text forKey:@"streetaddress"];
@@ -933,9 +1001,7 @@
                                                                         [recorddict setValue:state.text forKey:@"state"];
                                                                         [recorddict setValue:zip.text forKey:@"zipcode"];
                                                                         [recorddict setValue:socialsecnum.text forKey:@"ssn"];
-                                                                        [recorddict setValue:spousename.text forKey:@"spousename"];
-                                                                        [recorddict setValue:spouseemp.text forKey:@"spouseemp"];
-                                                                        [recorddict setValue:spouseph.text forKey:@"spousephone"];
+                                                                        
                                                                         [recorddict setValue:relativeph.text forKey:@"relativephone"];
                                                                         [recorddict setValue:relativename.text forKey:@"relativename"];
                                                                         [recorddict setValue:todaydate.text forKey:@"todaydate"];
@@ -976,75 +1042,75 @@
                                                                             temp21 = [workcity.text stringByReplacingOccurrencesOfString:@" " withString:@""];
                                                                             temp22 = [workstate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
                                                                             temp23 = [workzip.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-                   if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
+                                                                            if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
                                                                             {
                                                                                 
-                                                                              if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
+                                                                                if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
                                                                                 {
-                                                                                   if((([temp19 length]>0)&&([self validateNames:temp19]==1))||([temp19 length]==0))
+                                                                                    if((([temp19 length]>0)&&([self validateNames:temp19]==1))||([temp19 length]==0))
                                                                                         
                                                                                     {
                                                                                         if((([temp20 length]>0)&&([self validateMobile:temp20]==1))||([temp20 length]==0))
                                                                                         {
-                                                                                           if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
+                                                                                            if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
                                                                                             {
                                                                                                 
                                                                                                 if((([temp22 length]>0)&&([self validateNames:temp22]==1))||([temp22 length]==0))
                                                                                                     
                                                                                                 {if((([temp23 length]>0)&&([self validateZip:temp23]==1))||([temp23 length]==0))
-                                                                                                    {
-                                                                                                        c=1;
-                                                                                                        [recorddict setValue:empname.text forKey:@"empname"];
-                                                                                                        [recorddict setValue:occ.text forKey:@"occupation"];
-                                                                                                        [recorddict setValue:empadd.text forKey:@"empaddress"];
-                                                                                                        [recorddict setValue:workph.text forKey:@"workphone"];
-                                                                                                        [recorddict setValue:workcity.text forKey:@"empcity"];
-                                                                                                        [recorddict setValue:workstate.text forKey:@"workstate"];
-                                                                                                        [recorddict setValue:workzip.text forKey:@"workzipcode"];
-                                                                                                        
-                                                                                                        
-                                                                                                    }
+                                                                                                {
+                                                                                                    c=1;
+                                                                                                    [recorddict setValue:empname.text forKey:@"empname"];
+                                                                                                    [recorddict setValue:occ.text forKey:@"occupation"];
+                                                                                                    [recorddict setValue:empadd.text forKey:@"empaddress"];
+                                                                                                    [recorddict setValue:workph.text forKey:@"workphone"];
+                                                                                                    [recorddict setValue:workcity.text forKey:@"empcity"];
+                                                                                                    [recorddict setValue:workstate.text forKey:@"workstate"];
+                                                                                                    [recorddict setValue:workzip.text forKey:@"workzipcode"];
                                                                                                     
-                                                                                                    else{
-                                                                                                        c=0;
-                                                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid work zipcode." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                                                                                    }
+                                                                                                    
+                                                                                                }
+                                                                                                    
+                                                                                                else{
+                                                                                                    c=0;
+                                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid work zipcode." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                                }
                                                                                                     
                                                                                                 }
                                                                                                 else
                                                                                                 {
                                                                                                     c=0;
-                                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid workState." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid workState." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                                                 }
                                                                                             }
                                                                                             else   {
                                                                                                 c=0;
-                                                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid workcity." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid workcity." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                                             }
                                                                                         }
                                                                                         else
                                                                                         {c=0;
-                                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid workPhone." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid workPhone." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                                             
                                                                                         }
                                                                                     }
                                                                                     else
                                                                                     {c=0;
-                                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid employee address." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid employee address." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                                     }
                                                                                 }
                                                                                 
                                                                                 else
                                                                                 {
                                                                                     c=0;
-                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid occupation." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid occupation." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                                 }
                                                                                 
                                                                             }
                                                                             else
                                                                             {
                                                                                 c=0;
-                                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid employee name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid employee name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                             }
                                                                         }
                                                                         
@@ -1052,106 +1118,106 @@
                                                                     else
                                                                     {
                                                                         c=0;
-                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid DOB." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid DOB." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                     }
                                                                 }
                                                                 else{
                                                                     c=0;
-                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid relative name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid relative name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                                 }
                                                                 
                                                             }
                                                             else
                                                             {
                                                                 c=0;
-                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid email id." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid email id." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                             }
                                                         }
                                                         else
                                                         {
                                                             c=0;
-                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                         }
                                                         
                                                     }
                                                     else
                                                     {
                                                         c=0;
-                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid relative phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid relative phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                     }
                                                 }
                                                 else
                                                 {
                                                     c=0;
-                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid spouse phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid spouse phone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                 }
                                             }
                                             else
                                             {
                                                 c=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid spouse employer." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid spouse employer." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                             }
                                         }
                                         else
                                         {
                                             c=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid spousename." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid spousename." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                         }
                                         
                                     }
                                     else
                                     {
                                         c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid socialsecuritynumber." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid socialsecuritynumber." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
                                 }
                                 else
                                 {
                                     c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid zipcode." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid zipcode." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
                             }
                             else
                             {
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid state name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid state name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                         }
                         else
                         {
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid city name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid city name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                     }
                     else
                     {
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid cellphone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid cellphone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid homephone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid homephone number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid streetaddress." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid streetaddress." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             
         }
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     
     if (c==1) {
@@ -1336,6 +1402,12 @@
     areyoulabel=@"Student";
     seg.text=@"Male";
     marital.text=@"Single";
+    sl1.hidden=NO;
+    sl2.hidden=NO;
+    sl3.hidden=NO;
+    spouseemp.hidden=NO;
+    spousename.hidden=NO;
+    spouseph.hidden=NO;
 }
 
 
@@ -1345,6 +1417,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)dealloc {
+    
     
     
     [super dealloc];

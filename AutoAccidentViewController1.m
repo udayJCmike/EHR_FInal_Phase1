@@ -18,6 +18,7 @@
 @end
 
 @implementation AutoAccidentViewController1
+@synthesize roadother;
 @synthesize staff;
 @synthesize resultset;
 @synthesize anyoneincarswitch;
@@ -79,7 +80,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     {
         anyoneincarlabel.text = @"No";
         anyoneincar.hidden=YES;
-        anyoneincar.text=@"";
+        
     }
 }
 - (IBAction) toggleEnabledTextForSwitch2onSomeLabel: (id) sender
@@ -220,34 +221,39 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if ([sender selectedSegmentIndex]==0)
     {
+         roadother.hidden=YES;
         _6=@"Dry";
         roadother.text=@"";
         _40=@"";
     }
     else if ([sender selectedSegmentIndex]==1)
     {
+         roadother.hidden=YES;
         _6=@"Damp";
         roadother.text=@"";
         _40=@"";
     }
     else if ([sender selectedSegmentIndex]==2)
     {
+         roadother.hidden=YES;
         _6=@"Wet";
         roadother.text=@"";
         _40=@"";
     }
     else if ([sender selectedSegmentIndex]==3)
     {
+         roadother.hidden=YES;
         _6=@"Snow";
-        roadother.text=@"";
-        _40=@"";}
-    else if ([sender selectedSegmentIndex]==4)
-    {
-        _6=@"Ice";
         roadother.text=@"";
         _40=@"";
     }
-    if ([sender selectedSegmentIndex]==5)
+    else if ([sender selectedSegmentIndex]==4)
+    {
+        roadother.hidden=YES;
+        _6=@"Ice";
+        
+    }
+    else if ([sender selectedSegmentIndex]==5)
     {
         _6=@"Others";
         roadother.hidden=NO;
@@ -257,15 +263,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if ([sender selectedSegmentIndex]==6)
     {
+        roadother.hidden=YES;
         _6=@"Unknown";
         roadother.text=@"";
         _40=@"";
         
     }
-    else{
-        roadother.hidden=YES;
-        _40=@"";
-    }
+   
     
 }
 -(IBAction)headrestraintchange:(id)sender
@@ -341,6 +345,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 - (void)viewDidLoad
 {
     
+    roadother.hidden=YES
+    ;
     recorddict=[[NSMutableDictionary alloc]init];
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
@@ -810,7 +816,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         if ([temp21 isEqualToString:@"Dry"])
         {
             [roadconditionsegment setSelectedSegmentIndex:0];
-            
+            roadother.hidden=YES;
             _6=@"Dry";
             roadother.text=@"";
             _40=@"";
@@ -821,6 +827,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             [roadconditionsegment setSelectedSegmentIndex:1];
             _6=@"Damp";
+             roadother.hidden=YES;
             roadother.text=@"";
             _40=@"";
         }
@@ -829,6 +836,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             [roadconditionsegment setSelectedSegmentIndex:2];
             _6=@"Wet";
             roadother.text=@"";
+             roadother.hidden=YES;
             _40=@"";
             
         }
@@ -837,6 +845,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             [roadconditionsegment setSelectedSegmentIndex:3];
             _6=@"Snow";
             roadother.text=@"";
+             roadother.hidden=YES;
             _40=@"";
             
         }
@@ -844,6 +853,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             [roadconditionsegment setSelectedSegmentIndex:4];
             _6=@"Ice";
+             roadother.hidden=YES;
             roadother.text=@"";
             _40=@"";
         }
@@ -862,6 +872,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             _6=@"Unknown";
             roadother.text=@"";
             _40=@"";
+             roadother.hidden=YES;
         }
         else {
             //no matches found
@@ -1152,7 +1163,6 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     //NSLog(@"estimee %@",estimatelabel.text);
   
     
-    
     NSLog(@"b value::%d",b);
     texty1=[claimno.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[adjustername.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -1166,21 +1176,22 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty10=[roadother.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty11=[anyoneincar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if(([anyoneincarlabel.text isEqual:@"Yes"] )&& (anyoneincar.hidden==NO))
+    if([anyoneincarlabel.text isEqual:@"Yes"] )
     {
-        a=[self onlyalphabetsexpress:texty11];
+        
     }
     else if(([anyoneincarlabel.text isEqual:@"No"] )&&(anyoneincar.hidden==YES))
     {
-        a=1;
+        anyoneincar.text=@"";
     }
     if(roadconditionsegment.selectedSegmentIndex==5){
-        _40=roadother.text;
-        b=[self onlyalphabetsexpress:texty10];
+      
         
     }
     else{
-        b=1;
+        roadother.text=@"";
+        _40=@"";
+       
     }
     if(([claimno.text length]!=0)&&
        ([adjustername.text length]!=0)&&
@@ -1198,6 +1209,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             if([self onlyalphabetsexpress:texty2]==1)
             {
+                if((([anyoneincar.text length]>0)&&([self validateNames:anyoneincar.text]==1))||([anyoneincar.text length]==0))
+                {
                 if([self onlyalphabetsexpress:texty3]==1)
                 {
                     if([self modelvalidate:texty4]==1)
@@ -1212,7 +1225,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     {
                                         if([self speedvalidate:texty9]==1)
                                         {
-                                            if(b==1){
+                                            
+                                                if((([roadother.text length]>0)&&([self validateNames:roadother.text]==1))||([roadother.text length]==0))
+                                                {
+                                                    
+                                               
+                                                
+                                          
+                                        
+
+                                        
                                                 c=1;
                                                 [recorddict setValue:_1 forKey:@"estimatelabel"];
                                                 [recorddict setValue:_2 forKey:@"wereyouthelabel"];
@@ -1240,86 +1262,82 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                 [recorddict setValue:speed.text forKey:@"speed"];
                                                 NSLog(@"record dict value in auto accident one:%@",recorddict);
                                                 [recorddict setValue:_5 forKey:@"timeofdaylabel"];
-                                                
-                                                if(a==1)
-                                                {
-                                                    [recorddict setValue:anyoneincar.text forKey:@"anyoneincar"];
-                                                    
+                                                 [recorddict setValue:anyoneincar.text forKey:@"anyoneincar"];
                                                 }
                                                 else{
                                                     c=0;
-                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter road condition text." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                 }
-                                                
-                                            }
-                                            else{
-                                                c=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter road condition text." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                            }
+                                            
                                             
                                         }
                                         
                                         else
                                         {
                                             c=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid speed." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid speed." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                         }
                                         
                                     }
                                     else
                                     {
                                         c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
                                 }
                                 else
                                 {
                                     c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid model." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid model." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
                             }
                             else
                             {
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid make." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid make." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                         }
                         else
                         {
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                         
                     }
                     else
                     {
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid model." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid model." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid make." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid make." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                }
+            }
+                else{
+                    c=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid anyone else in the car field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
                 
             }
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid adjuster's name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid adjuster's name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid claim no." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid claim no." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (c==1) {
         [self performSegueWithIdentifier:@"autoacc1" sender:self];

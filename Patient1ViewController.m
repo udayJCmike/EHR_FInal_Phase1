@@ -83,7 +83,7 @@ NSMutableArray *symptomresult;
         symptomresult=[resultset objectForKey:@"symptoms"];
         textview1.text=[symptomresult objectAtIndex:0];
         for (int j=1;j<[symptomresult count]; j++) {
-//            NSLog(@"method called");
+            //            NSLog(@"method called");
             [self addfields];
         }
         
@@ -549,7 +549,7 @@ NSMutableArray *symptomresult;
         Patient2ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-          destViewController.staff=staff;
+        destViewController.staff=staff;
         //            destViewController.delegate=self;
         
     }

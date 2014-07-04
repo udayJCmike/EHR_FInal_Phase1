@@ -77,7 +77,9 @@ int tagnumber;
         }
     }
     
-    
+    buttonx3.selected =YES;
+    [buttonx3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+    [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
     otherdis.hidden=YES;
     hazlist.text=@"";
     [switch1 setOn:YES animated:YES];
@@ -137,7 +139,9 @@ int tagnumber;
 {
     otherdis.hidden=YES;
     tagnumber = 0;
-    
+    buttonx3.selected =YES;
+    [buttonx3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+    [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     temp=[[NSMutableDictionary alloc]init];
@@ -159,6 +163,7 @@ int tagnumber;
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
+    
     
     [self Getdata];
 	// Do any additional setup after loading the view.
@@ -775,7 +780,7 @@ int tagnumber;
         reslabel1.text = @"No";
         hazlist.hidden=YES;
         plslisthide.hidden=YES;
-        hazlist.text=@" ";
+        
     }
 }
 
@@ -1095,6 +1100,7 @@ int tagnumber;
     }
     else
     {
+        otherdis.text=@"";
         [recorddict setObject:@"null" forKey:@"b35"];
         [recorddict setObject:@"" forKey:@"bother"];
     }
@@ -1141,34 +1147,16 @@ int tagnumber;
     
     
     
-    if((button35.selected)&&([otherdis.text length]!=0))
+    
+    if([reslabel1.text isEqual:@"Yes"] )
     {
         
-        a=1;
-        //  NSLog(@"entered %d",a);
-        
-    }
-    else if(!(button35.selected))
-    {
-        //        NSLog(@"else if");
-        a=1;
     }
     else
-        
     {
-        a=0;
+        hazlist.text=@"";
     }
-    if(([reslabel1.text isEqual:@"Yes"] )&& (hazlist.hidden==NO))
-    {
-        b =[self validateNames:[hazlist text]];
-    }
-    else if(([reslabel1.text isEqual:@"No"] )&&(hazlist.hidden==YES))
-    {
-        b =1;
-    }
-    else{
-        b=0;
-    }
+    
     temp1 =[surg.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[medhad.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -1181,80 +1169,79 @@ int tagnumber;
     if(([surg.text length]!=0)&&([medhad.text length]!=0)&&([date.text length]!=0)&&([patsign.text length]!=0)&&([dr.text length]!=0))
     {
         c=1;
-        if([self validateNames:temp1]==1)
+        if((([otherdis.text length]>0)&&([self validateNames:otherdis.text]==1))||([otherdis.text length]==0))
         {
-            if([self validateDate:[date text]]==1)
+            if([self validateNames:temp1]==1)
             {
-                if([self validateNames:temp2]==1)
+                if([self validateDate:[date text]]==1)
                 {
-                    if([self validateNames:temp3]==1)
+                    if([self validateNames:temp2]==1)
                     {
-                        if([self validateNames:temp4]==1)
+                        if((([hazlist.text length]>0)&&([self validateNames:hazlist.text]==1))||([hazlist.text length]==0))
                         {
-                            [recorddict setValue:patsign.text forKey:@"patsign"];
-                            
-                            [recorddict setValue:dr.text forKey:@"doctorname"];
-                            [recorddict setValue:surg.text forKey:@"majorillness"];
-                            [recorddict setValue:date.text forKey:@"majorillnessdate"];
-                            [recorddict setValue:medhad.text forKey:@"medicines"];
-                            [recorddict setValue:reslabel1.text forKey:@"hazardoussubstances"];
-                            [recorddict setValue:reslabel2.text forKey:@"femalepregnant"];
-                            if(a==1)
+                            if([self validateNames:temp3]==1)
                             {
-                                [recorddict setValue:otherdis.text forKey:@"Otherdisease"];
-                                if(b==1)
+                                if([self validateNames:temp4]==1)
                                 {
-                                    c=1;
+                                    [recorddict setValue:patsign.text forKey:@"patsign"];
+                                    
+                                    [recorddict setValue:dr.text forKey:@"doctorname"];
+                                    [recorddict setValue:surg.text forKey:@"majorillness"];
+                                    [recorddict setValue:date.text forKey:@"majorillnessdate"];
+                                    [recorddict setValue:medhad.text forKey:@"medicines"];
+                                    [recorddict setValue:reslabel1.text forKey:@"hazardoussubstances"];
+                                    [recorddict setValue:reslabel2.text forKey:@"femalepregnant"];
                                     [recorddict setValue:hazlist.text forKey:@"hazardouslist"];
+                                    [recorddict setValue:otherdis.text forKey:@"Otherdisease"];
+                                    
                                 }
                                 else
                                 {
                                     c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid hazardous substances." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid doctor name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
+                                
                             }
-                            else{
+                            else
+                            {
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid otherdisease name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
-                            
-                            
                         }
                         else
                         {
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid doctor name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid hazardous substances." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
-                        
                     }
-                    else
-                    {
+                    
+                    else{
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medicines." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
-                
-                else{
+                else
+                {
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid medicines." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
-            else
-            {
+            else{
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid surgeries or major illnesses." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else{
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid surgeries or major illnesses." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please  enter valid other disease name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
+        
     }
     else{
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
-    if((c==1)&&(a==1)&&(b==1))
+    if(c==1)
     {
         
         NSLog(@"submit full recorddict values %@",recorddict);
