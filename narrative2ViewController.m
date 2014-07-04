@@ -1,0 +1,1457 @@
+//
+//  narrative2ViewController.m
+//  narrative
+//
+//  Created by deemsys on 2/27/14.
+//  Copyright (c) 2014 deemsys. All rights reserved.
+//
+
+#import "narrative2ViewController.h"
+#import "narrative1ViewController.h"
+#import "narrative3ViewController.h"
+
+#import "TWMessageBarManager.h"
+#import "StringConstants.h"
+
+
+
+@interface narrative2ViewController ()
+
+@end
+
+@implementation narrative2ViewController
+@synthesize mutearray;
+@synthesize resultset;
+@synthesize  text1;
+@synthesize text2;
+@synthesize text3;
+@synthesize text4;
+@synthesize o1;
+@synthesize o2;
+@synthesize o3;
+@synthesize o4;
+@synthesize o5;
+@synthesize o6;
+@synthesize rs1;
+@synthesize rs2;
+@synthesize recorddict;
+@synthesize rs3;
+@synthesize rs4;
+@synthesize rs5;
+@synthesize rs6;
+@synthesize ls1;
+@synthesize ls2;
+@synthesize ls3;
+@synthesize ls4;
+@synthesize ls5;
+@synthesize ls6;
+@synthesize s1;
+@synthesize s2;
+@synthesize s3;
+@synthesize s4;
+@synthesize s5;
+@synthesize s6;
+@synthesize s7;
+@synthesize s8;
+@synthesize s9;
+@synthesize s10;
+@synthesize s11;
+@synthesize s12;
+@synthesize s13;
+@synthesize s14;
+@synthesize s15;
+@synthesize s16;
+@synthesize s17;
+@synthesize s18;
+@synthesize s18another;
+
+- (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
+{
+    self = [super init];
+    if (self)
+    {
+        [TWMessageBarManager sharedInstance].styleSheet = stylesheet;
+    }
+    return self;
+}
+
+- (id)init
+{
+    return [self initWithStyleSheet:nil];
+}
+
+
+
+
+-(BOOL)validateNames:(NSString *)country1
+{
+    NSString *countryFormat1 = @"[A-Za-z0-9._/-]+";
+    
+    [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
+    return [countryTest1 evaluateWithObject:country1];
+    
+}
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    
+    //NSLog(@"identifier %@",identifier);
+    if([identifier isEqual:@"narr3"])
+    {
+        if (a==1)
+        {
+            return YES;
+        }
+        else
+        {
+            
+            return NO;
+        }
+    }
+    else
+        return NO;
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"narr3"])
+    {
+        
+        narrative3ViewController *destViewController = [segue destinationViewController];
+        destViewController.recorddict=recorddict;
+        destViewController.resultset=resultset;
+        destViewController.mutearray=mutearray;
+        NSLog(@"recorddict in narrative second page %@",recorddict);
+    }
+    
+    
+}
+- (IBAction)s1:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s1l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s1l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s1l=@"Lumbar";
+    }
+}
+- (IBAction)s2:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s2l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s2l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s2l=@"Lumbar";
+    }
+    
+    
+}
+- (IBAction)s3:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s3l=@"Within Normal Limits";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s3l=@"Not Within Normal Limits";
+    }
+    
+    
+}
+- (IBAction)s4:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s4l=@"equal and intact and without incident";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s4l=@"hyporeflexic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s4l=@"hyperreflexic";
+    }
+    
+    
+}
+- (IBAction)s5:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s5l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s5l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s5l=@"Lumbar";
+    }
+    if ([sender selectedSegmentIndex]==3)
+    {
+        s5l=@"sacroilliac";
+    }
+    if ([sender selectedSegmentIndex]==4)
+    {
+        s5l=@"other";
+    }
+    
+    
+    
+}
+- (IBAction)s6:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s6l=@"two";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s6l=@"Three";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s6l=@"four";
+    }
+    if ([sender selectedSegmentIndex]==3)
+    {
+        s6l=@"five";
+    }
+    if ([sender selectedSegmentIndex]==4)
+    {
+        s6l=@"six";
+    }
+    if ([sender selectedSegmentIndex]==5)
+    {
+        s6l=@"seven";
+    }
+    
+}
+- (IBAction)s7:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s7l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s7l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s7l=@"Lumbar";
+    }
+    if ([sender selectedSegmentIndex]==3)
+    {
+        s7l=@"si";
+    }
+    if ([sender selectedSegmentIndex]==4)
+    {
+        s7l=@"other";
+    }
+}
+- (IBAction)s8:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s8l=@"two";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s8l=@"Three";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s8l=@"four";
+    }
+    if ([sender selectedSegmentIndex]==3)
+    {
+        s8l=@"five";
+    }
+    if ([sender selectedSegmentIndex]==4)
+    {
+        s8l=@"six";
+    }
+    if ([sender selectedSegmentIndex]==5)
+    {
+        s8l=@"seven";
+    }
+    
+    
+}
+- (IBAction)s9:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s9l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s9l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s9l=@"Lumbar";
+    }
+    if ([sender selectedSegmentIndex]==3)
+    {
+        s9l=@"si";
+    }
+    if ([sender selectedSegmentIndex]==4)
+    {
+        s9l=@"other";
+    }
+    
+    
+}
+- (IBAction)s10:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s10l=@"Negative for recent fracture";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s10l=@"dislocation of gross osteologis";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s10l=@"positive for fracture";
+    }
+    
+}
+- (IBAction)s11:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s11l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s11l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s11l=@"Lumbar";
+    }
+    
+}
+- (IBAction)s12:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s12l=@"hyperlordosis";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s12l=@"hypolordosis";
+    }
+    
+}
+- (IBAction)s13:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s13l=@"Not present";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s13l=@"present at the";
+    }
+    
+}
+- (IBAction)s14:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s14l=@"anterior";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s14l=@"thoracic";
+    }
+}
+- (IBAction)s15:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s15l=@"mild";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s15l=@"moderate";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s15l=@"severe";
+    }
+}
+- (IBAction)s16:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s16l=@"dextro";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s16l=@"levo";
+    }
+    
+}
+- (IBAction)s17:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s17l=@"scoliosis";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s17l=@"towering";
+    }
+}
+- (IBAction)s18:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s19l=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s19l=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s19l=@"Lumbar";
+    }
+    
+}
+- (IBAction)s18another:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        s18ll=@"Cervical";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        s18ll=@"Thoracic";
+    }
+    if ([sender selectedSegmentIndex]==2)
+    {
+        s18ll=@"Lumbar";
+    }
+    
+}
+- (IBAction)rs1:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs1l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs1l=@"Negative";
+    }
+    
+}
+- (IBAction)rs2:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs2l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs2l=@"Negative";
+    }
+}
+- (IBAction)rs3:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs3l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs3l=@"Negative";
+    }
+}
+- (IBAction)rs4:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs4l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs4l=@"Negative";
+    }
+}
+- (IBAction)rs5:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs5l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs5l=@"Negative";
+    }
+}
+- (IBAction)rs6:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        rs6l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        rs6l=@"Negative";
+    }
+}
+- (IBAction)ls1:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls1l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls1l=@"Negative";
+    }
+}
+- (IBAction)ls2:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls2l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls2l=@"Negative";
+    }
+}
+- (IBAction)ls3:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls3l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls3l=@"Negative";
+    }
+    
+}
+- (IBAction)ls4:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls4l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls4l=@"Negative";
+    }
+}
+- (IBAction)ls5:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls5l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls5l=@"Negative";
+    }
+}
+- (IBAction)ls6:(id)sender {
+    if ([sender selectedSegmentIndex]==0)
+    {
+        ls6l=@"Positive";
+    }
+    if ([sender selectedSegmentIndex]==1)
+    {
+        ls6l=@"Negative";
+    }
+}
+
+- (IBAction)next:(id)sender {
+    //recorddict=[[NSMutableDictionary alloc]init];
+    
+    a=1;
+    temp1 =[text1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp2 =[text2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp3 =[text3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp4 =[text4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp5 =[o1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp6 =[o2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp7 =[o3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp8 =[o4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp9 =[o5.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp10 =[o6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    
+    if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+    {
+        
+        if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
+        {
+            
+                    if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+                    {
+                        
+                        if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                        {
+                            if((([temp7 length]>0)&&([self validateNames:temp7 ]==1))||([temp7 length]==0))
+                            {
+                                if((([temp8 length]>0)&&([self validateNames:temp8 ]==1))||([temp8 length]==0))
+                                {
+                                    if((([temp9 length]>0)&&([self validateNames:temp9 ]==1))||([temp9 length]==0))
+                                    {
+                                        if((([temp10 length]>0)&&([self validateNames:temp10 ]==1))||([temp10 length]==0))
+                                        {
+                                            if((([temp3 length]>0)&&([self validateNames:temp3 ]==1))||([temp3 length]==0))
+                                            {
+                                                if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
+                                                {
+                                            [recorddict setValue:text1.text forKey:@"textl1"];
+                                            [recorddict setValue:text2.text forKey:@"textl2"];
+                                            [recorddict setValue:text3.text forKey:@"textl3"];
+                                            [recorddict setValue:text4.text forKey:@"textl4"];
+                                            [recorddict setValue:o1.text forKey:@"o1"];
+                                            [recorddict setValue:o2.text forKey:@"o2"];
+                                            [recorddict setValue:o3.text forKey:@"o3"];
+                                            [recorddict setValue:o4.text forKey:@"o4"];
+                                            [recorddict setValue:o5.text forKey:@"o5"];
+                                            [recorddict setValue:o6.text forKey:@"o6"];
+                                            
+                                            
+                                            [recorddict setValue:s1l forKey:@"s1r"];
+                                            [recorddict setValue:s2l forKey:@"s2r"];
+                                            [recorddict setValue:s3l forKey:@"s3r"];
+                                            [recorddict setValue:s4l forKey:@"s4r"];
+                                            [recorddict setValue:s5l forKey:@"s5r"];
+                                            [recorddict setValue:s6l forKey:@"s6r"];
+                                            [recorddict setValue:s7l forKey:@"s7r"];
+                                            [recorddict setValue:s8l forKey:@"s8r"];
+                                            [recorddict setValue:s9l forKey:@"s9r"];
+                                            [recorddict setValue:s10l forKey:@"s10r"];
+                                            
+                                            
+                                            
+                                            [recorddict setValue:s11l forKey:@"s11r"];
+                                            [recorddict setValue:s12l forKey:@"s12r"];
+                                            [recorddict setValue:s13l forKey:@"s13r"];
+                                            [recorddict setValue:s14l forKey:@"s14r"];
+                                            [recorddict setValue:s15l forKey:@"s15r"];
+                                            [recorddict setValue:s16l forKey:@"s16r"];
+                                            [recorddict setValue:s17l forKey:@"s17r"];
+                                            
+                                            
+                                            [recorddict setValue:s19l forKey:@"s18r"];
+                                            
+                                            [recorddict setValue:s18ll forKey:@"s19r"];
+                                            
+                                            
+                                            [recorddict setValue:rs1l forKey:@"rs1"];
+                                            [recorddict setValue:rs2l forKey:@"rs2"];
+                                            [recorddict setValue:rs3l forKey:@"rs3"];
+                                            [recorddict setValue:rs4l forKey:@"rs4"];
+                                            [recorddict setValue:rs5l forKey:@"rs5"];
+                                            [recorddict setValue:rs6l forKey:@"rs6"];
+                                            
+                                            [recorddict setValue:ls1l forKey:@"ls1"];
+                                            [recorddict setValue:ls2l forKey:@"ls2"];
+                                            [recorddict setValue:ls3l forKey:@"ls3"];
+                                            [recorddict setValue:ls4l forKey:@"ls4"];
+                                            [recorddict setValue:ls6l forKey:@"ls6"];
+                                            [recorddict setValue:ls5l forKey:@"ls5"];
+                                            
+                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                                }
+                                                else
+                                                {
+                                                    a=0;
+                                                    
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                   description:@"Enter valid present at field."
+                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                      callback:nil];
+                                                    
+                                                    
+                                                   
+                                                    
+                                                    
+                                                }
+                                            }
+                                            else
+                                            {
+                                                a=0;
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                               description:@"Enter valid osteophytes field."
+                                                                                                      type:TWMessageBarMessageTypeError
+                                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                  callback:nil];
+                                                
+                                                
+                                              
+                                                
+                                                
+                                            }
+
+                                            
+                                        }
+                                        
+                                        
+                                        
+                                        else
+                                        {
+                                            a=0;
+                                            
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Enter valid orthopedic test6."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        }
+                                    }
+                                    else
+                                    {
+                                        a=0;
+                                        
+                                        
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Enter valid orthopedic test5."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+                                        
+                                        
+                                      
+                                        
+                                    }
+                                }
+                                else
+                                {
+                                    a=0;
+                                    
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                   description:@"Enter valid  orthopedic test4."
+                                                                                          type:TWMessageBarMessageTypeError
+                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                      callback:nil];
+                                    
+                                    
+                                   
+                                    
+                                }
+                                
+                            }
+                            else
+                            {
+                                a=0;
+                                
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                               description:@"Enter valid  orthopedic test3."
+                                                                                      type:TWMessageBarMessageTypeError
+                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                  callback:nil];
+                                
+                                
+                              
+                                
+                            }
+                            
+                        }
+                        else
+                        {
+                            a=0;
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                           description:@"Enter valid orthopedic test2."
+                                                                                  type:TWMessageBarMessageTypeError
+                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                              callback:nil];
+                            
+                            
+                            
+                           
+                        }
+                        
+                    }
+                    else
+                    {
+                        a=0;
+                        
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                       description:@"Enter valid orthopedic test1."
+                                                                              type:TWMessageBarMessageTypeError
+                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                          callback:nil];
+                        
+                        
+                        
+                       
+                        
+                    }
+                    
+                    
+                        }
+        else
+        {
+            a=0;
+            
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                           description:@"Enter valid level field."
+                                                                  type:TWMessageBarMessageTypeError
+                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                              callback:nil];
+            
+           
+            
+            
+        }
+    }
+    else
+    {
+        a=0;
+        
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                       description:@"Enter valid dermatome level."
+                                                              type:TWMessageBarMessageTypeError
+                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                          callback:nil];
+        
+        
+       
+        
+        
+    }
+    if(a==1)
+    {
+        [self performSegueWithIdentifier:@"narr3" sender:self];
+    }
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    for (UIView *v in [self.view subviews])
+    {
+        if ([v isKindOfClass:[UITextField class]]) {
+            UITextField *textfield=(UITextField*)v;
+            textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
+        }
+    }
+    
+    s1l=@"Cervical";
+    s2l=@"Cervical";
+    s3l=@"Within Normal Limit";
+    s4l=@"equal and intact and without incident";
+    s5l=@"Cervical";
+    s6l=@"two";
+    s7l=@"Cervical";
+    s8l=@"two";
+    s9l=@"Cervical";
+    s10l=@"Negative for recent fracture";
+    s11l=@"Cervical";
+    s12l=@"hyperlordosis";
+    s13l=@"Not present";
+    s14l=@"anterior";
+    s15l=@"mild";
+    s16l=@"dextro";
+    s17l=@"scoliosis";
+    s19l=@"Cervical";
+    s18ll=@"Cervical";
+    rs1l=@"null";
+    rs2l=@"null";
+    rs3l=@"null";
+    rs4l=@"null";
+    rs5l=@"null";
+    rs6l=@"null";
+    
+    ls1l=@"null";
+    ls2l=@"null";
+    ls3l=@"null";
+    ls4l=@"null";
+    ls5l=@"null";
+    ls6l=@"null";
+	// Do any additional setup after loading the view.
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    
+    [self displaydata];
+    
+    
+	// Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)reset:(id)sender {
+    text1.text=@"";
+    text2.text=@"";
+    text3.text=@"";
+    text4.text=@"";
+    o1.text=@"";
+    o2.text=@"";
+    o3.text=@"";
+    o4.text=@"";
+    o5.text=@"";
+    o6.text=@"";
+    [s1 setSelectedSegmentIndex:0];
+    s1l=@"Cervical";
+    [s2 setSelectedSegmentIndex:0];
+    s2l=@"Cervical";
+    [s3 setSelectedSegmentIndex:0];
+    s3l=@"Within Normal Limits";
+    [s4 setSelectedSegmentIndex:0];
+    s4l=@"equal and intact and without incident";
+    [s5 setSelectedSegmentIndex:0];
+    s5l=@"Cervical";
+    [s6 setSelectedSegmentIndex:0];
+    s6l=@"two";
+    [s7 setSelectedSegmentIndex:0];
+    s7l=@"Cervical";
+    [s8 setSelectedSegmentIndex:0];
+    s8l=@"two";
+    [s9 setSelectedSegmentIndex:0];
+    s9l=@"Cervical";
+    [s10 setSelectedSegmentIndex:0];
+    s10l=@"Negative for recent fracture";
+    [s11 setSelectedSegmentIndex:0];
+    s11l=@"Cervical";
+    [s12 setSelectedSegmentIndex:0];
+    s12l=@"hyperlordosis";
+    [s13 setSelectedSegmentIndex:0];
+    s13l=@"Not present";
+    [s14 setSelectedSegmentIndex:0];
+    s14l=@"anterior";
+    [s15 setSelectedSegmentIndex:0];
+    s15l=@"mild";
+    [s16 setSelectedSegmentIndex:0];
+    s16l=@"dextro";
+    [s17 setSelectedSegmentIndex:0];
+    s17l=@"scoliosis";
+    [s18 setSelectedSegmentIndex:0];
+    s19l=@"Cervical";
+    [s18another setSelectedSegmentIndex:0];
+    s18ll=@"Cervical";
+    [rs1 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [rs2 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [rs3 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [rs4 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [rs5 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [rs6 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    
+    [ls1 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [ls2 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [ls3 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [ls4 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [ls5 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    [ls6 setSelectedSegmentIndex:UISegmentedControlNoSegment];
+    rs1l=@"null";
+    rs2l=@"null";
+    rs3l=@"null";
+    rs4l=@"null";
+    rs5l=@"null";
+    rs6l=@"null";
+    
+    ls1l=@"null";
+    ls2l=@"null";
+    ls3l=@"null";
+    ls4l=@"null";
+    ls5l=@"null";
+    ls6l=@"null";
+    
+}
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+}
+-(void)displaydata
+
+{
+    if([resultset count]>0)
+    {
+        text1.text=[resultset objectForKey:@"dermatome"];
+        text2.text=[resultset objectForKey:@"level"];
+        text3.text=[resultset objectForKey:@"osteophytes"];
+        text4.text=[resultset objectForKey:@"subluxations"];
+        o1.text=[resultset objectForKey:@"orthopedictest1"];
+        o2.text=[resultset objectForKey:@"orthopedictest2"];
+        o3.text=[resultset objectForKey:@"orthopedictest3"];
+        o4.text=[resultset objectForKey:@"orthopedictest4"];
+        o5.text=[resultset objectForKey:@"orthopedictest5"];
+        o6.text=[resultset objectForKey:@"orthopedictest6"];
+        if ([[resultset objectForKey:@"gender42"]isEqualToString:@"Cervical"])
+        {
+            [s1 setSelectedSegmentIndex:0];
+            s1l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender42"]isEqualToString:@"Thoracic"] )
+        {
+            [s1 setSelectedSegmentIndex:1];
+            s1l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender42"]isEqualToString:@"Lumbar"])
+        {
+            [s1 setSelectedSegmentIndex:2];
+            s1l=@"Lumbar";
+        }
+        if ([[resultset objectForKey:@"gender43"]isEqualToString:@"Cervical"])
+        {
+            [s2 setSelectedSegmentIndex:0];
+            s2l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender43"]isEqualToString:@"Thoracic"] )
+        {
+            [s2 setSelectedSegmentIndex:1];
+            s2l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender43"]isEqualToString:@"Lumbar"])
+        {
+            [s2 setSelectedSegmentIndex:2];
+            s2l=@"Lumbar";
+        }
+        if ( [[resultset objectForKey:@"gender44"]isEqualToString:@"Within Normal Limits"])
+        {
+            [s3 setSelectedSegmentIndex:0];
+            s3l=@"Within Normal Limits";
+        }
+        if ( [[resultset objectForKey:@"gender44"]isEqualToString:@"Not Within Normal Limits"])
+        {
+            [s3 setSelectedSegmentIndex:1];
+            s3l=@"Not Within Normal Limits" ;
+        }
+        
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"equal and intact and without incident"])
+        {
+            [s4 setSelectedSegmentIndex:0];
+            s4l=@"equal and intact and without incident";
+        }
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"hyporeflexic"])
+        {
+            [s4 setSelectedSegmentIndex:1];
+            s4l=@"hyporeflexic";
+        }
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"hyperreflexic"])
+        {
+            [s4 setSelectedSegmentIndex:2];
+            s4l=@"hyperreflexic";
+        }
+        if ([[resultset objectForKey:@"gender46"]isEqualToString:@"Cervical"])
+        {
+            [s5 setSelectedSegmentIndex:0];
+            s5l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender46"]isEqualToString:@"Thoracic"] )
+        {
+            [s5 setSelectedSegmentIndex:1];
+            s5l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"Lumbar"])
+        {
+            [s5 setSelectedSegmentIndex:2];
+            s5l=@"Lumbar";
+        }
+        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"sacroilliac"])
+        {
+            [s5 setSelectedSegmentIndex:3];
+            s5l=@"sacroilliac";
+        }
+        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"other"])
+        {
+            [s5 setSelectedSegmentIndex:4];
+            s5l=@"other";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"two"])
+        {
+            [s6 setSelectedSegmentIndex:0];
+            s6l=@"two";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Three"])
+        {
+            [s6 setSelectedSegmentIndex:1];
+            s6l=@"Three";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"four"])
+        {
+            [s6 setSelectedSegmentIndex:2];
+            s6l=@"four";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"five"])
+        {
+            [s6 setSelectedSegmentIndex:3];
+            s6l=@"five";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"six"])
+        {
+            [s6 setSelectedSegmentIndex:4];
+            s6l=@"six";
+        }
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"seven"])
+        {
+            [s6 setSelectedSegmentIndex:5];
+            s6l=@"seven";
+        }
+        if ([[resultset objectForKey:@"gender48"]isEqualToString:@"Cervical"])
+        {
+            [s7 setSelectedSegmentIndex:0];
+            s7l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender48"]isEqualToString:@"Thoracic"] )
+        {
+            [s7 setSelectedSegmentIndex:1];
+            s7l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"Lumbar"])
+        {
+            [s7 setSelectedSegmentIndex:2];
+            s7l=@"Lumbar";
+        }
+        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"si"])
+        {
+            [s7 setSelectedSegmentIndex:3];
+            s7l=@"si";
+        }
+        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"other"])
+        {
+            [s7 setSelectedSegmentIndex:4];
+            s7l=@"other";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"two"])
+        {
+            [s8 setSelectedSegmentIndex:0];
+            s8l=@"two";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Three"])
+        {
+            [s8 setSelectedSegmentIndex:1];
+            s8l=@"Three";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"four"])
+        {
+            [s8 setSelectedSegmentIndex:2];
+            s8l=@"four";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"five"])
+        {
+            [s8 setSelectedSegmentIndex:3];
+            s8l=@"five";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"six"])
+        {
+            [s8 setSelectedSegmentIndex:4];
+            s8l=@"six";
+        }
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"seven"])
+        {
+            [s8 setSelectedSegmentIndex:5];
+            s8l=@"seven";
+        }
+        if ([[resultset objectForKey:@"gender50"]isEqualToString:@"Cervical"])
+        {
+            [s9 setSelectedSegmentIndex:0];
+            s9l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender50"]isEqualToString:@"Thoracic"] )
+        {
+            [s9 setSelectedSegmentIndex:1];
+            s9l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"Lumbar"])
+        {
+            [s9 setSelectedSegmentIndex:2];
+            s9l=@"Lumbar";
+        }
+        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"si"])
+        {
+            [s9 setSelectedSegmentIndex:3];
+            s9l=@"si";
+        }
+        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"other"])
+        {
+            [s9 setSelectedSegmentIndex:4];
+            s9l=@"other";
+        }
+        if ( [[resultset objectForKey:@"gender51"]isEqualToString:@"Negative for recent fracture"])
+        {
+            [s10 setSelectedSegmentIndex:0];
+            s10l=@"Negative for recent fracture";
+        }
+        if( [[resultset objectForKey:@"gender51"]isEqualToString:@"dislocation of gross osteologis"])
+        {
+            [s10 setSelectedSegmentIndex:1];
+            s10l=@"dislocation of gross osteologis";
+        }
+        if ( [[resultset objectForKey:@"gender51"]isEqualToString:@"positive for fracture"])
+        {
+            [s10 setSelectedSegmentIndex:2];
+            s10l=@"positive for fracture";
+        }
+        
+        if ([[resultset objectForKey:@"gender52"]isEqualToString:@"Cervical"])
+        {
+            [s11 setSelectedSegmentIndex:0];
+            s11l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender52"]isEqualToString:@"Thoracic"] )
+        {
+            [s11 setSelectedSegmentIndex:1];
+            s11l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender52"]isEqualToString:@"Lumbar"])
+        {
+            [s11 setSelectedSegmentIndex:2];
+            s11l=@"Lumbar";
+        }
+        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"hyperlordosis"])
+        {
+            [s12 setSelectedSegmentIndex:0];
+            s12l=@"hyperlordosis";
+        }
+        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"hypolordosis"])
+        {
+            [s12 setSelectedSegmentIndex:1];
+            s12l=@"hypolordosis";
+        }
+        if ( [[resultset objectForKey:@"gender54"]isEqualToString:@"Not present"])
+        {
+            [s13 setSelectedSegmentIndex:0];
+            s13l=@"Not present";
+        }
+        if ( [[resultset objectForKey:@"gender54"]isEqualToString:@"present at the"])
+        {
+            [s13 setSelectedSegmentIndex:1];
+            s13l=@"present at the";
+        }
+        if ( [[resultset objectForKey:@"gender55"]isEqualToString:@"anterior"])
+        {
+            [s14 setSelectedSegmentIndex:0];
+            s14l=@"anterior";
+        }
+        if ([[resultset objectForKey:@"gender55"]isEqualToString:@"thoracic"] )
+        {
+            [s14 setSelectedSegmentIndex:1];
+            s14l=@"thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"mild"])
+        {
+            [s15 setSelectedSegmentIndex:0];
+            s15l=@"mild";
+        }
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"moderate"])
+        {
+            [s15 setSelectedSegmentIndex:1];
+            s15l=@"moderate";
+        }
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"severe"])
+        {
+            [s15 setSelectedSegmentIndex:2];
+            s15l=@"severe";
+        }
+        if ( [[resultset objectForKey:@"gender57"]isEqualToString:@"dextro"])
+        {
+            [s16 setSelectedSegmentIndex:0];
+            s16l=@"dextro";
+        }
+        if ( [[resultset objectForKey:@"gender57"]isEqualToString:@"levo"])
+        {
+            [s16 setSelectedSegmentIndex:1];
+            s16l=@"levo";
+        }
+        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"scoliosis"])
+        {
+            [s17 setSelectedSegmentIndex:0];
+            s17l=@"scoliosis";
+        }
+        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"towering"])
+        {
+            [s17 setSelectedSegmentIndex:1];
+            s17l=@"towering";
+        }
+        if ([[resultset objectForKey:@"gender59"]isEqualToString:@"Cervical"])
+        {
+            [s18 setSelectedSegmentIndex:0];
+            s19l=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender59"]isEqualToString:@"Thoracic"] )
+        {
+            [s18 setSelectedSegmentIndex:1];
+            s19l=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender59"]isEqualToString:@"Lumbar"])
+        {
+            [s18 setSelectedSegmentIndex:2];
+            s19l=@"Lumbar";
+        }
+        if ([[resultset objectForKey:@"gender60"]isEqualToString:@"Cervical"])
+        {
+            [s18another setSelectedSegmentIndex:0];
+            s18ll=@"Cervical";
+        }
+        if ([[resultset objectForKey:@"gender60"]isEqualToString:@"Thoracic"] )
+        {
+            [s18another setSelectedSegmentIndex:1];
+            s18ll=@"Thoracic";
+        }
+        if ( [[resultset objectForKey:@"gender60"]isEqualToString:@"Lumbar"])
+        {
+            [s18another setSelectedSegmentIndex:2];
+            s18ll=@"Lumbar";
+        }
+        if ([[resultset objectForKey:@"jacksonsr"]isEqualToString:@"Positive"])
+        {
+            [rs1 setSelectedSegmentIndex:0];
+            rs1l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"jacksonsr"]isEqualToString:@"Negative"])
+        {
+            [rs1 setSelectedSegmentIndex:1];
+            rs1l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"doublelegraiser"]isEqualToString:@"Positive"])
+        {
+            [rs2 setSelectedSegmentIndex:0];
+            rs2l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"doublelegraiser"]isEqualToString:@"Negative"])
+        {
+            [rs2 setSelectedSegmentIndex:1];
+            rs2l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"yeomansr"]isEqualToString:@"Positive"])
+        {
+            [rs3 setSelectedSegmentIndex:0];
+            rs3l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"yeomansr"]isEqualToString:@"Negative"])
+        {
+            [rs3 setSelectedSegmentIndex:1];
+            rs3l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"foraminalr"]isEqualToString:@"Positive"])
+        {
+            [rs4 setSelectedSegmentIndex:0];
+            rs4l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"foraminalr"]isEqualToString:@"Negative"])
+        {
+            [rs4 setSelectedSegmentIndex:1];
+            rs4l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"shoulderr"]isEqualToString:@"Positive"])
+        {
+            [rs5 setSelectedSegmentIndex:0];
+            rs5l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"shoulderr"]isEqualToString:@"Negative"])
+        {
+            [rs5 setSelectedSegmentIndex:1];
+            rs5l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"orthopedicr"]isEqualToString:@"Positive"])
+        {
+            [rs6 setSelectedSegmentIndex:0];
+            rs6l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"orthopedicr"]isEqualToString:@"Negative"])
+        {
+            [rs6 setSelectedSegmentIndex:1];
+            rs6l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"jacksonsl"]isEqualToString:@"Positive"])
+        {
+            [ls1 setSelectedSegmentIndex:0];
+            ls1l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"jacksonsl"]isEqualToString:@"Negative"])
+        {
+            [ls1 setSelectedSegmentIndex:1];
+            
+            ls1l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"doublelegraisel"]isEqualToString:@"Positive"])
+        {
+            [ls2 setSelectedSegmentIndex:0];
+            ls2l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"doublelegraisel"]isEqualToString:@"Negative"])
+        {
+            [ls2 setSelectedSegmentIndex:1];
+            ls2l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"yeomansl"]isEqualToString:@"Positive"])
+        {
+            [ls3 setSelectedSegmentIndex:0];
+            ls3l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"yeomansl"]isEqualToString:@"Negative"])
+        {
+            [ls3 setSelectedSegmentIndex:1];
+            ls3l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"foraminall"]isEqualToString:@"Positive"])
+        {
+            [ls4 setSelectedSegmentIndex:0];
+            ls4l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"foraminall"]isEqualToString:@"Negative"])
+        {
+            [ls4 setSelectedSegmentIndex:1];
+            ls4l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"shoulderl"]isEqualToString:@"Positive"])
+        {
+            [ls5 setSelectedSegmentIndex:0];
+            ls5l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"shoulderl"]isEqualToString:@"Negative"])
+        {
+            [ls5 setSelectedSegmentIndex:1];
+            ls5l=@"Negative";
+        }
+        if ([[resultset objectForKey:@"orthopedicl"]isEqualToString:@"Positive"])
+        {
+            [ls6 setSelectedSegmentIndex:0];
+            ls6l=@"Positive";
+        }
+        if ([[resultset objectForKey:@"orthopedicl"]isEqualToString:@"Negative"])
+        {
+            [ls6 setSelectedSegmentIndex:1];
+            ls6l=@"Negative";
+        }
+    }
+    
+}
+-(void)dismissKeyboard
+{
+    [text1 resignFirstResponder];
+    [text2 resignFirstResponder];
+    [text3 resignFirstResponder];
+    [text4 resignFirstResponder];
+    [o1 resignFirstResponder];
+    [o2 resignFirstResponder];
+    [o3 resignFirstResponder];
+    [o4 resignFirstResponder];
+    [o5 resignFirstResponder];
+    [o6 resignFirstResponder];
+    
+    
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    
+    
+    [super dealloc];
+}
+@end
