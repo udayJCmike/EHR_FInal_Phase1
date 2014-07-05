@@ -133,6 +133,9 @@
     
     
 }
+- (IBAction)patient:(id)sender {
+       [self performSegueWithIdentifier:@"welcometopatientinfo" sender:self];
+}
 -(void)selectage
 {
     

@@ -14,7 +14,7 @@
 
 @interface oswestrydisability2ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate>
 {
-    int c;
+    
     int aa,bb,result,cc;
     float exe;
     

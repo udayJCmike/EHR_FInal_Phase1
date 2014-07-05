@@ -15,7 +15,9 @@
 
 
 @interface AutoAccidentViewController3 ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation AutoAccidentViewController3
@@ -300,6 +302,7 @@ int a,b,c,d;
 
 -(IBAction)submit:(id)sender;
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     
@@ -455,23 +458,23 @@ int a,b,c,d;
     // texty11=[other7.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // texty12=[other8.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     c=1;
-    if((([accidentother.text length]>0)&&([self onlyalphanumericvalidate:accidentother.text]==1))||([accidentother.text length]==0))
+    if((([accidentother.text length]>0)&&([du otherfields:accidentother.text]==1))||([accidentother.text length]==0))
     {
-        if((([symptomshours.text length]>0)&&([self onlyalphanumericvalidate:symptomshours.text]==1))||([symptomshours.text length]==0))
+        if((([symptomshours.text length]>0)&&([du percentage:symptomshours.text]==1))||([symptomshours.text length]==0))
         {
-            if((([afteraccidentother.text length]>0)&&([self onlyalphanumericvalidate:afteraccidentother.text]==1))||([afteraccidentother.text length]==0))
+            if((([afteraccidentother.text length]>0)&&([du otherfields:afteraccidentother.text]==1))||([afteraccidentother.text length]==0))
             {
-                if((([hospitalname.text length]>0)&&([self onlyalphanumericvalidate:hospitalname.text]==1))||([hospitalname.text length]==0))
+                if((([hospitalname.text length]>0)&&([du patname:hospitalname.text]==1))||([hospitalname.text length]==0))
                 {
-                    if((([hospitalcity.text length]>0)&&([self onlyalphanumericvalidate:hospitalcity.text]==1))||([hospitalcity.text length]==0))
+                    if((([hospitalcity.text length]>0)&&([du patname:hospitalcity.text]==1))||([hospitalcity.text length]==0))
                     {
-                        if((([hospitalstay.text length]>0)&&([self onlyalphanumericvalidate:hospitalstay.text]==1))||([hospitalstay.text length]==0))
+                        if((([hospitalstay.text length]>0)&&([du percentage:hospitalstay.text]==1))||([hospitalstay.text length]==0))
                         {
-                            if((([hospitalgoingother.text length]>0)&&([self onlyalphanumericvalidate:hospitalgoingother.text]==1))||([hospitalgoingother.text length]==0))
+                            if((([hospitalgoingother.text length]>0)&&([du otherfields:hospitalgoingother.text]==1))||([hospitalgoingother.text length]==0))
                             {
-                                if((([treatmentgiven.text length]>0)&&([self onlyalphanumericvalidate:treatmentgiven.text]==1))||([treatmentgiven.text length]==0))
+                                if((([treatmentgiven.text length]>0)&&([du otherfields:treatmentgiven.text]==1))||([treatmentgiven.text length]==0))
                                 {
-                                    if((([waswrong.text length]>0)&&([self onlyalphanumericvalidate:waswrong.text]==1))||([waswrong.text length]==0))
+                                    if((([waswrong.text length]>0)&&([du otherfields:waswrong.text]==1))||([waswrong.text length]==0))
                                     {
                                         c=1;
                                         [recorddict setValue:anyoneciteswitchlabel.text forKey:@"anyonesited"];

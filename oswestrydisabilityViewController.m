@@ -14,7 +14,9 @@
 #import "JSON.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface oswestrydisabilityViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation oswestrydisabilityViewController

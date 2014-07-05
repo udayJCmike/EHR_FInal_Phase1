@@ -12,7 +12,9 @@
 #import "databaseurl.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface oswestrydisability3ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation oswestrydisability3ViewController
@@ -750,7 +752,8 @@
 - (IBAction)save:(id)sender
 {
     int move=1;
-    if((([sport.text length]>0)&&([self validatePNames:sport.text]==1))||([sport.text length]==0))
+    du=[[databaseurl alloc]init];
+    if((([sport.text length]>0)&&([du otherfields:sport.text]==1))||([sport.text length]==0))
     {
         [recorddict setValue:sport.text forKey:@"sport"];
         

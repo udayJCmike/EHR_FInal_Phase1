@@ -362,6 +362,8 @@
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     
     name.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
@@ -403,7 +405,7 @@
     @finally {
         
     }
-
+    
 }
 -(void)Getdata
 {
@@ -890,22 +892,22 @@
 
 -(IBAction)saveandcontinue:(id)sender
 {
-    temp1 =[name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[todaydate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 =[streetaddress.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[homeph.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[city.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6 =[cellph.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7 =[state.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8 =[zip.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[pager.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp10=[socialsecnum.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp11=[spousename.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp12=[spouseemp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp13=[spouseph.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp14=[relativeph.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp15=[relativename.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp16 = [fromd.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =name.text;
+    temp2 =todaydate.text;
+    temp3 =streetaddress.text;
+    temp4 =homeph.text;
+    temp5 =city.text;
+    temp6 =cellph.text;
+    temp7 =state.text;
+    temp8 =zip.text;
+    temp9=pager.text;
+    temp10=socialsecnum.text;
+    temp11=spousename.text;
+    temp12=spouseemp.text;
+    temp13=spouseph.text;
+    temp14=relativeph.text;
+    temp15=relativename.text;
+    temp16 = fromd.text;
     
     
     if(([name.text length]!=0)&&
@@ -919,15 +921,7 @@
        ([pager.text length]!=0)&&
        ([socialsecnum.text length]!=0)&&
        ([fromd.text length]!=0)&&
-       //([occ.text length]!=0)&&
-       //([empadd.text length]!=0)&&
-       //([workph.text length]!=0)&&
-       ///([workcity.text length]!=0)&&
-       //([workstate.text length]!=0)&&
-       //([workzip.text length]!=0)&&
-       //       ([spousename.text length]!=0)&&
-       //       ([spouseemp.text length]!=0)&&
-       //       ([spouseph.text length]!=0)&&
+       
        ([relativeph.text length]!=0)&&
        
        ([resLabel.text length]!=0)&&
@@ -953,37 +947,37 @@
         
         
         
-        if ([self validateNames:temp1]==1)
+        if ([du patname:temp1]==1)
         {
-            if([self validatePNames:temp3]==1)
+            if([du address:temp3]==1)
             {
-                if([self validateMobile:temp4]==1)
+                if([du mobilenumber:temp4]==1)
                 {
-                    if([self validateMobile:temp6]==1)
+                    if([du mobilenumber:temp6]==1)
                     {
-                        if([self validateNames:temp5]==1)
+                        if([du otherfields:temp5]==1)
                         {
-                            if([self validateNames:temp7]==1)
+                            if([du otherfields:temp7]==1)
                             {
-                                if([self validateZip:temp8]==1)
+                                if([du zipcode:temp8]==1)
                                 {
-                                    if([self validatessn:temp10]==1)
+                                    if([du ssn:temp10]==1)
                                     {
                                         
-                                        if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0)||(![marital.text isEqualToString:@"Single"]))
+                                        if((([temp11 length]>0)&&([du patname:temp11]==1))||([temp11 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                         {
-                                            if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0)||(![marital.text isEqualToString:@"Single"]))
+                                            if((([temp12 length]>0)&&([du otherfields:temp12]==1))||([temp12 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                             {
-                                                if((([temp13 length]>0)&&([self validateMobile:temp13]==1))||([temp13 length]==0)||(![marital.text isEqualToString:@"Single"]))
+                                                if((([temp13 length]>0)&&([du mobilenumber:temp13]==1))||([temp13 length]==0)||(![marital.text isEqualToString:@"Single"]))
                                                 {
                                                     
-                                                    if([self validateMobile:temp14]==1)
+                                                    if([du mobilenumber:temp14]==1)
                                                     {
                                                         if ([self validateDate:temp2]==1)
                                                         {
-                                                            if([self validateEmail:temp9]==1)
+                                                            if([du email:temp9]==1)
                                                             {
-                                                                if ([self validateNames:temp15]==1)
+                                                                if ([du patname:temp15]==1)
                                                                 {
                                                                     if ([self validateDate:temp16]==1)
                                                                     {

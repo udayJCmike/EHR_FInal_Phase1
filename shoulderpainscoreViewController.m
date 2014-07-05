@@ -14,7 +14,9 @@
 #import "JSON.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface shoulderpainscoreViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation shoulderpainscoreViewController
@@ -728,6 +730,7 @@
 - (IBAction)next:(id)sender
 {
     a=1;
+     du=[[databaseurl alloc]init];
     temp1 = [patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 = [number.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp3 = [fdate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -744,10 +747,10 @@
        //([temp2 length]!=0)&&
        ([temp3 length]!=0))
     {
-        if ([self validatePNames:temp1]==1) {
-           if((([temp2 length]>0)&&([self validateNumber:temp2]==1))||([temp2 length]==0))
+        if ([du patname:patname.text]==1) {
+            if((([temp2 length]>0)&&([du date:temp2]==1))||([temp2 length]==0))
             {
-                if ([self validateDate:temp3]==1)
+                if ([du dateexpress:fdate.text]==1)
                 {
                     
                     [recorddict setValue:fdate.text forKey:@"fdate"];

@@ -222,6 +222,7 @@
 		84903934194C11AE0017263C /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 84903931194C11AE0017263C /* Recipe.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84903935194C11AE0017263C /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84903933194C11AE0017263C /* RecipeTableCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84903937194C11B50017263C /* patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 84903936194C11B50017263C /* patient.png */; };
+		8490FAB91967CD3B0083CE98 /* athterisk-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490FAB81967CD3B0083CE98 /* athterisk-red.png */; };
 		8496B2B319225C5F00D4428A /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B219225C5F00D4428A /* SBJSON.m */; };
 		8496B2BA19225C7300D4428A /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B519225C7300D4428A /* SBJsonBase.m */; };
 		8496B2BB19225C7300D4428A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B719225C7300D4428A /* SBJsonParser.m */; };
@@ -617,6 +618,7 @@
 		84903932194C11AE0017263C /* RecipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableCell.h; sourceTree = "<group>"; };
 		84903933194C11AE0017263C /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
 		84903936194C11B50017263C /* patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient.png; sourceTree = "<group>"; };
+		8490FAB81967CD3B0083CE98 /* athterisk-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "athterisk-red.png"; sourceTree = "<group>"; };
 		8496B2B119225C5F00D4428A /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		8496B2B219225C5F00D4428A /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
 		8496B2B419225C7300D4428A /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
@@ -1305,6 +1307,7 @@
 		0D9D0EAD17FDAD1B00E93F81 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8490FAB81967CD3B0083CE98 /* athterisk-red.png */,
 				00B8E80419413E3500D95F9E /* EHR button images */,
 				0D2EAB521802D101004F5859 /* logo.png */,
 				0D6799941818EE8B00BDC1FC /* regist.png */,
@@ -1805,6 +1808,7 @@
 				84987A551953F5F500CB4136 /* icon-info@2x.png in Resources */,
 				0D5C0EEC18D0689300556BF2 /* left_arrow@2x.png in Resources */,
 				848F0EF8195AB865003B6427 /* stabbing.png in Resources */,
+				8490FAB91967CD3B0083CE98 /* athterisk-red.png in Resources */,
 				0DCD15EE17FD4F5200748DD7 /* Images.xcassets in Resources */,
 				84987A531953F5F500CB4136 /* icon-error@2x.png in Resources */,
 				0D2EAB541802D101004F5859 /* logo.png in Resources */,

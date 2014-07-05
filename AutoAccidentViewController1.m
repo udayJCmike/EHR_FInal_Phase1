@@ -14,6 +14,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface AutoAccidentViewController1 ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -1162,7 +1165,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     //NSLog(@"estimee %@",estimatelabel.text);
   
-    
+    du=[[databaseurl alloc]init];
     NSLog(@"b value::%d",b);
     texty1=[claimno.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[adjustername.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -1205,28 +1208,28 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     {
         c=1;
         
-        if ([self claimnovalidate:claimno.text]==1)
+        if ([du formreg:claimno.text]==1)
         {
-            if([self onlyalphabetsexpress:texty2]==1)
+            if([du patname:adjustername.text]==1)
             {
-                if((([anyoneincar.text length]>0)&&([self validateNames:anyoneincar.text]==1))||([anyoneincar.text length]==0))
+                if((([anyoneincar.text length]>0)&&([du otherfields:anyoneincar.text]==1))||([anyoneincar.text length]==0))
                 {
-                if([self onlyalphabetsexpress:texty3]==1)
+                if([du otherfields:mymake.text]==1)
                 {
-                    if([self modelvalidate:texty4]==1)
+                    if([du otherfields:mymodel.text]==1)
                     {
-                        if([self yearvalidate:texty5]==1)
+                        if([du year:myyear.text]==1)
                         {
-                            if([self onlyalphabetsexpress:texty6]==1)
+                            if([du otherfields:othermake.text]==1)
                             {
-                                if([self onlyalphabetsexpress:texty7]==1)
+                                if([du otherfields:othermodel.text]==1)
                                 {
-                                    if([self yearvalidate:texty8]==1)
+                                    if([du year:otheryear.text]==1)
                                     {
-                                        if([self speedvalidate:texty9]==1)
+                                        if([self speedvalidate:speed.text]==1)
                                         {
                                             
-                                                if((([roadother.text length]>0)&&([self validateNames:roadother.text]==1))||([roadother.text length]==0))
+                                                if((([roadother.text length]>0)&&([du otherfields:roadother.text]==1))||([roadother.text length]==0))
                                                 {
                                                     
                                                

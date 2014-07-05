@@ -10,7 +10,9 @@
 #import "shoulderpainscore2ViewController.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface shoulderpainscore1ViewController ()
-
+{
+    databaseurl*du;
+}
 @end
 
 @implementation shoulderpainscore1ViewController
@@ -407,6 +409,7 @@
 - (IBAction)next:(id)sender
 {
     a=1;
+     du=[[databaseurl alloc]init];
     temp1 = [date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 = [scoretotal.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp3 = [f48.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -431,14 +434,14 @@
       // &&([temp5 length]!=0)
        )
     {
-        if ([self validateDate:temp1]==1) {
-            if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
+        if ([du dateexpress:date.text]==1) {
+            if((([scoretotal.text length]>0)&&([du date:scoretotal.text]==1))||([scoretotal.text length]==0))
             {
-                if((([temp3 length]>0)&&([self validateNames:temp3]==1))||([temp3 length]==0))
+                if((([f48.text length]>0)&&([du date:f48.text]==1))||([f48.text length]==0))
                 {
-                    if ([self validatePNames:temp4]==1)
+                    if ([du patname:name.text]==1)
                     {
-                       if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+                       if((([age.text length]>0)&&([du age:age.text]==1))||([age.text length]==0))
                         {
                             [recorddict setValue:date.text forKey:@"date"];
                             [recorddict setValue:scoretotal.text forKey:@"scoretotal"];

@@ -13,7 +13,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface FootAnkleViewController3 ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation FootAnkleViewController3
@@ -473,17 +475,18 @@
 - (IBAction)next:(id)sender {
     //
     suc=0;
+    du=[[databaseurl alloc]init];
     texty19=[datey.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty20=[birthdate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty21=[ssn.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if([datey.text length]!=0&&[birthdate.text length]!=0&&[ssn.text length]!=0)
     {
         suc=1;
-        if([datey.text length]==0||([self validateDate:texty19]==1))
+        if([datey.text length]==0||([du dateexpress:datey.text]==1))
         {
-            if([birthdate.text length]==0||([self validateDate:texty20]==1))
+            if([birthdate.text length]==0||([du dateexpress:birthdate.text]==1))
             {
-                if([ssn.text length]==0||([self validatessn:texty21]==1))
+                if([ssn.text length]==0||([du ssn:ssn.text]==1))
                 {
                     
                     suc=1;
@@ -502,22 +505,22 @@
                 }
                 else{
                     suc=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid socialsecuritynumber." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid social security number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else{
                 suc=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date of birth field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date of birth." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else{
             suc=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else{
         suc=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (suc==1) {
         

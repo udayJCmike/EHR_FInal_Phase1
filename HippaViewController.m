@@ -14,7 +14,9 @@
 #import "WelcomeViewController.h"
 #import "staffautocheckViewController.h"
 @interface HippaViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation HippaViewController
@@ -96,7 +98,7 @@ int a;
 }
 -(IBAction)submit:(id)sender
 {
-    
+    du=[[databaseurl alloc]init];
     NSString *text1,*text2,*text3,*text4,*text5;
     
     text1=[effectivedate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -112,58 +114,60 @@ int a;
         
     {
         a=1;
-        if ([self validatePNames:text2]==1)
+        if([du dateexpress:date.text]==1)
         {
-            if([self onlyalphabetsexpress:text3]==1)
+        if ([du patname:name.text]==1)
+        {
+            if([du patname:sign.text]==1)
             {
-                if([self onlyalphabetsexpress:text4]==1)
+                if([du patname:witness.text]==1)
                 {
-                    if([self dateexpress:text5]==1)
+                    if([du dateexpress:date.text]==1)
                     {
-                        if([self dateexpress:text1]==1)
-                        {
+                        
                             a=1;
                             [recorddict setValue:effectivedate.text forKey:@"effectivedate"];
                             [recorddict setValue:name.text forKey:@"name"];
                             [recorddict setValue:sign.text forKey:@"sign"];
                             [recorddict setValue:witness.text forKey:@"witness"];
                             [recorddict setValue:date.text forKey:@"date"];
-                        }
-                        else
-                        {
-                            a=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid effective date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                        }
+                        
                         
                     }
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid witness name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid witness name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid parent/guardian signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid parent/guardian signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        }
+        }
+        else
+        {
+            a=0;
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid effective date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

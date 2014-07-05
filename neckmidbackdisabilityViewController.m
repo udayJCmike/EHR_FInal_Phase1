@@ -15,7 +15,9 @@
 #import "JSON.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface neckmidbackdisabilityViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation neckmidbackdisabilityViewController
@@ -746,6 +748,7 @@
 - (IBAction)nextaction:(id)sender
 {
     c=1;
+    du=[[databaseurl alloc]init];
     NSInteger a = [val1 integerValue];
     NSInteger a1=[val2 integerValue];
     NSInteger a2 = [val3 integerValue];
@@ -761,9 +764,9 @@
     tempp2 = [date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (([tempp1 length]>0)&&([tempp2 length]>0))
     {
-        if ([self validatePNames:tempp1]==1)
+        if ([du patname:tempp1]==1)
         {
-            if ([self validateDate:tempp2]==1)
+            if ([du dateexpress:tempp2]==1)
             {
                 
                 

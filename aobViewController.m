@@ -13,7 +13,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface aobViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation aobViewController
@@ -93,7 +95,7 @@ int a;
 -(IBAction)submit:(id)sender
 {
     recorddict=[[NSMutableDictionary alloc]init];
-    
+    du=[[databaseurl alloc]init];
     NSString *text1,*text2,*text3,*text4,*text5,*text6,*text7,*text8,*text9,*text10;
     
     text1=[day.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -123,34 +125,34 @@ int a;
         
     {
         a=1;
-        if ([self number:text1]==1)
+        if ([du otherfields:day.text]==1)
         {
-            if([self number:text2]==1)
+            if([du otherfields:year.text]==1)
                 
             {
-                if([self number:text9]==1)
+                if([du otherfields:newy.text]==1)
                 {
                     
-                    if([self number:text3]==1)
+                    if([du otherfields:nextday.text]==1)
                     {
-                        if([self number:text10]==1)
+                        if([du otherfields:month1.text]==1)
                         {
                             
-                            if([self validatePNames:text4]==1)
+                            if([du patname:patientname.text]==1)
                             {
-                                if ([self onlyalphabetsexpress:text5]==1)
+                                if ([du patname:patientsign.text]==1)
                                 {
-                                    if([self onlyalphabetsexpress:text6]==1)
+                                    if([du patname:custodialparent.text]==1)
                                     {
-                                        if([self onlyalphabetsexpress:text7]==1)
+                                        if([du patname:guardsign.text]==1)
                                         {
-                                            if([self onlyalphabetsexpress:text8]==1)
+                                            if([du patname:perrychiro.text]==1)
                                             {
-                                                if ([self dateexpress:[date1 text]]==1)
+                                                if ([du dateexpress:[date1 text]]==1)
                                                 {
-                                                    if([self dateexpress:[date2 text]]==1)
+                                                    if([du dateexpress:[date2 text]]==1)
                                                     {
-                                                        if([self dateexpress:[date3 text]]==1)
+                                                        if([du dateexpress:[date3 text]]==1)
                                                         {
                                                             
                                                             a=1;
@@ -173,92 +175,92 @@ int a;
                                                         else
                                                         {
                                                             a=0;
-                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                         }
                                                     }
                                                     else
                                                     {
                                                         a=0;
-                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                     }
                                                 }
                                                 else
                                                 {a=0;
-                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                                 }
                                             }
                                             else
                                             {
                                                 a=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid parent/guardian name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid representative signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                             }
                                         }
                                         else
                                         {
                                             a=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid center representative signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid center parent/guardian name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                         }
                                     }
                                     
                                     else
                                     {
                                         a=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter Valid legal guardian/custodial parent name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid legal guardian/custodial parent name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
                                 }
                                 
                                 else
                                 {
                                     a=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                 }
                             }
                             
                             else
                             {
                                 a=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                             
                         }
                         else
                         {
                             a=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid month." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid month." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                     }
                     
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid day." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid day." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid claimant year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid claimant year." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid month." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid month." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid day." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid day." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

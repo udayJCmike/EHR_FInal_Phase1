@@ -14,7 +14,9 @@
 #import "JSON.h"
 #import "QuadrupleVisualAnalogueScale.h"
 @interface wristandhanddisability2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation wristandhanddisability2ViewController

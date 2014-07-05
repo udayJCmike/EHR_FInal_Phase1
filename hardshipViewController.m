@@ -16,6 +16,9 @@
 #import "staffautocheckViewController.h"
 @interface hardshipViewController ()
 
+{
+    databaseurl *du;
+}
 @end
 
 @implementation hardshipViewController
@@ -89,6 +92,7 @@ int a;
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     NSString *text1,*text2,*text3,*text4;
     
     text1=[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -103,13 +107,13 @@ int a;
         
     {
         a=1;
-        if ([self validatePNames:text2]==1)
+        if ([du dateexpress:text1]==1)
         {
-            if([self dateexpress:text1]==1)
+            if([du patname:text2]==1)
             {
-                if([self onlyalphabetsexpress:text3]==1)
+                if([du patname:text3]==1)
                 {
-                    if([self onlyalphabetsexpress:text4]==1)
+                    if([du patname:text4]==1)
                     {
                         
                         a=1;
@@ -123,31 +127,31 @@ int a;
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid witness name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid witness name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid sign." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

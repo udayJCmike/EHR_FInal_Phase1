@@ -13,7 +13,9 @@
 #import "staffautocheckViewController.h"
 #import "SampleViewController.h"
 @interface Patient2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation Patient2ViewController
@@ -424,17 +426,7 @@
 {
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
-    if(([resLabel4.text isEqual:@"Yes"] )&& (optwhen.hidden==NO))
-    {
-        a=[self validateDate:[optwhen text]];
-    }
-    else if(([resLabel4.text isEqual:@"No"] )&&(optwhen.hidden==YES))
-    {
-        a=1;
-    }
-    else{
-        a=0;
-    }
+    du=[[databaseurl alloc]init];
     temp1 =[dateOfAccident.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[medwhere.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp3 =[nameofattorney.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -484,45 +476,55 @@
         {
             optwhen.text=@"";
         }
-        
-        
-        if([self validateNames:temp2]==1)
+        if((([other.text length]>0)&&([du otherfields:other.text]==1))||([other.text length]==0))
         {
-            if([self validateDate:temp1]==1)
+        
+        if([du dateexpress:dateOfAccident.text]==1)
+        {
+            if([du otherfields:medwhere.text]==1)
             {
-                if([self validateNames:temp3]==1)
+                if([du dateexpress:setdate.text]==1)
                 {
-                    if([self validateMobile:temp4]==1)
+                if([du patname:nameofattorney.text]==1)
+                {
+                    if([du mobilenumber:attorneyph.text]==1)
                     {
-                        if([self validateNames:temp5]==1)
+                        if([du patname:nop.text]==1)
                         {
-                            if([self validateNames:temp6]==1)
+                            if((([text1.text length]>0)&&([du patname:text1.text]==1))||([text1.text length]==0))
                             {
-                                if([self validateMobile:temp7])
+                                 if((([text2.text length]>0)&&([du mobilenumber:text2.text]==1))||([text2.text length]==0))
                                 {
-                                    if([self validateNames:temp8]==1)
+                                     if((([text3.text length]>0)&&([du otherfields:text3.text]==1))||([text3.text length]==0))
                                     {
-                                        if([self validateMobile:temp9]==1)
+                 
+                                        
+                                        if((([text4.text length]>0)&&([du otherfields:text4.text]==1))||([text4.text length]==0))
                                         {
-                                            if([self validateNames:temp10]==1)
+                                            if((([text5.text length]>0)&&([du otherfields:text5.text]==1))||([text5.text length]==0))
                                             {
-                                                if([self validateNames:temp11]==1)
+                                                
+                                                
+
+                            if([du patname:comname.text]==1)
+                            {
+                                if([du mobilenumber:comph.text])
+                                {
+                                    if([du patname:autoname.text]==1)
+                                    {
+                                        if([du mobilenumber:autoph.text]==1)
+                                        {
+                                            if([du otherfields:autopolicy.text]==1)
+                                            {
+                                                if([du patname:helname.text]==1)
                                                 {
-                                                    if([self validateMobile:temp12]==1)
+                                                    if([du mobilenumber:helph.text]==1)
                                                     {
-                                                        //if([self validateNames:temp14]==1)
+                                                        
+                                                        if((([optwhen.text length]>0)&&([du dateexpress:optwhen.text]==1))||([optwhen.text length]==0))
+                                                            
                                                         {
-                                                            //if([self validateMobile:temp15]==1)
-                                                            {
-                                                                if([self validateNames:temp16]==1)
-                                                                {
-                                                                    //if([self validateNames:temp17]==1)
-                                                                    {
-                                                                        if([self validateDate:temp19]==1)
-                                                                        {
-                                                                            
-                                                                            c=1;
-                                                                            
+                                                            c=1;
                                                                             [recorddict setValue:other.text forKey:@"otheracc"];
                                                                             [recorddict setValue:text1.text forKey:@"text1"];
                                                                             [recorddict setValue:text2.text forKey:@"text2"];
@@ -579,45 +581,13 @@
                                                                             
                                                                             
                                                                             
-                                                                        }
-                                                                        else{
-                                                                            c=0;
-                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                                                        }
-                                                                    }
-                                                                    /*else{
-                                                                     c=0;
-                                                                     BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid body parts x-rayed field."];
-                                                                     
-                                                                     //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                                                                     [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                                                     [alert show];
-                                                                     }*/
-                                                                }
-                                                                else{
-                                                                    c=0;
-                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid damages field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                                                }
-                                                                
-                                                            }
-                                                            /*else{
-                                                             c=0;
-                                                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid Physician Phone."];
-                                                             
-                                                             //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                                                             [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                                             [alert show];
-                                                             }*/
-                                                        }
-                                                        /*else{
-                                                         c=0;
-                                                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Please enter Valid Physician Name."];
-                                                         
-                                                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                                                         [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                                                         [alert show];
-                                                         }*/
-                                                        
+                                                    }
+                                                    else
+                                                    {
+                                                        c=0;
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid auto or work accident date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                    }
+                                                    
                                                     }
                                                     else{
                                                         c=0;
@@ -657,7 +627,36 @@
                         }
                         else{
                             c=0;
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid treatment given field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        }
+                    }
+                                        else{
+                                            c=0;
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid body parts x-rayed field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        }
+                                    }
+                                    else{
+                                       
+                                        c=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid damages field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                    }
+                                }
+                                else{
+                                    c=0;
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid physician phone." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                }
+                                
+                            }
+                            else{
+                                c=0;
+                               
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid physician name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            }
+                        }
+                        else{
+                            c=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid person name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            
                         }
                     }
                     else
@@ -671,18 +670,31 @@
                     c=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name of attorney." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
-                
+                }
+                else
+                {
+                    c=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                }
             }
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment location." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+               
             }
         }
         else{
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid medical treatment location." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        
         }
+        }
+        else{
+            c=0;
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid type of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        }
+
         
     }
     else{

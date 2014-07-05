@@ -81,7 +81,7 @@
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter login credentials."
+                                                       description:@"Please enter login credentials."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -103,7 +103,7 @@
         {
             a=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid password."
+                                                           description:@"Please enter valid password."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -113,7 +113,7 @@
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid username."
+                                                       description:@"Please enter valid username."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

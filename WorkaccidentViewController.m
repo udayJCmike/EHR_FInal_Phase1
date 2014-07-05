@@ -14,7 +14,9 @@
 #import "staffautocheckViewController.h"
 
 @interface WorkaccidentViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation WorkaccidentViewController
@@ -70,7 +72,7 @@
 }
 -(BOOL)validateNames:(NSString *)country1
 {
-    NSString *countryFormat1 =@"(?:[A-Za-z0-9]+[A-Za-z]*)";
+    NSString *countryFormat1 =@"(?:[A-Za-z0-9]+[A-Za-z0-9]*)";
     // [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
     return [countryTest1 evaluateWithObject:country1];
@@ -186,7 +188,7 @@
         jobinjury.text = @"No";
         jobinjuryyes.hidden=YES;
         jobinjuryyeslabel.hidden=YES;
-       
+        
         
     }
 }
@@ -206,8 +208,7 @@
         howmuchlabel.hidden=NO;
         howoftenlabel.hidden=NO;
         fromwherelabel.hidden=NO;
-        howmuch.text=@"";
-        fromwhere.text=@"";
+        
         
     }
 	else
@@ -346,11 +347,9 @@
 
 -(IBAction)saveandcontinue:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
-    a=0;
-    b=0;
-    d=0;
-    c=0;
+    
     NSString *text1,*text2,*text3,*text4,*text5,*text6,*text7,*text8,*text9,*text10,*text11;
     
     text1=[carrything.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -366,43 +365,40 @@
     text11=[period.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if ([carryanything.text  isEqual: @"Yes"])
     {
-        a=[self validateNames:text1];
+        
         
 	}
     else
-        a=1;
+        carrything.text=@"";
     
     if([jobinjury.text isEqual:@"Yes"])
     {
-        b=[self validatealphanumeric:text2];
+        
     }
     else
-        b=1;
+        jobinjuryyes.text=@"";
     if ([pickuporlift.text isEqual:@"Yes"])
     {
-        if (([self validatealphanumeric:text3])&&
-            ([self validatealphanumeric:text4]))
-        {
-            d=1;
-        }
-        else d=0;
+        
+        
     }
     else
-        d=1;
+    {
+        fromwhere.text=@"";
+        howmuch.text=@"";
+    }
     if (segdoyou.selectedSegmentIndex==8)
     {
         
-        seg1=[self validateNames:text5];
+        
     }
-    else seg1=1;
+    else doyouother.text=@"";
     if (segtypeoflighting.selectedSegmentIndex==3)
     {
         
-        
-        seg2=[self validateNames:text6] ;
     }
     else
-        seg2=1;
+        typeother.text=@"";
     
     if(([jobclass.text length]!=0)&&
        ([howinjuryocc.text length]!=0)&&
@@ -411,113 +407,115 @@
        ([period.text length]!=0))
     {
         c=1;
-        if([self validateNames:text7]==1)
+        if([du otherfields:jobclass.text]==1)
         {
-            if([self validateNames:text8]==1)
+            if((([doyouother.text length]>0)&&([du otherfields:doyouother.text]==1))||([doyouother.text length]==0))
             {
-                if([self validateNames:text9]==1)
+                if((([carrything.text length]>0)&&([du otherfields:carrything.text]==1))||([carrything.text length]==0))
                 {
-                    if([self validateNames:text10]==1)
+                    if([du otherfields:howinjuryocc.text]==1)
                     {
-                        if([self validateperiod:text11]==1)
+                        if([du otherfields:sawperson.text]==1)
                         {
-                            [recorddict setValue:liftinorout.text forKey:@"liftinoroutofmachine"];
-                            [recorddict setValue:jobclass.text forKey:@"jobclass"];
-                            [recorddict setValue:howinjuryocc.text forKey:@"howinjuryocc"];
-                            [recorddict setValue:sawperson.text forKey:@"sawperson"];
-                            [recorddict setValue:titletext.text forKey:@"title"];
-                            [recorddict setValue:period.text forKey:@"period"];
-                            [recorddict setValue:liftfrom.text forKey:@"liftfrom"];
-                            [recorddict setValue:labworkingatmaching.text forKey:@"labworkingatmaching"];
-                            if(a==1){
-                                
-                                [recorddict setValue:carryanything.text forKey:@"carryanything"];
-                                [recorddict setValue:carrything.text forKey:@"carrything"];
-                                
-                                
-                                if(b==1)
+                            if([du otherfields:titletext.text]==1)
+                            {
+                                if([du otherfields:period.text]==1)
                                 {
                                     
-                                    [recorddict setValue:jobinjury.text forKey:@"jobinjury"];
-                                    [recorddict setValue:jobinjuryyes.text forKey:@"jobinjuryyesdetail"];
-                                    
-                                    
-                                    if(d==1)
+                                    if((([jobinjuryyes.text length]>0)&&([du otherfields:jobinjuryyes.text]==1))||([jobinjuryyes.text length]==0))
                                     {
-                                        
-                                        [recorddict setValue:pickuporlift.text forKey:@"pickuporlift"];
-                                        [recorddict setValue:fromwhere.text forKey:@"fromwhere"];
-                                        [recorddict setValue:howmuch.text forKey:@"howmuch"];
-                                        [recorddict setValue:howoften.text forKey:@"howoften"];
-                                        
-                                        if(seg1==1){
-                                            [recorddict setValue:doyou.text forKey:@"doyou"];
-                                            [recorddict setValue:doyouother.text forKey:@"doyouother"];
-                                            if(seg2==1)
-                                            {c =1;
-                                                [recorddict setValue:typeoflighting.text forKey:@"typeoflighting"];
-                                                [recorddict setValue:typeother.text forKey:@"typeother"];
+                                        if((([typeother.text length]>0)&&([du otherfields:typeother.text]==1))||([typeother.text length]==0))
+                                        {
+                                            if((([howmuch.text length]>0)&&([du date:howmuch.text]==1))||([howmuch.text length]==0))
+                                            {
+                                                if((([fromwhere.text length]>0)&&([du otherfields:fromwhere.text]==1))||([fromwhere.text length]==0))
+                                                {
+                                                    c=1;
+                                                    [recorddict setValue:liftinorout.text forKey:@"liftinoroutofmachine"];
+                                                    [recorddict setValue:jobclass.text forKey:@"jobclass"];
+                                                    [recorddict setValue:howinjuryocc.text forKey:@"howinjuryocc"];
+                                                    [recorddict setValue:sawperson.text forKey:@"sawperson"];
+                                                    [recorddict setValue:titletext.text forKey:@"title"];
+                                                    [recorddict setValue:period.text forKey:@"period"];
+                                                    [recorddict setValue:liftfrom.text forKey:@"liftfrom"];
+                                                    [recorddict setValue:labworkingatmaching.text forKey:@"labworkingatmaching"];
+                                                    [recorddict setValue:carryanything.text forKey:@"carryanything"];
+                                                    [recorddict setValue:carrything.text forKey:@"carrything"];
+                                                    
+                                                    [recorddict setValue:jobinjury.text forKey:@"jobinjury"];
+                                                    [recorddict setValue:jobinjuryyes.text forKey:@"jobinjuryyesdetail"];
+                                                    [recorddict setValue:pickuporlift.text forKey:@"pickuporlift"];
+                                                    [recorddict setValue:fromwhere.text forKey:@"fromwhere"];
+                                                    [recorddict setValue:howmuch.text forKey:@"howmuch"];
+                                                    [recorddict setValue:howoften.text forKey:@"howoften"];
+                                                    [recorddict setValue:doyou.text forKey:@"doyou"];
+                                                    [recorddict setValue:doyouother.text forKey:@"doyouother"];
+                                                    [recorddict setValue:typeoflighting.text forKey:@"typeoflighting"];
+                                                    [recorddict setValue:typeother.text forKey:@"typeother"];
+                                                    
+                                                }
+                                                else{
+                                                    c=0;
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid where to where field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                }
                                             }
                                             else{
                                                 c=0;
-                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid type of lighting data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid how much field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                             }
                                         }
                                         else{
                                             c=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid do you field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid type of lighting." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                         }
-                                        
                                     }
                                     else{
                                         c=0;
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid pickup or lift data." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid time loss or absenteesim caused detail." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                                     }
                                 }
-                                else
-                                {
-                                    c=0;
-                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid time loss or absenteesim caused detail." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                                }
                                 
+                                else{
+                                    c=0;
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid period." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                }
                             }
-                            
-                            
-                            
                             else{
                                 c=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid carry material name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid title name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                         }
-                        else{
+                        else
+                        {
                             c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid period." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid saw person name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                     }
                     else{
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid title name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid injury occured reason." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
-                else
-                {
+                else{
                     c=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid saw person name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid carry material name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else{
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid injury occured reason." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid work posture." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
+            
+            
         }
         else{
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid job classification." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid job classification." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else{
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (c==1)    {
         c=0;

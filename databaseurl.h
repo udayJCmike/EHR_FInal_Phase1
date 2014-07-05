@@ -31,4 +31,7 @@
 -(BOOL)otherfields:(NSString *)other;
 -(BOOL)percentage:(NSString *)date;
 -(BOOL)patname:(NSString *)name;
+-(BOOL)byfive:(NSString*)date;
+-(BOOL)dateexpress:(NSString *)date;
+-(BOOL)year:(NSString *)date;
 @end

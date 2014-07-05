@@ -14,7 +14,9 @@
 #import "staffautocheckViewController.h"
 #import "WelcomeViewController.h"
 @interface PaindiagramViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation PaindiagramViewController
@@ -921,18 +923,18 @@ int suc;
 }
 
 - (IBAction)save:(id)sender {
-    
+    du=[[databaseurl alloc]init];
     namey=[name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     numbyr=[number.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     datey=[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     suc=1;
     if(([name.text length]!=0)&&([date.text length]!=0))
     {
-        if([self validateString1:namey]==1)
+        if([du patname:name.text]==1)
         {
-            if((([self validateString2:numbyr]==1)&&([numbyr length]>0))||([numbyr length]==0))
+            if((([du date:number.text]==1)&&([number.text length]>0))||([number.text length]==0))
             {
-                if([self validateDate:datey]==1)
+                if([du dateexpress:date.text]==1)
                 {
                     suc=1;
                     recorddict=[[NSMutableDictionary alloc]init];
@@ -980,24 +982,24 @@ int suc;
                 else
                 {
                     suc=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 suc=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else{
             suc=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
         
     }
     else{
         suc=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (suc==1)
     {

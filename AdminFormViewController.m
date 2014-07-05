@@ -448,7 +448,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid to address."
+                                                           description:@"Please enter valid to address."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -468,7 +468,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required fields should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

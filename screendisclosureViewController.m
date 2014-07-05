@@ -13,7 +13,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface screendisclosureViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation screendisclosureViewController
@@ -87,6 +89,7 @@ int a;
 }
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     NSString *text1,*text2;
     
@@ -97,9 +100,9 @@ int a;
        ([date.text length]!=0))
     {
         a=1;
-        if ([self validatePNames:text1]==1)
+        if ([du dateexpress:text2]==1)
         {
-            if([self dateexpress:text2]==1)
+            if([du patname:text1]==1)
             {
                 a=1;
                 [recorddict setValue:name.text forKey:@"name"];
@@ -109,19 +112,19 @@ int a;
             {
                 a=0;
                 
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

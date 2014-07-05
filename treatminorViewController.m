@@ -13,7 +13,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface treatminorViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation treatminorViewController
@@ -99,6 +101,7 @@ int a;
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     if(([patientName.text length]!=0)&&
        ([age.text length]!=0)&&
@@ -108,17 +111,17 @@ int a;
        ([witness.text length]!=0))
     {
         a=1;
-        if ([self validatePNames:[patientName text]]==1)
+        if ([du patname:[patientName text]]==1)
         {
-            if([self agevalidate:[age text]]==1)
+            if([du age:[age text]]==1)
             {
-                if([self onlyalphabetsexpress:[drname text]]==1)
+                if([du patname:[drname text]]==1)
                 {
-                    if([self onlyalphabetsexpress:[sign text]]==1)
+                    if([du patname:[sign text]]==1)
                     {
-                        if([self dateexpress:[date text]]==1)
+                        if([du dateexpress:[date text]]==1)
                         {
-                            if([self onlyalphabetsexpress:[witness text]]==1)
+                            if([du patname:[witness text]]==1)
                             {
                                 a=1;
                                 [recorddict setValue:patientName.text forKey:@"parentguardname"];
@@ -131,43 +134,43 @@ int a;
                             else
                             {
                                 a=0;
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid witness." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid witness." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                             }
                         }
                         else
                         {
                             a=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                         }
                     }
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid doctor name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid doctor name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid age." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid age." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

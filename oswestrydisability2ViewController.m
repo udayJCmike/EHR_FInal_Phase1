@@ -9,8 +9,11 @@
 #import "oswestrydisability2ViewController.h"
 #import "oswestrydisability3ViewController.h"
 #import "QuadrupleVisualAnalogueScale.h"
+#import "databaseurl.h"
 @interface oswestrydisability2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation oswestrydisability2ViewController
@@ -99,7 +102,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    
+   
     [self displaydata];// Do any additional setup after loading the view.
 }
 -(void)dismissKeyboard
@@ -615,25 +618,7 @@
         
     }
 }
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    
-    //NSLog(@"identifier %@",identifier);
-    if([identifier isEqual:@"oswestry3"])
-    {
-        if (c==1)
-        {
-            return YES;
-        }
-        else
-        {
-            
-            return NO;
-        }
-    }
-    else
-        return NO;
-}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
@@ -718,8 +703,8 @@
     //	NSLog(@"begin editing");
 }
 - (IBAction)save:(id)sender {
-    
- 
+    int c;
+    du=[[databaseurl alloc]init];
     
     NSString *temp11=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp11=[[temp11 stringByReplacingOccurrencesOfString:@"\t" withString:@" "]stringByReplacingOccurrencesOfString:@"\r" withString:@""];
@@ -728,16 +713,16 @@
     NSString *temp2 = [date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (([temp1 length]>0)&&([temp2 length]>0))
     {
-        c=1;
-        if ([self validatePNames:temp1]==1)
+        
+        if ([du patname:name.text]==1)
         {
-            if ([self validateDate:temp2]==1)
+            if ([du dateexpress:date.text]==1)
             {
-                if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
+                if((([temp11 length]>0)&&([du comments:temp11]==1))||([temp11 length]==0))
                 {
-                    if((([workmodtv.text length]>0)&&([self validateNames:workmodtv.text]==1))||([workmodtv.text length]==0))
+                    if((([workmodtv.text length]>0)&&([du otherfields:workmodtv.text]==1))||([workmodtv.text length]==0))
                     {
-                
+                c=1;
                     [recorddict setValue:comments.text forKey:@"comment"];
                     [recorddict setValue:workmodtv.text  forKey:@"jobwork"];
                     [recorddict setValue:val10 forKey:@"sec10"];

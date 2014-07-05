@@ -18,7 +18,9 @@
 
 @interface Patient3ViewController ()
 
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation Patient3ViewController
@@ -140,6 +142,10 @@ int tagnumber;
     otherdis.hidden=YES;
     tagnumber = 0;
     buttonx3.selected =YES;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
+    
     [buttonx3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
     [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
     [super viewDidLoad];
@@ -217,7 +223,7 @@ int tagnumber;
         }
         
         
-
+        
         
         otherdis.text=[resultset objectForKey:@"Ifother"];
         surg.text=[resultset objectForKey:@"Illness"];
@@ -1192,31 +1198,31 @@ int tagnumber;
         hazlist.text=@"";
     }
     
-    temp1 =[surg.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[medhad.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =surg.text;
+    temp2 =medhad.text;
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    temp3 =[patsign.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[dr.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp3 =patsign.text;
+    temp4 =dr.text;
     
     
     if(([surg.text length]!=0)&&([medhad.text length]!=0)&&([date.text length]!=0)&&([patsign.text length]!=0)&&([dr.text length]!=0))
     {
         c=1;
-        if((([otherdis.text length]>0)&&([self validateNames:otherdis.text]==1))||([otherdis.text length]==0))
+        if((([otherdis.text length]>0)&&([du otherfields:otherdis.text]==1))||([otherdis.text length]==0))
         {
-            if([self validateNames:temp1]==1)
+            if([du otherfields:temp1]==1)
             {
                 if([self validateDate:[date text]]==1)
                 {
-                    if([self validateNames:temp2]==1)
+                    if([du comments:temp2]==1)
                     {
                         if((([hazlist.text length]>0)&&([self validateNames:hazlist.text]==1))||([hazlist.text length]==0))
                         {
-                            if([self validateNames:temp3]==1)
+                            if([du otherfields:temp3]==1)
                             {
-                                if([self validateNames:temp4]==1)
+                                if([du patname:temp4]==1)
                                 {
                                     [recorddict setValue:patsign.text forKey:@"patsign"];
                                     

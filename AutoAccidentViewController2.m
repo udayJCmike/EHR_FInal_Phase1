@@ -11,7 +11,9 @@
 #import "staffautocheckViewController.h"
 
 @interface AutoAccidentViewController2 ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation AutoAccidentViewController2
@@ -499,6 +501,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 -(IBAction)saveandcontinue:(id)sender
 {
+    du=[[databaseurl alloc]init];
     if (bodypositionsegment.selectedSegmentIndex==4)
     {
         
@@ -602,33 +605,33 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty13=[unconsiousforlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty14=[injuryexplainlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     c=1;
-    if((([bodypositionotherlabel.text length]>0)&&([self validateUsername:bodypositionotherlabel.text]==1))||([bodypositionotherlabel.text length]==0))
+    if((([bodypositionotherlabel.text length]>0)&&([du otherfields:bodypositionotherlabel.text]==1))||([bodypositionotherlabel.text length]==0))
     {
-        if((([headpositionotherlabel.text length]>0)&&([self validateUsername:headpositionotherlabel.text]==1))||([headpositionotherlabel.text length]==0))
+        if((([headpositionotherlabel.text length]>0)&&([du otherfields:headpositionotherlabel.text]==1))||([headpositionotherlabel.text length]==0))
         {
-            if((([injuryexplainlabel.text length]>0)&&([self validateUsername:injuryexplainlabel.text]==1))||([injuryexplainlabel.text length]==0))
+            if((([injuryexplainlabel.text length]>0)&&([du otherfields:injuryexplainlabel.text]==1))||([injuryexplainlabel.text length]==0))
             {
-                if((([patientbodyotherlabel.text length]>0)&&([self validateUsername:patientbodyotherlabel.text]==1))||([patientbodyotherlabel.text length]==0))
+                if((([patientbodyotherlabel.text length]>0)&&([du otherfields:patientbodyotherlabel.text]==1))||([patientbodyotherlabel.text length]==0))
                 {
-                    if((([unconsiousforlabel.text length]>0)&&([self validateUsername:unconsiousforlabel.text]==1))||([unconsiousforlabel.text length]==0))
+                    if((([unconsiousforlabel.text length]>0)&&([du percentage:unconsiousforlabel.text]==1))||([unconsiousforlabel.text length]==0))
                     {
-                        if((([propertydamagelabel.text length]>0)&&([self validateUsername:propertydamagelabel.text]==1))||([propertydamagelabel.text length]==0))
+                        if((([propertydamagelabel.text length]>0)&&([du percentage:propertydamagelabel.text]==1))||([propertydamagelabel.text length]==0))
                         {
-                        if((([myheadhitlabel.text length]>0)&&([self validateUsername:myheadhitlabel.text]==1))||([myheadhitlabel.text length]==0))
+                        if((([myheadhitlabel.text length]>0)&&([du otherfields:myheadhitlabel.text]==1))||([myheadhitlabel.text length]==0))
                         {
-                            if((([rLhiphitlabel.text length]>0)&&([self validateUsername:rLhiphitlabel.text]==1))||([rLhiphitlabel.text length]==0))
+                            if((([rLhiphitlabel.text length]>0)&&([du otherfields:rLhiphitlabel.text]==1))||([rLhiphitlabel.text length]==0))
                             {
-                                if((([chesthitlabel.text length]>0)&&([self validateUsername:chesthitlabel.text]==1))||([chesthitlabel.text length]==0))
+                                if((([chesthitlabel.text length]>0)&&([du otherfields:chesthitlabel.text]==1))||([chesthitlabel.text length]==0))
                                 {
-                                    if((([rlleghitlabel.text length]>0)&&([self validateUsername:rlleghitlabel.text]==1))||([rlleghitlabel.text length]==0))
+                                    if((([rlleghitlabel.text length]>0)&&([du otherfields:rlleghitlabel.text]==1))||([rlleghitlabel.text length]==0))
                                     {
-                                        if((([rlshoulderhitlabel.text length]>0)&&([self validateUsername:rlshoulderhitlabel.text]==1))||([rlshoulderhitlabel.text length]==0))
+                                        if((([rlshoulderhitlabel.text length]>0)&&([du otherfields:rlshoulderhitlabel.text]==1))||([rlshoulderhitlabel.text length]==0))
                                         {
-                                            if((([rlkneehitlabel.text length]>0)&&([self validateUsername:rlkneehitlabel.text]==1))||([rlkneehitlabel.text length]==0))
+                                            if((([rlkneehitlabel.text length]>0)&&([du otherfields:rlkneehitlabel.text]==1))||([rlkneehitlabel.text length]==0))
                                             {
-                                                if((([rlarmhitlabel.text length]>0)&&([self validateUsername:rlarmhitlabel.text]==1))||([rlarmhitlabel.text length]==0))
+                                                if((([rlarmhitlabel.text length]>0)&&([du otherfields:rlarmhitlabel.text]==1))||([rlarmhitlabel.text length]==0))
                                                 {
-                                                    if((([otherparthitlabel.text length]>0)&&([self validateUsername:otherparthitlabel.text]==1))||([otherparthitlabel.text length]==0))
+                                                    if((([otherparthitlabel.text length]>0)&&([du otherfields:otherparthitlabel.text]==1))||([otherparthitlabel.text length]==0))
                                                     {
                                                         c=1;
                                                         [recorddict setValue:_11 forKey:@"shoulderseatbeltlabel"];

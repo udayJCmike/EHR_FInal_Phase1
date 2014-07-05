@@ -204,7 +204,7 @@
         {
             a=0;
             
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle                                                           description:@"Enter valid to attorney." type:TWMessageBarMessageTypeError  statusBarStyle:UIStatusBarStyleLightContent  callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle                                                           description:@"Please enter valid to attorney." type:TWMessageBarMessageTypeError  statusBarStyle:UIStatusBarStyleLightContent  callback:nil];
         }
     }
     else

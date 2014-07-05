@@ -260,13 +260,13 @@
         
         if([du patname:temp1]==1)
         {
-            if([self validateDate:temp2]==1)
+            if([du date:temp2]==1)
             {
-                if([self validateDate:temp3]==1)
+                if([du date:temp3]==1)
                 {
                     if([du patname:temp4]==1)
                     {
-                        if([self validateDate:temp5]==1)
+                        if([du date:temp5]==1)
                         {
                             [recorddict setValue:name.text forKey:@"Name"];
                             [recorddict setValue:borrow.text forKey:@"Date Borrowed"];

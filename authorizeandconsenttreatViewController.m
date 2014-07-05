@@ -13,7 +13,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface authorizeandconsenttreatViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation authorizeandconsenttreatViewController
@@ -143,6 +145,7 @@ int a;
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     if(([sign.text length]!=0)&&
        ([date.text length]!=0)&&
@@ -150,80 +153,48 @@ int a;
        ([patname.text length]!=0))
     {
         a=1;
-        if ([self onlyalphabetsexpress:[sign text]]==1)
+        if ([du patname:[patname text]]==1)
         {
-            if([self dateexpress:[date text]]==1)
+            if([du patname:[sign text]]==1)
             {
-                if([self onlyalphabetsexpress:[name text]]==1)
+                if([du dateexpress:[date text]]==1)
                 {
-                    if ([self validatePNames:[patname text]])
+                    if ([du patname:[name text]])
                     {
                         a=1;
                         [recorddict setValue:sign.text forKey:@"patientsign"];
                         [recorddict setValue:date.text forKey:@"date"];
                         [recorddict setValue:name.text forKey:@"witnessname"];
-                        /*   sqlite3_stmt    *statement;
-                         
-                         const char *dbpath = [databasePath UTF8String];
-                         
-                         if (sqlite3_open(dbpath, &ehrdb) == SQLITE_OK)
-                         {
-                         NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO AUTHORIZEDANDCONSENTTREAT ( patientsign,todaydate,witness) VALUES (\"%@\", \"%@\", \"%@\")",sign.text, date.text, name.text];
-                         
-                         const char *insert_stmt = [insertSQL UTF8String];
-                         
-                         sqlite3_prepare_v2(ehrdb, insert_stmt, -1, &statement, NULL);
-                         if (sqlite3_step(statement) == SQLITE_DONE)
-                         {
-                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Form Submitted successfully."];
-                         
-                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                         [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                         [alert show];
-                         date.text=@"";
-                         name.text=@"";
-                         sign.text=@"";
-                         
-                         } else
-                         {
-                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Form submission failed."];
-                         
-                         //  [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-                         [alert setDestructiveButtonWithTitle:@"x" block:nil];
-                         [alert show];
-                         }
-                         sqlite3_finalize(statement);
-                         sqlite3_close(ehrdb);
-                         }*/
+                        
                     }
                     else
                     {
                         a=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid witness name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else
                 {
                     a=0;
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid witness." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
             }
             else
             {
                 a=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid date." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else
         {
             a=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid signature." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid patient name." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
     {
         a=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (a==1)
     {

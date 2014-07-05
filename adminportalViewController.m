@@ -175,7 +175,7 @@
             else
             {
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid patient name."
+                                                               description:@"Please enter valid patient name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -205,7 +205,7 @@
             else{
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter Valid patient name."
+                                                               description:@"Please enter valid patient name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -247,7 +247,7 @@
             else
             {
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid bill date."
+                                                               description:@"Please enter valid bill date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];

@@ -17,7 +17,7 @@ static databaseurl * appInstance;
 }
 -(NSString*)DBurl
 {
-    NSString * link=@"http://192.168.1.106:8888/Ehrservicefiles/Service/";
+    NSString * link=@"http://192.168.1.5:8888/Ehrservicefiles/Service/";
     return link;
     
 }
@@ -39,23 +39,30 @@ static databaseurl * appInstance;
 }
 -(BOOL)patname:(NSString *)name
 {
-    if (([name length]>4)&&([name length]<32))
+    NSRange whiteSpaceRange = [name rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+    if (whiteSpaceRange.location >0)
     {
-        NSString *firstnameFormat = @"[A-Za-z ]+";
-        NSPredicate *nameTest= [NSPredicate predicateWithFormat:@"SELF MATCHES %@", firstnameFormat];
-        return [nameTest evaluateWithObject:name];
-        
-    }
-    else
+        if (([name length]>3)&&([name length]<32))
+        {
+            NSString *firstnameFormat = @"[A-Za-z ]+";
+            NSPredicate *nameTest= [NSPredicate predicateWithFormat:@"SELF MATCHES %@", firstnameFormat];
+            return [nameTest evaluateWithObject:name];
+            
+        }
+        else
+        {
+            return 0;
+        }
+    } else
     {
         return 0;
     }
     
-    
 }
 -(BOOL)firstname:(NSString *)name
 {
-    if (([name length]>4)&&([name length]<32))
+    if (([name length]>3)&&([name length]<32))
     {
         NSString *firstnameFormat = @"[A-Za-z]+";
         NSPredicate *nameTest= [NSPredicate predicateWithFormat:@"SELF MATCHES %@", firstnameFormat];
@@ -91,6 +98,15 @@ static databaseurl * appInstance;
         return 0;
     }
     
+    
+}
+-(BOOL)byfive:(NSString*)date
+{
+    
+    NSString *dateFormat1 = @"[0-5]{1}";
+    
+    NSPredicate *dateTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat1];
+    return [dateTest1 evaluateWithObject:date];
     
 }
 -(BOOL)date:(NSString*)date{
@@ -150,11 +166,26 @@ static databaseurl * appInstance;
     
 }
 -(BOOL)comments:(NSString*)cmts{
+    NSRange whiteSpaceRange = [cmts rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    /// NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+    if (whiteSpaceRange.location >0)
+    {
+        // NSString *comment = @"[A-Za-z0-9_!@#$%^&*() ]+";
+        
+        NSString *comment = @"[A-Za-z0-9_+., ]+";
+        //  NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+        NSPredicate *cmtTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", comment];
+        return [cmtTest1 evaluateWithObject:cmts];
+        
+        
+    }
     
-    NSString *comment = @"[A-Za-z0-9_!@#$%^&*() ]+";
     
-    NSPredicate *cmtTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", comment];
-    return [cmtTest1 evaluateWithObject:cmts];
+    return 0;
+    
+    
+    
+    
     
 }
 -(BOOL)zipcode:(NSString *)zip
@@ -242,7 +273,7 @@ static databaseurl * appInstance;
     NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
     if (whiteSpaceRange.location >0)
     {
-        NSString *countryFormat1 = @"[A-Za-z ]+";
+        NSString *countryFormat1 = @"[A-Za-z. ]+";
         
         
         NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
@@ -255,14 +286,28 @@ static databaseurl * appInstance;
     return 0;
     
 }
-
--(BOOL)percentage:(NSString*)date
+-(BOOL)percentage:(NSString*)perce{
+    
+    NSString *numb = @"[0-9]{1,3}";
+    
+    NSPredicate *numTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numb];
+    return [numTest1 evaluateWithObject:perce];
+    
+}
+-(BOOL)dateexpress:(NSString *)date
 {
+    NSString *dateFormat = @"[0-9]{2}+[/]+[0-9]{2}+[/]+[0-9]{4}";
+   
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat];
+    return [countryTest1 evaluateWithObject:date];
     
-    NSString *dateFormat1 = @"[0-100]{1,3}";
+}
+-(BOOL)year:(NSString *)date
+{
+    NSString *dateFormat = @"[0-9]{1,4}";
     
-    NSPredicate *dateTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat1];
-    return [dateTest1 evaluateWithObject:date];
+    NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat];
+    return [countryTest1 evaluateWithObject:date];
     
 }
 @end

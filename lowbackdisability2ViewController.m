@@ -13,7 +13,9 @@
 #import "QuadrupleVisualAnalogueScale.h"
 
 @interface lowbackdisability2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation lowbackdisability2ViewController
@@ -231,10 +233,10 @@
 - (IBAction)save:(id)sender
 {
     //    move=0;
-    
+    du=[[databaseurl alloc]init];
        NSString *temp1=[[comments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
       temp1=[[temp1 stringByReplacingOccurrencesOfString:@"\t" withString:@" "]stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-   if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+   if((([temp1 length]>0)&&([du comments:temp1]==1))||([temp1 length]==0))
     {
         move=1;
         NSNumber *a=[recorddict objectForKey:@"total1"];

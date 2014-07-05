@@ -14,7 +14,9 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 @interface HipKneeViewController ()
-
+{
+    
+}
 @end
 
 @implementation HipKneeViewController

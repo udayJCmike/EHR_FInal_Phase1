@@ -167,7 +167,7 @@
 }
 - (IBAction)accessforms:(id)sender
 {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Checking for a Patient" message:@"Enter a Patient Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Checking for a Patient" message:@"Please enter a Patient Username" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert addButtonWithTitle:@"Submit"];
     [alert show];
@@ -192,7 +192,7 @@
             else
             {
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid patient name."
+                                                               description:@"Please enter valid patient name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];

@@ -53,8 +53,7 @@ NSMutableArray *symptomresult;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
-    inc=1;
+        inc=1;
     x=178;
     y=185;
     [scrollview setScrollEnabled:YES];

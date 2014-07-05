@@ -1359,7 +1359,7 @@
     {
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Please enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

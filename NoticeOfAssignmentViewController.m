@@ -903,7 +903,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     else{
         suc=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Please enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

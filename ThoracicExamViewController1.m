@@ -1057,7 +1057,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Please enter all the required fields."
+                                                       description:@"Required field should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

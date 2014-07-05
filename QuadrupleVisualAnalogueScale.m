@@ -22,6 +22,7 @@
 
 {
     NSString *symptom;
+    databaseurl *du;
 }
 @end
 
@@ -501,6 +502,7 @@
 }
 - (IBAction)save:(id)sender {
     int c=0;
+    du=[[databaseurl alloc]init];
     NSString *tempp1,*tempp2;
     tempp1 = [number.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     tempp2 = [name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -519,13 +521,13 @@
         c=1;
         // if ([self validateNames:tempp1]==1)
         //{
-        if ([self validatePNames:tempp2]==1)
+        if ([du patname:name.text]==1)
         {
-             if((([tempp1 length]>0)&&([self validatePNames:tempp1]==1))||([tempp1 length]==0))
+             if((([number.text length]>0)&&([du date:number.text]==1))||([number.text length]==0))
              {
-                 if((([painname.text length]>0)&&([self validatePNames:painname.text]==1))||([painname.text length]==0))
+                 if((([painname.text length]>0)&&([du otherfields:painname.text]==1))||([painname.text length]==0))
                  {
-                     if((([percentage.text length]>0)&&([self validatePNames:percentage.text]==1))||([percentage.text length]==0))
+                     if((([percentage.text length]>0)&&([du percentage:percentage.text]==1))||([percentage.text length]==0))
                      {
              c=1;
             

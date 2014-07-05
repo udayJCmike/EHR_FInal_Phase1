@@ -10,7 +10,9 @@
 #import "staffautocheckViewController.h"
 
 @interface Workaccident2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation Workaccident2ViewController
@@ -91,7 +93,7 @@
     else
     {
         reslabel1.text=@"No";
-        givespecificsyestext.text=@"";
+        
         givespecificsyes.hidden=YES;
         givespecificsyestext.hidden=YES;
         
@@ -201,7 +203,7 @@
     {
         segothertext.hidden=NO;
         seglabel.text=@"Other";
-        segothertext.text=@"";
+        
         
     }
 }
@@ -397,8 +399,9 @@
 
 -(IBAction)submit:(id)sender
 {
+    du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
-    a=0;
+    
     NSString *text1,*text2,*text3,*text4;
     
     text1=[segothertext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -409,86 +412,70 @@
     if(seg.selectedSegmentIndex==3)
     {
         
-        seg1=[self validateNames:text1];
+        
     }
     else
-        seg1=1;
+        segothertext.text=@"";
     if([reslabel1.text isEqual:@"Yes"])
     {
-        a=[self validateNames:text2];
+        
     }
     else
-        a=1;
+        givespecificsyestext.text=@"";
     if(([noofemployessinjured.text length]!=0)&&
        ([changesmadeinjob.text length]!=0))
     {
-        if([self validatealphanumeric:text3]==1)
+        c=1;
+        if((([givespecificsyestext.text length]>0)&&([du otherfields:givespecificsyestext.text]==1))||([givespecificsyestext.text length]==0))
         {
-            if([self validateNames:text4]==1)
+            if((([segothertext.text length]>0)&&([du otherfields:segothertext.text]==1))||([segothertext.text length]==0))
             {
-                c=1;
-                [recorddict setValue:noofemployessinjured.text forKey:@"noofemployeesinjured"];
-                [recorddict setValue:changesmadeinjob.text forKey:@"changesmadeinjob"];
-                [recorddict setValue:reslabel1.text forKey:@"pushorpull"];
-                [recorddict setValue:reslabel2.text forKey:@"footorhandlevers"];
-                [recorddict setValue:reslabel3.text forKey:@"workoverhead"];
-                [recorddict setValue:reslabel4.text forKey:@"likeyourjob"];
-                [recorddict setValue:reslabel5.text forKey:@"preemploymentexam"];
-                [recorddict setValue:reslabel6.text forKey:@"wanttoreturnjob"];
-                [recorddict setValue:seglabel.text forKey:@"workarea"];
-                [recorddict setValue:segothertext.text forKey:@"workareaother"];
-                [recorddict setValue:givespecificsyestext.text forKey:@"givespecifics"];
-                if([reslabel1.text isEqual:@"Yes"])
+                if([du date:noofemployessinjured.text]==1)
                 {
-                    if(a==1)
+                    if([du otherfields:changesmadeinjob.text]==1)
                     {
+                        c=1;
+                        [recorddict setValue:noofemployessinjured.text forKey:@"noofemployeesinjured"];
+                        [recorddict setValue:changesmadeinjob.text forKey:@"changesmadeinjob"];
+                        [recorddict setValue:reslabel1.text forKey:@"pushorpull"];
+                        [recorddict setValue:reslabel2.text forKey:@"footorhandlevers"];
+                        [recorddict setValue:reslabel3.text forKey:@"workoverhead"];
+                        [recorddict setValue:reslabel4.text forKey:@"likeyourjob"];
+                        [recorddict setValue:reslabel5.text forKey:@"preemploymentexam"];
+                        [recorddict setValue:reslabel6.text forKey:@"wanttoreturnjob"];
+                        [recorddict setValue:seglabel.text forKey:@"workarea"];
+                        [recorddict setValue:segothertext.text forKey:@"workareaother"];
                         [recorddict setValue:givespecificsyestext.text forKey:@"givespecifics"];
-                        if(seg1==1)
-                        { c=1;
-                            [recorddict setValue:seglabel.text forKey:@"workarea"];
-                            [recorddict setValue:segothertext.text forKey:@"workareaother"];
-                            
-                        }
-                        else
-                        {
-                            c=0;
-                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid work area." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                        }
                     }
-                    
                     else{
                         c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid push or pull field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid text for changes made in your job field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     }
                 }
                 else{
-                    if(seg1==1)
-                    {
-                        c=1;
-                        [recorddict setValue:seglabel.text forKey:@"workarea"];
-                    }
-                    else
-                    {
-                        c=0;
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid work area." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                    }
+                    c=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid number of emplyees have been injured field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 }
                 
             }
-            
             else{
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid text for changes made in your job field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid work area." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
         }
         else{
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter valid number of emplyees have been injured field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid push or pull field." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
+        
+        
+        
     }
-    else{
+    else
+    {
         c=0;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Enter all the required fields." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     if (c==1)
     {
@@ -541,8 +528,8 @@
         if([subview isKindOfClass:[UITextField class]])
             [(UITextField*)subview setText:@""];
     [seg setSelectedSegmentIndex:UISegmentedControlNoSegment];
-        seglabel.text=@"Oily";
-   //  seglabel.text = @"null";
+    seglabel.text=@"Oily";
+    //  seglabel.text = @"null";
     segothertext.hidden = YES;
     [switch1 setOn:YES animated:YES];
     [self toggleEnabledTextForSwitch1onSomeLabel: Nil];

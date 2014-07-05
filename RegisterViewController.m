@@ -12,7 +12,10 @@
 #import "Reachability.h"
 #import "StringConstants.h"
 @interface RegisterViewController ()
-
+{
+    
+    databaseurl *du;
+}
 @end
 
 @implementation RegisterViewController
@@ -62,24 +65,25 @@
 {
     [super viewDidLoad];
     role=@"1";
+    du=[[databaseurl alloc]init];
     [self reset];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-
+    
     
 	// Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     
-      [self reset];
-       [super viewWillAppear:animated];
+    [self reset];
+    [super viewWillAppear:animated];
     
     
-   
+    
 }
 -(void)dismissKeyboard
 {
@@ -92,28 +96,47 @@
 
 -(IBAction)registerkey:(id)sender
 {
-     [self dismissKeyboard];
+    [self dismissKeyboard];
     NSString *text1,*text2;
-    text1=[username.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    text2=[email.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    text1=username.text;
+    text2=email.text;
     
     if (([username.text length]>0)&&([email.text length]>0)&&([pass.text length]>0)&&([cpass.text length]>0))
     {
         a=1;
-        if ([self onlyalphabetsexpress:text1]==1)
+        if ([du username:text1]==1)
         {
-            if([self emailexpress:text2]==1)
+            
+            
+            if([du password:pass.text]==1)
             {
+                
+                
                 if ([pass.text isEqualToString:cpass.text])
                 {
-                    a=1;
-                    [recorddict setObject:username.text forKey:@"name"];
-                    [recorddict setObject:email.text forKey:@"email"];
-                    [recorddict setObject:pass.text forKey:@"password"];
-                    [recorddict setObject:cpass.text forKey:@"cpassword"];
-                    [recorddict setObject:role forKey:@"role"];
-                    
+                    if([du email:text2]==1)
+                    {
+                        a=1;
+                        [recorddict setObject:username.text forKey:@"name"];
+                        [recorddict setObject:email.text forKey:@"email"];
+                        [recorddict setObject:pass.text forKey:@"password"];
+                        [recorddict setObject:cpass.text forKey:@"cpassword"];
+                        [recorddict setObject:role forKey:@"role"];
+                        
+                    }
+                    else
+                    {
+                        a=0;
+                        
+                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                       description:@"Please enter valid email id."
+                                                                              type:TWMessageBarMessageTypeError
+                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                          callback:nil];
+                        
+                    }
                 }
+                
                 else
                 {
                     a=0;
@@ -130,12 +153,13 @@
                 
                 
             }
+            
             else
             {
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid email id."
+                                                               description:@"Please enter valid password."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -146,22 +170,22 @@
         {
             a=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid username."
+                                                           description:@"Please enter valid username."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
-           
+            
         }
     }
     else
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Required fields should not be empty."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
-      
+        
     }
     if (a==1)
     {
@@ -183,51 +207,51 @@
 -(NSString*)submitvalues
 {
     
-  
-     Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
-     NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
-     
-     switch (netStatus)
-     {
-     case NotReachable:
-     {
-     isConnect=NO;
-     //NSLog(@"Access Not Available");
-     break;
-     }
-     
-     case ReachableViaWWAN:
-     {
-     isConnect=YES;
-     //NSLog(@"Reachable WWAN");
-     break;
-     }
-     case ReachableViaWiFi:
-     {
-     isConnect=YES;
-     //NSLog(@"Reachable WiFi");
-     break;
-     }
-     }
-     
-     
-     
-     if(isConnect)
-     {
-     NSString *result=@"success";
-     return result;
-     
-     }
-     //  imgName=@"Connected.png";
-     else
-     {
-     HUD.labelText = @"Check network connection";
-     HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
-     HUD.mode = MBProgressHUDModeCustomView;
-     [HUD hide:YES afterDelay:1];
-     return @"failure";
-     }
-   
+    
+    Reachability* wifiReach = [[Reachability reachabilityWithHostName: @"www.apple.com"] retain];
+    NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
+    
+    switch (netStatus)
+    {
+        case NotReachable:
+        {
+            isConnect=NO;
+            //NSLog(@"Access Not Available");
+            break;
+        }
+            
+        case ReachableViaWWAN:
+        {
+            isConnect=YES;
+            //NSLog(@"Reachable WWAN");
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            isConnect=YES;
+            //NSLog(@"Reachable WiFi");
+            break;
+        }
+    }
+    
+    
+    
+    if(isConnect)
+    {
+        NSString *result=@"success";
+        return result;
+        
+    }
+    //  imgName=@"Connected.png";
+    else
+    {
+        HUD.labelText = @"Check network connection";
+        HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]] autorelease];
+        HUD.mode = MBProgressHUDModeCustomView;
+        [HUD hide:YES afterDelay:1];
+        return @"failure";
+    }
+    
 }
 -(void)reset
 {
@@ -279,7 +303,7 @@
                 if([[menu objectForKey:@"emaill"]isEqualToString:@"emailexist"])
                 {
                     [HUD hide:YES];
-                   [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Email id already exist." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Email id already exist." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                     [self reset];
                     
                     
@@ -289,14 +313,14 @@
                     
                     [HUD hide:YES];
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Username already exist." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                   
+                    
                     [self reset];
                 }
                 else
                 {
                     [HUD hide:YES];
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Registration Failed." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
-                   
+                    
                     [self reset];
                 }
                 
