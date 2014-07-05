@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StringConstants.h"
+#import "TWMessageBarManager.h"
 #import "TextFieldDatePicker.h"
+#import "WelcomeViewController.h"
+#import "MBProgressHUD.h"
 @interface hamilViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate>
 {
     IBOutlet UITextField *gradualH;

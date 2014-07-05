@@ -40,7 +40,7 @@
 }
 -(void)getdata
 {
-    
+    NSString *initialresult,*physicalresult;
     NSString*username=  [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
     for (int i=0;i<[table_name count];i++)
     {
@@ -75,18 +75,23 @@
                     if (([menu isEqualToString:@"1"])&&([[arrayList1 objectForKey:@"table"] isEqualToString:@"tbl_hamiltonchiropractic"]))
                     {
                         initial.hidden=YES;
+                        initialresult=@"Yes";
                     }
                     else if (([menu isEqualToString:@"0"])&&([[arrayList1 objectForKey:@"table"] isEqualToString:@"tbl_hamiltonchiropractic"]))
                     {
                         initial.hidden=NO;
+                        initialresult=@"No";
                     }
                     if (([menu  isEqualToString:@"1"])&&([[arrayList1 objectForKey:@"table"] isEqualToString:@"tbl_physicalexam"]))
                     {
                         physical.hidden=YES;
+                        physicalresult=@"Yes";
                     }
                     else  if (([menu  isEqualToString:@"0"])&&([[arrayList1 objectForKey:@"table"] isEqualToString:@"tbl_physicalexam"]))
                     {
                         physical.hidden=NO;
+                        physicalresult=@"No";
+                        
                     }
                     if (([menu isEqualToString:@"1"])&&([[arrayList1 objectForKey:@"table"] isEqualToString:@"tbl_radiologicreport"]))
                     {
@@ -112,8 +117,23 @@
         }
     }
     
-    
+    if ([physicalresult isEqualToString:@"Yes"]) {
+        physical.hidden=YES;
+        if ([initialresult isEqualToString:@"Yes"]) {
+            initial.hidden=YES;
+            
+        }
+        else if([initialresult isEqualToString:@"No"]) {
+            initial.hidden=NO;
+            
+        }
+    }
+    if ([physicalresult isEqualToString:@"No"]) {
+        physical.hidden=NO;
+        initial.hidden=YES;
+    }
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     table_name=[NSArray arrayWithObjects:@"tbl_hamiltonchiropractic",@"tbl_physicalexam",@"tbl_radiologicreport", nil];

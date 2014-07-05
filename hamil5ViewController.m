@@ -463,6 +463,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     seg12=@"MM";
     seg13=@"ACL";
     seg14=@"ACL";
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

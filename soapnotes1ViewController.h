@@ -15,7 +15,7 @@
 {
     int a;
     NSMutableDictionary *recorddict;
-      NSMutableDictionary *resultset;
+    NSMutableDictionary *resultset;
     NSArray *a1;
     NSArray *a2;
     NSArray *a3;

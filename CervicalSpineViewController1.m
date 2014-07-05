@@ -10,10 +10,14 @@
 #import "ThoracicSpineViewController.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
-
+#import "databaseurl.h"
 
 @interface CervicalSpineViewController1 ()
-
+{
+    
+    databaseurl *du;
+    
+}
 @end
 
 @implementation CervicalSpineViewController1
@@ -145,7 +149,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];  du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     texty1=@"0";
     texty2=@"0";
     texty3=@"0";
@@ -237,7 +243,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)save:(id)sender {
     
-    texty12=[textbox.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty12=textbox.text;
     
     if(check1.selected){
         texty27=@"Right";
@@ -351,7 +357,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     
     
-    if([texty12 length]==0||([self validateString:texty12]==1))
+    if([textbox.text length]==0||([du otherfields:texty12]==1))
     {
         suc=1;
         
@@ -404,7 +410,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid perform eye exam & auscultate carotid arteries value."
+                                                       description:@"Please enter valid perform eye exam & auscultate carotid arteries value."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

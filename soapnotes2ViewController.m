@@ -15,7 +15,9 @@
 #import "databaseurl.h"
 #import "JSON.h"
 @interface soapnotes2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation soapnotes2ViewController
@@ -274,7 +276,9 @@
     l13.text=@"Fixations";
     l14.text=@"Not Improved";
     l15.text=@"SCSM";
-
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     for (UIScrollView *v in [self.scrollview subviews])
     {
         if ([v isKindOfClass:[UITextField class]]) {
@@ -293,7 +297,7 @@
     
     [self.view addGestureRecognizer:tap];
     [self displayData];
-
+    
 }
 -(void)displayData
 {
@@ -336,8 +340,8 @@
         l13.text=[resultset objectForKey:@"fixation8"];
         l14.text=[resultset objectForKey:@"notimproved8"];
         l15.text=[resultset objectForKey:@"scsm8"];
-         signature.text=[resultset objectForKey:@"sign"];
-
+        signature.text=[resultset objectForKey:@"sign"];
+        
     }
     else
     {
@@ -403,7 +407,7 @@
         return [a3 count];
     else if(pickerView.tag==15)
         return [a4 count];
-
+    
     else
         return 1;
     
@@ -481,7 +485,7 @@
     {
         return [a4 objectAtIndex:row];
     }
-
+    
     else
         return nil;
     
@@ -554,7 +558,7 @@
     {
         l15.text= [a4 objectAtIndex:row];
     }
-
+    
     
     
     
@@ -586,7 +590,7 @@
 -(BOOL)validatesign:(NSString *)user
 
 {
-    NSString *userFormat1 =@"[A-Za-z]+";
+    NSString *userFormat1 =@"[A-Za-z. ]+";
     
     NSPredicate *userTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", userFormat1];
     return [userTest1 evaluateWithObject:user];
@@ -595,7 +599,7 @@
 
 - (IBAction)cancel:(id)sender {
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
-
+    
 }
 - (IBAction)reset:(id)sender {
     pick1.hidden=YES;
@@ -644,124 +648,216 @@
     t14.text=@"";
     t15.text=@"";
     signature.text=@"";
-
+    
 }
 - (IBAction)next:(id)sender {
     a=1;
-    tempd1 =[t1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd2 =[t4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd3 =[t7.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd4 =[t10.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd5 =[t13.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    tempd1 =t1.text;
+    tempd2 =t4.text;
+    tempd3 =t7.text;
+    tempd4 =t10.text;
+    tempd5 =t13.text;
     
-    temp1 =[t2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[t3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 =[t5.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[t6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[t8.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[t9.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[t11.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[t12.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[t14.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp10=[t15.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp11=[signature.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =t2.text;
+    temp2 =t3.text;
+    temp3 =t5.text;
+    temp4 =t6.text;
+    temp5 =t8.text;
+    temp6=t9.text;
+    temp7=t11.text;
+    temp8=t12.text;
+    temp9=t14.text;
+    temp10=t15.text;
+    temp11=signature.text;
     if ([temp11 length]>0) {
         
         if((([tempd1 length]>0)&&([self dateexpress:tempd1]==1))||([tempd1 length]==0))
         {
-    if((([temp1 length]>0)&&([self validatevalues:temp1]==1))||([temp1 length]==0))
-    {
-        if((([temp2 length]>0)&&([self validatevalues:temp2]==1))||([temp2 length]==0))
-        {
-            if((([tempd2 length]>0)&&([self dateexpress:tempd2]==1))||([tempd2 length]==0))
+            if((([temp1 length]>0)&&([du percentage:temp1]==1))||([temp1 length]==0))
             {
-            if((([temp3 length]>0)&&([self validatevalues:temp3]==1))||([temp3 length]==0))
-            {
-                if((([temp4 length]>0)&&([self validatevalues:temp4]==1))||([temp4 length]==0))
+                if((([temp2 length]>0)&&([du percentage:temp2]==1))||([temp2 length]==0))
                 {
-                    if((([tempd3 length]>0)&&([self dateexpress:tempd3]==1))||([tempd3 length]==0))
+                    if((([tempd2 length]>0)&&([self dateexpress:tempd2]==1))||([tempd2 length]==0))
                     {
-                    if((([temp5 length]>0)&&([self validatevalues:temp5]==1))||([temp5 length]==0))
-                    {
-                        if((([temp6 length]>0)&&([self validatevalues:temp6]==1))||([temp6 length]==0))
+                        if((([temp3 length]>0)&&([du percentage:temp3]==1))||([temp3 length]==0))
                         {
-                            if((([tempd4 length]>0)&&([self dateexpress:tempd4]==1))||([tempd4 length]==0))
+                            if((([temp4 length]>0)&&([du percentage:temp4]==1))||([temp4 length]==0))
                             {
-                            if((([temp7 length]>0)&&([self validatevalues:temp7]==1))||([temp7 length]==0))
-                            {
-                                if((([temp8 length]>0)&&([self validatevalues:temp8]==1))||([temp8 length]==0))
+                                if((([tempd3 length]>0)&&([self dateexpress:tempd3]==1))||([tempd3 length]==0))
                                 {
-                                    if((([tempd5 length]>0)&&([self dateexpress:tempd5]==1))||([tempd5 length]==0))
+                                    if((([temp5 length]>0)&&([du percentage:temp5]==1))||([temp5 length]==0))
                                     {
-                                    if((([temp9 length]>0)&&([self validatevalues:temp9]==1))||([temp9 length]==0))
-                                    {
-                                        if((([temp10 length]>0)&&([self validatevalues:temp10]==1))||([temp10 length]==0))
+                                        if((([temp6 length]>0)&&([du percentage:temp6]==1))||([temp6 length]==0))
                                         {
-                                            if((([temp11 length]>0)&&([self validatesign:temp11]==1))||([temp11 length]==0))
+                                            if((([tempd4 length]>0)&&([self dateexpress:tempd4]==1))||([tempd4 length]==0))
                                             {
-                                            
-                                        [recorddict setValue:t1.text forKey:@"1t1"];
-                                        [recorddict setValue:t2.text forKey:@"1t2"];
-                                        [recorddict setValue:t3.text forKey:@"1t3"];
-                                        [recorddict setValue:t4.text forKey:@"1t4"];
-                                        [recorddict setValue:t5.text forKey:@"1t5"];
-                                        [recorddict setValue:t6.text forKey:@"1t6"];
-                                        [recorddict setValue:t7.text forKey:@"1t7"];
-                                        [recorddict setValue:t8.text forKey:@"1t8"];
-                                        [recorddict setValue:t9.text forKey:@"1t9"];
-                                        [recorddict setValue:t10.text forKey:@"1t10"];
-                                        [recorddict setValue:t11.text forKey:@"1t11"];
-                                        [recorddict setValue:t12.text forKey:@"1t12"];
-                                        [recorddict setValue:t13.text forKey:@"1t13"];
-                                        [recorddict setValue:t14.text forKey:@"1t14"];
-                                        [recorddict setValue:t15.text forKey:@"1t15"];
-                                        [recorddict setValue:signature.text forKey:@"sign"];
-                                       
-                                        [recorddict setValue:l1.text forKey:@"1pick1"];
-                                        [recorddict setValue:l2.text forKey:@"1pick2"];
-                                        [recorddict setValue:l3.text forKey:@"1pick3"];
-                                        [recorddict setValue:l4.text forKey:@"1pick4"];
-                                        [recorddict setValue:l5.text forKey:@"1pick5"];
-                                        [recorddict setValue:l6.text forKey:@"1pick6"];
-                                        [recorddict setValue:l7.text forKey:@"1pick7"];
-                                        [recorddict setValue:l8.text forKey:@"1pick8"];
-                                        [recorddict setValue:l9.text forKey:@"1pick9"];
-                                        [recorddict setValue:l10.text forKey:@"1pick10"];
-                                        [recorddict setValue:l11.text forKey:@"1pick11"];
-                                        [recorddict setValue:l12.text forKey:@"1pick12"];
-                                        [recorddict setValue:l13.text forKey:@"1pick13"];
-                                        [recorddict setValue:l14.text forKey:@"1pick14"];
-                                        [recorddict setValue:l15.text forKey:@"1pick15"];
-                                           // NSLog(@"result %@",recorddict);
+                                                if((([temp7 length]>0)&&([du percentage:temp7]==1))||([temp7 length]==0))
+                                                {
+                                                    if((([temp8 length]>0)&&([du percentage:temp8]==1))||([temp8 length]==0))
+                                                    {
+                                                        if((([tempd5 length]>0)&&([self dateexpress:tempd5]==1))||([tempd5 length]==0))
+                                                        {
+                                                            if((([temp9 length]>0)&&([du percentage:temp9]==1))||([temp9 length]==0))
+                                                            {
+                                                                if((([temp10 length]>0)&&([du percentage:temp10]==1))||([temp10 length]==0))
+                                                                {
+                                                                    if((([temp11 length]>0)&&([self validatesign:temp11]==1))||([temp11 length]==0))
+                                                                    {
+                                                                        
+                                                                        [recorddict setValue:t1.text forKey:@"1t1"];
+                                                                        [recorddict setValue:t2.text forKey:@"1t2"];
+                                                                        [recorddict setValue:t3.text forKey:@"1t3"];
+                                                                        [recorddict setValue:t4.text forKey:@"1t4"];
+                                                                        [recorddict setValue:t5.text forKey:@"1t5"];
+                                                                        [recorddict setValue:t6.text forKey:@"1t6"];
+                                                                        [recorddict setValue:t7.text forKey:@"1t7"];
+                                                                        [recorddict setValue:t8.text forKey:@"1t8"];
+                                                                        [recorddict setValue:t9.text forKey:@"1t9"];
+                                                                        [recorddict setValue:t10.text forKey:@"1t10"];
+                                                                        [recorddict setValue:t11.text forKey:@"1t11"];
+                                                                        [recorddict setValue:t12.text forKey:@"1t12"];
+                                                                        [recorddict setValue:t13.text forKey:@"1t13"];
+                                                                        [recorddict setValue:t14.text forKey:@"1t14"];
+                                                                        [recorddict setValue:t15.text forKey:@"1t15"];
+                                                                        [recorddict setValue:signature.text forKey:@"sign"];
+                                                                        
+                                                                        [recorddict setValue:l1.text forKey:@"1pick1"];
+                                                                        [recorddict setValue:l2.text forKey:@"1pick2"];
+                                                                        [recorddict setValue:l3.text forKey:@"1pick3"];
+                                                                        [recorddict setValue:l4.text forKey:@"1pick4"];
+                                                                        [recorddict setValue:l5.text forKey:@"1pick5"];
+                                                                        [recorddict setValue:l6.text forKey:@"1pick6"];
+                                                                        [recorddict setValue:l7.text forKey:@"1pick7"];
+                                                                        [recorddict setValue:l8.text forKey:@"1pick8"];
+                                                                        [recorddict setValue:l9.text forKey:@"1pick9"];
+                                                                        [recorddict setValue:l10.text forKey:@"1pick10"];
+                                                                        [recorddict setValue:l11.text forKey:@"1pick11"];
+                                                                        [recorddict setValue:l12.text forKey:@"1pick12"];
+                                                                        [recorddict setValue:l13.text forKey:@"1pick13"];
+                                                                        [recorddict setValue:l14.text forKey:@"1pick14"];
+                                                                        [recorddict setValue:l15.text forKey:@"1pick15"];
+                                                                        // NSLog(@"result %@",recorddict);
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        a=0;
+                                                                        
+                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                       description:@"Please enter valid signature field."
+                                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                          callback:nil];
+                                                                        
+                                                                        
+                                                                        
+                                                                    }
+                                                                    
+                                                                }
+                                                                else
+                                                                {
+                                                                    a=0;
+                                                                    
+                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                   description:@"Please enter valid worsenend field."
+                                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                      callback:nil];
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                a=0;
+                                                                
+                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                               description:@"Please enter valid improved field."
+                                                                                                                      type:TWMessageBarMessageTypeError
+                                                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                  callback:nil];
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            a=0;
+                                                            
+                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                           description:@"Please enter valid date field."
+                                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                              callback:nil];
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        }
+                                                    }
+                                                    
+                                                    else
+                                                    {
+                                                        a=0;
+                                                        
+                                                        
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                       description:@"Please enter valid worsened field."
+                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                          callback:nil];
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    a=0;
+                                                    
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                   description:@"Please enter valid improved field."
+                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                      callback:nil];
+                                                    
+                                                    
+                                                    
+                                                }
                                             }
                                             else
                                             {
                                                 a=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid signature field."
+                                                                                               description:@"Please enter valid date field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
                                                 
                                                 
-                                               
+                                                
+                                                
                                             }
-                                     
                                         }
+                                        
                                         else
                                         {
                                             a=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid worsenend field."
+                                                                                           description:@"Please enter valid worsened field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
                                             
-                                            
-                                            
-                                           
                                             
                                         }
                                     }
@@ -770,7 +866,7 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid improved field."
+                                                                                       description:@"Please enter valid improved field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -781,30 +877,13 @@
                                         
                                     }
                                 }
-                                    else
-                                    {
-                                        a=0;
-                                        
-                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid date field."
-                                                                                              type:TWMessageBarMessageTypeError
-                                                                                    statusBarStyle:UIStatusBarStyleLightContent
-                                                                                          callback:nil];
-                                        
-                                        
-                                        
-                                        
-                                        
-                                    }
-                                }
-  
                                 else
                                 {
                                     a=0;
                                     
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid worsened field."
+                                                                                   description:@"Please enter valid date field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -814,47 +893,35 @@
                                     
                                 }
                             }
+                            
                             else
                             {
                                 a=0;
-                                
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid improved field."
+                                                                               description:@"Please enter valid worsened field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
-                               
-                            }
-                        }
-                            else
-                            {
-                                a=0;
                                 
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid date field."
-                                                                                      type:TWMessageBarMessageTypeError
-                                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                                  callback:nil];
-                                
-                                
-                               
                                 
                             }
                         }
-
                         else
                         {
                             a=0;
                             
+                            
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid worsened field."
+                                                                           description:@"Please enter valid improved field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
-
+                            
+                            
+                            
                         }
                     }
                     else
@@ -862,24 +929,7 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid improved field."
-                                                                              type:TWMessageBarMessageTypeError
-                                                                    statusBarStyle:UIStatusBarStyleLightContent
-                                                                          callback:nil];
-                        
-                        
-                        
-                      
-                        
-                    }
-                }
-                    else
-                    {
-                        a=0;
-                        
-                        
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid date field."
+                                                                       description:@"Please enter valid date field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -887,63 +937,46 @@
                         
                         
                         
+                        
                     }
                 }
-
+                
                 else
                 {
                     a=0;
+                    
+                    
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid worsened field."
+                                                                   description:@"Please enter valid worsened field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
                     
                     
-                   
+                    
                 }
             }
             else
             {
                 a=0;
                 
-                
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid improved field."
-                                                                      type:TWMessageBarMessageTypeError
-                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                  callback:nil];
-                
-                
-             
-                
-            }
-        }
-            else
-            {
-                a=0;
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid date field."
+                                                               description:@"Please enter valid improved field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
                 
-               
-                
             }
         }
-
         else
         {
             a=0;
             
-            
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid worsened field."
+                                                           description:@"Please enter valid date field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -951,52 +984,23 @@
             
             
             
+            
         }
     }
+    
     else
     {
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid improved field."
-                                                              type:TWMessageBarMessageTypeError
-                                                    statusBarStyle:UIStatusBarStyleLightContent
-                                                          callback:nil];
-        
-        
-
-    }
-    }
-        else
-        {
-            a=0;
-            
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid date field."
-                                                                  type:TWMessageBarMessageTypeError
-                                                        statusBarStyle:UIStatusBarStyleLightContent
-                                                              callback:nil];
-            
-            
-            
-           
-            
-        }
-    }
-
-    else
-    {
-        a=0;
-        
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
         
-      
+        
         
     }
     
@@ -1038,10 +1042,10 @@
             NULL;
         }
         
-       
+        
     }
-
-
+    
+    
 }
 -(void)updatedata
 {
@@ -1049,65 +1053,65 @@
     
     if (result==1)
     {
-    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-    NSString *response=[self HttpPostEntityFirst1update:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
-    NSError *error;
-    SBJSON *json = [[SBJSON new] autorelease];
-    NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
-    
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
-    if (luckyNumbers == nil)
-    {
+        NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+        NSString *response=[self HttpPostEntityFirst1update:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+        NSError *error;
+        SBJSON *json = [[SBJSON new] autorelease];
+        NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"luckyNumbers == nil");
-        
-    }
-    else
-    {
-        
-        NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
-        
-        
-        
-        if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotes Data"])
+        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        if (luckyNumbers == nil)
         {
-            if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+            
+            //NSLog(@"luckyNumbers == nil");
+            
+        }
+        else
+        {
+            
+            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            
+            
+            
+            if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotes Data"])
             {
-                [HUD hide:YES];
-                
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarSuccessTitle
-                                                               description:@"Form updation successful."
-                                                                      type:TWMessageBarMessageTypeSuccess
-                                                            statusBarStyle:UIStatusBarStyleDefault
-                                                                  callback:nil];
-                
-               
-                
-                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
-                
-                
-            }
-            else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
-                
-            {
-                [HUD hide:YES];
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Form updation failed."
-                                                                      type:TWMessageBarMessageTypeError
-                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                  callback:nil];
-                
-                
-             
-                
-                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+                {
+                    [HUD hide:YES];
+                    
+                    
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarSuccessTitle
+                                                                   description:@"Form updation successful."
+                                                                          type:TWMessageBarMessageTypeSuccess
+                                                                statusBarStyle:UIStatusBarStyleDefault
+                                                                      callback:nil];
+                    
+                    
+                    
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                    
+                    
+                }
+                else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+                    
+                {
+                    [HUD hide:YES];
+                    
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                   description:@"Form updation failed."
+                                                                          type:TWMessageBarMessageTypeError
+                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                      callback:nil];
+                    
+                    
+                    
+                    
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                }
             }
         }
     }
-    }
     else
     {
         
@@ -1117,8 +1121,8 @@
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-
-       
+        
+        
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
                                                        description:@"Form updation failed."
@@ -1126,12 +1130,12 @@
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-
-       
+        
+        
         
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
     }
-
+    
 }
 -(NSString *)HttpPostEntityFirst1update:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
@@ -1142,12 +1146,12 @@
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&headache=%@&neckpain=%@&rightshoulderpain=%@&leftshoulderpain=%@&chestpain=%@&rightarmpain=%@&rightproxi=%@&leftarmpain=%@&leftproxi=%@&rightelbowpain=%@&leftelbowpain=%@&rightwristpain=%@&leftwristpain=%@&righthandpain=%@&lefthandpain=%@&mbp=%@&rightribpain=%@&painscale1=%@&leftribpain=%@&painscale2=%@&lbp=%@&rightsipain=%@&leftsipain=%@&righthippain=%@&lefthippain=%@&rightgluteulpain=%@&leftgluteulpain=%@&rightlegpain=%@&leftlegpain=%@&rightkneepain=%@&leftkneepain=%@&rightanklepain=%@&leftanklepain=%@&rightfootpain=%@&leftfootpain=%@&painscale=%@&date1=%@&improved=%@&worsened=%@&e1e2=%@&xray=%@&offwork1=%@&reeval1=%@&date2=%@&improved1=%@&worsened1=%@&fixation1=%@&notimproved1=%@&scsm1=%@&date3=%@&improved2=%@&worsened2=%@&fixation2=%@&notimproved2=%@&scsm2=%@&date4=%@&improved3=%@&worsened3=%@&fixation3=%@&notimproved3=%@&scsm3=%@&date5=%@&improved4=%@&worsened4=%@&fixation4=%@&notimproved4=%@&scsm4=%@&date6=%@&improved5=%@&worsened5=%@&fixation5=%@&notimproved5=%@&scsm5=%@&date7=%@&improved6=%@&worsened6=%@&fixation6=%@&notimproved6=%@&scsm6=%@&date8=%@&improved7=%@&worsened7=%@&fixation7=%@&notimproved7=%@&scsm7=%@&date9=%@&improved8=%@&worsened8=%@&fixation8=%@&notimproved8=%@&scsm8=%@&sign=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"pname"],[recorddict objectForKey:@"b1"],[recorddict objectForKey:@"b2"],[recorddict objectForKey:@"b3"],[recorddict objectForKey:@"b4"],[recorddict objectForKey:@"b5"],[recorddict objectForKey:@"b6"],[recorddict objectForKey:@"segval1"],[recorddict objectForKey:@"b7"],[recorddict objectForKey:@"segval2"],[recorddict objectForKey:@"b8"],[recorddict objectForKey:@"b9"],[recorddict objectForKey:@"b10"],[recorddict objectForKey:@"b11"],[recorddict objectForKey:@"b12"],[recorddict objectForKey:@"b13"],[recorddict objectForKey:@"b14"],[recorddict objectForKey:@"b15"],[recorddict objectForKey:@"val1"],[recorddict objectForKey:@"b16"],[recorddict objectForKey:@"val2"],[recorddict objectForKey:@"b17"],[recorddict objectForKey:@"b18"],[recorddict objectForKey:@"b19"],[recorddict objectForKey:@"b20"],[recorddict objectForKey:@"b21"],[recorddict objectForKey:@"b22"],[recorddict objectForKey:@"b23"],[recorddict objectForKey:@"b24"],[recorddict objectForKey:@"b25"],[recorddict objectForKey:@"b26"],[recorddict objectForKey:@"b27"],[recorddict objectForKey:@"b28"],[recorddict objectForKey:@"b29"],[recorddict objectForKey:@"b30"],[recorddict objectForKey:@"b31"],[recorddict objectForKey:@"painval"],[recorddict objectForKey:@"t1"],[recorddict objectForKey:@"t2"],[recorddict objectForKey:@"t3"],[recorddict objectForKey:@"pick1"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"t4"],[recorddict objectForKey:@"t5"],[recorddict objectForKey:@"t6"],[recorddict objectForKey:@"pick2"],[recorddict objectForKey:@"pick3"],[recorddict objectForKey:@"pick4"],[recorddict objectForKey:@"t7"],[recorddict objectForKey:@"t8"],[recorddict objectForKey:@"t9"],[recorddict objectForKey:@"pick5"],[recorddict objectForKey:@"pick6"],[recorddict objectForKey:@"pick7"],[recorddict objectForKey:@"t10"],[recorddict objectForKey:@"t11"],[recorddict objectForKey:@"t12"],[recorddict objectForKey:@"pick8"],[recorddict objectForKey:@"pick9"],[recorddict objectForKey:@"pick10"],[recorddict objectForKey:@"1t1"],[recorddict objectForKey:@"1t2"],[recorddict objectForKey:@"1t3"],[recorddict objectForKey:@"1pick1"],[recorddict objectForKey:@"1pick2"],[recorddict objectForKey:@"1pick3"],[recorddict objectForKey:@"1t4"],[recorddict objectForKey:@"1t5"],[recorddict objectForKey:@"1t6"],[recorddict objectForKey:@"1pick4"],[recorddict objectForKey:@"1pick5"],[recorddict objectForKey:@"1pick6"],[recorddict objectForKey:@"1t7"],[recorddict objectForKey:@"1t8"],[recorddict objectForKey:@"1t9"],[recorddict objectForKey:@"1pick7"],[recorddict objectForKey:@"1pick8"],[recorddict objectForKey:@"1pick9"],[recorddict objectForKey:@"1t10"],[recorddict objectForKey:@"1t11"],[recorddict objectForKey:@"1t12"],[recorddict objectForKey:@"1pick10"],[recorddict objectForKey:@"1pick11"],[recorddict objectForKey:@"1pick12"],[recorddict objectForKey:@"1t13"],[recorddict objectForKey:@"1t14"],[recorddict objectForKey:@"1t15"],[recorddict objectForKey:@"1pick13"],[recorddict objectForKey:@"1pick14"],[recorddict objectForKey:@"1pick15"],[recorddict objectForKey:@"sign"],secondEntity,value2];
-
+    
     
     
     NSURL *url = [NSURL URLWithString:url2];
-//    
-//  NSLog(@"post %@",post);
+    //
+    //  NSLog(@"post %@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1168,7 +1172,7 @@
     //    NSLog(@"data %@",data);
     
     return data;
-   
+    
 }
 
 -(NSString*)submitvalues
@@ -1224,58 +1228,8 @@
 -(int)insertdiag
 {
     
-        NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-        NSString *response=[self HttpPostEntityFirst1diagnosis:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
-        NSError *error;
-        SBJSON *json = [[SBJSON new] autorelease];
-        NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
-        
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
-        if (luckyNumbers == nil)
-        {
-            
-               return 1;
-            
-        }
-        else
-        {
-            
-            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
-            
-            
-            
-            if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotesdiagnosis Data"])
-            {
-                if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
-                {
-                    return 1;
-                    
-                    
-                    
-                }
-                else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
-                    
-                {
-                    return 1;
-                    
-                    
-                    
-                }
-            }
-        }
-        
-       return 1;
-
-}
--(void)insertdata
-{
-    int result=[self insertdiag];
-    
-    if (result==1)
-    {
     NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-    NSString *response=[self HttpPostEntityFirst1:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+    NSString *response=[self HttpPostEntityFirst1diagnosis:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
@@ -1284,7 +1238,7 @@
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        return 1;
         
     }
     else
@@ -1295,21 +1249,11 @@
         
         
         
-        if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotes Data"])
+        if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotesdiagnosis Data"])
         {
             if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
             {
-                [HUD hide:YES];
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarSuccessTitle
-                                                               description:@"Form submission successful."
-                                                                      type:TWMessageBarMessageTypeSuccess
-                                                            statusBarStyle:UIStatusBarStyleDefault
-                                                                  callback:nil];
-                
-              
-                
-                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                return 1;
                 
                 
                 
@@ -1317,29 +1261,89 @@
             else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
                 
             {
-                [HUD hide:YES];
-                
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Form submission failed."
-                                                                      type:TWMessageBarMessageTypeError
-                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                  callback:nil];
-
-                
-              
-                
-                 [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                return 1;
                 
                 
                 
             }
         }
     }
+    
+    return 1;
+    
+}
+-(void)insertdata
+{
+    int result=[self insertdiag];
+    
+    if (result==1)
+    {
+        NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+        NSString *response=[self HttpPostEntityFirst1:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+        NSError *error;
+        SBJSON *json = [[SBJSON new] autorelease];
+        NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
+        
+        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        if (luckyNumbers == nil)
+        {
+            
+            //NSLog(@"luckyNumbers == nil");
+            
+        }
+        else
+        {
+            
+            NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
+            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            
+            
+            
+            if ([[menu objectForKey:@"servicename"] isEqualToString:@"soapnotes Data"])
+            {
+                if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
+                {
+                    [HUD hide:YES];
+                    
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarSuccessTitle
+                                                                   description:@"Form submission successful."
+                                                                          type:TWMessageBarMessageTypeSuccess
+                                                                statusBarStyle:UIStatusBarStyleDefault
+                                                                      callback:nil];
+                    
+                    
+                    
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                    
+                    
+                    
+                }
+                else if ([[menu objectForKey:@"success"] isEqualToString:@"No"])
+                    
+                {
+                    [HUD hide:YES];
+                    
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                   description:@"Form submission failed."
+                                                                          type:TWMessageBarMessageTypeError
+                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                      callback:nil];
+                    
+                    
+                    
+                    
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                    
+                    
+                    
+                }
+            }
+        }
     }
     else
         
     {
-       
+        
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
                                                        description:@"Form submission failed."
@@ -1347,14 +1351,14 @@
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
-      
+        
         
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
         
         
         
     }
-
+    
     
 }
 -(NSString *)HttpPostEntityFirst1:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
@@ -1369,7 +1373,7 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-   NSLog(@"values in record dictionaries::%@",url2);
+    NSLog(@"values in record dictionaries::%@",url2);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&headache=%@&neckpain=%@&rightshoulderpain=%@&leftshoulderpain=%@&chestpain=%@&rightarmpain=%@&rightproxi=%@&leftarmpain=%@&leftproxi=%@&rightelbowpain=%@&leftelbowpain=%@&rightwristpain=%@&leftwristpain=%@&righthandpain=%@&lefthandpain=%@&mbp=%@&rightribpain=%@&painscale1=%@&leftribpain=%@&painscale2=%@&lbp=%@&rightsipain=%@&leftsipain=%@&righthippain=%@&lefthippain=%@&rightgluteulpain=%@&leftgluteulpain=%@&rightlegpain=%@&leftlegpain=%@&rightkneepain=%@&leftkneepain=%@&rightanklepain=%@&leftanklepain=%@&rightfootpain=%@&leftfootpain=%@&painscale=%@&date1=%@&improved=%@&worsened=%@&e1e2=%@&xray=%@&offwork1=%@&reeval1=%@&date2=%@&improved1=%@&worsened1=%@&fixation1=%@&notimproved1=%@&scsm1=%@&date3=%@&improved2=%@&worsened2=%@&fixation2=%@&notimproved2=%@&scsm2=%@&date4=%@&improved3=%@&worsened3=%@&fixation3=%@&notimproved3=%@&scsm3=%@&date5=%@&improved4=%@&worsened4=%@&fixation4=%@&notimproved4=%@&scsm4=%@&date6=%@&improved5=%@&worsened5=%@&fixation5=%@&notimproved5=%@&scsm5=%@&date7=%@&improved6=%@&worsened6=%@&fixation6=%@&notimproved6=%@&scsm6=%@&date8=%@&improved7=%@&worsened7=%@&fixation7=%@&notimproved7=%@&scsm7=%@&date9=%@&improved8=%@&worsened8=%@&fixation8=%@&notimproved8=%@&scsm8=%@&sign=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"pname"],[recorddict objectForKey:@"b1"],[recorddict objectForKey:@"b2"],[recorddict objectForKey:@"b3"],[recorddict objectForKey:@"b4"],[recorddict objectForKey:@"b5"],[recorddict objectForKey:@"b6"],[recorddict objectForKey:@"segval1"],[recorddict objectForKey:@"b7"],[recorddict objectForKey:@"segval2"],[recorddict objectForKey:@"b8"],[recorddict objectForKey:@"b9"],[recorddict objectForKey:@"b10"],[recorddict objectForKey:@"b11"],[recorddict objectForKey:@"b12"],[recorddict objectForKey:@"b13"],[recorddict objectForKey:@"b14"],[recorddict objectForKey:@"b15"],[recorddict objectForKey:@"val1"],[recorddict objectForKey:@"b16"],[recorddict objectForKey:@"val2"],[recorddict objectForKey:@"b17"],[recorddict objectForKey:@"b18"],[recorddict objectForKey:@"b19"],[recorddict objectForKey:@"b20"],[recorddict objectForKey:@"b21"],[recorddict objectForKey:@"b22"],[recorddict objectForKey:@"b23"],[recorddict objectForKey:@"b24"],[recorddict objectForKey:@"b25"],[recorddict objectForKey:@"b26"],[recorddict objectForKey:@"b27"],[recorddict objectForKey:@"b28"],[recorddict objectForKey:@"b29"],[recorddict objectForKey:@"b30"],[recorddict objectForKey:@"b31"],[recorddict objectForKey:@"painval"],[recorddict objectForKey:@"t1"],[recorddict objectForKey:@"t2"],[recorddict objectForKey:@"t3"],[recorddict objectForKey:@"pick1"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"t4"],[recorddict objectForKey:@"t5"],[recorddict objectForKey:@"t6"],[recorddict objectForKey:@"pick2"],[recorddict objectForKey:@"pick3"],[recorddict objectForKey:@"pick4"],[recorddict objectForKey:@"t7"],[recorddict objectForKey:@"t8"],[recorddict objectForKey:@"t9"],[recorddict objectForKey:@"pick5"],[recorddict objectForKey:@"pick6"],[recorddict objectForKey:@"pick7"],[recorddict objectForKey:@"t10"],[recorddict objectForKey:@"t11"],[recorddict objectForKey:@"t12"],[recorddict objectForKey:@"pick8"],[recorddict objectForKey:@"pick9"],[recorddict objectForKey:@"pick10"],[recorddict objectForKey:@"1t1"],[recorddict objectForKey:@"1t2"],[recorddict objectForKey:@"1t3"],[recorddict objectForKey:@"1pick1"],[recorddict objectForKey:@"1pick2"],[recorddict objectForKey:@"1pick3"],[recorddict objectForKey:@"1t4"],[recorddict objectForKey:@"1t5"],[recorddict objectForKey:@"1t6"],[recorddict objectForKey:@"1pick4"],[recorddict objectForKey:@"1pick5"],[recorddict objectForKey:@"1pick6"],[recorddict objectForKey:@"1t7"],[recorddict objectForKey:@"1t8"],[recorddict objectForKey:@"1t9"],[recorddict objectForKey:@"1pick7"],[recorddict objectForKey:@"1pick8"],[recorddict objectForKey:@"1pick9"],[recorddict objectForKey:@"1t10"],[recorddict objectForKey:@"1t11"],[recorddict objectForKey:@"1t12"],[recorddict objectForKey:@"1pick10"],[recorddict objectForKey:@"1pick11"],[recorddict objectForKey:@"1pick12"],[recorddict objectForKey:@"1t13"],[recorddict objectForKey:@"1t14"],[recorddict objectForKey:@"1t15"],[recorddict objectForKey:@"1pick13"],[recorddict objectForKey:@"1pick14"],[recorddict objectForKey:@"1pick15"],[recorddict objectForKey:@"sign"],secondEntity,value2];
@@ -1384,7 +1388,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-   // NSLog(@"postrequest %@",url);
+    // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -1448,8 +1452,8 @@
                                                                           type:TWMessageBarMessageTypeSuccess
                                                                 statusBarStyle:UIStatusBarStyleDefault
                                                                       callback:nil];
-
-                   
+                    
+                    
                     
                     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
                     
@@ -1464,8 +1468,8 @@
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-
-                   
+                    
+                    
                     
                     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
                     
@@ -1517,9 +1521,9 @@
 -(NSString *)HttpPostEntityFirst1diagnosis:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     int i;
-     int j=[[recorddict objectForKey:@"numofcontent"] integerValue];
+    int j=[[recorddict objectForKey:@"numofcontent"] integerValue];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&no=%d",firstEntity,value1,j];
-   
+    
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"SoapNotesDiagnosis.php?service=soapnotesdiagnosisinsert";
     
@@ -1532,9 +1536,9 @@
         NSString *result=[NSString stringWithFormat:@"%@=%@",temp,p1];
         post=[NSString stringWithFormat:@"%@&%@",post,result];
     }
-   post=[NSString stringWithFormat:@"%@&%@=%@",post,secondEntity,value2];
+    post=[NSString stringWithFormat:@"%@&%@=%@",post,secondEntity,value2];
     
-        NSLog(@"POST:%@",post);
+    NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);
@@ -1555,7 +1559,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-     // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -1568,9 +1572,9 @@
 }
 
 - (void)dealloc {
- 
- 
-
+    
+    
+    
     [super dealloc];
 }
 @end

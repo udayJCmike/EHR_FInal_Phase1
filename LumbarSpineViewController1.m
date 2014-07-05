@@ -14,7 +14,11 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 @interface LumbarSpineViewController1 ()
-
+{
+    
+    databaseurl *du;
+    
+}
 @end
 
 @implementation LumbarSpineViewController1
@@ -58,6 +62,10 @@ NSString *t1,*t2,*t3,*t4,*t5,*t6,*t7;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     texty1=@"0";
     texty2=@"0";
     texty3=@"0";

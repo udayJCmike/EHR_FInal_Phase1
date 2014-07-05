@@ -17,4 +17,5 @@
 @property (retain, nonatomic) IBOutlet UISegmentedControl *typeofsearch;
 @property(nonatomic,retain)NSMutableArray *resultset;
 @property(nonatomic,retain)NSMutableDictionary *staff;
+@property(nonatomic,retain)NSString *from;
 @end

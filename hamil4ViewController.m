@@ -8,8 +8,13 @@
 
 #import "hamil4ViewController.h"
 #import "hamil5ViewController.h"
+#import "databaseurl.h"
 #import "TestMoreViewController.h"
 @interface hamil4ViewController ()
+{
+    databaseurl *du;
+}
+
 
 @end
 
@@ -311,6 +316,7 @@
     
     [super viewDidLoad];
     painlevel.text=@"1";
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

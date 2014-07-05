@@ -17,8 +17,11 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface radiological3ViewController ()
 
+@interface radiological3ViewController ()
+{
+    databaseurl *du;
+}
 @end
 
 @implementation radiological3ViewController
@@ -102,12 +105,12 @@
     }
     
     a=1;
-    temp1 = [viewtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = viewtext.text;
     
-    if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du otherfields:temp1]==1))||([temp1 length]==0))
     {
         if([viewtext.text isEqualToString:@""]){
-            viewtext.text=@"null";
+            viewtext.text=@"";
         }
         [recorddict setValue:viewtext.text forKey:@"E_views"];
         
@@ -133,7 +136,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid view text."
+                                                       description:@"Please enter valid view text."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -335,6 +338,9 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     NSLog(@"success!!!recorddict %@",recorddict);
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

@@ -12,10 +12,12 @@
 #import "TWMessageBarManager.h"
 #import "radiological3ViewController.h"
 #import "radiologicalViewController.h"
-
+#import "databaseurl.h"
 
 @interface radiological2ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation radiological2ViewController
@@ -270,15 +272,94 @@
 
 - (IBAction)NEXT:(id)sender {
     
+    if(bre.selected)
+    {
+        
+    }
+    else{
+        bretext.text=@"";
+        
+    }
+    
+    if(other.selected)
+    {
+    }
+    else
+    {
+        othertext.text=@"";
+        
+    }
+    if(other1.selected)
+    {
+        
+    }
+    else{
+        other1text.text=@"";
+        
+    }
+    if(apex.selected)
+    {
+        
+    }
+    else{
+        apextext.text=@"";
+        
+    }
+    
+    if(soft.selected)
+    {
+        
+    }
+    else{
+        apextext.text=@"";
+    }
+    
+    
+    if(narrow.selected)
+    {
+        
+    }
+    else{
+        narrowtext.text=@"";
+        
+    }
+    
+    if(anterior.selected)
+    {
+        
+    }
+    else{
+        anteriortext.text=@"";
+        
+    }
+    if(sub.selected)
+    {
+        
+    }
+    else{
+        subtext.text=@"";
+        
+    }
+    
+    if(sch.selected)
+    {
+        
+    }
+    else{
+        schtext.text=@"";
+        
+    }
+    
+    
     if(neg.selected)
     {
         
-        [recorddict setValue:@" Negative for recent fracture, dislocation or gross Osteopathology"forKey:@"L_negative for recent"];
+        [recorddict setValue:@"Negative for recent fracture, dislocation or gross Osteopathology"forKey:@"L_negative for recent"];
     }
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_negative for recent"];
+        [recorddict  setValue:@"null" forKey:@"L_negative for recent"];
     }
     if(decllf.selected)
     {
@@ -289,7 +370,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_decllf1"];
+        [recorddict  setValue:@"null" forKey:@"L_decllf1"];
         
     }
     if(decrlf.selected)
@@ -301,7 +382,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_decrlf1"];
+        [recorddict  setValue:@"null" forKey:@"L_decrlf1"];
         
     }
     
@@ -309,12 +390,12 @@
     {
         
         
-        [recorddict  setValue:@"  Hypokyphosis" forKey:@"L_hypokypho1"];
+        [recorddict  setValue:@"Hypokyphosis" forKey:@"L_hypokypho1"];
     }
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_hypokypho1"];
+        [recorddict  setValue:@"null" forKey:@"L_hypokypho1"];
     }
     if(bre.selected)
     {
@@ -325,7 +406,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_break1"];
+        [recorddict  setValue:@"null" forKey:@"L_break1"];
         
     }
     if(sac.selected)
@@ -336,7 +417,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_sac1"];
+        [recorddict  setValue:@"null" forKey:@"L_sac1"];
     }
     if(nor.selected)
     {
@@ -347,7 +428,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_normalkypho1"];
+        [recorddict  setValue:@"null" forKey:@"L_normalkypho1"];
         
     }
     if(hyper.selected)
@@ -359,18 +440,18 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_hyperkypho1"];
+        [recorddict  setValue:@"null" forKey:@"L_hyperkypho1"];
     }
     if(lumb.selected)
     {
         
         
-        [recorddict  setValue:@"  Lumbarization" forKey:@"L_lumb1"];
+        [recorddict  setValue:@"Lumbarization" forKey:@"L_lumb1"];
     }
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_lumb1"];
+        [recorddict  setValue:@"null" forKey:@"L_lumb1"];
         
     }
     if(fact.selected)
@@ -381,7 +462,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_fact1"];
+        [recorddict  setValue:@"null" forKey:@"L_fact1"];
     }
     if(deg.selected)
     {
@@ -392,7 +473,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_degen1"];
+        [recorddict  setValue:@"null" forKey:@"L_degen1"];
         
     }
     if(mild.selected)
@@ -404,7 +485,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_mild1"];
+        [recorddict  setValue:@"null" forKey:@"L_mild1"];
     }
     if(moderate.selected)
     {
@@ -415,7 +496,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_moderate1"];
+        [recorddict  setValue:@"null" forKey:@"L_moderate1"];
         
     }
     if(severe.selected)
@@ -425,18 +506,18 @@
     }
     else
     {
-        [recorddict  setValue:@"" forKey:@"L_severe1"];
+        [recorddict  setValue:@"null" forKey:@"L_severe1"];
     }
     if(narrow.selected)
     {
         
         
-        [recorddict setValue:@"  Narrowed disc space at" forKey:@"L_narrow11"];
+        [recorddict setValue:@"Narrowed disc space at" forKey:@"L_narrow11"];
     }
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_narrow11"];
+        [recorddict  setValue:@"null" forKey:@"L_narrow11"];
         
     }
     if(anterior.selected)
@@ -448,7 +529,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_anterior11"];
+        [recorddict  setValue:@"null" forKey:@"L_anterior11"];
     }
     if(sub.selected)
     {
@@ -459,7 +540,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_sub11"];
+        [recorddict  setValue:@"null" forKey:@"L_sub11"];
         
     }
     if(sch.selected)
@@ -471,7 +552,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_sch11"];
+        [recorddict  setValue:@"null" forKey:@"L_sch11"];
     }
     if(grade.selected)
     {
@@ -482,7 +563,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_grade1"];
+        [recorddict  setValue:@"null" forKey:@"L_grade1"];
         
     }
     if(oster.selected)
@@ -494,7 +575,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_osterporo11"];
+        [recorddict  setValue:@"null" forKey:@"L_osterporo11"];
     }
     if(other1.selected)
     {
@@ -505,7 +586,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_other111"];
+        [recorddict  setValue:@"null" forKey:@"L_other111"];
         
     }
     if(spon.selected)
@@ -516,7 +597,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_spon1"];
+        [recorddict  setValue:@"null" forKey:@"L_spon1"];
     }
     if(mi.selected)
     {
@@ -527,7 +608,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_mild11"];
+        [recorddict  setValue:@"null" forKey:@"L_mild11"];
         
     }
     if(mo.selected)
@@ -539,7 +620,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_moderate11"];
+        [recorddict  setValue:@"null" forKey:@"L_moderate11"];
     }
     if(se.selected)
     {
@@ -550,7 +631,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_severe11"];
+        [recorddict  setValue:@"null" forKey:@"L_severe11"];
         
     }
     
@@ -563,7 +644,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_apex11"];
+        [recorddict  setValue:@"null" forKey:@"L_apex11"];
         
     }
     if(soft.selected)
@@ -575,7 +656,7 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_soft11"];
+        [recorddict  setValue:@"null" forKey:@"L_soft11"];
     }
     if(other.selected)
     {
@@ -586,40 +667,40 @@
     else
     {
         
-        [recorddict  setValue:@"" forKey:@"L_other11"];
+        [recorddict  setValue:@"null" forKey:@"L_other11"];
         
     }
     
     
     
     a=1;
-    temp1 = [bretext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 = [other1text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 = [schtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 = [apextext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 = [softtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[othertext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[narrowtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[anteriortext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[subtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = bretext.text;
+    temp2 = other1text.text;
+    temp3 = schtext.text;
+    temp4 = apextext.text;
+    temp5 = softtext.text;
+    temp6=othertext.text;
+    temp7=narrowtext.text;
+    temp8=anteriortext.text;
+    temp9=subtext.text;
     
-    if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du otherfields:temp1]==1))||([temp1 length]==0))
     {
-        if((([temp7 length]>0)&&([self validateNames:temp7 ]==1))||([temp7 length]==0))
+        if((([temp7 length]>0)&&([du otherfields:temp7 ]==1))||([temp7 length]==0))
         {
-            if((([temp8 length]>0)&&([self validateNames:temp8 ]==1))||([temp8 length]==0))
+            if((([temp8 length]>0)&&([du otherfields:temp8 ]==1))||([temp8 length]==0))
             {
-                if((([temp3 length]>0)&&([self validateNames:temp3 ]==1))||([temp3 length]==0))
+                if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
                 {
-                    if((([temp9 length]>0)&&([self validateNames:temp9 ]==1))||([temp9 length]==0))
+                    if((([temp9 length]>0)&&([du otherfields:temp9 ]==1))||([temp9 length]==0))
                     {
-                        if((([temp2 length]>0)&&([self validateNames:temp2]==1))||([temp2 length]==0))
+                        if((([temp2 length]>0)&&([du otherfields:temp2]==1))||([temp2 length]==0))
                         {
-                            if((([temp4 length]>0)&&([self validateNames:temp4]==1))||([temp4 length]==0))
+                            if((([temp4 length]>0)&&([du otherfields:temp4]==1))||([temp4 length]==0))
                             {
-                                if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+                                if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
                                 {
-                                    if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                                    if((([temp6 length]>0)&&([du otherfields:temp6]==1))||([temp6 length]==0))
                                     {
                                         [recorddict setValue:ostersegl forKey:@"L_oster"];
                                         [recorddict setValue:subtext.text forKey:@"L_sub"];
@@ -658,7 +739,7 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid other text."
+                                                                                       description:@"Please enter valid other text."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -676,7 +757,7 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid soft text."
+                                                                                   description:@"Please enter valid soft text."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -692,7 +773,7 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid apex."
+                                                                               description:@"Please enter valid apex."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -708,7 +789,7 @@
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid other text."
+                                                                           description:@"Please enter valid other text."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -722,7 +803,7 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid subchondral soft text."
+                                                                       description:@"Please enter valid subchondral soft text."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -739,7 +820,7 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid sch text."
+                                                                   description:@"Please enter valid sch text."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -759,7 +840,7 @@
                 
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid anterior vertebral body osteophytes at text."
+                                                               description:@"Please enter valid anterior vertebral body osteophytes at text."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -775,7 +856,7 @@
             
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid narrowed disc space at text."
+                                                           description:@"Please enter valid narrowed disc space at text."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -791,7 +872,7 @@
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid breakin georges."
+                                                       description:@"Please enter valid breakin georges."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1159,6 +1240,9 @@
     degsegl=@"L 1/2";
     dltsegl=@"Dextro";
     gradesegl=@"I";
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
             UITextField *textfield=(UITextField*)v;

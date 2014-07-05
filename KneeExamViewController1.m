@@ -9,12 +9,15 @@
 #import "KneeExamViewController1.h"
 #import "KneeExamViewController2.h"
 #import "hamilViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 @interface KneeExamViewController1 ()
 
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -70,6 +73,9 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
     checkstring5=@"null";
     segva=@"Excellent";
     other1.hidden=YES;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;
     
@@ -533,260 +539,177 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
 
 
 - (IBAction)nextact:(id)sender {
-    texty1=[sensleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[sensright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[motorleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[motorright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[sensel2left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[sensl2right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[motorl2left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[motorl2right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty9=[sensl3left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty10=[sensl3right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty11=[motorl3left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty12=[motorl3right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty13=[sensl4left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty14=[sensl4right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty15=[motorl4left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty16=[motorl4right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty17=[refl4left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty18=[refl4right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty19=[sensel5left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty20=[sensel5right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty21=[motorl5left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty22=[motorl5right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty23=[refl5left.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty24=[refl5right.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty25=[sensileft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty26=[sensiright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty27=[motorsileft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty28=[motorsiright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty29=[refsileft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty30=[refsiright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    // texty31=[right1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty32=[addcomments.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if(!check5.selected){
+        other1.text=@"";
+    }
+    texty1=sensleft.text;
+    texty2=sensright.text;
+    texty3=motorleft.text;
+    texty4=motorright.text;
+    texty5=sensel2left.text;
+    texty6=sensl2right.text;
+    texty7=motorl2left.text;
+    texty8=motorl2right.text;
+    texty9=sensl3left.text;
+    texty10=sensl3right.text;
+    texty11=motorl3left.text;
+    texty12=motorl3right.text;
+    texty13=sensl4left.text;
+    texty14=sensl4right.text;
+    texty15=motorl4left.text;
+    texty16=motorl4right.text;
+    texty17=refl4left.text;
+    texty18=refl4right.text;
+    texty19=sensel5left.text;
+    texty20=sensel5right.text;
+    texty21=motorl5left.text;
+    texty22=motorl5right.text;
+    texty23=refl5left.text;
+    texty24=refl5right.text;
+    texty25=sensileft.text;
+    texty26=sensiright.text;
+    texty27=motorsileft.text;
+    texty28=motorsiright.text;
+    texty29=refsileft.text;
+    texty30=refsiright.text;
+    // texty31=right1.text;
+    texty32=addcomments.text;
+    texty39=other1.text;
+    texty32=[texty32 stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    texty32=[texty32 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     
-    if([sensleft.text length]==0||([self validateString:texty1]==1))
+    if([sensleft.text length]==0||([du date:texty1]==1))
     {
-        if([sensright.text length]==0||([self validateString:texty2]==1))
+        if([sensright.text length]==0||([du date:texty2]==1))
         {
-            if([motorleft.text length]==0||([self validateNumberLessFive:texty3]==1))
+            if([motorleft.text length]==0||([du byfive:texty3]==1))
             {
-                if([motorright.text length]==0||([self validateNumberLessFive:texty4]==1))
+                if([motorright.text length]==0||([du byfive:texty4]==1))
                 {
-                    if([sensel2left.text length]==0||([self validateString:texty5]==1))
+                    if([sensel2left.text length]==0||([du date:texty5]==1))
                     {
-                        if([sensl2right.text length]==0||([self validateString:texty6]==1))
+                        if([sensl2right.text length]==0||([du date:texty6]==1))
                         {
-                            if([motorl2left.text length]==0||([self validateNumberLessFive:texty7]==1))
+                            if([motorl2left.text length]==0||([du byfive:texty7]==1))
                             {
-                                if([motorl2right.text length]==0||([self validateNumberLessFive:texty8]==1))
+                                if([motorl2right.text length]==0||([du byfive:texty8]==1))
                                 {
-                                    if([sensl3left.text length]==0||([self validateString:texty9]==1))
+                                    if([sensl3left.text length]==0||([du date:texty9]==1))
                                     {
-                                        if([sensl3right.text length]==0||([self validateString:texty10]==1))
+                                        if([sensl3right.text length]==0||([du date:texty10]==1))
                                         {
-                                            if([motorl3left.text length]==0||([self validateNumberLessFive:texty11]==1))
+                                            if([motorl3left.text length]==0||([du byfive:texty11]==1))
                                             {
-                                                if([motorl3right.text length]==0||([self validateNumberLessFive:texty12]==1))
+                                                if([motorl3right.text length]==0||([du byfive:texty12]==1))
                                                 {
-                                                    if([sensl4left.text length]==0||([self validateString:texty13]==1))
+                                                    if([sensl4left.text length]==0||([du date:texty13]==1))
                                                     {
-                                                        if([sensl4right.text length]==0||([self validateString:texty14]==1))
+                                                        if([sensl4right.text length]==0||([du date:texty14]==1))
                                                         {
-                                                            if([motorl4left.text length]==0||([self validateNumberLessFive:texty15]==1))
+                                                            if([motorl4left.text length]==0||([du byfive:texty15]==1))
                                                             {
-                                                                if([motorl4right.text length]==0||([self validateNumberLessFive:texty16]==1))
+                                                                if([motorl4right.text length]==0||([du byfive:texty16]==1))
                                                                 {
-                                                                    if([refl4left.text length]==0||([self validateNumberLessFive:texty17]==1))
+                                                                    if([refl4left.text length]==0||([du byfive:texty17]==1))
                                                                     {
                                                                         
-                                                                        if([refl4right.text length]==0||([self validateNumberLessFive:texty18]==1))
+                                                                        if([refl4right.text length]==0||([du byfive:texty18]==1))
                                                                         {
                                                                             
-                                                                            if([sensel5left.text length]==0||([self validateString:texty19]==1))
+                                                                            if([sensel5left.text length]==0||([du date:texty19]==1))
                                                                             {
-                                                                                if([sensel5right.text length]==0||([self validateString:texty20]==1))
+                                                                                if([sensel5right.text length]==0||([du date:texty20]==1))
                                                                                 {
-                                                                                    if([motorl5left.text length]==0||([self validateNumberLessFive:texty21]==1))
+                                                                                    if([motorl5left.text length]==0||([du byfive:texty21]==1))
                                                                                     {
-                                                                                        if([motorl5right.text length]==0||([self validateNumberLessFive:texty21]==1))
+                                                                                        if([motorl5right.text length]==0||([du byfive:texty21]==1))
                                                                                         {
-                                                                                            if([refl5left.text length]==0||([self validateNumberLessFive:texty23]==1))
+                                                                                            if([refl5left.text length]==0||([du byfive:texty23]==1))
                                                                                             {
-                                                                                                if([refl5right.text length]==0||([self validateNumberLessFive:texty24]==1))
+                                                                                                if([refl5right.text length]==0||([du byfive:texty24]==1))
                                                                                                 {
-                                                                                                    if([sensileft.text length]==0||([self validateString:texty25]==1))
+                                                                                                    if([sensileft.text length]==0||([du date:texty25]==1))
                                                                                                     {
-                                                                                                        if([sensiright.text length]==0||([self validateString:texty26]==1))
+                                                                                                        if([sensiright.text length]==0||([du date:texty26]==1))
                                                                                                         {
-                                                                                                            if([motorsileft.text length]==0||([self validateNumberLessFive:texty27]==1))
+                                                                                                            if([motorsileft.text length]==0||([du byfive:texty27]==1))
                                                                                                             {
-                                                                                                                if([motorsiright.text length]==0||([self validateNumberLessFive:texty28]==1))
+                                                                                                                if([motorsiright.text length]==0||([du byfive:texty28]==1))
                                                                                                                 {
-                                                                                                                    if([refsileft.text length]==0||([self validateNumberLessFive:texty29]==1))
+                                                                                                                    if([refsileft.text length]==0||([du byfive:texty29]==1))
                                                                                                                     {
-                                                                                                                        if([refsiright.text length]==0||([self validateNumberLessFive:texty30]==1))
+                                                                                                                        if([refsiright.text length]==0||([du byfive:texty30]==1))
                                                                                                                         {
-                                                                                                                            if([addcomments.text length]==0||([self validateNumberLessFive1:texty32]==1))
-                                                                                                                            {
-                                                                                                                                suc=1;
+                                                                                                                            if([other1.text length]==0||([du otherfields:texty39]==1)){
                                                                                                                                 
-                                                                                                                                
-                                                                                                                                
-                                                                                                                                /*   if([sensleft.text isEqualToString:@""]){
-                                                                                                                                 sensleft.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensright.text isEqualToString:@""]){
-                                                                                                                                 sensright.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorleft.text isEqualToString:@""]){
-                                                                                                                                 motorleft.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorright.text isEqualToString:@""]){
-                                                                                                                                 motorright.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensel2left.text isEqualToString:@""]){
-                                                                                                                                 sensel2left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensl2right.text isEqualToString:@""]){
-                                                                                                                                 sensl2right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 if([motorl2left.text isEqualToString:@""]){
-                                                                                                                                 motorl2left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl2right.text isEqualToString:@""]){
-                                                                                                                                 motorl2right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensl3left.text isEqualToString:@""]){
-                                                                                                                                 sensl3left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensl3right.text isEqualToString:@""]){
-                                                                                                                                 sensl3right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl3left.text isEqualToString:@""]){
-                                                                                                                                 motorl3left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl3right.text isEqualToString:@""]){
-                                                                                                                                 motorl3right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 if([sensl4left.text isEqualToString:@""]){
-                                                                                                                                 sensl4left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensl4right.text isEqualToString:@""]){
-                                                                                                                                 sensl4right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl4left.text isEqualToString:@""]){
-                                                                                                                                 motorl4left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl4right.text isEqualToString:@""]){
-                                                                                                                                 motorl4right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refl4left.text isEqualToString:@""]){
-                                                                                                                                 refl4left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refl4right.text isEqualToString:@""]){
-                                                                                                                                 refl4right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 if([sensel5left.text isEqualToString:@""]){
-                                                                                                                                 sensel5left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensel5right.text isEqualToString:@""]){
-                                                                                                                                 sensel5right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl5left.text isEqualToString:@""]){
-                                                                                                                                 motorl5left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorl5right.text isEqualToString:@""]){
-                                                                                                                                 motorl5right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refl5left.text isEqualToString:@""]){
-                                                                                                                                 refl5left.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refl5right.text isEqualToString:@""]){
-                                                                                                                                 refl5right.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 if([sensileft.text isEqualToString:@""]){
-                                                                                                                                 sensileft.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([sensiright.text isEqualToString:@""]){
-                                                                                                                                 sensiright.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorsileft.text isEqualToString:@""]){
-                                                                                                                                 motorsileft.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([motorsiright.text isEqualToString:@""]){
-                                                                                                                                 motorsiright.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refsileft.text isEqualToString:@""]){
-                                                                                                                                 refsileft.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([refsiright.text isEqualToString:@""]){
-                                                                                                                                 refsiright.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 if([addcomments.text isEqualToString:@""]){
-                                                                                                                                 addcomments.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 if([other1.text isEqualToString:@""]){
-                                                                                                                                 other1.text=@"null";
-                                                                                                                                 }
-                                                                                                                                 
-                                                                                                                                 */
-                                                                                                                                //  recorddict=[[NSMutableDictionary alloc]init];
-                                                                                                                                [recorddict addEntriesFromDictionary:temp];
-                                                                                                                                [recorddict setObject:sensleft.text forKey:@"sensel1left"];
-                                                                                                                                [recorddict setObject:sensl3left.text forKey:@"sensel3left"];
-                                                                                                                                [recorddict setObject:sensel2left.text forKey:@"sensel2left"];
-                                                                                                                                [recorddict setObject:sensl4left.text forKey:@"sensel4left"];
-                                                                                                                                [recorddict setObject:sensel5left.text forKey:@"sensel5left"];
-                                                                                                                                [recorddict setObject:sensileft.text forKey:@"sensesileft"];
-                                                                                                                                [recorddict setObject:sensright.text forKey:@"sensel1right"];
-                                                                                                                                [recorddict setObject:sensl3right.text forKey:@"sensel3right"];
-                                                                                                                                [recorddict setObject:sensl2right.text forKey:@"sensel2right"];
-                                                                                                                                [recorddict setObject:sensl4right.text forKey:@"sensel4right"];
-                                                                                                                                [recorddict setObject:sensel5right.text forKey:@"sensel5right"];
-                                                                                                                                [recorddict setObject:sensiright.text forKey:@"sensesiright"];
-                                                                                                                                [recorddict setObject:motorleft.text forKey:@"motorl1left"];
-                                                                                                                                [recorddict setObject:motorl3left.text forKey:@"motorl3left"];
-                                                                                                                                [recorddict setObject:motorl2left.text forKey:@"motorl2left"];
-                                                                                                                                [recorddict setObject:motorl4left.text forKey:@"motorl4left"];
-                                                                                                                                [recorddict setObject:motorl5left.text forKey:@"motorl5left"];
-                                                                                                                                [recorddict setObject:motorsileft.text forKey:@"motrorsileft"];
-                                                                                                                                [recorddict setObject:motorright.text forKey:@"motorl1right"];
-                                                                                                                                [recorddict setObject:motorl3right.text forKey:@"motorl3right"];
-                                                                                                                                [recorddict setObject:motorl2right.text forKey:@"motorl2right"];
-                                                                                                                                [recorddict setObject:motorl4right.text forKey:@"motorl4right"];
-                                                                                                                                [recorddict setObject:motorl5right.text forKey:@"motorl5right"];
-                                                                                                                                [recorddict setObject:motorsiright.text forKey:@"motrorsiright"];
-                                                                                                                                [recorddict setObject:motorleft.text forKey:@"motorl1left"];
-                                                                                                                                [recorddict setObject:refl4left.text forKey:@"refl3left"];
-                                                                                                                                [recorddict setObject:refl5left.text forKey:@"refl5left"];
-                                                                                                                                [recorddict setObject:refsileft.text forKey:@"refsileft"];
-                                                                                                                                [recorddict setObject:refl4right.text forKey:@"refl3right"];
-                                                                                                                                [recorddict setObject:refl5right.text forKey:@"refl5right"];
-                                                                                                                                [recorddict setObject:refsiright.text forKey:@"refsiright"];
-                                                                                                                                [recorddict setObject:checkstring1 forKey:@"checkstring1"];
-                                                                                                                                [recorddict setObject:checkstring2 forKey:@"checkstring2"];
-                                                                                                                                [recorddict setObject:checkstring3 forKey:@"checkstring3"];
-                                                                                                                                [recorddict setObject:checkstring4 forKey:@"checkstring4"];
-                                                                                                                                [recorddict setObject:checkstring5 forKey:@"checkstring5"];
-                                                                                                                                [recorddict setObject:other1.text forKey:@"otherone"];[recorddict setObject:addcomments.text forKey:@"addcomments"];
-                                                                                                                                [recorddict setObject:segva forKey:@"pickervalue"];
-                                                                                                                                
-                                                                                                                                
-                                                                                                                                
-                                                                                                                                NSLog(@"Dicionary in knee form two::%@",recorddict);
-                                                                                                                                
+                                                                                                                                if([addcomments.text length]==0||([du comments:texty32]==1))
+                                                                                                                                {
+                                                                                                                                    suc=1;
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    [recorddict addEntriesFromDictionary:temp];
+                                                                                                                                    [recorddict setObject:sensleft.text forKey:@"sensel1left"];
+                                                                                                                                    [recorddict setObject:sensl3left.text forKey:@"sensel3left"];
+                                                                                                                                    [recorddict setObject:sensel2left.text forKey:@"sensel2left"];
+                                                                                                                                    [recorddict setObject:sensl4left.text forKey:@"sensel4left"];
+                                                                                                                                    [recorddict setObject:sensel5left.text forKey:@"sensel5left"];
+                                                                                                                                    [recorddict setObject:sensileft.text forKey:@"sensesileft"];
+                                                                                                                                    [recorddict setObject:sensright.text forKey:@"sensel1right"];
+                                                                                                                                    [recorddict setObject:sensl3right.text forKey:@"sensel3right"];
+                                                                                                                                    [recorddict setObject:sensl2right.text forKey:@"sensel2right"];
+                                                                                                                                    [recorddict setObject:sensl4right.text forKey:@"sensel4right"];
+                                                                                                                                    [recorddict setObject:sensel5right.text forKey:@"sensel5right"];
+                                                                                                                                    [recorddict setObject:sensiright.text forKey:@"sensesiright"];
+                                                                                                                                    [recorddict setObject:motorleft.text forKey:@"motorl1left"];
+                                                                                                                                    [recorddict setObject:motorl3left.text forKey:@"motorl3left"];
+                                                                                                                                    [recorddict setObject:motorl2left.text forKey:@"motorl2left"];
+                                                                                                                                    [recorddict setObject:motorl4left.text forKey:@"motorl4left"];
+                                                                                                                                    [recorddict setObject:motorl5left.text forKey:@"motorl5left"];
+                                                                                                                                    [recorddict setObject:motorsileft.text forKey:@"motrorsileft"];
+                                                                                                                                    [recorddict setObject:motorright.text forKey:@"motorl1right"];
+                                                                                                                                    [recorddict setObject:motorl3right.text forKey:@"motorl3right"];
+                                                                                                                                    [recorddict setObject:motorl2right.text forKey:@"motorl2right"];
+                                                                                                                                    [recorddict setObject:motorl4right.text forKey:@"motorl4right"];
+                                                                                                                                    [recorddict setObject:motorl5right.text forKey:@"motorl5right"];
+                                                                                                                                    [recorddict setObject:motorsiright.text forKey:@"motrorsiright"];
+                                                                                                                                    [recorddict setObject:motorleft.text forKey:@"motorl1left"];
+                                                                                                                                    [recorddict setObject:refl4left.text forKey:@"refl3left"];
+                                                                                                                                    [recorddict setObject:refl5left.text forKey:@"refl5left"];
+                                                                                                                                    [recorddict setObject:refsileft.text forKey:@"refsileft"];
+                                                                                                                                    [recorddict setObject:refl4right.text forKey:@"refl3right"];
+                                                                                                                                    [recorddict setObject:refl5right.text forKey:@"refl5right"];
+                                                                                                                                    [recorddict setObject:refsiright.text forKey:@"refsiright"];
+                                                                                                                                    [recorddict setObject:checkstring1 forKey:@"checkstring1"];
+                                                                                                                                    [recorddict setObject:checkstring2 forKey:@"checkstring2"];
+                                                                                                                                    [recorddict setObject:checkstring3 forKey:@"checkstring3"];
+                                                                                                                                    [recorddict setObject:checkstring4 forKey:@"checkstring4"];
+                                                                                                                                    [recorddict setObject:checkstring5 forKey:@"checkstring5"];
+                                                                                                                                    [recorddict setObject:other1.text forKey:@"otherone"];[recorddict setObject:addcomments.text forKey:@"addcomments"];
+                                                                                                                                    [recorddict setObject:segva forKey:@"pickervalue"];
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    NSLog(@"Dicionary in knee form two::%@",recorddict);
+                                                                                                                                    
+                                                                                                                                }
+                                                                                                                                else{
+                                                                                                                                    suc=0;
+                                                                                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                                                                                   description:@"Please enter valid assessment."
+                                                                                                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                                                                                      callback:nil];
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                }
                                                                                                                             }
                                                                                                                             else{
                                                                                                                                 suc=0;
                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                               description:@"Enter valid assessment."
+                                                                                                                                                                               description:@"Please enter valid other text field."
                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                   callback:nil];
@@ -795,11 +718,13 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                                                 
                                                                                                                                 
                                                                                                                             }
-                                                                                                                        }                                                          else{
+                                                                                                                        }
+                                                                                                                        
+                                                                                                                        else{
                                                                                                                             suc=0;
                                                                                                                             
                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                           description:@"Enter valid ref si right value."
+                                                                                                                                                                           description:@"Please enter valid ref si right value."
                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                               callback:nil];
@@ -812,7 +737,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                                         suc=0;
                                                                                                                         
                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                       description:@"Enter valid ref si Left value."
+                                                                                                                                                                       description:@"Please enter valid ref si Left value."
                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                           callback:nil];
@@ -827,7 +752,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                                     suc=0;
                                                                                                                     
                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                   description:@"Enter valid motor si right value."
+                                                                                                                                                                   description:@"Please enter valid motor si right value."
                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                       callback:nil];
@@ -840,7 +765,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                                 suc=0;
                                                                                                                 
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid motor si left value."
+                                                                                                                                                               description:@"Please enter valid motor si left value."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -855,7 +780,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                             suc=0;
                                                                                                             
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid sensory si right value."
+                                                                                                                                                           description:@"Please enter valid sensory si right value."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
@@ -869,7 +794,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                         suc=0;
                                                                                                         
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid sensory si left value."
+                                                                                                                                                       description:@"Please enter valid sensory si left value."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
@@ -883,7 +808,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                     suc=0;
                                                                                                     
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid ref l5 right value."
+                                                                                                                                                   description:@"Please enter valid ref l5 right value."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
@@ -896,7 +821,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                 suc=0;
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid ref l5 left value."
+                                                                                                                                               description:@"Please enter valid ref l5 left value."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
@@ -910,7 +835,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                             suc=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid motor L5 right value."
+                                                                                                                                           description:@"Please enter valid motor L5 right value."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -925,7 +850,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                         suc=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid motor l5 left value."
+                                                                                                                                       description:@"Please enter valid motor l5 left value."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -939,7 +864,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                     suc=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid sensory l5 right value."
+                                                                                                                                   description:@"Please enter valid sensory l5 right value."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -954,7 +879,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                 
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid sensory l5 left value."
+                                                                                                                               description:@"Please enter valid sensory l5 left value."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -968,7 +893,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                             
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid ref l4 right value."
+                                                                                                                           description:@"Please enter valid ref l4 right value."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -981,7 +906,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                         suc=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid ref l4 left value."
+                                                                                                                       description:@"Please enter valid ref l4 left value."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -995,7 +920,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                     suc=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid motor l4 right value."
+                                                                                                                   description:@"Please enter valid motor l4 right value."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -1007,7 +932,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                             else{
                                                                 suc=0;
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid motor l4 left value."
+                                                                                                               description:@"Please enter valid motor l4 left value."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -1021,7 +946,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                             suc=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid sensory l4 left value."
+                                                                                                           description:@"Please enter valid sensory l4 left value."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -1035,7 +960,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                         suc=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid sensory l4 left value."
+                                                                                                       description:@"Please enter valid sensory l4 left value."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -1047,7 +972,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                     suc=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid motor l3 right value."
+                                                                                                   description:@"Please enter valid motor l3 right value."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -1060,7 +985,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid motor l3 left value."
+                                                                                               description:@"Please enter valid motor l3 left value."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -1074,7 +999,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid sensory l3 right Value."
+                                                                                           description:@"Please enter valid sensory l3 right Value."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -1088,7 +1013,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid sensory l3 left value."
+                                                                                       description:@"Please enter valid sensory l3 left value."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -1102,7 +1027,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid motor l2 right value."
+                                                                                   description:@"Please enter valid motor l2 right value."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -1116,7 +1041,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid motor l2 left value."
+                                                                               description:@"Please enter valid motor l2 left value."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -1131,7 +1056,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid sensory l2 right value."
+                                                                           description:@"Please enter valid sensory l2 right value."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -1142,7 +1067,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid sensory l2 Left value."
+                                                                       description:@"Please enter valid sensory l2 Left value."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1154,7 +1079,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid motor l1 right value."
+                                                                   description:@"Please enter valid motor l1 right value."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1166,7 +1091,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid motor l1 left value."
+                                                               description:@"Please enter valid motor l1 left value."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1180,7 +1105,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid sensory l1 right value."
+                                                           description:@"Please enter valid sensory l1 right value."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1194,7 +1119,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid sensory l1 left value."
+                                                       description:@"Please enter valid sensory l1 left value."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

@@ -51,7 +51,7 @@
 }
 -(BOOL)validateNames:(NSString *)country1
 {
-    NSString *countryFormat1 =  @"[A-Za-z0-9@_.]+";
+    NSString *countryFormat1 =  @"[A-Za-z0-9@_]+";
     
     
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -223,6 +223,7 @@
         
     }//end of button index checking
 }
+
 -(void)back
 {
     
@@ -262,14 +263,14 @@
             {
                 if (![[menu objectForKey:@"patientname"] isEqualToString:@""])
                 {
-                
+                    
                     [[NSUserDefaults standardUserDefaults] setObject:[menu objectForKey:@"patientname"] forKey:@"patientname"];
-                     [[NSUserDefaults standardUserDefaults]synchronize];
-                      res= @"Success";
+                    [[NSUserDefaults standardUserDefaults]synchronize];
+                    res= @"Success";
                 }
                 else
                 {
-                     res= @"Successnopatient";
+                    res= @"Failure";
                 }
                 
                 
@@ -287,11 +288,12 @@
         }
         else
             res= @"Failure";
-            
+        
     }
     return res;
     
 }
+
 -(NSString *)HttpPostEntityFirst1:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     
@@ -336,7 +338,7 @@
         
         SampleViewController *destViewController = [segue destinationViewController];
         destViewController.resultset=resultset;
-        
+        destViewController.from=@"doctor";
         //  NSLog(@"recorddict  %@",resultset);
     }
     
@@ -344,7 +346,7 @@
 }
 - (void)dealloc {
     
-  
+    
     [super dealloc];
 }
 @end

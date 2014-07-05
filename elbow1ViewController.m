@@ -17,7 +17,9 @@
 #import "JSON.h"
 #import "hamilViewController.h"
 @interface elbow1ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation elbow1ViewController
@@ -337,72 +339,75 @@
         [recorddict setValue:@"null" forKey:@"other1"];
     }
     
-    temp1 =[moc5L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[moc5R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 =[moc6L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[moc6R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[moc7L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[moc7R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[moc8L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[moc8R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[mot1L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp10=[mot1R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp11=[diag1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp12=[diag2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp13=[diag3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp14=[diag4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp15=[diag5.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp16=[diag6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp17=[plan1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp18=[plan2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp20=[funcother.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp21=[planother.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp19=[physician_sign.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp22=[assessment.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =moc5L.text;
+    temp2 =moc5R.text;
+    temp3 =moc6L.text;
+    temp4 =moc6R.text;
+    temp5 =moc7L.text;
+    temp6=moc7R.text;
+    temp7=moc8L.text;
+    temp8=moc8R.text;
+    temp9=mot1L.text;
+    temp10=mot1R.text;
+    temp11=diag1.text;
+    temp12=diag2.text;
+    temp13=diag3.text;
+    temp14=diag4.text;
+    temp15=diag5.text;
+    temp16=diag6.text;
+    temp17=plan1.text;
+    temp18=plan2.text;
+    temp20=funcother.text;
+    temp21=planother.text;
+    temp19=physician_sign.text;
+    temp22=assessment.text;
+    temp22=[assessment.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    temp22=[temp22 stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    temp22=[temp22 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     if([temp19 length]!=0)
     {
-        if((([temp1 length]>0)&&([self validateNumberlimit:temp1]==1))||([temp1 length]==0))
+        if((([temp1 length]>0)&&([du byfive:temp1]==1))||([temp1 length]==0))
         {
-            if((([temp2 length]>0)&&([self validateNumberlimit:temp2]==1))||([temp2 length]==0))
+            if((([temp2 length]>0)&&([du byfive:temp2]==1))||([temp2 length]==0))
             {
-                if((([temp3 length]>0)&&([self validateNumberlimit:temp3 ]==1))||([temp3 length]==0))
+                if((([temp3 length]>0)&&([du byfive:temp3 ]==1))||([temp3 length]==0))
                 {
-                    if((([temp4 length]>0)&&([self validateNumberlimit:temp4 ]==1))||([temp4 length]==0))
+                    if((([temp4 length]>0)&&([du byfive:temp4 ]==1))||([temp4 length]==0))
                     {
-                        if((([temp5 length]>0)&&([self validateNumberlimit:temp5]==1))||([temp5 length]==0))
+                        if((([temp5 length]>0)&&([du byfive:temp5]==1))||([temp5 length]==0))
                         {
-                            if((([temp6 length]>0)&&([self validateNumberlimit:temp6]==1))||([temp6 length]==0))
+                            if((([temp6 length]>0)&&([du byfive:temp6]==1))||([temp6 length]==0))
                             {
-                                if((([temp7 length]>0)&&([self validateNumberlimit:temp7]==1))||([temp7 length]==0))
+                                if((([temp7 length]>0)&&([du byfive:temp7]==1))||([temp7 length]==0))
                                 {
-                                    if((([temp8 length]>0)&&([self validateNumberlimit:temp8]==1))||([temp8 length]==0))
+                                    if((([temp8 length]>0)&&([du byfive:temp8]==1))||([temp8 length]==0))
                                     {
-                                        if((([temp9 length]>0)&&([self validateNumberlimit:temp9]==1))||([temp9 length]==0))
+                                        if((([temp9 length]>0)&&([du byfive:temp9]==1))||([temp9 length]==0))
                                         {
-                                            if((([temp10 length]>0)&&([self validateNumberlimit:temp10 ]==1))||([temp10 length]==0))
+                                            if((([temp10 length]>0)&&([du byfive:temp10 ]==1))||([temp10 length]==0))
                                             {
-                                                if((([temp20 length]>0)&&([self validateNumberlimit1:temp20 ]==1))||([temp20 length]==0))
+                                                if((([temp20 length]>0)&&([du otherfields:temp20 ]==1))||([temp20 length]==0))
                                                 {
-                                                    if((([temp22 length]>0)&&([self validateNumberlimit2:temp22 ]==1))||([temp22 length]==0))
+                                                    if((([temp22 length]>0)&&([du comments:temp22 ]==1))||([temp22 length]==0))
                                                         
                                                     {
-                                                        if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
+                                                        if((([temp11 length]>0)&&([du otherfields:temp11]==1))||([temp11 length]==0))
                                                         {
-                                                            if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0))
+                                                            if((([temp12 length]>0)&&([du otherfields:temp12]==1))||([temp12 length]==0))
                                                             {
-                                                                if((([temp13 length]>0)&&([self validateNames:temp13]==1))||([temp13 length]==0))
+                                                                if((([temp13 length]>0)&&([du otherfields:temp13]==1))||([temp13 length]==0))
                                                                 {
-                                                                    if((([temp14 length]>0)&&([self validateNames:temp14]==1))||([temp14 length]==0))
+                                                                    if((([temp14 length]>0)&&([du otherfields:temp14]==1))||([temp14 length]==0))
                                                                     {
-                                                                        if((([temp15 length]>0)&&([self validateNames:temp15]==1))||([temp15 length]==0))
+                                                                        if((([temp15 length]>0)&&([du otherfields:temp15]==1))||([temp15 length]==0))
                                                                         {
-                                                                            if((([temp16 length]>0)&&([self validateNames:temp16]==1))||([temp16 length]==0))
+                                                                            if((([temp16 length]>0)&&([du otherfields:temp16]==1))||([temp16 length]==0))
                                                                             {
-                                                                                if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
+                                                                                if((([temp17 length]>0)&&([du otherfields:temp17]==1))||([temp17 length]==0))
                                                                                 {
-                                                                                    if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
+                                                                                    if((([temp18 length]>0)&&([du otherfields:temp18]==1))||([temp18 length]==0))
                                                                                     {
-                                                                                        if((([temp19 length]>0)&&([self validateNames1:temp19]==1))||([temp19 length]==0))
+                                                                                        if((([temp19 length]>0)&&([du otherfields:temp19]==1))||([temp19 length]==0))
                                                                                             
                                                                                             
                                                                                         {
@@ -546,7 +551,7 @@
                                                                                             a=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid physician sign."
+                                                                                                                                           description:@"Please enter valid physician sign."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -565,7 +570,7 @@
                                                                                         
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid week field."
+                                                                                                                                       description:@"Please enter valid week field."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -581,7 +586,7 @@
                                                                                     a=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid time field."
+                                                                                                                                   description:@"Please enter valid time field."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -600,7 +605,7 @@
                                                                                 
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid diagnosis 6 field."
+                                                                                                                               description:@"Please enter valid diagnosis 6 field."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -618,7 +623,7 @@
                                                                             
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid diagnosis 5 field."
+                                                                                                                           description:@"Please enter valid diagnosis 5 field."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -636,7 +641,7 @@
                                                                         
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid diagnosis 4 field."
+                                                                                                                       description:@"Please enter valid diagnosis 4 field."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -652,7 +657,7 @@
                                                                     a=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid diagnosis 3 field."
+                                                                                                                   description:@"Please enter valid diagnosis 3 field."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -670,7 +675,7 @@
                                                                 a=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid diagnosis 2 field."
+                                                                                                               description:@"Please enter valid diagnosis 2 field."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -686,7 +691,7 @@
                                                             a=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid diagnosis 1 field."
+                                                                                                           description:@"Please enter valid diagnosis 1 field."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -703,7 +708,7 @@
                                                         a=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid assessment text field."
+                                                                                                       description:@"Please enter valid assessment text field."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -720,7 +725,7 @@
                                                     
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid  functional other text field."
+                                                                                                   description:@"Please enter valid  functional other text field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -737,7 +742,7 @@
                                                 a=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid motor t1 right field."
+                                                                                               description:@"Please enter valid motor t1 right field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -754,7 +759,7 @@
                                             a=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid motor t1 left field."
+                                                                                           description:@"Please enter valid motor t1 left field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -772,7 +777,7 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid motor c8 right."
+                                                                                       description:@"Please enter valid motor c8 right."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -788,7 +793,7 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid motor c8 left."
+                                                                                   description:@"Please enter valid motor c8 left."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -805,7 +810,7 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid motor c7 right."
+                                                                               description:@"Please enter valid motor c7 right."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -822,7 +827,7 @@
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid motor c7 left field."
+                                                                           description:@"Please enter valid motor c7 left field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -839,7 +844,7 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid motor c6 right field."
+                                                                       description:@"Please enter valid motor c6 right field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -857,7 +862,7 @@
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid motor c6 left field."
+                                                                   description:@"Please enter valid motor c6 left field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -874,7 +879,7 @@
                 
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid motor c5 right field."
+                                                               description:@"Please enter valid motor c5 right field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -890,7 +895,7 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid motor c5 left field."
+                                                           description:@"Please enter valid motor c5 left field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -907,7 +912,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter physician signature."
+                                                       description:@"Please enter physician signature."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1431,6 +1436,9 @@
     //    cancel1.hidden=YES;
     //    reset1.hidden=NO;
     funcother.hidden=YES;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];

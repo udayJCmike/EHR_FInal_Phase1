@@ -259,7 +259,7 @@ static databaseurl * appInstance;
 -(BOOL)percentage:(NSString*)date
 {
     
-    NSString *dateFormat1 = @"[0-100]{1,2}";
+    NSString *dateFormat1 = @"[0-100]{1,3}";
     
     NSPredicate *dateTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat1];
     return [dateTest1 evaluateWithObject:date];

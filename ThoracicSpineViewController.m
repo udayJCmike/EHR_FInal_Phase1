@@ -8,12 +8,16 @@
 
 #import "ThoracicSpineViewController.h"
 #import "LumbarSpineViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 @interface ThoracicSpineViewController ()
-
+{
+    
+    databaseurl *du;
+    
+}
 @end
 
 @implementation ThoracicSpineViewController
@@ -146,34 +150,34 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (IBAction)next:(id)sender {
     
-    texty1=[chest.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[_2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[_3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[_4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[smoker.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[_6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[_7.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[_8.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty1=chest.text;
+    texty2=_2.text;
+    texty3=_3.text;
+    texty4=_4.text;
+    texty5=smoker.text;
+    texty6=_6.text;
+    texty7=_7.text;
+    texty8=_8.text;
     
-    texty10=[_10.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty11=[_11.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty12=[_12.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    // texty13=[_13.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty14=[_14.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty15=[_15.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty16=[_16.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    // texty17=[_17.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty18=[_18.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty19=[_19.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty20=[_20.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    // texty21=[_21.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty22=[_22.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty23=[_23.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty24=[_24.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    textya=[_25.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    textyb=[_26.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    textyc=[_27.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    textyd=[_28.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty10=_10.text;
+    texty11=_11.text;
+    texty12=_12.text;
+    // texty13=_13.text;
+    texty14=_14.text;
+    texty15=_15.text;
+    texty16=_16.text;
+    // texty17=_17.text;
+    texty18=_18.text;
+    texty19=_19.text;
+    texty20=_20.text;
+    // texty21=_21.text;
+    texty22=_22.text;
+    texty23=_23.text;
+    texty24=_24.text;
+    //    textya=_25.text;
+    //    textyb=_26.text;
+    //    textyc=_27.text;
+    //    textyd=_28.text;
     
     
     if(check1.selected){
@@ -431,49 +435,49 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     //    }
     
     
-    if([chest.text length]==0||([self validateString:texty1]==1))
+    if([chest.text length]==0||([du otherfields:texty1]==1))
     {
-        if([_2.text length]==0||([self validateString:texty2]==1))
+        if([_2.text length]==0||([du date:texty2]==1))
         {
-            if([_3.text length]==0||([self validateString:texty3]==1))
+            if([_3.text length]==0||([du date:texty3]==1))
             {
-                if([_4.text length]==0||([self validateString:texty4]==1))
+                if([_4.text length]==0||([du date:texty4]==1))
                     
                 {
-                    if([_6.text length]==0||([self validateString:texty6]==1))
+                    if([_6.text length]==0||([du date:texty6]==1))
                     {
-                        if([_7.text length]==0||([self validateString:texty7]==1))
+                        if([_7.text length]==0||([du date:texty7]==1))
                         {
-                            if([_8.text length]==0||([self validateString:texty8]==1))
+                            if([_8.text length]==0||([du date:texty8]==1))
                             {
                                 
-                                if([_10.text length]==0||([self validateString:texty10]==1))
+                                if([_10.text length]==0||([du date:texty10]==1))
                                 {
-                                    if([_11.text length]==0||([self validateString:texty11]==1))
+                                    if([_11.text length]==0||([du date:texty11]==1))
                                     {
-                                        if([_12.text length]==0||([self validateString:texty12]==1))
+                                        if([_12.text length]==0||([du date:texty12]==1))
                                         {
                                             
-                                            if([_14.text length]==0||([self validateString:texty14]==1))
+                                            if([_14.text length]==0||([du date:texty14]==1))
                                             {
-                                                if([_15.text length]==0||([self validateString:texty15]==1))
+                                                if([_15.text length]==0||([du date:texty15]==1))
                                                 {
-                                                    if([_16.text length]==0||([self validateString:texty16]==1))
+                                                    if([_16.text length]==0||([du date:texty16]==1))
                                                     {
-                                                        if([_18.text length]==0||([self validateString:texty18]==1))
+                                                        if([_18.text length]==0||([du date:texty18]==1))
                                                         {
-                                                            if([_19.text length]==0||([self validateString:texty19]==1))
+                                                            if([_19.text length]==0||([du date:texty19]==1))
                                                             {
-                                                                if([_20.text length]==0||([self validateString:texty20]==1))
+                                                                if([_20.text length]==0||([du date:texty20]==1))
                                                                 {
                                                                     
-                                                                    if([_22.text length]==0||([self validateString:texty22]==1))
+                                                                    if([_22.text length]==0||([du date:texty22]==1))
                                                                     {
-                                                                        if([_23.text length]==0||([self validateString:texty23]==1))
+                                                                        if([_23.text length]==0||([du date:texty23]==1))
                                                                         {
-                                                                            if([_24.text length]==0||([self validateString:texty24]==1))
+                                                                            if([_24.text length]==0||([du date:texty24]==1))
                                                                             {
-                                                                                if([smoker.text length]==0||([self validateString1:texty5]==1))
+                                                                                if([smoker.text length]==0||([du otherfields:texty5]==1))
                                                                                 {
                                                                                     
                                                                                     
@@ -565,7 +569,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                     suc=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid difficulty in breathing field Value."
+                                                                                                                                   description:@"Please enter valid difficulty in breathing field Value."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -581,7 +585,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                 suc=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid stiff lr 40 field Value."
+                                                                                                                               description:@"Please enter valid stiff lr 40 field Value."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -595,7 +599,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                             suc=0;
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid spasm lr 40 field Value."
+                                                                                                                           description:@"Please enter valid spasm lr 40 field Value."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -611,7 +615,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                         suc=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid normal lr 40 field Value."
+                                                                                                                       description:@"Please enter valid normal lr 40 field Value."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -627,7 +631,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                     suc=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid stiff rr 40 field Value."
+                                                                                                                   description:@"Please enter valid stiff rr 40 field Value."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -643,7 +647,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                 suc=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid spasm rr 40 field Value."
+                                                                                                               description:@"Please enter valid spasm rr 40 field Value."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -660,7 +664,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                             suc=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid normal rom rr 40 field Value."
+                                                                                                           description:@"Please enter valid normal rom rr 40 field Value."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -675,7 +679,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                         suc=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid stiff llf 30 field Value."
+                                                                                                       description:@"Please enter valid stiff llf 30 field Value."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -690,7 +694,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                     suc=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid spasm llf 30 field Value."
+                                                                                                   description:@"Please enter valid spasm llf 30 field Value."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -705,7 +709,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid Pain llf 30 field Value."
+                                                                                               description:@"Please enter valid Pain llf 30 field Value."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -721,7 +725,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid stiff rlf 30 field Value."
+                                                                                           description:@"Please enter valid stiff rlf 30 field Value."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -736,7 +740,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid spasm rlf 30 field Value."
+                                                                                       description:@"Please enter valid spasm rlf 30 field Value."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -752,7 +756,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid pain rlf 30 field Value."
+                                                                                   description:@"Please enter valid pain rlf 30 field Value."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -770,7 +774,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid stiff ext 30 field Value."
+                                                                               description:@"Please enter valid stiff ext 30 field Value."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -785,7 +789,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid spasm ext 30 field Value."
+                                                                           description:@"Please enter valid spasm ext 30 field Value."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -799,7 +803,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid pain ext 30 field Value."
+                                                                       description:@"Please enter valid pain ext 30 field Value."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -816,7 +820,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid stiff flex 40 field Value."
+                                                                   description:@"Please enter valid stiff flex 40 field Value."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -830,7 +834,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid spasm flex 40 field Value."
+                                                               description:@"Please enter valid spasm flex 40 field Value."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -846,7 +850,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid  pain flex 40 field Value."
+                                                           description:@"Please enter valid  pain flex 40 field Value."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -859,7 +863,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid chest measure field Value."
+                                                       description:@"Please enter valid chest measure field Value."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1126,6 +1130,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     texty17=@"Positive Beevors";
     texty27=@"null";
     texty28=@"null";

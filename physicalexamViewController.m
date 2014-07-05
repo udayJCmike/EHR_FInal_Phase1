@@ -8,13 +8,16 @@
 
 #import "physicalexamViewController.h"
 #import "CervicalSpineViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 
 
 @interface physicalexamViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -169,13 +172,15 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
             UITextField *textfield=(UITextField*)v;
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
-    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     patname.text=username;
     texty13=@"Excellent";
     texty14=@"UN";
@@ -570,20 +575,20 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty13=[visceral.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if([physiciansign.text length]!=0&&[patname.text length]!=0&&[patid.text length]!=0&&[bp.text length]!=0&&[date.text length]!=0&&[abnormalfind.text length]!=0&&[visceral.text length]!=0){
-        if([self validateNames1:texty1]==1)
+        if([du otherfields:physiciansign.text]==1)
         {
-            if([self validateNames:texty2]==1)
+            if([du patname:patname.text]==1)
             {
-                if([self validateEmail:texty3]==1)
+                if([du email:patid.text]==1)
                 {
-                    if([self validateDate:texty4]==1)
+                    if([self validateDate:date.text]==1)
                     {
-                        if([self validateNumber:texty10]==1)
+                        if([self validateNumber:bp.text]==1)
                         {
                             
-                            if([self validateNames2:texty13]==1)
+                            if([du otherfields:visceral.text]==1)
                             {
-                                if([self validateNames2:texty12]==1)
+                                if([du otherfields:abnormalfind.text ]==1)
                                 {
                                     
                                     [recorddict setValue:physiciansign.text forKey:@"physiciansign"];
@@ -617,7 +622,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid abnormal field."
+                                                                                   description:@"Please enter valid abnormal field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -632,7 +637,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid visceral field."
+                                                                               description:@"Please enter valid visceral field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -649,7 +654,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid bp field."
+                                                                           description:@"Please enter valid bp field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -670,7 +675,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid date."
+                                                                       description:@"Please enter valid date."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -684,7 +689,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid email id."
+                                                                   description:@"Please enter valid email id."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -697,7 +702,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid patient name."
+                                                               description:@"Please enter valid patient name."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -709,7 +714,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         }else{
             suc=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid physician sign."
+                                                           description:@"Please enter valid physician sign."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -721,7 +726,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

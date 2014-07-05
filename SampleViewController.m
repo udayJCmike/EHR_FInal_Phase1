@@ -23,6 +23,7 @@
 @synthesize typeofsearch;
 @synthesize resultset;
 @synthesize staff;
+@synthesize from;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,7 +56,14 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([from isEqualToString:@"doctor"]) {
+        [staff setValue:@"0" forKey:@"buttondisplay"];
+    }
+    else if ([from isEqualToString:@"admin"]) {
+        [staff setValue:@"1" forKey:@"buttondisplay"];
+    }
     [staff setValue:@"1" forKey:@"search"];
+    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         //[self performSegueWithIdentifier: @"showRecipeDetail" sender: self];
         indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];

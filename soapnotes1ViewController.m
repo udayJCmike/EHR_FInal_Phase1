@@ -8,13 +8,15 @@
 
 #import "soapnotes1ViewController.h"
 #import "soapnotes2ViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface soapnotes1ViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation soapnotes1ViewController
@@ -118,7 +120,9 @@ int changesize;
     [super viewDidLoad];
     scrollview.canCancelContentTouches = NO;
     scrollview.delaysContentTouches = NO;
-  
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     pick1.hidden=YES;
     pick2.hidden=YES;
     pick3.hidden=YES;
@@ -139,7 +143,7 @@ int changesize;
     l8.text=@"Fixations";
     l9.text=@"Not Improved";
     l10.text=@"SCSM";
-painval.text=@"No Pain";
+    painval.text=@"No Pain";
     other.hidden=YES;
     inc=1;
     for (UIScrollView *v in [self.scrollview subviews])
@@ -163,20 +167,20 @@ painval.text=@"No Pain";
     x1.height= changesize;
     x1.width=x1.width;
     imageview.frame=CGRectMake(0.0 ,0.0, x1.width, changesize);
-  
- 
- 
+    
+    
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
     [self displayData];
-   
-  
-  //   [scrollview insertSubview:[UIImage imageNamed:@"BG.png"] atIndex:0];
-//scrollview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG.png"]];
-  //  scrollview.backgroundColor=[UIColor clearColor];
+    
+    
+    //   [scrollview insertSubview:[UIImage imageNamed:@"BG.png"] atIndex:0];
+    //scrollview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG.png"]];
+    //  scrollview.backgroundColor=[UIColor clearColor];
 }
 -(void)displayData
 {
@@ -197,7 +201,7 @@ painval.text=@"No Pain";
         }
         
         painval.text=[NSString stringWithFormat:@"%@",[resultset objectForKey:@"painscale"]];
-
+        
         t1.text=[resultset objectForKey:@"date1"];
         t2.text=[resultset objectForKey:@"improved"];
         t3.text=[resultset objectForKey:@"worsened"];
@@ -258,7 +262,7 @@ painval.text=@"No Pain";
     [t12 resignFirstResponder];
     [other resignFirstResponder];
     
-
+    
 }
 -(BOOL)validatevalues:(NSString *)user
 
@@ -272,7 +276,7 @@ painval.text=@"No Pain";
 -(BOOL)validatevalues1:(NSString *)user
 
 {
-    NSString *userFormat1 =@"[A-Za-z0-9]+";
+    NSString *userFormat1 =@"[A-Za-z.]+";
     
     NSPredicate *userTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", userFormat1];
     return [userTest1 evaluateWithObject:user];
@@ -290,7 +294,7 @@ painval.text=@"No Pain";
     mytv.delegate=self;
     mytv.layer.cornerRadius = 5;
     mytv.clipsToBounds = YES;
-
+    
     
     mytv.tag = 11+inc;
     @try {
@@ -323,17 +327,17 @@ painval.text=@"No Pain";
     [scrollview setScrollEnabled:YES];
     
     [scrollview setContentSize:CGSizeMake(768, changesize)];
-  
+    
     imageview.frame=CGRectMake(0.0 ,0.0, imageview.image.size.width, changesize);
     changesize=changesize+85;
-
+    
     
 }
 -(void)moveobjects
 {
-   
-
-   
+    
+    
+    
     CGRect btFrame3 = line1.frame;
     btFrame3.origin.x = btFrame3.origin.x;
     btFrame3.origin.y = btFrame3.origin.y+75;
@@ -434,11 +438,11 @@ painval.text=@"No Pain";
     btFrame2.origin.y = btFrame2.origin.y+75;
     cancel.frame = btFrame2;
     
-
+    
 }
 -(void)createbutton
 {
-    UIButton *mybut = [UIButton buttonWithType:UIButtonTypeRoundedRect];    
+    UIButton *mybut = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     mybut.frame = CGRectMake(497, y+35, 104, 35);
     [mybut setTitle:@"Cancel" forState:UIControlStateNormal];
@@ -457,7 +461,7 @@ painval.text=@"No Pain";
 {
     int buttontagnumber=[sender tag];
     int textfieldtagnumber=buttontagnumber-40;
- 
+    
     for (UIScrollView *view in [self.scrollview subviews])
     {
         if ([view isKindOfClass:[UITextField class]])
@@ -466,7 +470,7 @@ painval.text=@"No Pain";
             {
                 [view removeFromSuperview];
                 //[view release];
-               
+                
                 
             }
             else if (view.tag > textfieldtagnumber)
@@ -489,7 +493,7 @@ painval.text=@"No Pain";
             {
                 [view removeFromSuperview];
                 //[view release];
-            
+                
             }
             else if ((view.tag > buttontagnumber)&&(view.tag<100))
             {
@@ -612,7 +616,7 @@ painval.text=@"No Pain";
     
     [scrollview setContentSize:CGSizeMake(768, changesize)];
     
-   imageview.frame=CGRectMake(0.0 ,0.0, imageview.image.size.width, changesize);
+    imageview.frame=CGRectMake(0.0 ,0.0, imageview.image.size.width, changesize);
     changesize=changesize-85;
     
     
@@ -620,17 +624,17 @@ painval.text=@"No Pain";
 
 - (IBAction)pain:(id)sender {
     int val=(int)painscale.value ;
-   
+    
     if (val==10) {
-       painval.text=@"Severe Pain";
+        painval.text=@"Severe Pain";
     }
     else if(val==0)
     {
-       painval.text=@"No Pain";
+        painval.text=@"No Pain";
     }
     else
     {
-       painval.text=[NSString stringWithFormat:@"%d",val];
+        painval.text=[NSString stringWithFormat:@"%d",val];
     }
 }
 - (void)didReceiveMemoryWarning
@@ -660,11 +664,11 @@ painval.text=@"No Pain";
         return [a3 count];
     else if(pickerView.tag==7)
         return [a4 count];
-     else if(pickerView.tag==8)
+    else if(pickerView.tag==8)
         return [a2 count];
-     else if(pickerView.tag==9)
+    else if(pickerView.tag==9)
         return [a3 count];
-     else if(pickerView.tag==10)
+    else if(pickerView.tag==10)
         return [a4 count];
     else
         return 1;
@@ -689,7 +693,7 @@ painval.text=@"No Pain";
     }
     else if(pickerView.tag==2)
     {
-       return [a2 objectAtIndex:row];
+        return [a2 objectAtIndex:row];
     }
     else if(pickerView.tag==3)
     {
@@ -705,15 +709,15 @@ painval.text=@"No Pain";
     }
     else if(pickerView.tag==6)
     {
-       return [a3 objectAtIndex:row];
+        return [a3 objectAtIndex:row];
     }
     else if(pickerView.tag==7)
     {
-      return [a4 objectAtIndex:row];
+        return [a4 objectAtIndex:row];
     }
     else if(pickerView.tag==8)
     {
-       return [a2 objectAtIndex:row];
+        return [a2 objectAtIndex:row];
     }
     else if(pickerView.tag==9)
     {
@@ -721,9 +725,9 @@ painval.text=@"No Pain";
     }
     else if(pickerView.tag==10)
     {
-      return [a4 objectAtIndex:row];
+        return [a4 objectAtIndex:row];
     }
-
+    
     else
         return nil;
     
@@ -795,7 +799,7 @@ painval.text=@"No Pain";
 
 
 - (IBAction)cancel:(id)sender {
-   [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES]; 
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 }
 - (IBAction)reset:(id)sender {
     pick1.hidden=YES;
@@ -857,140 +861,204 @@ painval.text=@"No Pain";
 }
 - (IBAction)next:(id)sender {
     a=1;
-    tempd1 =[t1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd2 =[t4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd3 =[t7.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    tempd4 =[t10.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-   
+    tempd1 =t1.text;
+    tempd2 =t4.text;
+    tempd3 =t7.text;
+    tempd4 =t10.text;
     
     
-    temp1 =[t2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[t3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 =[t5.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[t6.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[t8.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[t9.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[t11.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[t12.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[d1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-   
-   
-        if((([tempd1 length]>0)&&([self dateexpress:tempd1]==1))||([tempd1 length]==0))
+    
+    temp1 =t2.text;
+    temp2 =t3.text;
+    temp3 =t5.text;
+    temp4 =t6.text;
+    temp5 =t8.text;
+    temp6=t9.text;
+    temp7=t11.text;
+    temp8=t12.text;
+    temp9=d1.text;
+    
+    
+    if((([tempd1 length]>0)&&([self dateexpress:tempd1]==1))||([tempd1 length]==0))
+    {
+        if((([temp1 length]>0)&&([du percentage:temp1]==1))||([temp1 length]==0))
         {
-            if((([temp1 length]>0)&&([self validatevalues:temp1]==1))||([temp1 length]==0))
+            
+            if((([temp2 length]>0)&&([du percentage:temp2]==1))||([temp2 length]==0))
             {
-        
-        if((([temp2 length]>0)&&([self validatevalues:temp2]==1))||([temp2 length]==0))
-        {
-            if((([tempd2 length]>0)&&([self dateexpress:tempd2]==1))||([tempd2 length]==0))
-            {
-
-            if((([temp3 length]>0)&&([self validatevalues:temp3]==1))||([temp3 length]==0))
-            {
-                
-                if((([temp4 length]>0)&&([self validatevalues:temp4]==1))||([temp4 length]==0))
+                if((([tempd2 length]>0)&&([self dateexpress:tempd2]==1))||([tempd2 length]==0))
                 {
                     
-                if((([tempd3 length]>0)&&([self dateexpress:tempd3]==1))||([tempd3 length]==0))
-                {
-
-                    if((([temp5 length]>0)&&([self validatevalues:temp5]==1))||([temp5 length]==0))
+                    if((([temp3 length]>0)&&([du percentage:temp3]==1))||([temp3 length]==0))
                     {
-                        if((([temp6 length]>0)&&([self validatevalues:temp6]==1))||([temp6 length]==0))
+                        
+                        if((([temp4 length]>0)&&([du percentage:temp4]==1))||([temp4 length]==0))
                         {
                             
-                            if((([tempd4 length]>0)&&([self dateexpress:tempd4]==1))||([tempd4 length]==0))
+                            if((([tempd3 length]>0)&&([self dateexpress:tempd3]==1))||([tempd3 length]==0))
                             {
-
-                            if((([temp7 length]>0)&&([self validatevalues:temp7]==1))||([temp7 length]==0))
-                            {
-                                if((([temp8 length]>0)&&([self validatevalues:temp8]==1))||([temp8 length]==0))
+                                
+                                if((([temp5 length]>0)&&([du percentage:temp5]==1))||([temp5 length]==0))
                                 {
-                                    if((([temp9 length]>0)&&([self validatevalues1:temp9]==1))||([temp9 length]==0))
+                                    if((([temp6 length]>0)&&([self validatevalues:temp6]==1))||([temp6 length]==0))
                                     {
-                                        int i=0;
-                                        int max=11+inc;
-                                        [recorddict setValue:t1.text forKey:@"t1"];
-                                        [recorddict setValue:t2.text forKey:@"t2"];
-                                        [recorddict setValue:t3.text forKey:@"t3"];
-                                        [recorddict setValue:t4.text forKey:@"t4"];
-                                        [recorddict setValue:t5.text forKey:@"t5"];
-                                        [recorddict setValue:t6.text forKey:@"t6"];
-                                        [recorddict setValue:t7.text forKey:@"t7"];
-                                        [recorddict setValue:t8.text forKey:@"t8"];
-                                        [recorddict setValue:t9.text forKey:@"t9"];
-                                        [recorddict setValue:t10.text forKey:@"t10"];
-                                        [recorddict setValue:t11.text forKey:@"t11"];
-                                        [recorddict setValue:t12.text forKey:@"t12"];
-                                        [recorddict setValue:other.text forKey:@"other"];
-                                        [recorddict setValue:d1.text forKey:@"d1"];
-                                        [recorddict setValue:painval.text forKey:@"painval"];
-                                        [recorddict setValue:l1.text forKey:@"pick1"];
-                                         [recorddict setValue:l2.text forKey:@"pick2"];
-                                         [recorddict setValue:l3.text forKey:@"pick3"];
-                                         [recorddict setValue:l4.text forKey:@"pick4"];
-                                         [recorddict setValue:l5.text forKey:@"pick5"];
-                                         [recorddict setValue:l6.text forKey:@"pick6"];
-                                         [recorddict setValue:l7.text forKey:@"pick7"];
-                                         [recorddict setValue:l8.text forKey:@"pick8"];
-                                         [recorddict setValue:l9.text forKey:@"pick9"];
-                                         [recorddict setValue:l10.text forKey:@"pick10"];
-                                       
-                                       // NSLog(@"recordvalues %@",recorddict);
-                                        for (UIScrollView *view in [self.scrollview subviews])
+                                        
+                                        if((([tempd4 length]>0)&&([self dateexpress:tempd4]==1))||([tempd4 length]==0))
                                         {
-                                            if ([view isKindOfClass:[UITextField class]])
+                                            
+                                            if((([temp7 length]>0)&&([du percentage:temp7]==1))||([temp7 length]==0))
                                             {
-                                                
-                                                UITextField *textField = (UITextField *)view;
-                                                if ((textField.tag>=11)&&(textField.tag!=0))
+                                                if((([temp8 length]>0)&&([du percentage:temp8]==1))||([temp8 length]==0))
                                                 {
-                                                    
-                                                
-                                                temp1 =[textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-                                                if((([temp1 length]>0)&&([self validatevalues1:temp1]==1))||([temp1 length]==0))
-                                                {
-                                                    i++;
-                                                    [recorddict setValue:textField.text forKey:[NSString stringWithFormat:@"diagnosis%d",i]];
-                                                    
+                                                    if((([temp9 length]>0)&&([self validatevalues1:temp9]==1))||([temp9 length]==0))
+                                                    {
+                                                        int i=0;
+                                                        int max=11+inc;
+                                                        [recorddict setValue:t1.text forKey:@"t1"];
+                                                        [recorddict setValue:t2.text forKey:@"t2"];
+                                                        [recorddict setValue:t3.text forKey:@"t3"];
+                                                        [recorddict setValue:t4.text forKey:@"t4"];
+                                                        [recorddict setValue:t5.text forKey:@"t5"];
+                                                        [recorddict setValue:t6.text forKey:@"t6"];
+                                                        [recorddict setValue:t7.text forKey:@"t7"];
+                                                        [recorddict setValue:t8.text forKey:@"t8"];
+                                                        [recorddict setValue:t9.text forKey:@"t9"];
+                                                        [recorddict setValue:t10.text forKey:@"t10"];
+                                                        [recorddict setValue:t11.text forKey:@"t11"];
+                                                        [recorddict setValue:t12.text forKey:@"t12"];
+                                                        [recorddict setValue:other.text forKey:@"other"];
+                                                        [recorddict setValue:d1.text forKey:@"d1"];
+                                                        [recorddict setValue:painval.text forKey:@"painval"];
+                                                        [recorddict setValue:l1.text forKey:@"pick1"];
+                                                        [recorddict setValue:l2.text forKey:@"pick2"];
+                                                        [recorddict setValue:l3.text forKey:@"pick3"];
+                                                        [recorddict setValue:l4.text forKey:@"pick4"];
+                                                        [recorddict setValue:l5.text forKey:@"pick5"];
+                                                        [recorddict setValue:l6.text forKey:@"pick6"];
+                                                        [recorddict setValue:l7.text forKey:@"pick7"];
+                                                        [recorddict setValue:l8.text forKey:@"pick8"];
+                                                        [recorddict setValue:l9.text forKey:@"pick9"];
+                                                        [recorddict setValue:l10.text forKey:@"pick10"];
+                                                        
+                                                        // NSLog(@"recordvalues %@",recorddict);
+                                                        for (UIScrollView *view in [self.scrollview subviews])
+                                                        {
+                                                            if ([view isKindOfClass:[UITextField class]])
+                                                            {
+                                                                
+                                                                UITextField *textField = (UITextField *)view;
+                                                                if ((textField.tag>=11)&&(textField.tag!=0))
+                                                                {
+                                                                    
+                                                                    
+                                                                    temp1 =[textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                                                    if((([temp1 length]>0)&&([self validatevalues1:temp1]==1))||([temp1 length]==0))
+                                                                    {
+                                                                        i++;
+                                                                        [recorddict setValue:textField.text forKey:[NSString stringWithFormat:@"diagnosis%d",i]];
+                                                                        
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        a=0;
+                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                       description:@"Please enter valid diagnosis field."
+                                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                          callback:nil];
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                    }
+                                                                }
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        [recorddict setValue:[NSNumber numberWithInt:i] forKey:@"numofcontent"];
+                                                        
+                                                        NSLog(@"recordvalues %@",recorddict);
+                                                        
+                                                    }
+                                                    else
+                                                    {
+                                                        a=0;
+                                                        
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                       description:@"Please enter valid diagnosis field.."
+                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                          callback:nil];
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    }
                                                 }
                                                 else
                                                 {
                                                     a=0;
+                                                    
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid diagnosis field."
+                                                                                                   description:@"Please enter valid worsened  field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
                                                     
                                                     
                                                     
-                                                   
+                                                    
                                                     
                                                 }
-                                                }
+                                            }
+                                            else
+                                            {
+                                                a=0;
+                                                
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                               description:@"Please enter valid improved  field."
+                                                                                                      type:TWMessageBarMessageTypeError
+                                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                  callback:nil];
+                                                
+                                                
+                                                
                                                 
                                             }
+                                        }
+                                        else
+                                        {
+                                            a=0;
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Please enter valid date field."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                            
+                                            
+                                            
                                             
                                         }
-                                         [recorddict setValue:[NSNumber numberWithInt:i] forKey:@"numofcontent"];
-                                        
-                                        NSLog(@"recordvalues %@",recorddict);
-                                        
                                     }
+                                    
                                     else
                                     {
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid diagnosis field.."
+                                                                                       description:@"Please enter valid worsened field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
                                         
-                                       
+                                        
                                         
                                     }
                                 }
@@ -998,39 +1066,23 @@ painval.text=@"No Pain";
                                 {
                                     a=0;
                                     
+                                    
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid worsened  field."
+                                                                                   description:@"Please enter valid improved field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
                                     
                                     
-                                   
                                     
                                 }
-                            }
-                            else
+                            }                 else
                             {
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid improved  field."
-                                                                                      type:TWMessageBarMessageTypeError
-                                                                            statusBarStyle:UIStatusBarStyleLightContent
-                                                                                  callback:nil];
-                                
-                                
-                                
-                               
-                            }
-                        }
-                            else
-                            {
-                                a=0;
-                                
-                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid date field."
+                                                                               description:@"Please enter valid date field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -1041,20 +1093,17 @@ painval.text=@"No Pain";
                                 
                             }
                         }
-
                         else
                         {
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid worsened field."
+                                                                           description:@"Please enter valid worsened field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
                             
-                            
-                           
                             
                         }
                     }
@@ -1062,129 +1111,84 @@ painval.text=@"No Pain";
                     {
                         a=0;
                         
-                        
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid improved field."
+                                                                       description:@"Please enter valid improved field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
                         
                         
-                       
+                        
                         
                     }
-                    }                 else
-                {
-                    a=0;
-                    
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid date field."
-                                                                          type:TWMessageBarMessageTypeError
-                                                                statusBarStyle:UIStatusBarStyleLightContent
-                                                                      callback:nil];
-                    
-                    
-                    
-                  
-                    
                 }
-            }
                 else
                 {
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid worsened field."
+                                                                   description:@"Please enter valid date field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
                     
                     
-                   
+                    
+                    
+                    
                 }
-                }
+            }
             else
             {
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid improved field."
+                                                               description:@"Please enter valid worsened field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
                 
                 
-
+                
+                
             }
         }
-                else
-                {
-                    a=0;
-                    
-                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid date field."
-                                                                          type:TWMessageBarMessageTypeError
-                                                                statusBarStyle:UIStatusBarStyleLightContent
-                                                                      callback:nil];
-                    
-                    
-                    
-                    
-                    
-                }
-            }
+        
+        
         else
         {
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid worsened field."
+                                                           description:@"Please enter valid improved field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
             
             
-           
             
         }
-    }
-            
-
-    else
+    }  else
     {
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid improved field."
+                                                       description:@"Please enter valid date field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
         
         
         
-       
+        
     }
-        }  else
-        {
-            a=0;
-            
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid date field."
-                                                                  type:TWMessageBarMessageTypeError
-                                                        statusBarStyle:UIStatusBarStyleLightContent
-                                                              callback:nil];
-            
-            
-           
-            
-        }
     if (a==1) {
-       [self performSegueWithIdentifier:@"soap2" sender:self];
+        [self performSegueWithIdentifier:@"soap2" sender:self];
     }
     
-   
+    
 }
 - (IBAction)b1action:(id)sender {
     if (pick1.hidden==YES) {
@@ -1274,11 +1278,11 @@ painval.text=@"No Pain";
 
 
 - (void)dealloc {
-  
-   
+    
+    
     
     
     [super dealloc];
-  
+    
 }
 @end

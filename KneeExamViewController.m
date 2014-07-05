@@ -9,11 +9,14 @@
 #import "KneeExamViewController.h"
 #import "KneeExamViewController1.h"
 #import "hamilViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 @interface KneeExamViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -133,6 +136,10 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     seg5=@"null";
     
     seg7=@"null";
+    
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     seg8=@"null";
     anqpicker.hidden=YES;
     recorddict=[[NSMutableDictionary alloc]init];
@@ -1303,50 +1310,56 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
 }
 
 - (IBAction)next:(id)sender {
-    texty1=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[datefield.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[flexion.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[antleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[antright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[extension.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[postleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[postright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty9=[internalleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty10=[internalright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty11=[lclleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty12=[lclright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty13=[mclleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty14=[mclright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty15=[externalleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty16=[externalright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty17=[medleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty18=[medright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty19=[menisleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty20=[menisright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty21=[corleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty22=[corright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty23=[cmpleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty24=[cmpright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty25=[patleft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty26=[patright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty27=[left1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty28=[left2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty29=[left3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty30=[left4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty31=[right1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty32=[right2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty33=[right3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if(!check22.selected){
+        check1text.text=@"";
+    }
+    if(!check33.selected){
+        check2text.text=@"";
+    }
+    texty1=patname.text;
+    texty2=datefield.text;
+    texty3=flexion.text;
+    texty4=antleft.text;
+    texty5=antright.text;
+    texty6=extension.text;
+    texty7=postleft.text;
+    texty8=postright.text;
+    texty9=internalleft.text;
+    texty10=internalright.text;
+    texty11=lclleft.text;
+    texty12=lclright.text;
+    texty13=mclleft.text;
+    texty14=mclright.text;
+    texty15=externalleft.text;
+    texty16=externalright.text;
+    texty17=medleft.text;
+    texty18=medright.text;
+    texty19=menisleft.text;
+    texty20=menisright.text;
+    texty21=corleft.text;
+    texty22=corright.text;
+    texty23=cmpleft.text;
+    texty24=cmpright.text;
+    texty25=patleft.text;
+    texty26=patright.text;
+    texty27=left1.text;
+    texty28=left2.text;
+    texty29=left3.text;
+    texty30=left4.text;
+    texty31=right1.text;
+    texty32=right2.text;
+    texty33=right3.text;
     
-    texty34=[right4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty35=[check1text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty36=[check2text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty34=right4.text;
+    texty35=check1text.text;
+    texty36=check2text.text;
     //  texty37=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // texty35=[check1text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // NSLog(@"String in checktextfields  one::%@",[check1text text]);
     // NSLog(@"String in checktextfields   two ::%@",[check2text text]);
     if(([patname.text length]!=0)&&([datefield.text length]!=0))
     {
-        if([self validateUsername1:texty1]==1)
+        if([du patname:texty1]==1)
         {
             if([self validateDate:texty2]==1)
             {
@@ -1355,245 +1368,137 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                 // NSLog(@"check two texty%@",[check2text text]);
                 //NSLog(@"checktets chanracters::%i",[check1text.text length]);
                 //NSLog(@"checktets chanracters::%i",[check2text.text length]);
-                if([check1text.text length]==0||([self validateUsername2:texty35]==1)||[check1text text]==NULL)
+                if([check1text.text length]==0||([du otherfields:texty35]==1)||[check1text text]==NULL)
                 {
-                    NSLog(@"check one text %@",[check1text text]);
-                    NSLog(@"Succes 1");
-                    NSLog(@"check two texty%@",[check2text text]);
-                    NSLog(@"checktets chanracters::%i",[check1text.text length]);
-                    NSLog(@"checktets chanracters::%i",[check2text.text length]);
-                    if([check2text.text length]==0||([self validateUsername2:texty36]==1)||[check2text text]==NULL)
+                    
+                    if([check2text.text length]==0||([du otherfields:texty36]==1)||[check2text text]==NULL)
                     {
-                        NSLog(@"check two texty%@",[check2text text]);
-                        NSLog(@"Succes 1");
                         
-                        if([flexion.text length]==0||[self validateUsernumber:texty3]==1)
+                        
+                        if([flexion.text length]==0||[du date:texty3]==1)
                         {
-                            NSLog(@"%@",[flexion text]);
-                            NSLog(@"Succes 1");
-                            if([antleft.text length]==0||[self validateUsername:texty4]==1)
+                            
+                            if([antleft.text length]==0||[du date:texty4]==1)
                             {
                                 NSLog(@"%@",[antleft text]);
-                                NSLog(@"Succes 1");
-                                if([antright.text length]==0||[self validateUsername:texty5]==1)
+                                
+                                if([antright.text length]==0||[du date:texty5]==1)
                                 {
                                     NSLog(@"ant right %@",[antright text]);
-                                    NSLog(@"Succes 1");
-                                    if([extension.text length]==0||[self validateUsernumber:texty6]==1)
+                                    
+                                    if([extension.text length]==0||[du date:texty6]==1)
                                     {
                                         NSLog(@"extension %@",[extension text]);
-                                        NSLog(@"Succes 1");
-                                        if([postleft.text length]==0||[self validateUsername:texty7]==1)
+                                        
+                                        if([postleft.text length]==0||[du date:texty7]==1)
                                         {
                                             NSLog(@"post left %@",[postleft text]);
-                                            NSLog(@"Succes 1");
-                                            if([postright.text length]==0||[self validateUsername:texty8]==1)
+                                            
+                                            if([postright.text length]==0||[du date:texty8]==1)
                                             {
                                                 
                                                 NSLog(@"post rght%@",[postright text]);
-                                                NSLog(@"Succes 1");
-                                                if([internalleft.text length]==0||[self validateUsernumber:texty9]==1)
+                                                
+                                                if([internalleft.text length]==0||[du date:texty9]==1)
                                                 {
                                                     
                                                     NSLog(@"inter left %@",[internalleft text]);
-                                                    NSLog(@"Succes 1");
-                                                    if([internalright.text length]==0||[self validateUsernumber:texty10]==1)
+                                                    
+                                                    if([internalright.text length]==0||[du date:texty10]==1)
                                                     {
                                                         
                                                         NSLog(@"internal right %@",[internalright text]);
-                                                        NSLog(@"Succes 1");
-                                                        if([lclleft.text length]==0||[self validateUsername:texty11]==1)
+                                                        
+                                                        if([lclleft.text length]==0||[du date:texty11]==1)
                                                         {
                                                             
                                                             NSLog(@"lcl left %@",[lclleft text]);
-                                                            NSLog(@"Succes 1");
-                                                            if([lclright.text length]==0||[self validateUsername:texty12]==1)
+                                                            
+                                                            if([lclright.text length]==0||[du date:texty12]==1)
                                                             {
                                                                 
                                                                 NSLog(@"Lcl right %@",[lclright text]);
-                                                                NSLog(@"Succes 1");
-                                                                if([mclleft.text length]==0||[self validateUsername:texty13]==1)
+                                                                
+                                                                if([mclleft.text length]==0||[du date:texty13]==1)
                                                                 {
                                                                     
                                                                     NSLog(@"mcl left %@",[mclleft text]);
-                                                                    NSLog(@"Succes 1");
-                                                                    if([mclright.text length]==0||[self validateUsername:texty14]==1)
+                                                                    
+                                                                    if([mclright.text length]==0||[du date:texty14]==1)
                                                                     {
                                                                         
                                                                         NSLog(@"mcl right %@",[mclright text]);
-                                                                        NSLog(@"Succes 1");
-                                                                        if([externalleft.text length]==0||[self validateUsernumber:texty15]==1)
+                                                                        
+                                                                        if([externalleft.text length]==0||[du date:texty15]==1)
                                                                         {
-                                                                            NSLog(@"Succes 1");
-                                                                            if([externalright.text length]==0||[self validateUsernumber:texty16]==1)
+                                                                            
+                                                                            if([externalright.text length]==0||[du date:texty16]==1)
                                                                                 
                                                                             {
-                                                                                NSLog(@"Succes 1");
-                                                                                if([medleft.text length]==0||[self validateUsername:texty17]==1)
+                                                                                
+                                                                                if([medleft.text length]==0||[du date:texty17]==1)
                                                                                 {
-                                                                                    NSLog(@"Succes 1");
-                                                                                    if([medright.text length]==0||[self validateUsername:texty18]==1)
+                                                                                    
+                                                                                    if([medright.text length]==0||[du date:texty18]==1)
                                                                                     {
-                                                                                        NSLog(@"Succes 1");
-                                                                                        if([menisleft.text length]==0||[self validateUsername:texty19]==1)
+                                                                                        
+                                                                                        if([menisleft.text length]==0||[du date:texty19]==1)
                                                                                         {
-                                                                                            NSLog(@"Succes 1");
-                                                                                            if([menisright.text length]==0||[self validateUsername:texty20]==1)
+                                                                                            
+                                                                                            if([menisright.text length]==0||[du date:texty20]==1)
                                                                                             {
-                                                                                                NSLog(@"Succes 1");
-                                                                                                if([corleft.text length]==0||[self validateUsername:texty21]==1)
+                                                                                                
+                                                                                                if([corleft.text length]==0||[du date:texty21]==1)
                                                                                                 {
-                                                                                                    NSLog(@"Succes 1");
-                                                                                                    if([corright.text length]==0||[self validateUsername:texty22]==1)
+                                                                                                    
+                                                                                                    if([corright.text length]==0||[du date:texty22]==1)
                                                                                                     {
-                                                                                                        NSLog(@"Succes 1");
-                                                                                                        if([cmpleft.text length]==0||[self validateUsername:texty23]==1)
+                                                                                                        
+                                                                                                        if([cmpleft.text length]==0||[du date:texty23]==1)
                                                                                                         {
-                                                                                                            NSLog(@"Succes 1");
-                                                                                                            if([cmpright.text length]==0||[self validateUsername:texty24]==1)
+                                                                                                            
+                                                                                                            if([cmpright.text length]==0||[du date:texty24]==1)
                                                                                                             {
-                                                                                                                NSLog(@"Succes 1");
-                                                                                                                if([patleft.text length]==0||[self validateUsername:texty25]==1)
+                                                                                                                
+                                                                                                                if([patleft.text length]==0||[du date:texty25]==1)
                                                                                                                 {
-                                                                                                                    NSLog(@"Succes 1");
                                                                                                                     
                                                                                                                     
-                                                                                                                    if([patright.text length]==0||[self validateUsername:texty26]==1)
+                                                                                                                    
+                                                                                                                    if([patright.text length]==0||[du date:texty26]==1)
                                                                                                                     {
-                                                                                                                        NSLog(@"Succes 1");
                                                                                                                         
-                                                                                                                        if([left1.text length]==0||[self validateUsername2:texty27]==1)
+                                                                                                                        
+                                                                                                                        if([left1.text length]==0||[du date:texty27]==1)
                                                                                                                         {
-                                                                                                                            NSLog(@"Succes 1");
                                                                                                                             
-                                                                                                                            if([left2.text length]==0||[self validateUsername2:texty28]==1)
+                                                                                                                            
+                                                                                                                            if([left2.text length]==0||[du date:texty28]==1)
                                                                                                                             {
-                                                                                                                                NSLog(@"Succes 1");
                                                                                                                                 
-                                                                                                                                if([left3.text length]==0||[self validateUsername2:texty29]==1)
+                                                                                                                                
+                                                                                                                                if([left3.text length]==0||[du date:texty29]==1)
                                                                                                                                 {
-                                                                                                                                    NSLog(@"Succes 1");
-                                                                                                                                    if([left4.text length]==0||[self validateUsername2:texty30]==1)
+                                                                                                                                    
+                                                                                                                                    if([left4.text length]==0||[du date:texty30]==1)
                                                                                                                                     {
-                                                                                                                                        NSLog(@"Succes 1");
-                                                                                                                                        if([right1.text length]==0||[self validateUsername2:texty31]==1)
+                                                                                                                                        
+                                                                                                                                        if([right1.text length]==0||[du date:texty31]==1)
                                                                                                                                         {
-                                                                                                                                            NSLog(@"Succes 1");
-                                                                                                                                            if([right2.text length]==0||[self validateUsername2:texty32]==1)
+                                                                                                                                            
+                                                                                                                                            if([right2.text length]==0||[du date:texty32]==1)
                                                                                                                                             {
-                                                                                                                                                NSLog(@"Succes 1");
                                                                                                                                                 
-                                                                                                                                                if([right3.text length]==0||[self validateUsername2:texty33]==1)
+                                                                                                                                                
+                                                                                                                                                if([right3.text length]==0||[du date:texty33]==1)
                                                                                                                                                 {
-                                                                                                                                                    NSLog(@"Succes 1");
                                                                                                                                                     
-                                                                                                                                                    if([right4.text length]==0||[self validateUsername2:texty34]==1){
+                                                                                                                                                    
+                                                                                                                                                    if([right4.text length]==0||[du date:texty34]==1){
                                                                                                                                                         
                                                                                                                                                         NSLog(@"Succes Finall");
                                                                                                                                                         
                                                                                                                                                         
-                                                                                                                                                        /*        if([flexion.text isEqualToString:@""]){
-                                                                                                                                                         flexion.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([antleft.text isEqualToString:@""]){
-                                                                                                                                                         antleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([antright.text isEqualToString:@""]){
-                                                                                                                                                         antright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([extension.text isEqualToString:@""]){
-                                                                                                                                                         extension.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([postleft.text isEqualToString:@""]){
-                                                                                                                                                         postleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([postright.text isEqualToString:@""]){
-                                                                                                                                                         postright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([internalleft.text isEqualToString:@""]){
-                                                                                                                                                         internalleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([internalright.text isEqualToString:@""]){
-                                                                                                                                                         internalright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([lclleft.text isEqualToString:@""]){
-                                                                                                                                                         lclleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([lclright.text isEqualToString:@""]){
-                                                                                                                                                         lclright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([mclleft.text isEqualToString:@""]){
-                                                                                                                                                         mclleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([mclright.text isEqualToString:@""]){
-                                                                                                                                                         mclright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([externalleft.text isEqualToString:@""]){
-                                                                                                                                                         externalleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([externalright.text isEqualToString:@""]){
-                                                                                                                                                         externalright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([medleft.text isEqualToString:@""]){
-                                                                                                                                                         medleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([medright.text isEqualToString:@""]){
-                                                                                                                                                         medright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([menisleft.text isEqualToString:@""]){
-                                                                                                                                                         menisleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([menisright.text isEqualToString:@""]){
-                                                                                                                                                         menisright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([corleft.text isEqualToString:@""]){
-                                                                                                                                                         corleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([corright.text isEqualToString:@""]){
-                                                                                                                                                         corright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([cmpleft.text isEqualToString:@""]){
-                                                                                                                                                         cmpleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([cmpright.text isEqualToString:@""]){
-                                                                                                                                                         cmpright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([patleft.text isEqualToString:@""]){
-                                                                                                                                                         patleft.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([patright.text isEqualToString:@""]){
-                                                                                                                                                         patright.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([left1.text isEqualToString:@""]){
-                                                                                                                                                         left1.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([left2.text isEqualToString:@""]){
-                                                                                                                                                         left2.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([left3.text isEqualToString:@""]){
-                                                                                                                                                         left3.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([left4.text isEqualToString:@""]){
-                                                                                                                                                         left4.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([right1.text isEqualToString:@""]){
-                                                                                                                                                         right1.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([right2.text isEqualToString:@""]){
-                                                                                                                                                         right2.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([right3.text isEqualToString:@""]){
-                                                                                                                                                         right3.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([right4.text isEqualToString:@""]){
-                                                                                                                                                         right4.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([check1text.text isEqualToString:@""]){
-                                                                                                                                                         check1text.text=@"null";
-                                                                                                                                                         }
-                                                                                                                                                         if([check2text.text isEqualToString:@""]){
-                                                                                                                                                         check2text.text=@"null";
-                                                                                                                                                         }*/
                                                                                                                                                         [recorddict setValue:check1 forKey:@"firstcheck"];
                                                                                                                                                         [recorddict setValue:check2 forKey:@"secondcheck"];
                                                                                                                                                         [recorddict setValue:check3 forKey:@"thirdcheck"];
@@ -1656,7 +1561,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                         suc=0;
                                                                                                                                                         
                                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                       description:@"Enter valid right4  value."
+                                                                                                                                                                                                       description:@"Please enter valid right4  value."
                                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                           callback:nil];
@@ -1668,7 +1573,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                     suc=0;
                                                                                                                                                     
                                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                   description:@"Enter valid right3  value."
+                                                                                                                                                                                                   description:@"Please enter valid right3  value."
                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                       callback:nil];
@@ -1681,7 +1586,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                 
                                                                                                                                                 
                                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                               description:@"Enter valid right2  value."
+                                                                                                                                                                                               description:@"Please enter valid right2  value."
                                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                   callback:nil];
@@ -1694,7 +1599,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                             
                                                                                                                                             
                                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                           description:@"Enter valid right value."
+                                                                                                                                                                                           description:@"Please enter valid right value."
                                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                               callback:nil];
@@ -1706,7 +1611,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                         suc=0;
                                                                                                                                         
                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                       description:@"Enter valid left4  value."
+                                                                                                                                                                                       description:@"Please enter valid left4  value."
                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                           callback:nil];
@@ -1717,7 +1622,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                     suc=0;
                                                                                                                                     
                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                   description:@"Enter valid left 3  value."
+                                                                                                                                                                                   description:@"Please enter valid left 3  value."
                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                       callback:nil];
@@ -1730,7 +1635,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                 suc=0;
                                                                                                                                 
                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                               description:@"Enter valid left 2 value."
+                                                                                                                                                                               description:@"Please enter valid left 2 value."
                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                   callback:nil];
@@ -1743,7 +1648,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                             suc=0;
                                                                                                                             
                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                           description:@"Enter valid left1 value."
+                                                                                                                                                                           description:@"Please enter valid left1 value."
                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                               callback:nil];
@@ -1755,7 +1660,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                         suc=0;
                                                                                                                         
                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                       description:@"Enter valid acl  value."
+                                                                                                                                                                       description:@"Please enter valid acl  value."
                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                           callback:nil];
@@ -1766,7 +1671,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                 }else{
                                                                                                                     suc=0;
                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                   description:@"Enter valid pat left value."
+                                                                                                                                                                   description:@"Please enter valid pat left value."
                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                       callback:nil];
@@ -1779,7 +1684,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                             }else{
                                                                                                                 suc=0;
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid cmp right value."
+                                                                                                                                                               description:@"Please enter valid cmp right value."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -1792,7 +1697,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                         }else{
                                                                                                             suc=0;
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid cmp left Value."
+                                                                                                                                                           description:@"Please enter valid cmp left Value."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
@@ -1804,7 +1709,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                     }else{
                                                                                                         suc=0;
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid cor right value."
+                                                                                                                                                       description:@"Please enter valid cor right value."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
@@ -1816,7 +1721,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                     suc=0;
                                                                                                     
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid cor left value."
+                                                                                                                                                   description:@"Please enter valid cor left value."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
@@ -1830,7 +1735,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                 suc=0;
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid menis right value."
+                                                                                                                                               description:@"Please enter valid menis right value."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
@@ -1841,7 +1746,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                         }else{
                                                                                             suc=0;
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid menis left value."
+                                                                                                                                           description:@"Please enter valid menis left value."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -1854,7 +1759,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                         suc=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid med right value."
+                                                                                                                                       description:@"Please enter valid med right value."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -1868,7 +1773,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                     suc=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid med left value."
+                                                                                                                                   description:@"Please enter valid med left value."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -1882,7 +1787,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                 suc=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid external right value."
+                                                                                                                               description:@"Please enter valid external right value."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -1893,7 +1798,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                         }else{
                                                                             suc=0;
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid external left value."
+                                                                                                                           description:@"Please enter valid external left value."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -1906,7 +1811,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                         suc=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid MCL Right  Value."
+                                                                                                                       description:@"Please enter valid MCL Right  Value."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -1919,7 +1824,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                     suc=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid mcl left value."
+                                                                                                                   description:@"Please enter valid mcl left value."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -1930,7 +1835,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                 suc=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid lcl right value."
+                                                                                                               description:@"Please enter valid lcl right value."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -1943,7 +1848,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                             suc=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid lcl value."
+                                                                                                           description:@"Please enter valid lcl value."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -1956,7 +1861,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                         suc=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid internal right value."
+                                                                                                       description:@"Please enter valid internal right value."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -1970,7 +1875,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                     
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid internal left value."
+                                                                                                   description:@"Please enter valid internal left value."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -1984,7 +1889,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                 
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid post right value."
+                                                                                               description:@"Please enter valid post right value."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -1997,7 +1902,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid post left value."
+                                                                                           description:@"Please enter valid post left value."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -2010,7 +1915,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid extension actual value."
+                                                                                       description:@"Please enter valid extension actual value."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -2024,7 +1929,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                     
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid acl right value."
+                                                                                   description:@"Please enter valid acl right value."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -2038,7 +1943,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid acl left value."
+                                                                               description:@"Please enter valid acl left value."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -2052,7 +1957,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid flexion actual value."
+                                                                           description:@"Please enter valid flexion actual value."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -2066,7 +1971,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid check2 textfield."
+                                                                       description:@"Please enter valid check2 textfield."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -2078,7 +1983,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid check1 textfield."
+                                                                   description:@"Please enter valid check1 textfield."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -2093,7 +1998,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid date."
+                                                               description:@"Please enter valid date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -2107,7 +2012,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid username."
+                                                           description:@"Please enter valid username."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -2123,7 +2028,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
         
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

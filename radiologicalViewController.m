@@ -11,10 +11,12 @@
 #import "radiological2ViewController.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
-
+#import "databaseurl.h"
 
 @interface radiologicalViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation radiologicalViewController
@@ -514,6 +516,63 @@
     
     
     recorddict=[[NSMutableDictionary alloc]init];
+    if(other.selected)
+    {
+        
+    }
+    else{
+        othertext.text=@"";
+        
+    }
+    if(anterior.selected)
+    {
+        
+    }
+    else{
+        anteriortext.text=@"";
+        
+    }
+    if(sub.selected)
+    {
+        
+    }
+    else{
+        subtext.text=@"";
+        
+    }
+    
+    if(sch.selected)
+    {
+        
+    }
+    else{
+        schtext.text=@"";
+        
+    }
+    if(bre.selected)
+    {
+        
+    }
+    else{
+        bretext.text=@"";
+        
+    }
+    if(pos.selected)
+    {
+        
+    }
+    else{
+        postext.text=@"";
+        
+    }
+    if(narrow.selected)
+    {
+        
+    }
+    else{
+        narrowtext.text=@"";
+        
+    }
     if(neg.selected)
     {
         
@@ -824,19 +883,19 @@
     
     
     a=1;
-    temp1 = [patientname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 = [pid.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 = [dob.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 = [date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 = [postext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[bretext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[narrowtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[anteriortext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[subtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp10=[schtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp11=[apextext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp12=[softtext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp13=[othertext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = patientname.text;
+    temp2 = pid.text;
+    temp3 = dob.text;
+    temp4 = date.text;
+    temp5 = postext.text;
+    temp6=bretext.text;
+    temp7=narrowtext.text;
+    temp8=anteriortext.text;
+    temp9=subtext.text;
+    temp10=schtext.text;
+    temp11=apextext.text;
+    temp12=softtext.text;
+    temp13=othertext.text;
     
     
     
@@ -851,31 +910,31 @@
     {
         
         
-        if((([temp1 length]>0)&&([self validateNames1:temp1]==1))||([temp1 length]==0))
+        if((([temp1 length]>0)&&([du patname:temp1]==1))||([temp1 length]==0))
         {
-            if((([temp2 length]>0)&&([self validateId:temp2 ]==1))||([temp2 length]==0))
+            if((([temp2 length]>0)&&([du formreg:temp2 ]==1))||([temp2 length]==0))
             {
                 if((([temp3 length]>0)&&([self validateDate:temp3 ]==1))||([temp3 length]==0))
                 {
                     if((([temp4 length]>0)&&([self validateDate:temp4 ]==1))||([temp4 length]==0))
                     {
-                        if((([temp5 length]>0)&&([self validateNames:temp5 ]==1))||([temp5 length]==0))
+                        if((([temp5 length]>0)&&([du otherfields:temp5 ]==1))||([temp5 length]==0))
                         {
-                            if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                            if((([temp6 length]>0)&&([du otherfields:temp6]==1))||([temp6 length]==0))
                             {
-                                if((([temp7 length]>0)&&([self validateNames:temp7]==1))||([temp7 length]==0))
+                                if((([temp7 length]>0)&&([du otherfields:temp7]==1))||([temp7 length]==0))
                                 {
-                                    if((([temp8 length]>0)&&([self validateNames:temp8]==1))||([temp8 length]==0))
+                                    if((([temp8 length]>0)&&([du otherfields:temp8]==1))||([temp8 length]==0))
                                     {
-                                        if((([temp9 length]>0)&&([self validateNames:temp9]==1))||([temp9 length]==0))
+                                        if((([temp9 length]>0)&&([du otherfields:temp9]==1))||([temp9 length]==0))
                                         {
-                                            if((([temp10 length]>0)&&([self validateNames:temp10]==1))||([temp10 length]==0))
+                                            if((([temp10 length]>0)&&([du otherfields:temp10]==1))||([temp10 length]==0))
                                             {
-                                                if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
+                                                if((([temp11 length]>0)&&([du otherfields:temp11]==1))||([temp11 length]==0))
                                                 {
-                                                    if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0))
+                                                    if((([temp12 length]>0)&&([du otherfields:temp12]==1))||([temp12 length]==0))
                                                     {
-                                                        if((([temp13 length]>0)&&([self validateNames:temp13]==1))||([temp13 length]==0))
+                                                        if((([temp13 length]>0)&&([du otherfields:temp13]==1))||([temp13 length]==0))
                                                         {
                                                             
                                                             
@@ -954,7 +1013,7 @@
                                                             a=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid other text."
+                                                                                                           description:@"Please enter valid other text."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -972,7 +1031,7 @@
                                                         a=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid soft text."
+                                                                                                       description:@"Please enter valid soft text."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -988,7 +1047,7 @@
                                                     a=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid apex text."
+                                                                                                   description:@"Please enter valid apex text."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -1005,7 +1064,7 @@
                                                 a=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid  schmorl's nodes at text."
+                                                                                               description:@"Please enter valid  schmorl's nodes at text."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -1023,7 +1082,7 @@
                                             
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid  subchondral sclerosis of text."
+                                                                                           description:@"Please enter valid  subchondral sclerosis of text."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -1039,7 +1098,7 @@
                                         a=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid anterior."
+                                                                                       description:@"Please enter valid anterior."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -1057,7 +1116,7 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid narrow."
+                                                                                   description:@"Please enter valid narrow."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -1074,7 +1133,7 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid break text."
+                                                                               description:@"Please enter valid break text."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -1091,7 +1150,7 @@
                             
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid positive."
+                                                                           description:@"Please enter valid positive."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -1106,7 +1165,7 @@
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid date."
+                                                                       description:@"Please enter valid date."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1122,7 +1181,7 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid dob."
+                                                                   description:@"Please enter valid dob."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1139,7 +1198,7 @@
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid id."
+                                                               description:@"Please enter valid id."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1155,7 +1214,7 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid patient name."
+                                                           description:@"Please enter valid patient name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1173,7 +1232,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1258,12 +1317,15 @@
     decsegl=@"mild";
     decrlsegl=@"mild";
     dltsegl=@"Dextro";
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     patientname.text=username;
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

@@ -175,7 +175,6 @@ int tagnumber;
     if ([resultset count]>0)
     {
         
-        
         update.hidden=NO;
         reset2.hidden=NO;
         cancel2.hidden=NO;
@@ -183,6 +182,42 @@ int tagnumber;
         submit.hidden=YES;
         reset1.hidden=YES;
         cancel1.hidden=YES;
+        
+        
+        
+        @try {
+            if ([staff count]>0)
+            {
+                
+                
+                if ([[staff valueForKey:@"buttondisplay"]isEqualToString:@"0"]) {
+                    update.hidden=YES;
+                    reset2.hidden=NO;
+                    cancel2.hidden=NO;
+                    deleteform.hidden=YES;
+                    submit.hidden=YES;
+                    reset1.hidden=YES;
+                    cancel1.hidden=YES;
+                }
+                else  if ([[resultset valueForKey:@"buttondisplay"]isEqualToString:@"1"]) {
+                    update.hidden=NO;
+                    reset2.hidden=NO;
+                    cancel2.hidden=NO;
+                    deleteform.hidden=NO;
+                    submit.hidden=YES;
+                    reset1.hidden=YES;
+                    cancel1.hidden=YES;
+                }
+            }
+            
+        }
+        
+        @catch (NSException *exception) {
+            
+        }
+        
+        
+
         
         otherdis.text=[resultset objectForKey:@"Ifother"];
         surg.text=[resultset objectForKey:@"Illness"];

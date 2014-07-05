@@ -13,12 +13,15 @@
 #import "databaseurl.h"
 #import "hamilViewController.h"
 #import "JSON.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 
 @interface WristExamViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -155,8 +158,10 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     texty9=@"";
     texty10=@"";
     texty11=@"";
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     resultset=[[NSMutableDictionary alloc]init] ;
-    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     patname.text=username;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -692,112 +697,112 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     
 }
 - (IBAction)next:(id)sender {
-    texty12=[first.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty13=[sec.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty14=[thr.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty15=[four.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty38=[[txtv1.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty12=first.text ;
+    texty13=sec.text ;
+    texty14=thr.text ;
+    texty15=four.text ;
+    texty38=[txtv1.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     texty38=[texty38 stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     texty38=[texty38 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    texty16=[fiv.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty17=[six.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty18=[sev.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty19=[eigh.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty20=[nine.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty21=[ten.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty22=[ele.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty23=[twel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty24=[thrt.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty25=[fourt.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty26=[fift.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty27=[sixteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty28=[seventeen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty29=[eighteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty30=[ninteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty31=[twenty.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty32=[twentyone.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty33=[twentytwo.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty34=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty35=[datefield.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty36=[muscle.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty37=[swell.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty16=fiv.text ;
+    texty17=six.text ;
+    texty18=sev.text ;
+    texty19=eigh.text ;
+    texty20=nine.text ;
+    texty21=ten.text ;
+    texty22=ele.text ;
+    texty23=twel.text ;
+    texty24=thrt.text ;
+    texty25=fourt.text ;
+    texty26=fift.text ;
+    texty27=sixteen.text ;
+    texty28=seventeen.text ;
+    texty29=eighteen.text ;
+    texty30=ninteen.text ;
+    texty31=twenty.text ;
+    texty32=twentyone.text ;
+    texty33=twentytwo.text ;
+    texty34=patname.text ;
+    texty35=datefield.text ;
+    texty36=muscle.text ;
+    texty37=swell.text ;
     
     if(([patname.text length]!=0)&&([datefield.text length]!=0))
     {
-        if([self validatepatientname:texty34]==1)
+        if([du patname:texty34]==1)
             
         {
             if([self validateDate:texty35]==1){
-                if([muscle.text length]==0||([self validateString:texty36]==1)){
+                if([muscle.text length]==0||([du otherfields:texty36]==1)){
                     
-                    if([swell.text length]==0||([self validateString:texty37]==1)){
-                        if([txtv1.text length]==0||([self validateString:texty38]==1))
+                    if([swell.text length]==0||([du otherfields:texty37]==1)){
+                        if([txtv1.text length]==0||([du comments:texty38]==1))
                             
                         {
                             
-                            if([first.text length]==0||([self validateNumbers1:texty12]==1))
+                            if([first.text length]==0||([du date:texty12]==1))
                             {
-                                if([sec.text length]==0||([self validateNumbers1:texty13]==1))
+                                if([sec.text length]==0||([du date:texty13]==1))
                                 {
-                                    if([thr.text length]==0||([self validateNumbers1:texty14]==1))
+                                    if([thr.text length]==0||([du date:texty14]==1))
                                         
                                     {
-                                        if([four.text length]==0||([self validateNumbers1:texty15]==1))
+                                        if([four.text length]==0||([du date:texty15]==1))
                                             
                                         {
                                             
-                                            if([fiv.text length]==0||([self validateNumbers1:texty16]==1))
+                                            if([fiv.text length]==0||([du date:texty16]==1))
                                                 
                                             {
-                                                if([six.text length]==0||([self validateNumbers1:texty17]==1))
+                                                if([six.text length]==0||([du date:texty17]==1))
                                                     
                                                 {
-                                                    if([sev.text length]==0||([self validateNumbers1:texty18]==1))
+                                                    if([sev.text length]==0||([du date:texty18]==1))
                                                         
                                                     {
-                                                        if([eigh.text length]==0||([self validateNumbers1:texty19]==1))
+                                                        if([eigh.text length]==0||([du date:texty19]==1))
                                                             
                                                         {
-                                                            if([nine.text length]==0||([self validateNumbers1:texty20]==1))
+                                                            if([nine.text length]==0||([du date:texty20]==1))
                                                                 
                                                             {
-                                                                if([ten.text length]==0||([self validateNumbers1:texty21]==1))
+                                                                if([ten.text length]==0||([du date:texty21]==1))
                                                                     
                                                                 {
-                                                                    if([ele.text length]==0||([self validateNumbers1:texty22]==1))
+                                                                    if([ele.text length]==0||([du date:texty22]==1))
                                                                         
                                                                     {
-                                                                        if([twel.text length]==0||([self validateNumbers1:texty23]==1))
+                                                                        if([twel.text length]==0||([du date:texty23]==1))
                                                                             
                                                                         {
-                                                                            if([thrt.text length]==0||([self validateNumbers1:texty24]==1))
+                                                                            if([thrt.text length]==0||([du date:texty24]==1))
                                                                                 
                                                                             {
-                                                                                if([fourt.text length]==0||([self validateNumbers1:texty25]==1))
+                                                                                if([fourt.text length]==0||([du date:texty25]==1))
                                                                                     
                                                                                 {
-                                                                                    if([fift.text length]==0||([self validateNumbers1:texty26]==1))
+                                                                                    if([fift.text length]==0||([du date:texty26]==1))
                                                                                         
                                                                                     {
-                                                                                        if([sixteen.text length]==0||([self validateNumbers1:texty27]==1))
+                                                                                        if([sixteen.text length]==0||([du date:texty27]==1))
                                                                                             
                                                                                         {
-                                                                                            if([seventeen.text length]==0||([self validateNumbers1:texty28]==1))
+                                                                                            if([seventeen.text length]==0||([du date:texty28]==1))
                                                                                                 
                                                                                             {
-                                                                                                if([eighteen.text length]==0||([self validateNumbers1:texty29]==1))
+                                                                                                if([eighteen.text length]==0||([du date:texty29]==1))
                                                                                                     
                                                                                                 {
-                                                                                                    if([ninteen.text length]==0||([self validateNumbers1:texty30]==1))
+                                                                                                    if([ninteen.text length]==0||([du date:texty30]==1))
                                                                                                         
                                                                                                     {
-                                                                                                        if([twenty.text length]==0||([self validateNumbers1:texty31]==1))
+                                                                                                        if([twenty.text length]==0||([du date:texty31]==1))
                                                                                                             
                                                                                                         {
-                                                                                                            if([twentyone.text length]==0||([self validateNumbers1:texty32]==1))
+                                                                                                            if([twentyone.text length]==0||([du date:texty32]==1))
                                                                                                                 
                                                                                                             {
-                                                                                                                if([twentytwo.text length]==0||([self validateNumbers1:texty33]==1))
+                                                                                                                if([twentytwo.text length]==0||([du date:texty33]==1))
                                                                                                                     
                                                                                                                 {
                                                                                                                     suc=1;
@@ -893,7 +898,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                                 {
                                                                                                                     suc=0;
                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                   description:@"Enter valid ultt right field."
+                                                                                                                                                                   description:@"Please Please enter valid ultt right field."
                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                       callback:nil];
@@ -908,7 +913,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                                 suc=0;
                                                                                                                 
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid ultt left field."
+                                                                                                                                                               description:@"Please Please enter valid ultt left field."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -924,7 +929,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                             
                                                                                                             
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid tinnel's right field."
+                                                                                                                                                           description:@"Please Please enter valid tinnel's right field."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
@@ -938,7 +943,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                         suc=0;
                                                                                                         
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid tinnel's left field."
+                                                                                                                                                       description:@"Please Please enter valid tinnel's left field."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
@@ -952,7 +957,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                     suc=0;
                                                                                                     
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid pronation/supination right field."
+                                                                                                                                                   description:@"Please Please enter valid pronation/supination right field."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
@@ -967,7 +972,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                 suc=0;
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid pronation/supination left field."
+                                                                                                                                               description:@"Please Please enter valid pronation/supination left field."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
@@ -981,7 +986,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                             suc=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid finkelstein's right field."
+                                                                                                                                           description:@"Please Please enter valid finkelstein's right field."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -994,7 +999,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                         suc=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid finkelstein's left field."
+                                                                                                                                       description:@"Please Please enter valid finkelstein's left field."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -1009,7 +1014,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                     suc=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid  wrist radial deviation right field."
+                                                                                                                                   description:@"Please Please enter valid  wrist radial deviation right field."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -1023,7 +1028,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                 suc=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid wrist radial deviation left field."
+                                                                                                                               description:@"Please Please enter valid wrist radial deviation left field."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -1038,7 +1043,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                             suc=0;
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid reverse phalen right field."
+                                                                                                                           description:@"Please Please enter valid reverse phalen right field."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -1052,7 +1057,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                         suc=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid reverse phalen left field."
+                                                                                                                       description:@"Please Please enter valid reverse phalen left field."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -1066,7 +1071,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                     suc=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid ulnar deviation right field."
+                                                                                                                   description:@"Please Please enter valid ulnar deviation right field."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -1081,7 +1086,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                 suc=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid ulnar deviation left field."
+                                                                                                               description:@"Please Please enter valid ulnar deviation left field."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -1096,7 +1101,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                             suc=0;
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid phalen's right field."
+                                                                                                           description:@"Please Please enter valid phalen's right field."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -1112,7 +1117,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                         suc=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid phalen's left field."
+                                                                                                       description:@"Please Please enter valid phalen's left field."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -1126,7 +1131,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                     suc=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid wrist extension right field."
+                                                                                                   description:@"Please Please enter valid wrist extension right field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -1141,7 +1146,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid wrist extension left field."
+                                                                                               description:@"Please Please enter valid wrist extension left field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -1156,7 +1161,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid allen's right field."
+                                                                                           description:@"Please Please enter valid allen's right field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -1171,7 +1176,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid allen's left field."
+                                                                                       description:@"Please Please enter valid allen's left field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -1186,7 +1191,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid wrist flexion right field."
+                                                                                   description:@"Please Please enter valid wrist flexion right field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -1201,7 +1206,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid wrist flexion left field."
+                                                                               description:@"Please Please enter valid wrist flexion left field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -1215,7 +1220,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid other/notes field."
+                                                                           description:@"Please Please enter valid other/notes field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -1230,7 +1235,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid swell field."
+                                                                       description:@"Please Please enter valid swell field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1245,7 +1250,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid muscle field."
+                                                                   description:@"Please Please enter valid muscle field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1259,7 +1264,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid date field."
+                                                               description:@"Please Please enter valid date field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1272,7 +1277,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid patient name."
+                                                           description:@"Please Please enter valid patient name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1285,7 +1290,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required Fields."
+                                                       description:@"Please Please enter all the required Fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

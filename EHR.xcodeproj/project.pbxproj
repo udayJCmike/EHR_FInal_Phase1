@@ -878,6 +878,7 @@
 		0D20316318B921F800033508 /* Cervical Exam */ = {
 			isa = PBXGroup;
 			children = (
+				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				0D20316718B9223300033508 /* cervicalexamViewController.h */,
 				0D20316818B9223300033508 /* cervicalexamViewController.m */,
 				0D20316418B9221F00033508 /* cervicalexam2ViewController.h */,
@@ -1404,7 +1405,6 @@
 				0D8234A118BFBA8B002CFE54 /* PI Letter */,
 				0D82349D18BFB7C7002CFE54 /* Reduction form */,
 				0D82347D18BF8387002CFE54 /* Perry chiropratic cantion */,
-				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				0D82347518BF82DD002CFE54 /* Protect Attorney */,
 				0D82347118BF82A3002CFE54 /* Response attorney */,
 				0D82346D18BF8275002CFE54 /* Perry fax cover */,

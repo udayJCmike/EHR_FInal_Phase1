@@ -8,13 +8,16 @@
 
 #import "hamilViewController.h"
 #import "hami1ViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 
 
 @interface hamilViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -89,46 +92,48 @@
             [self performSegueWithIdentifier:@"footcheck" sender:self];
             
         }
-        if(b25.selected)
-        {
-            other1.hidden=NO;
-        }
-        else{
-            other1.hidden=YES;
-            
-        }
-        if(b30.selected)
-        {
-            other2.hidden=NO;
-        }
-        else{
-            other2.hidden=YES;
-            
-        }
-        if(b36.selected)
-        {
-            other3.hidden=NO;
-        }
-        else{
-            other3.hidden=YES;
-            
-        }
-        if(b48.selected)
-        {
-            other4.hidden=NO;
-        }
-        else{
-            other4.hidden=YES;
-            
-        }
-        
-        
-        
-        
     }
     else{
         [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     }
+    
+    
+    if(b25.selected)
+    {
+        other1.hidden=NO;
+    }
+    else{
+        other1.hidden=YES;
+        
+    }
+    if(b30.selected)
+    {
+        other2.hidden=NO;
+    }
+    else{
+        other2.hidden=YES;
+        
+    }
+    if(b36.selected)
+    {
+        other3.hidden=NO;
+    }
+    else{
+        other3.hidden=YES;
+        
+    }
+    if(b48.selected)
+    {
+        other4.hidden=NO;
+    }
+    else{
+        other4.hidden=YES;
+        
+    }
+    
+    
+    
+    
     
     
 }
@@ -175,6 +180,8 @@
 - (IBAction)next:(id)sender
 {
     recorddict=[[NSMutableDictionary alloc]init];
+    
+    du=[[databaseurl alloc]init];
     if (b1.selected)
     {
         
@@ -863,8 +870,38 @@
     {
         [recorddict setValue:@"null" forKey:@"Thoracic"];
     }
-    
-    
+    if (b25.selected)
+    {
+        
+    }
+    else
+    {
+        other1.text=@"";
+    }
+    if (b30.selected)
+    {
+        
+    }
+    else
+    {
+        other2.text=@"";
+    }
+    if (b36.selected)
+    {
+        
+    }
+    else
+    {
+        other3.text=@"";
+    }
+    if (b48.selected)
+    {
+        
+    }
+    else
+    {
+        other4.text=@"";
+    }
     a=1;
     temp1 =[gradualH.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[gradualD.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -875,47 +912,23 @@
     temp8=[other4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp4=[[happen.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if((([temp1 length]>0)&&([self validateNames1:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([self validateNames1:gradualH.text]==1))||([gradualH.text length]==0))
     {
-        if((([temp2 length]>0)&&([self validateNames1:temp2]==1))||([temp2 length]==0))
+        if((([temp2 length]>0)&&([self validateNames1:gradualD.text ]==1))||([gradualD.text  length]==0))
         {
             if((([temp3 length]>0)&&([self validateDate:temp3 ]==1))||([temp3 length]==0))
             {
-                if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
+                if((([temp4 length]>0)&&([du otherfields:happen.text ]==1))||([happen.text length]==0))
                 {
-                    if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+                    if((([temp5 length]>0)&&([du otherfields:other1.text]==1))||([other1.text length]==0))
                     {
-                        if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                        if((([temp6 length]>0)&&([du otherfields:other2.text]==1))||([other2.text length]==0))
                         {
-                            if((([temp7 length]>0)&&([self validateNames:temp7]==1))||([temp7 length]==0))
+                            if((([temp7 length]>0)&&([du otherfields:other3.text]==1))||([other3.text length]==0))
                             {
-                                if((([temp8 length]>0)&&([self validateNames:temp8]==1))||([temp8 length]==0))
+                                if((([temp8 length]>0)&&([du otherfields:other4.text]==1))||([other4.text length]==0))
                                 {
-                                    /*   if([gradualH.text isEqualToString:@""]){
-                                     gradualH.text=@"null";
-                                     }
-                                     if([gradualD.text isEqualToString:@""]){
-                                     gradualD.text=@"null";
-                                     }
-                                     if([injury_occur.text isEqualToString:@""]){
-                                     injury_occur.text=@"null";
-                                     }
-                                     if([other1.text isEqualToString:@""]){
-                                     other1.text=@"null";
-                                     }
-                                     if([other2.text isEqualToString:@""]){
-                                     other2.text=@"null";
-                                     }
-                                     if([other3.text isEqualToString:@""]){
-                                     other3.text=@"null";
-                                     }
-                                     if([other4.text isEqualToString:@""]){
-                                     other4.text=@"null";
-                                     }
-                                     if([happen.text isEqualToString:@""]){
-                                     happen.text=@"null";
-                                     }
-                                     */
+                                    
                                     [recorddict setValue:gradualH.text forKey:@"gradual hours"];
                                     [recorddict setValue:gradualD.text forKey:@"gradual days"];
                                     [recorddict setValue:injury_occur.text forKey:@"injury date"];
@@ -938,7 +951,7 @@
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid describe pain other."
+                                                                                   description:@"Please enter valid describe pain other."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -953,7 +966,7 @@
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid feel worse other."
+                                                                               description:@"Please enter valid feel worse other."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -969,7 +982,7 @@
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid have you done other."
+                                                                           description:@"Please enter valid have you done other."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -986,7 +999,7 @@
                         
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid feel better other."
+                                                                       description:@"Please enter valid feel better other."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1003,7 +1016,7 @@
                     
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid happen."
+                                                                   description:@"Please enter valid happen."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1018,7 +1031,7 @@
                 
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid injury date."
+                                                               description:@"Please enter valid injury date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1033,7 +1046,7 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid gradual days."
+                                                           description:@"Please enter valid gradual days."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1050,7 +1063,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid gradual hours."
+                                                       description:@"Please enter valid gradual hours."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1086,6 +1099,7 @@
     happen.layer.borderColor = [[UIColor colorWithRed:205/255.0f green:205/255.0f blue:205/255.0f alpha:1.0f] CGColor];
     //    self.layer.borderColor=[[UIColor blackColor]CGColor];
     happen.layer.cornerRadius = 6.5;
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     happen.delegate = self;
     [super viewDidLoad];
     other1.hidden=YES;

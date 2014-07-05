@@ -12,11 +12,14 @@
 
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
-
+#import "databaseurl.h"
 
 
 
 @interface WristExamViewController1 ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -120,6 +123,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     checkstring4=@"";
     segva=@"Excellent";
     other.hidden=YES;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -289,7 +294,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     return [mobileTest1 evaluateWithObject:number];
     
 }
--(BOOL)validateNumberlimit:(NSString *)country1
+-(BOOL)byfive:(NSString *)country1
 {
     NSString *countryFormat1 = @"[0-5]{1}";
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
@@ -368,7 +373,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
 }
 
--(BOOL)validateNumbers1:(NSString*)number
+-(BOOL)date:(NSString*)number
 {
     NSString *mobileFormat1 =  @"[0-9-_]{1,4}?";
     
@@ -380,95 +385,99 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)next:(id)sender {
     
-    
-    texty1=[first.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[sec.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[thr.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[four.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[fiv.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[six.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[sev.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[eight.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty9=[nine.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty10=[ten.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty11=[eleven.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty12=[twe.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty13=[thrt.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty14=[fourt.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty15=[fift.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty16=[sixteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty17=[seventeen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty18=[eighteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty19=[ninteen.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty20=[twenty.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty21=[twentyone.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty22=[twentytwo.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty23=[twentythree.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty24=[twentyfour.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty25=[twentyfive.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty26=[twentysix.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty28=[[addcomments.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if(!check4.selected)
+    {
+        other.text=@"";
+        
+    }
+    texty1=first.text;
+    texty2=sec.text;
+    texty3=thr.text;
+    texty4=four.text;
+    texty5=fiv.text;
+    texty6=six.text;
+    texty7=sev.text;
+    texty8=eight.text;
+    texty9=nine.text;
+    texty10=ten.text;
+    texty11=eleven.text;
+    texty12=twe.text;
+    texty13=thrt.text;
+    texty14=fourt.text;
+    texty15=fift.text;
+    texty16=sixteen.text;
+    texty17=seventeen.text;
+    texty18=eighteen.text;
+    texty19=ninteen.text;
+    texty20=twenty.text;
+    texty21=twentyone.text;
+    texty22=twentytwo.text;
+    texty23=twentythree.text;
+    texty24=twentyfour.text;
+    texty25=twentyfive.text;
+    texty26=twentysix.text;
+    texty28=[addcomments.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     texty28=[texty28 stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     texty28=[texty28 stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    texty27=[other.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty27=other.text;
     // texty29=[refsileft.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     //texty30=[refsiright.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if([first.text length]==0||([self validateNumbers1:texty1]==1))
+    if([first.text length]==0||([du date:texty1]==1))
     {
-        if([sec.text length]==0||([self validateNumbers1:texty2]==1))
+        if([sec.text length]==0||([du date:texty2]==1))
         {
-            if([thr.text length]==0||([self validateNumberlimit:texty3]==1))
+            if([thr.text length]==0||([du byfive:texty3]==1))
             {
-                if([four.text length]==0||([self validateNumberlimit:texty4]==1))
+                if([four.text length]==0||([du byfive:texty4]==1))
                 {
-                    if([fiv.text length]==0||([self validateNumberlimit:texty5]==1))
+                    if([fiv.text length]==0||([du byfive:texty5]==1))
                     {
-                        if([six.text length]==0||([self validateNumberlimit:texty6]==1))
+                        if([six.text length]==0||([du byfive:texty6]==1))
                         {
-                            if([sev.text length]==0||([self validateNumbers1:texty7]==1))
+                            if([sev.text length]==0||([du date:texty7]==1))
                             {
-                                if([eight.text length]==0||([self validateNumbers1:texty8]==1))
+                                if([eight.text length]==0||([du date:texty8]==1))
                                 {
-                                    if([nine.text length]==0||([self validateNumberlimit:texty9]==1))
+                                    if([nine.text length]==0||([du byfive:texty9]==1))
                                     {
-                                        if([ten.text length]==0||([self validateNumberlimit:texty10]==1))
+                                        if([ten.text length]==0||([du byfive:texty10]==1))
                                         {
-                                            if([eleven.text length]==0||([self validateNumberlimit:texty11]==1))
+                                            if([eleven.text length]==0||([du byfive:texty11]==1))
                                             {
-                                                if([twe.text length]==0||([self validateNumberlimit:texty12]==1))
+                                                if([twe.text length]==0||([du byfive:texty12]==1))
                                                 {
-                                                    if([thrt.text length]==0||([self validateNumbers1:texty13]==1))
+                                                    if([thrt.text length]==0||([du date:texty13]==1))
                                                     {
-                                                        if([fourt.text length]==0||([self validateNumbers1:texty14]==1))
+                                                        if([fourt.text length]==0||([du date:texty14]==1))
                                                         {
-                                                            if([fift.text length]==0||([self validateNumberlimit:texty15]==1))
+                                                            if([fift.text length]==0||([du byfive:texty15]==1))
                                                             {
-                                                                if([sixteen.text length]==0||([self validateNumberlimit:texty16]==1))
+                                                                if([sixteen.text length]==0||([du byfive:texty16]==1))
                                                                 {
-                                                                    if([seventeen.text length]==0||([self validateNumberlimit:texty17]==1))
+                                                                    if([seventeen.text length]==0||([du byfive:texty17]==1))
                                                                     {
-                                                                        if([eighteen.text length]==0||([self validateNumberlimit:texty18]==1))
+                                                                        if([eighteen.text length]==0||([du byfive:texty18]==1))
                                                                         {
-                                                                            if([ninteen.text length]==0||([self validateNumbers1:texty19]==1))
+                                                                            if([ninteen.text length]==0||([du date:texty19]==1))
                                                                             {
-                                                                                if([twenty.text length]==0||([self validateNumbers1:texty20]==1))
+                                                                                if([twenty.text length]==0||([du date:texty20]==1))
                                                                                 {
-                                                                                    if([twentyone.text length]==0||([self validateNumberlimit:texty21]==1))
+                                                                                    if([twentyone.text length]==0||([du byfive:texty21]==1))
                                                                                     {
-                                                                                        if([twentytwo.text length]==0||([self validateNumberlimit:texty22]==1))
+                                                                                        if([twentytwo.text length]==0||([du byfive:texty22]==1))
                                                                                         {
-                                                                                            if([twentythree.text length]==0||([self validateNumbers1:texty23]==1))
+                                                                                            if([twentythree.text length]==0||([du date:texty23]==1))
                                                                                             {
-                                                                                                if([twentyfour.text length]==0||([self validateNumbers1:texty24]==1))
+                                                                                                if([twentyfour.text length]==0||([du date:texty24]==1))
                                                                                                 {
-                                                                                                    if([twentyfive.text length]==0||([self validateNumberlimit:texty25]==1))
+                                                                                                    if([twentyfive.text length]==0||([du byfive:texty25]==1))
                                                                                                     {
-                                                                                                        if([twentysix.text length]==0||([self validateNumberlimit:texty26]==1))
+                                                                                                        if([twentysix.text length]==0||([du byfive:texty26]==1))
                                                                                                         {
-                                                                                                            if([other.text length]==0||([self validateString:texty27]==1))
+                                                                                                            if([other.text length]==0||([du otherfields:texty27]==1))
                                                                                                             {
-                                                                                                                if([addcomments.text length]==0||([self validateaddress:texty28]==1))
+                                                                                                                if([addcomments.text length]==0||([du comments:texty28]==1))
                                                                                                                 {
                                                                                                                     suc=1;
                                                                                                                     
@@ -544,7 +553,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                                     suc=0;
                                                                                                                     
                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                   description:@"Enter valid addcomments field."
+                                                                                                                                                                   description:@"Please enter valid addcomments field."
                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                       callback:nil];
@@ -561,7 +570,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                                 suc=0;
                                                                                                                 
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid other text field."
+                                                                                                                                                               description:@"Please enter valid other text field."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -578,7 +587,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                             suc=0;
                                                                                                             
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid motor t1 right field."
+                                                                                                                                                           description:@"Please enter valid motor t1 right field."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
@@ -594,7 +603,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                         suc=0;
                                                                                                         
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid motor t1 left field."
+                                                                                                                                                       description:@"Please enter valid motor t1 left field."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
@@ -611,7 +620,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                     suc=0;
                                                                                                     
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid sensory t1 right field."
+                                                                                                                                                   description:@"Please enter valid sensory t1 right field."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
@@ -627,7 +636,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                 suc=0;
                                                                                                 
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid sensory t1 left field."
+                                                                                                                                               description:@"Please enter valid sensory t1 left field."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
@@ -643,7 +652,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                             suc=0;
                                                                                             
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid motor c8 right field."
+                                                                                                                                           description:@"Please enter valid motor c8 right field."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -660,7 +669,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                         suc=0;
                                                                                         
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid motor c8 left field."
+                                                                                                                                       description:@"Please enter valid motor c8 left field."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -676,7 +685,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                     suc=0;
                                                                                     
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid sensory c8 right field."
+                                                                                                                                   description:@"Please enter valid sensory c8 right field."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -691,7 +700,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                 suc=0;
                                                                                 
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid sensory c8 left field."
+                                                                                                                               description:@"Please enter valid sensory c8 left field."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -707,7 +716,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                             suc=0;
                                                                             
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid reflexes c7 right field."
+                                                                                                                           description:@"Please enter valid reflexes c7 right field."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -723,7 +732,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                         suc=0;
                                                                         
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid reflexes c7 left field."
+                                                                                                                       description:@"Please enter valid reflexes c7 left field."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -740,7 +749,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                     suc=0;
                                                                     
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid motor c7 right field."
+                                                                                                                   description:@"Please enter valid motor c7 right field."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -757,7 +766,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                 suc=0;
                                                                 
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid motor c7 left field value."
+                                                                                                               description:@"Please enter valid motor c7 left field value."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -774,7 +783,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                             
                                                             
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid sensory c7 right field."
+                                                                                                           description:@"Please enter valid sensory c7 right field."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -790,7 +799,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                         suc=0;
                                                         
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid sensory c7 left field."
+                                                                                                       description:@"Please enter valid sensory c7 left field."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -807,7 +816,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                     suc=0;
                                                     
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid reflexes c6 right field."
+                                                                                                   description:@"Please enter valid reflexes c6 right field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -822,7 +831,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid reflexes c6 left field."
+                                                                                               description:@"Please enter valid reflexes c6 left field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -839,7 +848,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid motor c6 right field."
+                                                                                           description:@"Please enter valid motor c6 right field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -855,7 +864,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid motor c6 left field."
+                                                                                       description:@"Please enter valid motor c6 left field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -871,7 +880,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid sensory c6 right field."
+                                                                                   description:@"Please enter valid sensory c6 right field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -888,7 +897,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid sensory c6 left field."
+                                                                               description:@"Please enter valid sensory c6 left field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -903,7 +912,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid reflexes c5 right field."
+                                                                           description:@"Please enter valid reflexes c5 right field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -919,7 +928,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid reflexes c5 left field."
+                                                                       description:@"Please enter valid reflexes c5 left field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -936,7 +945,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid motor c5 right field."
+                                                                   description:@"Please enter valid motor c5 right field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -952,7 +961,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid motor c5 left field."
+                                                               description:@"Please enter valid motor c5 left field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -968,7 +977,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid sensory c5 right field."
+                                                           description:@"Please enter valid sensory c5 right field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -982,7 +991,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid sensory c5 left field."
+                                                       description:@"Please enter valid sensory c5 left field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

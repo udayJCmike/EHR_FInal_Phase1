@@ -11,8 +11,11 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 #import "hamilViewController.h"
+#import "databaseurl.h"
 @interface lumbopelvicViewController ()
-
+{
+    databaseurl *du;
+}
 @end
 
 @implementation lumbopelvicViewController
@@ -576,153 +579,153 @@
     }
     
     a=1;
-    temp1 =[patientname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp2 =[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp3 =[othernotes.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[flexion.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[extension.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6=[lateralL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7=[lateralR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8=[rotationL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp9=[rotationR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp10=[T8_9.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp11=[T10_11.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp12=[T12_L1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp13=[L2_3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp14=[L4_5.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp15=[LSI.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp16=[T9_10.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp17=[T11_12.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp18=[L1_2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp19=[L3_4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp20=[L5_SI.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp21=[RSI.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp22=[trendL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp23=[trendR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp24=[kempL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp25=[kempR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp26=[slumpL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp27=[slumpR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp28=[straightlegL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp29=[straightlegR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp30=[welllegL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp31=[welllegR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp32=[nachelsL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp33=[nachelsR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp34=[positive.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp35=[positive_adam.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp36=[L1L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp37=[L1R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp38=[L2L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp39=[L2R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp40=[L3L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp41=[L3RR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp42=[L4L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp43=[L4R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp44=[L5L.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp45=[L5R.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp46=[SIL.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp47=[SIR.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =patientname.text;
+    temp2 =date.text;
+    temp3 =othernotes.text;
+    temp4 =flexion.text;
+    temp5 =extension.text;
+    temp6=lateralL.text;
+    temp7=lateralR.text;
+    temp8=rotationL.text;
+    temp9=rotationR.text;
+    temp10=T8_9.text;
+    temp11=T10_11.text;
+    temp12=T12_L1.text;
+    temp13=L2_3.text;
+    temp14=L4_5.text;
+    temp15=LSI.text;
+    temp16=T9_10.text;
+    temp17=T11_12.text;
+    temp18=L1_2.text;
+    temp19=L3_4.text;
+    temp20=L5_SI.text;
+    temp21=RSI.text;
+    temp22=trendL.text;
+    temp23=trendR.text;
+    temp24=kempL.text;
+    temp25=kempR.text;
+    temp26=slumpL.text;
+    temp27=slumpR.text;
+    temp28=straightlegL.text;
+    temp29=straightlegR.text;
+    temp30=welllegL.text;
+    temp31=welllegR.text;
+    temp32=nachelsL.text;
+    temp33=nachelsR.text;
+    temp34=positive.text;
+    temp35=positive_adam.text;
+    temp36=L1L.text;
+    temp37=L1R.text;
+    temp38=L2L.text;
+    temp39=L2R.text;
+    temp40=L3L.text;
+    temp41=L3RR.text;
+    temp42=L4L.text;
+    temp43=L4R.text;
+    temp44=L5L.text;
+    temp45=L5R.text;
+    temp46=SIL.text;
+    temp47=SIR.text;
     
     
     
     if(([temp1 length]!=0)&&
        ([temp2 length]!=0))
     {
-        if([self validateNames1:temp1]==1)
+        if([du patname:temp1]==1)
         {
             if([self validateDate:temp2]==1)
             {
-                if((([temp3 length]>0)&&([self validateNameformat:temp3 ]==1))||([temp3 length]==0))
+                if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
                 {
-                    if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
+                    if((([temp4 length]>0)&&([du date:temp4 ]==1))||([temp4 length]==0))
                     {
-                        if((([temp5 length]>0)&&([self validateNames:temp5]==1))||([temp5 length]==0))
+                        if((([temp5 length]>0)&&([du date:temp5]==1))||([temp5 length]==0))
                         {
-                            if((([temp6 length]>0)&&([self validateNames:temp6]==1))||([temp6 length]==0))
+                            if((([temp6 length]>0)&&([du date:temp6]==1))||([temp6 length]==0))
                             {
-                                if((([temp7 length]>0)&&([self validateNames:temp7]==1))||([temp7 length]==0))
+                                if((([temp7 length]>0)&&([du date:temp7]==1))||([temp7 length]==0))
                                 {
-                                    if((([temp8 length]>0)&&([self validateNames:temp8]==1))||([temp8 length]==0))
+                                    if((([temp8 length]>0)&&([du date:temp8]==1))||([temp8 length]==0))
                                     {
-                                        if((([temp9 length]>0)&&([self validateNames:temp9]==1))||([temp9 length]==0))
+                                        if((([temp9 length]>0)&&([du date:temp9]==1))||([temp9 length]==0))
                                         {
-                                            if((([temp10 length]>0)&&([self validateNames:temp10 ]==1))||([temp10 length]==0))
+                                            if((([temp10 length]>0)&&([du date:temp10 ]==1))||([temp10 length]==0))
                                             {
-                                                if((([temp11 length]>0)&&([self validateNames:temp11]==1))||([temp11 length]==0))
+                                                if((([temp11 length]>0)&&([du date:temp11]==1))||([temp11 length]==0))
                                                 {
-                                                    if((([temp12 length]>0)&&([self validateNames:temp12]==1))||([temp12 length]==0))
+                                                    if((([temp12 length]>0)&&([du date:temp12]==1))||([temp12 length]==0))
                                                     {
-                                                        if((([temp13 length]>0)&&([self validateNames:temp13]==1))||([temp13 length]==0))
+                                                        if((([temp13 length]>0)&&([du date:temp13]==1))||([temp13 length]==0))
                                                         {
-                                                            if((([temp14 length]>0)&&([self validateNames:temp14]==1))||([temp14 length]==0))
+                                                            if((([temp14 length]>0)&&([du date:temp14]==1))||([temp14 length]==0))
                                                             {
-                                                                if((([temp15 length]>0)&&([self validateNames:temp15]==1))||([temp15 length]==0))
+                                                                if((([temp15 length]>0)&&([du date:temp15]==1))||([temp15 length]==0))
                                                                 {
-                                                                    if((([temp16 length]>0)&&([self validateNames:temp16]==1))||([temp16 length]==0))
+                                                                    if((([temp16 length]>0)&&([du date:temp16]==1))||([temp16 length]==0))
                                                                     {
-                                                                        if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
+                                                                        if((([temp17 length]>0)&&([du date:temp17]==1))||([temp17 length]==0))
                                                                         {
-                                                                            if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
+                                                                            if((([temp18 length]>0)&&([du date:temp18]==1))||([temp18 length]==0))
                                                                             {
-                                                                                if((([temp19 length]>0)&&([self validateNames:temp19]==1))||([temp19 length]==0))
+                                                                                if((([temp19 length]>0)&&([du date:temp19]==1))||([temp19 length]==0))
                                                                                 {
-                                                                                    if((([temp20 length]>0)&&([self validateNames:temp20]==1))||([temp20 length]==0))
+                                                                                    if((([temp20 length]>0)&&([du date:temp20]==1))||([temp20 length]==0))
                                                                                     {
-                                                                                        if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
+                                                                                        if((([temp21 length]>0)&&([du date:temp21]==1))||([temp21 length]==0))
                                                                                         {
-                                                                                            if((([temp22 length]>0)&&([self validateNames2:temp22]==1))||([temp22 length]==0))
+                                                                                            if((([temp22 length]>0)&&([du date:temp22]==1))||([temp22 length]==0))
                                                                                             {
-                                                                                                if((([temp23 length]>0)&&([self validateNames2:temp23 ]==1))||([temp23 length]==0))
+                                                                                                if((([temp23 length]>0)&&([du date:temp23 ]==1))||([temp23 length]==0))
                                                                                                 {
-                                                                                                    if((([temp24 length]>0)&&([self validateNames2:temp24]==1))||([temp24 length]==0))
+                                                                                                    if((([temp24 length]>0)&&([du date:temp24]==1))||([temp24 length]==0))
                                                                                                     {
-                                                                                                        if((([temp25 length]>0)&&([self validateNames2:temp25 ]==1))||([temp25 length]==0))
+                                                                                                        if((([temp25 length]>0)&&([du date:temp25 ]==1))||([temp25 length]==0))
                                                                                                         {
-                                                                                                            if((([temp26 length]>0)&&([self validateNames2:temp26 ]==1))||([temp26 length]==0))
+                                                                                                            if((([temp26 length]>0)&&([du date:temp26 ]==1))||([temp26 length]==0))
                                                                                                             {
-                                                                                                                if((([temp27 length]>0)&&([self validateNames2:temp27]==1))||([temp27 length]==0))
+                                                                                                                if((([temp27 length]>0)&&([du date:temp27]==1))||([temp27 length]==0))
                                                                                                                 {
-                                                                                                                    if((([temp28 length]>0)&&([self validateNames2:temp28 ]==1))||([temp28 length]==0))
+                                                                                                                    if((([temp28 length]>0)&&([du date:temp28 ]==1))||([temp28 length]==0))
                                                                                                                     {
-                                                                                                                        if((([temp29 length]>0)&&([self validateNames2:temp29]==1))||([temp29 length]==0))
+                                                                                                                        if((([temp29 length]>0)&&([du date:temp29]==1))||([temp29 length]==0))
                                                                                                                         {
-                                                                                                                            if((([temp30 length]>0)&&([self validateNames2:temp30]==1))||([temp30 length]==0))
+                                                                                                                            if((([temp30 length]>0)&&([du date:temp30]==1))||([temp30 length]==0))
                                                                                                                             {
-                                                                                                                                if((([temp31 length]>0)&&([self validateNames2:temp31]==1))||([temp31 length]==0))
+                                                                                                                                if((([temp31 length]>0)&&([du date:temp31]==1))||([temp31 length]==0))
                                                                                                                                 {
-                                                                                                                                    if((([temp32 length]>0)&&([self validateNames2:temp32 ]==1))||([temp32 length]==0))
+                                                                                                                                    if((([temp32 length]>0)&&([du date:temp32 ]==1))||([temp32 length]==0))
                                                                                                                                     {
-                                                                                                                                        if((([temp33 length]>0)&&([self validateNames2:temp33]==1))||([temp33 length]==0))
+                                                                                                                                        if((([temp33 length]>0)&&([du date:temp33]==1))||([temp33 length]==0))
                                                                                                                                         {
-                                                                                                                                            if((([temp34 length]>0)&&([self validateNames2:temp34 ]==1))||([temp34 length]==0))
+                                                                                                                                            if((([temp34 length]>0)&&([du date:temp34 ]==1))||([temp34 length]==0))
                                                                                                                                             {
-                                                                                                                                                if((([temp35 length]>0)&&([self validateNames2:temp35]==1))||([temp35 length]==0))
+                                                                                                                                                if((([temp35 length]>0)&&([du date:temp35]==1))||([temp35 length]==0))
                                                                                                                                                 {
-                                                                                                                                                    if((([temp36 length]>0)&&([self validateNames2:temp36 ]==1))||([temp36 length]==0))
+                                                                                                                                                    if((([temp36 length]>0)&&([du date:temp36 ]==1))||([temp36 length]==0))
                                                                                                                                                     {
-                                                                                                                                                        if((([temp37 length]>0)&&([self validateNames2:temp37]==1))||([temp37 length]==0))
+                                                                                                                                                        if((([temp37 length]>0)&&([du date:temp37]==1))||([temp37 length]==0))
                                                                                                                                                         {
-                                                                                                                                                            if((([temp38 length]>0)&&([self validateNames2:temp38 ]==1))||([temp38 length]==0))
+                                                                                                                                                            if((([temp38 length]>0)&&([du date:temp38 ]==1))||([temp38 length]==0))
                                                                                                                                                             {
-                                                                                                                                                                if((([temp39 length]>0)&&([self validateNames2:temp39]==1))||([temp39 length]==0))
+                                                                                                                                                                if((([temp39 length]>0)&&([du date:temp39]==1))||([temp39 length]==0))
                                                                                                                                                                 {
-                                                                                                                                                                    if((([temp40 length]>0)&&([self validateNames2:temp40 ]==1))||([temp40 length]==0))
+                                                                                                                                                                    if((([temp40 length]>0)&&([du date:temp40 ]==1))||([temp40 length]==0))
                                                                                                                                                                     {
                                                                                                                                                                         
-                                                                                                                                                                        if((([temp41 length]>0)&&([self validateNames2:temp41]==1))||([temp41 length]==0))
+                                                                                                                                                                        if((([temp41 length]>0)&&([du date:temp41]==1))||([temp41 length]==0))
                                                                                                                                                                         {
-                                                                                                                                                                            if((([temp42 length]>0)&&([self validateNames2:temp42 ]==1))||([temp42 length]==0))
+                                                                                                                                                                            if((([temp42 length]>0)&&([du date:temp42 ]==1))||([temp42 length]==0))
                                                                                                                                                                             {
-                                                                                                                                                                                if((([temp43 length]>0)&&([self validateNames2:temp43]==1))||([temp43 length]==0))
+                                                                                                                                                                                if((([temp43 length]>0)&&([du date:temp43]==1))||([temp43 length]==0))
                                                                                                                                                                                 {
-                                                                                                                                                                                    if((([temp44 length]>0)&&([self validateNames2:temp44 ]==1))||([temp44 length]==0))
+                                                                                                                                                                                    if((([temp44 length]>0)&&([du date:temp44 ]==1))||([temp44 length]==0))
                                                                                                                                                                                     {
-                                                                                                                                                                                        if((([temp45 length]>0)&&([self validateNames2:temp45 ]==1))||([temp45 length]==0))
+                                                                                                                                                                                        if((([temp45 length]>0)&&([du date:temp45 ]==1))||([temp45 length]==0))
                                                                                                                                                                                         {
-                                                                                                                                                                                            if((([temp46 length]>0)&&([self validateNames2:temp46 ]==1))||([temp46 length]==0))
+                                                                                                                                                                                            if((([temp46 length]>0)&&([du date:temp46 ]==1))||([temp46 length]==0))
                                                                                                                                                                                             {
-                                                                                                                                                                                                if((([temp47 length]>0)&&([self validateNames2:temp47]==1))||([temp47 length]==0))
+                                                                                                                                                                                                if((([temp47 length]>0)&&([du date:temp47]==1))||([temp47 length]==0))
                                                                                                                                                                                                 {
                                                                                                                                                                                                     
                                                                                                                                                                                                     a=1;
@@ -957,7 +960,7 @@
                                                                                                                                                                                                 {
                                                                                                                                                                                                     a=0;
                                                                                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                                   description:@"Enter valid si right."
+                                                                                                                                                                                                                                                   description:@"Please enter valid si right."
                                                                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                                       callback:nil];
@@ -968,7 +971,7 @@
                                                                                                                                                                                                 a=0;
                                                                                                                                                                                                 
                                                                                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                               description:@"Enter valid si left."
+                                                                                                                                                                                                                                               description:@"Please enter valid si left."
                                                                                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                                   callback:nil];
@@ -978,7 +981,7 @@
                                                                                                                                                                                         {
                                                                                                                                                                                             a=0;
                                                                                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                           description:@"Enter valid l5 right."
+                                                                                                                                                                                                                                           description:@"Please enter valid l5 right."
                                                                                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                               callback:nil];
@@ -990,7 +993,7 @@
                                                                                                                                                                                         a=0;
                                                                                                                                                                                         
                                                                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                       description:@"Enter valid l5 left."
+                                                                                                                                                                                                                                       description:@"Please enter valid l5 left."
                                                                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                           callback:nil];
@@ -1002,7 +1005,7 @@
                                                                                                                                                                                     a=0;
                                                                                                                                                                                     
                                                                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                                   description:@"Enter valid l4 right."
+                                                                                                                                                                                                                                   description:@"Please enter valid l4 right."
                                                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                       callback:nil];
@@ -1013,7 +1016,7 @@
                                                                                                                                                                             {
                                                                                                                                                                                 a=0;
                                                                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                               description:@"Enter valid l4 left."
+                                                                                                                                                                                                                               description:@"Please enter valid l4 left."
                                                                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                                   callback:nil];
@@ -1024,7 +1027,7 @@
                                                                                                                                                                         {
                                                                                                                                                                             a=0;
                                                                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                           description:@"Enter valid l3 right."
+                                                                                                                                                                                                                           description:@"Please enter valid l3 right."
                                                                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                               callback:nil];
@@ -1035,7 +1038,7 @@
                                                                                                                                                                     {
                                                                                                                                                                         a=0;
                                                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                       description:@"Enter valid l3 left."
+                                                                                                                                                                                                                       description:@"Please enter valid l3 left."
                                                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                           callback:nil];
@@ -1046,7 +1049,7 @@
                                                                                                                                                                 {
                                                                                                                                                                     a=0;
                                                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                                   description:@"Enter valid l2 right."
+                                                                                                                                                                                                                   description:@"Please enter valid l2 right."
                                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                       callback:nil];
@@ -1058,7 +1061,7 @@
                                                                                                                                                                 a=0;
                                                                                                                                                                 
                                                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                               description:@"Enter valid l2 left."
+                                                                                                                                                                                                               description:@"Please enter valid l2 left."
                                                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                                   callback:nil];
@@ -1070,7 +1073,7 @@
                                                                                                                                                         {
                                                                                                                                                             a=0;
                                                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                           description:@"Enter valid l1 right."
+                                                                                                                                                                                                           description:@"Please enter valid l1 right."
                                                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                               callback:nil];
@@ -1083,7 +1086,7 @@
                                                                                                                                                     {
                                                                                                                                                         a=0;
                                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                       description:@"Enter valid l1 left."
+                                                                                                                                                                                                       description:@"Please enter valid l1 left."
                                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                           callback:nil];
@@ -1095,7 +1098,7 @@
                                                                                                                                                 {
                                                                                                                                                     a=0;
                                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                                   description:@"Enter valid positive adam."
+                                                                                                                                                                                                   description:@"Please enter valid positive adam."
                                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                       callback:nil];
@@ -1108,7 +1111,7 @@
                                                                                                                                             {
                                                                                                                                                 a=0;
                                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                               description:@"Enter valid positive."
+                                                                                                                                                                                               description:@"Please enter valid positive."
                                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                                   callback:nil];
@@ -1119,7 +1122,7 @@
                                                                                                                                         {
                                                                                                                                             a=0;
                                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                           description:@"Enter valid nachels right."
+                                                                                                                                                                                           description:@"Please enter valid nachels right."
                                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                               callback:nil];
@@ -1132,7 +1135,7 @@
                                                                                                                                     {
                                                                                                                                         a=0;
                                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                       description:@"Enter valid nachels left."
+                                                                                                                                                                                       description:@"Please enter valid nachels left."
                                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                           callback:nil];
@@ -1145,7 +1148,7 @@
                                                                                                                                 {
                                                                                                                                     a=0;
                                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                                   description:@"Enter valid well leg right."
+                                                                                                                                                                                   description:@"Please enter valid well leg right."
                                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                       callback:nil];
@@ -1157,7 +1160,7 @@
                                                                                                                             {
                                                                                                                                 a=0;
                                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                               description:@"Enter valid well leg left."
+                                                                                                                                                                               description:@"Please enter valid well leg left."
                                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                                   callback:nil];
@@ -1169,7 +1172,7 @@
                                                                                                                         {
                                                                                                                             a=0;
                                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                           description:@"Enter valid straight leg right."
+                                                                                                                                                                           description:@"Please enter valid straight leg right."
                                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                               callback:nil];
@@ -1181,7 +1184,7 @@
                                                                                                                     {
                                                                                                                         a=0;
                                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                       description:@"Enter valid strsight leg left."
+                                                                                                                                                                       description:@"Please enter valid strsight leg left."
                                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                           callback:nil];
@@ -1192,7 +1195,7 @@
                                                                                                                 {
                                                                                                                     a=0;
                                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                                   description:@"Enter valid slump right."
+                                                                                                                                                                   description:@"Please enter valid slump right."
                                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                       callback:nil];
@@ -1204,7 +1207,7 @@
                                                                                                             {
                                                                                                                 a=0;
                                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                               description:@"Enter valid slump left."
+                                                                                                                                                               description:@"Please enter valid slump left."
                                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                                   callback:nil];
@@ -1216,7 +1219,7 @@
                                                                                                         {
                                                                                                             a=0;
                                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                           description:@"Enter valid kemp right."
+                                                                                                                                                           description:@"Please enter valid kemp right."
                                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                               callback:nil];
@@ -1228,7 +1231,7 @@
                                                                                                     {
                                                                                                         a=0;
                                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                       description:@"Enter valid kemp left."
+                                                                                                                                                       description:@"Please enter valid kemp left."
                                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                           callback:nil];
@@ -1240,7 +1243,7 @@
                                                                                                 {
                                                                                                     a=0;
                                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                                   description:@"Enter valid trend right."
+                                                                                                                                                   description:@"Please enter valid trend right."
                                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                       callback:nil];
@@ -1252,7 +1255,7 @@
                                                                                             {
                                                                                                 a=0;
                                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                               description:@"Enter valid trend left."
+                                                                                                                                               description:@"Please enter valid trend left."
                                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                                   callback:nil];
@@ -1264,7 +1267,7 @@
                                                                                         {
                                                                                             a=0;
                                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                           description:@"Enter valid rsi."
+                                                                                                                                           description:@"Please enter valid rsi."
                                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                               callback:nil];
@@ -1275,7 +1278,7 @@
                                                                                     {
                                                                                         a=0;
                                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                       description:@"Enter valid l5-si."
+                                                                                                                                       description:@"Please enter valid l5-si."
                                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                           callback:nil];
@@ -1287,7 +1290,7 @@
                                                                                 {
                                                                                     a=0;
                                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                                   description:@"Enter valid l3-4."
+                                                                                                                                   description:@"Please enter valid l3-4."
                                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                       callback:nil];
@@ -1298,7 +1301,7 @@
                                                                             {
                                                                                 a=0;
                                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                               description:@"Enter valid l1-2."
+                                                                                                                               description:@"Please enter valid l1-2."
                                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                                   callback:nil];
@@ -1310,7 +1313,7 @@
                                                                         {
                                                                             a=0;
                                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                           description:@"Enter valid t11-12."
+                                                                                                                           description:@"Please enter valid t11-12."
                                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                               callback:nil];
@@ -1322,7 +1325,7 @@
                                                                     {
                                                                         a=0;
                                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                       description:@"Enter valid t9-10."
+                                                                                                                       description:@"Please enter valid t9-10."
                                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                           callback:nil];
@@ -1334,7 +1337,7 @@
                                                                 {
                                                                     a=0;
                                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                                   description:@"Enter valid lsi."
+                                                                                                                   description:@"Please enter valid lsi."
                                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                       callback:nil];
@@ -1346,7 +1349,7 @@
                                                             {
                                                                 a=0;
                                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                               description:@"Enter valid l4-5."
+                                                                                                               description:@"Please enter valid l4-5."
                                                                                                                       type:TWMessageBarMessageTypeError
                                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                                   callback:nil];
@@ -1358,7 +1361,7 @@
                                                         {
                                                             a=0;
                                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                           description:@"Enter valid l2-3."
+                                                                                                           description:@"Please enter valid l2-3."
                                                                                                                   type:TWMessageBarMessageTypeError
                                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                                               callback:nil];
@@ -1370,7 +1373,7 @@
                                                     {
                                                         a=0;
                                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                       description:@"Enter valid t12-l1."
+                                                                                                       description:@"Please enter valid t12-l1."
                                                                                                               type:TWMessageBarMessageTypeError
                                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                                           callback:nil];
@@ -1382,7 +1385,7 @@
                                                 {
                                                     a=0;
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid t10-11."
+                                                                                                   description:@"Please enter valid t10-11."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -1394,7 +1397,7 @@
                                             {
                                                 a=0;
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid t8-9."
+                                                                                               description:@"Please enter valid t8-9."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -1406,7 +1409,7 @@
                                         {
                                             a=0;
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid rotation right."
+                                                                                           description:@"Please enter valid rotation right."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -1419,7 +1422,7 @@
                                     {
                                         a=0;
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid rotation left."
+                                                                                       description:@"Please enter valid rotation left."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -1432,7 +1435,7 @@
                                 {
                                     a=0;
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid lateral right."
+                                                                                   description:@"Please enter valid lateral right."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -1443,7 +1446,7 @@
                             {
                                 a=0;
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid lateral left."
+                                                                               description:@"Please enter valid lateral left."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -1453,7 +1456,7 @@
                         {
                             a=0;
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid extension."
+                                                                           description:@"Please enter valid extension."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -1463,7 +1466,7 @@
                     {
                         a=0;
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid flexion."
+                                                                       description:@"Please enter valid flexion."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1474,7 +1477,7 @@
                 {
                     a=0;
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid other notes."
+                                                                   description:@"Please enter valid other notes."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1486,7 +1489,7 @@
             {
                 a=0;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid date."
+                                                               description:@"Please enter valid date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1498,7 +1501,7 @@
         {
             a=0;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid patient name."
+                                                           description:@"Please enter valid patient name."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1512,7 +1515,7 @@
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all required rields."
+                                                       description:@"Please enter all required rields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -1594,6 +1597,8 @@
     [super viewDidLoad];
     lefoth.hidden=YES;
     rigoth.hidden=YES;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [gait setBackgroundColor:([UIColor whiteColor])];
     [pelvic setBackgroundColor:([UIColor whiteColor])];
     selectgait=@"Normal";
@@ -1604,7 +1609,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     patientname.text=username;
     
     resultset=[[NSMutableDictionary alloc]init];

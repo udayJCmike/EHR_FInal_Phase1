@@ -13,9 +13,11 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
- 
-@interface soapnotesViewController ()
 
+@interface soapnotesViewController ()
+{
+    databaseurl *du;
+}
 @end
 
 @implementation soapnotesViewController
@@ -64,9 +66,9 @@
     recorddict=[[NSMutableDictionary alloc]init];
     resultset=[[NSMutableDictionary alloc]init];
     seg1.hidden=YES;
-     seg2.hidden=YES;
+    seg2.hidden=YES;
     painscale1.hidden=YES;
-     painscale2.hidden=YES;
+    painscale2.hidden=YES;
     
     val1.hidden=YES;
     val2.hidden=YES;
@@ -74,16 +76,16 @@
     val2.text=@"No Pain";
     seg1val=@"Proximal";
     seg2val=@"Proximal";
-      NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
+    NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     name.text=username;
-   
     
     
-   
-   
-   
-   
-   
+    
+    
+    
+    
+    
+    
     [self Getdata];
     [self getDiagnosis];
 	// Do any additiona;l setup after loading the view, typically from a nib.
@@ -111,9 +113,9 @@
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             [diagnosis addObject:[arrayList1 objectForKey:@"diagnosis"]];
             
-
+            
         }
-      //  NSLog(@"result %@",diagnosis);
+        //  NSLog(@"result %@",diagnosis);
         [resultset setObject:diagnosis forKey:@"diagnosis"];
     }
     
@@ -125,22 +127,22 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-     //NSLog(@"response %@",resultResponse);
+    //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"soapnotesuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-   //   NSLog(@"items1app %d",[items1App count]);
-   // NSLog(@"items1app %@",items1App);
+    //   NSLog(@"items1app %d",[items1App count]);
+    // NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
         for (id anUpdate1 in items1App)
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
-          
+            
             temp1 =[arrayList1 objectForKey:@"pname"];
             temp2 =[arrayList1 objectForKey:@"headache"];
             temp3 =[arrayList1 objectForKey:@"neckpain"];
@@ -195,7 +197,7 @@
             }
             if ([temp19 isEqualToString:@"Severe Pain"])
             {
-                 [painscale1 setValue:10 animated:YES];
+                [painscale1 setValue:10 animated:YES];
             }
             else if ([temp19 isEqualToString:@"No Pain"])
             {
@@ -203,11 +205,11 @@
             }
             else
             {
-               [painscale1 setValue:[temp19 floatValue] animated:YES];
+                [painscale1 setValue:[temp19 floatValue] animated:YES];
             }
             
             val1.text=[NSString stringWithFormat:@"%@",temp19];
-               
+            
             if ([temp21 isEqualToString:@"Severe Pain"])
             {
                 [painscale2 setValue:10 animated:YES];
@@ -223,8 +225,8 @@
             
             val2.text=[NSString stringWithFormat:@"%@",temp21];
             
-           
-           
+            
+            
             if ([temp2 isEqualToString:@"Headache"]) {
                 but1.selected=YES;
                 [but1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -293,7 +295,7 @@
             if ([temp7 isEqualToString:@"Right Arm Pain"]) {
                 but6.selected=YES;
                 seg1.hidden=NO;
-               
+                
                 [but6 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"Right Arm Pain" forKey:@"b6"];
@@ -437,7 +439,7 @@
             else
             {
                 but16.selected=NO;
-                   painscale2.hidden=NO;
+                painscale2.hidden=NO;
                 [but16 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b16"];
@@ -638,22 +640,22 @@
                 [recorddict setValue:@"null" forKey:@"b31"];
             }
             
-           
-
-              [resultset setValue:[arrayList1 objectForKey:@"painscale"] forKey:@"painscale"];
-              [resultset setValue:[arrayList1 objectForKey:@"date1"] forKey:@"date1"];
-              [resultset setValue:[arrayList1 objectForKey:@"improved"] forKey:@"improved"];
-              [resultset setValue:[arrayList1 objectForKey:@"worsened"] forKey:@"worsened"];
-              [resultset setValue:[arrayList1 objectForKey:@"e1e2"] forKey:@"e1e2"];
-              [resultset setValue:[arrayList1 objectForKey:@"xray"] forKey:@"xray"];
-              [resultset setValue:[arrayList1 objectForKey:@"offwork1"] forKey:@"offwork1"];
-              [resultset setValue:[arrayList1 objectForKey:@"reeval1"] forKey:@"reeval1"];
-              [resultset setValue:[arrayList1 objectForKey:@"date2"] forKey:@"date2"];
-              [resultset setValue:[arrayList1 objectForKey:@"improved1"] forKey:@"improved1"];
-              [resultset setValue:[arrayList1 objectForKey:@"worsened1"] forKey:@"worsened1"];
-              [resultset setValue:[arrayList1 objectForKey:@"fixation1"] forKey:@"fixation1"];
-              [resultset setValue:[arrayList1 objectForKey:@"notimproved1"] forKey:@"notimproved1"];
-              [resultset setValue:[arrayList1 objectForKey:@"scsm1"] forKey:@"scsm1"];
+            
+            
+            [resultset setValue:[arrayList1 objectForKey:@"painscale"] forKey:@"painscale"];
+            [resultset setValue:[arrayList1 objectForKey:@"date1"] forKey:@"date1"];
+            [resultset setValue:[arrayList1 objectForKey:@"improved"] forKey:@"improved"];
+            [resultset setValue:[arrayList1 objectForKey:@"worsened"] forKey:@"worsened"];
+            [resultset setValue:[arrayList1 objectForKey:@"e1e2"] forKey:@"e1e2"];
+            [resultset setValue:[arrayList1 objectForKey:@"xray"] forKey:@"xray"];
+            [resultset setValue:[arrayList1 objectForKey:@"offwork1"] forKey:@"offwork1"];
+            [resultset setValue:[arrayList1 objectForKey:@"reeval1"] forKey:@"reeval1"];
+            [resultset setValue:[arrayList1 objectForKey:@"date2"] forKey:@"date2"];
+            [resultset setValue:[arrayList1 objectForKey:@"improved1"] forKey:@"improved1"];
+            [resultset setValue:[arrayList1 objectForKey:@"worsened1"] forKey:@"worsened1"];
+            [resultset setValue:[arrayList1 objectForKey:@"fixation1"] forKey:@"fixation1"];
+            [resultset setValue:[arrayList1 objectForKey:@"notimproved1"] forKey:@"notimproved1"];
+            [resultset setValue:[arrayList1 objectForKey:@"scsm1"] forKey:@"scsm1"];
             [resultset setValue:[arrayList1 objectForKey:@"date3"] forKey:@"date3"];
             [resultset setValue:[arrayList1 objectForKey:@"improved2"] forKey:@"improved2"];
             [resultset setValue:[arrayList1 objectForKey:@"worsened2"] forKey:@"worsened2"];
@@ -697,8 +699,8 @@
             [resultset setValue:[arrayList1 objectForKey:@"notimproved8"] forKey:@"notimproved8"];
             [resultset setValue:[arrayList1 objectForKey:@"scsm8"] forKey:@"scsm8"];
             [resultset setValue:[arrayList1 objectForKey:@"sign"] forKey:@"sign"];
-           
-           // [resultset setValue:[arrayList1 objectForKey:@""] forKey:@""];
+            
+            // [resultset setValue:[arrayList1 objectForKey:@""] forKey:@""];
             
         }
     }
@@ -742,16 +744,16 @@
 }
 -(NSString *)HttpPostEntityFirst1diagnosis:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
-  
+    
     
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"SoapNotesDiagnosis.php?service=soapnotesdiagnosisselect";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-  
-     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-  //  NSLog(@"POST:%@",post);
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
+    
+    //  NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);
@@ -772,7 +774,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -812,7 +814,7 @@
     {
         val2.text=[NSString stringWithFormat:@"%d",val];
     }
-
+    
 }
 -(IBAction)checkboxSelected:(UIButton*)sender {
     sender.selected = !sender.selected;
@@ -855,7 +857,7 @@
         painscale2.hidden=YES;
     }
     
-   
+    
     
     
 }
@@ -863,7 +865,7 @@
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 }
 - (IBAction)reset:(id)sender {
-   
+    
     [but1 setSelected:NO];
     [but1 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [but2 setSelected:NO];
@@ -943,17 +945,17 @@
     val1.hidden=YES;
     val2.hidden=YES;
     
-
-
+    
+    
     
     
 }
 - (IBAction)next:(id)sender {
-            [recorddict setValue:name.text forKey:@"pname"];
-      [recorddict setValue:seg1val forKey:@"segval1"];
-      [recorddict setValue:seg2val forKey:@"segval2"];
-      [recorddict setValue:val1.text forKey:@"val1"];
-      [recorddict setValue:val2.text forKey:@"val2"];
+    [recorddict setValue:name.text forKey:@"pname"];
+    [recorddict setValue:seg1val forKey:@"segval1"];
+    [recorddict setValue:seg2val forKey:@"segval2"];
+    [recorddict setValue:val1.text forKey:@"val1"];
+    [recorddict setValue:val2.text forKey:@"val2"];
     
     if (but1.selected) {
         [recorddict setValue:@"Headache" forKey:@"b1"];
@@ -1172,7 +1174,7 @@
     {
         [recorddict setValue:@"null" forKey:@"b31"];
     }
-
+    
     
     [self performSegueWithIdentifier:@"soap1" sender:self];
 }
@@ -1186,7 +1188,7 @@
         soapnotes1ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-       // NSLog(@"recorddict in soapnotes first %@",recorddict);
+        // NSLog(@"recorddict in soapnotes first %@",recorddict);
     }
     
     
@@ -1197,7 +1199,7 @@
         seg1val=@"Proximal";
     }
     if ([sender selectedSegmentIndex]==1) {
-     seg1val=@"Distal Portion";
+        seg1val=@"Distal Portion";
     }
 }
 - (IBAction)seg2act:(id)sender {
@@ -1210,8 +1212,8 @@
 }
 
 - (void)dealloc {
-   
-  
+    
+    
     [super dealloc];
 }
 @end

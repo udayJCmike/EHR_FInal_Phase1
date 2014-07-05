@@ -8,12 +8,16 @@
 
 #import "hami1ViewController.h"
 #import "hamil2ViewController.h"
-
+#import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
 
-@interface hami1ViewController ()
+@interface hami1ViewController (){
+    
+    databaseurl *du;
+    
+}
 
 @end
 
@@ -44,6 +48,50 @@
     }
     else{
         [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+    }
+    if (b5.selected)
+    {
+        radiates.hidden=NO;
+        
+    }
+    else
+    {
+        
+        radiates.hidden=YES;
+        
+    }
+    if (b12.selected)
+    {
+        mo_ni_oth.hidden=NO;
+        
+    }
+    else
+    {
+        
+        mo_ni_oth.hidden=YES;
+        
+    }
+    if (b20.selected)
+    {
+        cond_aff_oth.hidden=NO;
+        
+    }
+    else
+    {
+        
+        cond_aff_oth.hidden=YES;
+        
+    }
+    if (b12.selected)
+    {
+        mo_ni_oth.hidden=NO;
+        
+    }
+    else
+    {
+        
+        mo_ni_oth.hidden=YES;
+        
     }
 }
 -(BOOL)validateNames:(NSString *)country1
@@ -80,7 +128,7 @@
 - (IBAction)next:(id)sender
 
 {
-    
+    du=[[databaseurl alloc]init];
     
     //recorddict=[[NSMutableDictionary alloc]init];
     if (b1.selected)
@@ -513,35 +561,48 @@
     {
         [recorddict setValue:@"null" forKey:@"greatly"];
     }
-    
+    if(b5.selected)
+    {
+        
+    }
+    else
+    {
+        radiates.text=@"";
+        
+    }
+    if(b12.selected)
+    {
+        
+    }
+    else
+    {
+        mo_ni_oth.text=@"";
+        
+    }
+    if(b20.selected)
+    {
+        
+    }
+    else
+    {
+        cond_aff_oth.text=@"";
+        
+    }
     
     temp1 = [radiates.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 = [mo_ni_oth.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp3 = [last_day.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp4 = [cond_aff_oth.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     a=1;
-    if((([temp1 length]>0)&&([self validateNames:temp1]==1))||([temp1 length]==0))
+    if((([temp1 length]>0)&&([du otherfields:radiates.text]==1))||([radiates.text length]==0))
     {
-        if((([temp2 length]>0)&&([self validateNames:temp2 ]==1))||([temp2 length]==0))
+        if((([temp2 length]>0)&&([du otherfields:mo_ni_oth.text ]==1))||([mo_ni_oth.text  length]==0))
         {
             if((([temp3 length]>0)&&([self validateDate:temp3 ]==1))||([temp3 length]==0))
             {
-                if((([temp4 length]>0)&&([self validateNames:temp4 ]==1))||([temp4 length]==0))
+                if((([temp4 length]>0)&&([du otherfields:cond_aff_oth.text ]==1))||([cond_aff_oth.text length]==0))
                 {
                     
-                    /* if([radiates.text isEqualToString:@""]){
-                     radiates.text=@"null";
-                     }
-                     if([mo_ni_oth.text isEqualToString:@""]){
-                     mo_ni_oth.text=@"null";
-                     }
-                     if([last_day.text isEqualToString:@""]){
-                     last_day.text=@"null";
-                     }
-                     if([cond_aff_oth.text isEqualToString:@""]){
-                     cond_aff_oth.text=@"null";
-                     }
-                     */
                     [recorddict setValue:radiates.text forKey:@"radiates text"];
                     [recorddict setValue:mo_ni_oth.text forKey:@"morning other text"];
                     [recorddict setValue:last_day.text forKey:@"last day"];
@@ -560,7 +621,7 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid condition affected."
+                                                                   description:@"Please enter valid condition affected."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -576,7 +637,7 @@
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid last day."
+                                                               description:@"Please enter valid last day."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -592,7 +653,7 @@
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid morning or night other field."
+                                                           description:@"Please enter valid morning or night other field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -609,7 +670,7 @@
         a=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid radiates to field."
+                                                       description:@"Please enter valid radiates to field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -640,6 +701,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

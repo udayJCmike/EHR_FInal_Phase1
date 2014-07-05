@@ -16,6 +16,9 @@
 #import "JSON.h"
 #import "hamilViewController.h"
 @interface KneeExamViewController2 ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -103,6 +106,9 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     cancel.hidden=NO;
     save.hidden=NO;
     reset.hidden=NO;
+    du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    
     //temp=[[NSMutableDictionary alloc]init];
     //temp=recorddict;
     // NSLog(@"in temp dict:%@",temp);
@@ -557,66 +563,43 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     [signature resignFirstResponder];
 }
 - (IBAction)save:(id)sender {
-    texty1=[first.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[second.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[three.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[four.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[five.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[six.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[seven.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[eight.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty9=[othertext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty10=[signature.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if(!checkbut15.selected){
+        othertext.text=@"";
+    }
+    texty1=first.text;
+    texty2=second.text;
+    texty3=three.text;
+    texty4=four.text;
+    texty5=five.text;
+    texty6=six.text;
+    texty7=seven.text;
+    texty8=eight.text;
+    texty9=othertext.text;
+    texty10=signature.text;
     if([signature.text length]!=0)
     {
-        if([first.text length]==0||([self validateString:texty1]==1))
+        if([first.text length]==0||([du otherfields:texty1]==1))
         {
-            if([second.text length]==0||([self validateString:texty2]==1))
+            if([second.text length]==0||([du otherfields:texty2]==1))
             {
-                if([three.text length]==0||([self validateString:texty3]==1))
+                if([three.text length]==0||([du otherfields:texty3]==1))
                 {
-                    if([four.text length]==0||([self validateString:texty4]==1))
+                    if([four.text length]==0||([du otherfields:texty4]==1))
                     {
-                        if([five.text length]==0||([self validateString:texty5]==1))
+                        if([five.text length]==0||([du otherfields:texty5]==1))
                         {
-                            if([six.text length]==0||([self validateString:texty6]==1))
+                            if([six.text length]==0||([du otherfields:texty6]==1))
                             {
-                                if([seven.text length]==0||([self validateNumberLessFive:texty7]==1))
+                                if([seven.text length]==0||([du otherfields:texty7]==1))
                                 {
-                                    if([eight.text length]==0||([self validateNumberLessFive:texty8]==1))
+                                    if([eight.text length]==0||([du otherfields:texty8]==1))
                                     {
-                                        if([othertext.text length]==0||([self validateString:texty9]==1)){
-                                            if([self validateString1:texty10]==1)
+                                        if([othertext.text length]==0||([du otherfields:texty9]==1)){
+                                            if([du otherfields:texty10]==1)
                                             {
                                                 suc=1;
                                                 
-                                                /*if([first.text isEqualToString:@""]){
-                                                 first.text=@"null";
-                                                 }
-                                                 if([second.text isEqualToString:@""]){
-                                                 second.text=@"null";
-                                                 }
-                                                 if([three.text isEqualToString:@""]){
-                                                 three.text=@"null";
-                                                 }
-                                                 if([four.text isEqualToString:@""]){
-                                                 four.text=@"null";
-                                                 }
-                                                 if([five.text isEqualToString:@""]){
-                                                 five.text=@"null";
-                                                 }
-                                                 if([six.text isEqualToString:@""]){
-                                                 six.text=@"null";
-                                                 }
-                                                 if([seven.text isEqualToString:@""]){
-                                                 seven.text=@"null";
-                                                 }
-                                                 if([eight.text isEqualToString:@""]){
-                                                 eight.text=@"null";
-                                                 }
-                                                 if([othertext.text isEqualToString:@""]){
-                                                 othertext.text=@"null";
-                                                 }*/
+                                                
                                                 [recorddict setObject:first.text forKey:@"firstdiagnosis"];
                                                 [recorddict setObject:second.text forKey:@"seconddiagnosis"];
                                                 [recorddict setObject:three.text forKey:@"thirddiagnosis"];
@@ -649,7 +632,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid signature field."
+                                                                                               description:@"Please enter valid signature field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -664,7 +647,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid other text field."
+                                                                                           description:@"Please enter valid other text field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -681,7 +664,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                         
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid week field."
+                                                                                       description:@"Please enter valid week field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -695,7 +678,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid day field."
+                                                                                   description:@"Please enter valid day field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -711,7 +694,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid diagnosis 6 field."
+                                                                               description:@"Please enter valid diagnosis 6 field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -727,7 +710,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid diagnosis 5 field."
+                                                                           description:@"Please enter valid diagnosis 5 field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -743,7 +726,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid diagnosis 4 field."
+                                                                       description:@"Please enter valid diagnosis 4 field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -758,7 +741,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid diagnosis 3 field."
+                                                                   description:@"Please enter valid diagnosis 3 field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -773,7 +756,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid diagnosis 2 field."
+                                                               description:@"Please enter valid diagnosis 2 field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -789,7 +772,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid diagnosis 1 field."
+                                                           description:@"Please enter valid diagnosis 1 field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -803,7 +786,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

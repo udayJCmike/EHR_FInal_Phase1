@@ -18,7 +18,9 @@
 #import "hamilViewController.h"
 
 @interface ThoracicExamViewController1 ()
-
+{
+    databaseurl *du;
+}
 @end
 //othertext.hidden=YES;
 //othertext0.hidden=YES;
@@ -96,7 +98,8 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     [super viewDidLoad];
     
     
-    NSLog(@"thoracic %@",recorddict);
+    NSLog(@"thoracic %@",recorddict); du=[[databaseurl alloc]init];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     othertext.hidden=YES;
     othertext0.hidden=YES;
     checkstring1=@"null";
@@ -763,46 +766,46 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
 }
 
 - (IBAction)save:(id)sender {
-    textview1=[[textv1.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
-    textview2=[[textv2.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
-    oth=[othertext0.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty1=[first.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty2=[second.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty3=[three.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty4=[four.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty5=[five.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty6=[six.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty7=[seven.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty8=[eight.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty9=[othertext.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty10=[signature.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    textview1=[textv1.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    textview2=[textv2.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    oth=othertext0.text;
+    texty1=first.text;
+    texty2=second.text;
+    texty3=three.text;
+    texty4=four.text;
+    texty5=five.text;
+    texty6=six.text;
+    texty7=seven.text;
+    texty8=eight.text;
+    texty9=othertext.text;
+    texty10=signature.text;
     
     if([signature.text length]!=0)
         
     {
         
-        if(([textv1.text length]==0)||[self validateString:textview1]==1){
-            if(([textv2.text length]==0)||[self validateString:textview2]==1){
+        if(([textv1.text length]==0)||[du comments:textview1]==1){
+            if(([textv2.text length]==0)||[du comments:textview2]==1){
                 
                 
-                if([first.text length]==0||([self validateString:texty1]==1))
+                if([first.text length]==0||([du otherfields:texty1]==1))
                 {
-                    if([second.text length]==0||([self validateString:texty2]==1))
+                    if([second.text length]==0||([du otherfields:texty2]==1))
                     {
-                        if([three.text length]==0||([self validateString:texty3]==1))
+                        if([three.text length]==0||([du otherfields:texty3]==1))
                         {
-                            if([four.text length]==0||([self validateString:texty4]==1))
+                            if([four.text length]==0||([du otherfields:texty4]==1))
                             {
-                                if([five.text length]==0||([self validateString:texty5]==1))
+                                if([five.text length]==0||([du otherfields:texty5]==1))
                                 {
-                                    if([six.text length]==0||([self validateString:texty6]==1))
+                                    if([six.text length]==0||([du otherfields:texty6]==1))
                                     {
-                                        if([seven.text length]==0||([self validateString:texty7]==1))
+                                        if([seven.text length]==0||([du otherfields:texty7]==1))
                                         {
-                                            if([eight.text length]==0||([self validateString:texty8]==1))
+                                            if([eight.text length]==0||([du otherfields:texty8]==1))
                                             {
                                                 
-                                                if([self validatesign:texty10]==1)
+                                                if([du otherfields:texty10]==1)
                                                 {
                                                     suc=1;
                                                     /* if([textv1.text isEqualToString:@""]){
@@ -888,7 +891,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                                 else{
                                                     suc=0;
                                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                                   description:@"Enter valid signature field."
+                                                                                                   description:@"Please enter valid signature field."
                                                                                                           type:TWMessageBarMessageTypeError
                                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                                       callback:nil];
@@ -904,7 +907,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                                 suc=0;
                                                 
                                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                               description:@"Enter valid week field."
+                                                                                               description:@"Please enter valid week field."
                                                                                                       type:TWMessageBarMessageTypeError
                                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                                   callback:nil];
@@ -918,7 +921,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                             suc=0;
                                             
                                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Enter valid times field."
+                                                                                           description:@"Please enter valid times field."
                                                                                                   type:TWMessageBarMessageTypeError
                                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                                               callback:nil];
@@ -934,7 +937,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                         suc=0;
                                         
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Enter valid diagnosis6 field."
+                                                                                       description:@"Please enter valid diagnosis6 field."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
@@ -950,7 +953,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                     suc=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Enter valid diagnosis5 field."
+                                                                                   description:@"Please enter valid diagnosis5 field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -966,7 +969,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                 suc=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Enter valid diagnosis4 field."
+                                                                               description:@"Please enter valid diagnosis4 field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
@@ -982,7 +985,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                             suc=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Enter valid diagnosis3 field."
+                                                                           description:@"Please enter valid diagnosis3 field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
@@ -997,7 +1000,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                         suc=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Enter valid diagnosis2 field."
+                                                                       description:@"Please enter valid diagnosis2 field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
@@ -1012,7 +1015,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                     suc=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Enter valid diagnosis1 field."
+                                                                   description:@"Please enter valid diagnosis1 field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -1028,7 +1031,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                 suc=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Enter valid assessment/additional comments field."
+                                                               description:@"Please enter valid assessment/additional comments field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -1043,7 +1046,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
             suc=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid notes field."
+                                                           description:@"Please enter valid notes field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -1054,7 +1057,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         suc=0;
         
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter all the required fields."
+                                                       description:@"Please enter all the required fields."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];

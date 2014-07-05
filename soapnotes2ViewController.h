@@ -17,10 +17,10 @@
     NSArray *a3;
     NSArray *a4;
     int a;
-      NSMutableDictionary *resultset;
+    NSMutableDictionary *resultset;
     NSMutableDictionary *recorddict;
     NSString *temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*temp10,*temp11,*temp12,*temp13,*temp14,*temp15;
-     NSString *tempd1,*tempd2,*tempd3,*tempd4,*tempd5,*tempd6,*tempd7,*tempd8,*tempd9,*tempd10;
+    NSString *tempd1,*tempd2,*tempd3,*tempd4,*tempd5,*tempd6,*tempd7,*tempd8,*tempd9,*tempd10;
     NSString *databasePath;
     MBProgressHUD *HUD;
     BOOL isConnect;

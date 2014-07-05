@@ -481,6 +481,7 @@
         
         SampleViewController *destViewController = [segue destinationViewController];
         destViewController.resultset=resultset;
+        destViewController.from=@"admin";
         // NSLog(@"recorddict in foot%@",resultset);
         // destViewController.delegate=self;
         

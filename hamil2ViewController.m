@@ -9,9 +9,13 @@
 #import "hamil2ViewController.h"
 #import "hamil3ViewController.h"
 #import "StringConstants.h"
+#import "databaseurl.h"
 #import "TWMessageBarManager.h"
 #import "TestMoreViewController.h"
 @interface hamil2ViewController ()
+{
+    databaseurl *du;
+}
 
 @end
 
@@ -302,9 +306,9 @@ NSString *leftsegm,*rightsegm,*painscale;
     }
     
     
-    if((([temp2 length]>0)&&([self validateNames:temp2 ]==1))||([temp2 length]==0))
+    if((([temp2 length]>0)&&([du  otherfields:right.text ]==1))||([right.text length]==0))
     {
-        if((([temp3 length]>0)&&([self validateNames:temp3 ]==1))||([temp3 length]==0))
+        if((([temp3 length]>0)&&([du  otherfields:left.text ]==1))||([left.text length]==0))
         {
             [recorddict setValue:painlevel.text forKey:@"cervical_Painlevel"];
             [recorddict setValue:right.text forKey:@"Right text"];
@@ -325,7 +329,7 @@ NSString *leftsegm,*rightsegm,*painscale;
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Enter valid left text field."
+                                                           description:@"Please enter valid left text field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
@@ -342,7 +346,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     {
         a=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Enter valid right text field."
+                                                       description:@"Please enter valid right text field."
                                                               type:TWMessageBarMessageTypeError
                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                           callback:nil];
@@ -380,6 +384,8 @@ NSString *leftsegm,*rightsegm,*painscale;
     leftsegm=@"pain on active ROM";
     rightsegm=@"pain on active ROM";
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    du=[[databaseurl alloc]init];
     CGRect frame=CGRectMake(0.0,0.0, 200.0,10.0);
     //slider1=[[UISlider alloc]initWithFrame:frame];
     // slider1.minimumValue = 0.0;

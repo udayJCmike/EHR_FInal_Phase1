@@ -8,8 +8,13 @@
 
 #import "hamil3ViewController.h"
 #import "hamil4ViewController.h"
+#import "databaseurl.h"
 #import "TestMoreViewController.h"
-@interface hamil3ViewController ()
+@interface hamil3ViewController (){
+    
+    
+    databaseurl *du;
+}
 
 @end
 
@@ -128,6 +133,7 @@
     
     
     [recorddict setValue:painlevel.text forKey:@"Thoracic painlevel"];
+    
     if(a==1)
     {
         [self performSegueWithIdentifier:@"hami5" sender:self];
@@ -153,6 +159,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     painlevel.text=@"1";
+    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
             UITextField *textfield=(UITextField*)v;
