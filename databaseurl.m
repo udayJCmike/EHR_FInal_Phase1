@@ -12,8 +12,15 @@ static databaseurl * appInstance;
 +(databaseurl*)sharedInstance {
 	if (!appInstance) {
 		appInstance = [[databaseurl alloc] init];
+        
 	}
 	return appInstance;
+}
+-(NSString*)headername
+{
+   Headername=@"Electronic Healthcare Record";
+    return Headername;
+    
 }
 -(NSString*)DBurl
 {

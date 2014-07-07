@@ -10,9 +10,10 @@
 
 @interface databaseurl : NSObject
 {
-    
+    NSString *Headername;
 }
 +(databaseurl*)sharedInstance;
+-(NSString*)headername;
 - (NSString*) DBurl;
 -(BOOL)username:(NSString *)name;
 -(BOOL)firstname:(NSString*)email;

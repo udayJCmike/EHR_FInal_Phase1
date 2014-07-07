@@ -14,6 +14,7 @@
 #import "Reachability.h"
 #import "staffautocheckViewController.h"
 #import "SampleViewController.h"
+
 @interface PatientInfoViewController ()
 {
     databaseurl *du;
@@ -38,6 +39,7 @@
 @synthesize sl1;
 @synthesize sl2;
 @synthesize sl3;
+@synthesize printController;
 - (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
 {
     self = [super init];
@@ -351,9 +353,19 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  printController.delegate = self;
+ /*   UIButton *btnNext1 =[[UIButton alloc] init];
+    [btnNext1 setBackgroundImage:[UIImage imageNamed:@"print.png"] forState:UIControlStateNormal];
+    
+    btnNext1.frame = CGRectMake(100, 100, 50, 30);
+    UIBarButtonItem *btnNext =[[UIBarButtonItem alloc] initWithCustomView:btnNext1];
+    [btnNext1 addTarget:self action:@selector(printAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = btnNext;*/
+    
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     for (UIView *v in [self.view subviews])  // loop for adding clear button to all textfileds of this view
     {
@@ -1413,7 +1425,51 @@
     spouseph.hidden=NO;
 }
 
+- (IBAction)printAction:(id)sender
+{
+    UIGraphicsBeginImageContext(self.scroll.frame.size);
+	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    NSData *imageData = UIImagePNGRepresentation(viewImage);
+    [self printItem:imageData];
+}
+#pragma mark - Printing
 
+-(void)printItem :(NSData*)data {
+    printController = [UIPrintInteractionController sharedPrintController];
+    if(printController && [UIPrintInteractionController canPrintData:data]) {
+        printController.delegate = self;
+        UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+        printInfo.outputType = UIPrintInfoOutputGeneral;
+        printInfo.jobName = [du headername];
+        printInfo.duplex = UIPrintInfoDuplexLongEdge;
+        printController.printInfo = printInfo;
+        printController.showsPageRange = YES;
+        printController.printingItem = data;
+        
+        UYLGenericPrintPageRenderer *renderer = [[UYLGenericPrintPageRenderer alloc] init];
+        renderer.headerText = printInfo.jobName;
+        renderer.footerText = @"Printer - Deemsys,Inc";
+        
+        UIViewPrintFormatter *formatter = [self.scroll viewPrintFormatter];
+        [renderer addPrintFormatter:formatter startingAtPageAtIndex:0];
+        formatter.contentInsets = UIEdgeInsetsMake(72, 72, 0, 72);
+        printController.printPageRenderer = renderer;
+        
+        void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+            if (!completed && error) {
+                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+            }
+        };
+        [printController presentFromBarButtonItem:self.printAction animated:YES completionHandler:completionHandler];
+    }
+}
+
+- (BOOL)presentFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated completionHandler:(UIPrintInteractionCompletionHandler)completion {
+    return YES;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
