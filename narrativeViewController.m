@@ -238,37 +238,39 @@
     temp19=[examon.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     
-    if(([temp2 length]!=0)&&
-       ([temp3 length]!=0)&&
-       ([temp4 length]!=0)&&
-       ([temp5 length]!=0)&&
-       ([temp6 length]!=0)&&
-       
-       ([temp11 length]!=0)&&
-       ([temp12 length]!=0)&&
+    if(
+   // ([temp2 length]!=0)&&
+//       ([temp3 length]!=0)&&
+//       ([temp4 length]!=0)&&
+//       ([temp5 length]!=0)&&
+//       ([temp6 length]!=0)&&
+    
+       ([patientname.text length]!=0)&&
+//       ([temp12 length]!=0)&&
        ([dateofinjury.text length]!=0)&&
        ([dateofvisit.text length]!=0)&&
-       ([reportdate.text length]!=0)&&
-       ([accon.text length]!=0)&&
-       ([accon1.text length]!=0)&&
-       ([examon.text length]!=0))
-        
+       ([reportdate.text length]!=0)
+//       ([accon.text length]!=0)&&
+//       ([accon1.text length]!=0)&&
+//       ([examon.text length]!=0)
+       )
+       
         
     {
         
         
+        NSLog(@"name %@",patientname.text);
         
-        
-        if((([temp11 length]>0)&&([du patname:temp11]==1))||([temp11 length]==0))
+        if([du patname:patientname.text]==1)
             
         {
             
             
-            if((([temp16 length]>0)&&([self validateDate:temp16]==1))||([temp16 length]==0))
+            if([self validateDate:temp16]==1)
             {
-                if((([temp14 length]>0)&&([self validateDate:temp14]==1))||([temp14 length]==0))
+                if([self validateDate:temp14]==1)
                 {
-                    if((([temp15 length]>0)&&([self validateDate:temp15]==1))||([temp15 length]==0))
+                    if([self validateDate:temp15]==1)
                     {
                         if((([temp12 length]>0)&&([du patname:temp12]==1))||([temp12 length]==0))
                         {

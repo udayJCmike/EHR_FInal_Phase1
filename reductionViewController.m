@@ -102,21 +102,21 @@
     du=[[databaseurl alloc]init];
     recorddict=[[NSMutableDictionary alloc]init];
     suc=1;
-    temp1 =[attorney.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =attorney.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     temp2=[address.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     temp2 =[temp2 stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2=[temp2 stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
     temp2=[temp2 stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
-    temp3 =[regarding.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp4 =[dateofacci.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[claim.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6 =[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp7 =[name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp8 =[sign.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp3 =regarding.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp4 =dateofacci.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp5 =claim.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp6 =date.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp7 =name.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+            temp8 =sign.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if(([temp1 length]!=0)&&
-       ([temp2 length]!=0)&&
+//       ([temp2 length]!=0)&&
        ([temp3 length]!=0)&&
        ([temp4 length]!=0)&&
        ([temp5 length]!=0)&&
@@ -126,7 +126,7 @@
     {
         if([du patname:temp1]==1)
         {
-            if([du address:temp2]==1)
+            if((([temp2 length]>0)&&([du address:temp2]==1))||([temp2 length]==0))
             {
                 if([du patname:temp3]==1)
                 {

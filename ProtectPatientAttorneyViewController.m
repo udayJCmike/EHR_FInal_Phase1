@@ -312,22 +312,22 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty7=[dearname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty8=[sincname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if([patattory.text length]!=0&&[myclient.text length]!=0&&[addrs.text length]!=0&&[date.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0&&[sincname.text length]!=0&&[clinicname.text length]!=0){
-        if([date.text length]==0||([self validateDate:texty1]==1))
+    if([patattory.text length]!=0&&[myclient.text length]!=0&&[date.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0&&[sincname.text length]!=0&&[clinicname.text length]!=0){
+        if([self validateDate:texty1]==1)
         {
-            if([patattory.text length]==0||([du patname:texty2]==1))
+            if([du patname:texty2]==1)
             {
-                if([clinicname.text length]==0||([du otherfields:texty3]==1))
+                if([du otherfields:texty3]==1)
                 {
-                    if([addrs.text length]==0||([du address:texty4]==1))
+                    if((([addrs.text length]>0)&&([du address:texty4]==1))||([texty4 length]==0))
                     {
-                        if([myclient.text length]==0||([du patname:texty5]==1))
+                        if([du patname:texty5]==1)
                         {
-                            if([dofacc.text length]==0||([self validateDate:texty6]==1))
+                            if([self validateDate:texty6]==1)
                             {
-                                if([dearname.text length]==0||([du patname:texty7]==1))
+                                if([du patname:texty7]==1)
                                 {
-                                    if([sincname.text length]==0||([du patname:texty8]==1))
+                                    if([du patname:texty8]==1)
                                     {
                                         suc=1;
                                         recorddict=[[NSMutableDictionary alloc]init];

@@ -24,7 +24,7 @@ static databaseurl * appInstance;
 }
 -(NSString*)DBurl
 {
-    NSString * link=@"http://192.168.1.5:8888/Ehrservicefiles/Service/";
+    NSString * link=@"http://medsmonit.com/ehr/Service/";
     return link;
     
 }
@@ -71,7 +71,7 @@ static databaseurl * appInstance;
 {
     if (([name length]>3)&&([name length]<32))
     {
-        NSString *firstnameFormat = @"[A-Za-z]+";
+        NSString *firstnameFormat = @"[A-Za-z ]+";
         NSPredicate *nameTest= [NSPredicate predicateWithFormat:@"SELF MATCHES %@", firstnameFormat];
         return [nameTest evaluateWithObject:name];
         

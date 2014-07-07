@@ -232,7 +232,19 @@
             //NSLog(@"Reachable WiFi");
             break;
         }
-    }
+    }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

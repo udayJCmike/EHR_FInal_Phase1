@@ -705,7 +705,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty9=[dearname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty10=[writingby.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if([patattory.text length]!=0&&[reg.text length]!=0&&[addrs.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0&&[insname.text length]!=0&&[addrs1.text length]!=0&&[todaydate.text length]!=0&&[writingby.text length]!=0)
+    if([patattory.text length]!=0&&[reg.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0&&[insname.text length]!=0&&[todaydate.text length]!=0)
     {
         if([insname.text length]==0||([du patname:texty1]==1))
         {

@@ -479,20 +479,20 @@
     temp14=[lb.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp15=[alleviate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
+//    
+//    if(([temp2 length]!=0)&&
+//       ([temp3 length]!=0)&&
+//       ([temp8 length]!=0)&&
+//       ([temp9 length]!=0)&&
+//       ([temp10 length]!=0)&&
+//       ([temp11 length]!=0)&&
+//       ([temp12 length]!=0)&&
+//       ([temp14 length]!=0)&&
+//       ([temp15 length]!=0))
+//        
+//        
+//    {
     
-    if(([temp2 length]!=0)&&
-       ([temp3 length]!=0)&&
-       ([temp8 length]!=0)&&
-       ([temp9 length]!=0)&&
-       ([temp10 length]!=0)&&
-       ([temp11 length]!=0)&&
-       ([temp12 length]!=0)&&
-       ([temp14 length]!=0)&&
-       ([temp15 length]!=0))
-        
-        
-    {
-        
         
         
         if((([temp2 length]>0)&&([du otherfields:temp2]==1))||([temp2 length]==0))
@@ -717,25 +717,25 @@
         }
         
         
-    }
-    
-    
-    
-    else
-    {
-        a=0;
-        
-        
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                       description:@"Required field should not be empty."
-                                                              type:TWMessageBarMessageTypeError
-                                                    statusBarStyle:UIStatusBarStyleLightContent
-                                                          callback:nil];
-        
-        
-        
-        
-    }
+//    }
+//    
+//    
+//    
+//    else
+//    {
+//        a=0;
+//        
+//        
+//        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+//                                                       description:@"Required field should not be empty."
+//                                                              type:TWMessageBarMessageTypeError
+//                                                    statusBarStyle:UIStatusBarStyleLightContent
+//                                                          callback:nil];
+//        
+//        
+//        
+//        
+//    }
     if (a==1)
     {
         [self performSegueWithIdentifier:@"narr11" sender:self];

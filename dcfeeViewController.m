@@ -157,9 +157,9 @@
     if(([temp1 length]!=0)&&
        ([temp2 length]!=0)&&
        ([temp3 length]!=0)&&
-       ([temp4 length]!=0)&&
-       ([ temp5 length]!=0)
-       &&       ([temp23 length]!=0))
+//       ([temp4 length]!=0)&&
+//       ([ temp5 length]!=0)
+             ([temp23 length]!=0))
         
         
         
@@ -172,9 +172,9 @@
             {
                 if([du patname:temp1]==1)
                 {
-                    if([du patname:temp4]==1)
+                   if((([temp4 length]>0)&&([du patname:temp4]==1))||([temp4 length]==0))
                     {
-                        if ([du patname:temp5]==1)
+                        if((([temp5 length]>0)&&([du patname:temp5]==1))||([temp5 length]==0))
                         {
                             if ([self validateDate:temp23]==1)
                             {
@@ -720,6 +720,7 @@
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
+    NSLog(@"patient name in dc %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"]);
     patientname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     date.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"billdate"];
     page1.hidden=YES;

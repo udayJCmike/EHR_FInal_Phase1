@@ -113,18 +113,18 @@
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:recorddict];
     a=1;
-    temp1 =[attorney1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp5 =[attorney2.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    temp6 =[attorney3.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 =attorney1.text; //stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp5 =attorney2.text;// stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp6 =attorney3.text; //stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    temp2=[regards.text stringByReplacingOccurrencesOfString:@" "withString:@""];
-    temp3=[injury.text stringByReplacingOccurrencesOfString:@" "withString:@""];
-    temp4=[date.text stringByReplacingOccurrencesOfString:@" "withString:@""];
+    temp2=regards.text; //stringByReplacingOccurrencesOfString:@" "withString:@""];
+    temp3=injury.text; //stringByReplacingOccurrencesOfString:@" "withString:@""];
+    temp4=date.text ;//stringByReplacingOccurrencesOfString:@" "withString:@""];
     
-    if(([temp1 length]!=0)&&
-       ([temp2 length]!=0)&&
-       ([temp3 length]!=0)&& ([temp5 length]!=0)&& ([temp6 length]!=0)&&
-       ([temp4 length]!=0))
+    if(([attorney1.text length]!=0)&&
+       ([attorney2.text length]!=0)&&
+       ([attorney3.text length]!=0)&& ([regards.text length]!=0)&& ([injury.text length]!=0)&&
+       ([date.text length]!=0))
     {
         if([du patname:temp1]==1)
         {

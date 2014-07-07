@@ -342,11 +342,11 @@
     
     if(([temp1 length]!=0)&&
        ([date.text length]!=0)&&
-       ([temp2 length]!=0)&&
+       //([temp2 length]!=0)&&
        ([temp3 length]!=0)&&
-       ([temp4 length]!=0)&&
+      // ([temp4 length]!=0)&&
        ([temp5 length]!=0)&&
-       ([temp6 length]!=0)&&
+      // ([temp6 length]!=0)&&
        ([temp7 length]!=0)&&
        ([temp8 length]!=0))
         
@@ -357,17 +357,17 @@
             {
                 if((([temp2 length]>0)&&([du address:temp2]==1))||([temp2 length]==0))
                 {
-                    if((([temp3 length]>0)&&([du patname:temp3 ]==1))||([temp3 length]==0))
+                    if([du patname:temp3 ]==1)
                     {
                         if((([temp4 length]>0)&&([du address:temp4 ]==1))||([temp4 length]==0))
                         {
-                            if((([temp5 length]>0)&&([du patname:temp5]==1))||([temp5 length]==0))
+                            if([du patname:temp5]==1)
                             {
                                 if((([temp6 length]>0)&&([du address:temp6]==1))||([temp6 length]==0))
                                 {
-                                    if((([temp7 length]>0)&&([du date:temp7]==1))||([temp7 length]==0))
+                                    if([du date:temp7]==1)
                                     {
-                                        if((([temp8 length]>0)&&([du date:temp8]==1))||([temp8 length]==0))
+                                        if([du date:temp8]==1)
                                         {
                                             
                                             

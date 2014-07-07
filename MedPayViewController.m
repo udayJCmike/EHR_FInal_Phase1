@@ -304,19 +304,19 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty6=[dearname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty7=[sincname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty8=[physicianname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if([patattory.text length]!=0&&[reg.text length]!=0&&[addrs.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0
+    if([patattory.text length]!=0&&[reg.text length]!=0&&[patname.text length]!=0&&[dofacc.text length]!=0&&[dearname.text length]!=0
        ){
-        if([patattory.text length]==0||([du patname:texty1]==1))
+        if([du patname:texty1]==1)
         {
-            if([reg.text length]==0||([du patname:texty2]==1))
+            if([du patname:texty2]==1)
             {
                 if([addrs.text length]==0||([du address:texty3]==1))
                 {
-                    if([patname.text length]==0||([du patname:texty4]==1))
+                    if([du patname:texty4]==1)
                     {
-                        if([dofacc.text length]==0||([self validateDate:texty5]==1))
+                        if([self validateDate:texty5]==1)
                         {
-                            if([dearname.text length]==0||([du patname:texty6]==1))
+                            if([du patname:texty6]==1)
                             {
                                 
                                 

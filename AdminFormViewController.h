@@ -56,6 +56,10 @@
 @property(nonatomic,retain)IBOutlet UIButton *cancel2;
 @property(nonatomic,retain)IBOutlet UIButton *cancel;
 
-
+@property (retain, nonatomic) IBOutlet UITextField *t1;
+@property (retain, nonatomic) IBOutlet UITextField *t2;
+@property (retain, nonatomic) IBOutlet UITextField *t3;
+@property (retain, nonatomic) IBOutlet UITextField *t4;
+@property (retain, nonatomic) IBOutlet UITextField *t5;
 
 @end

@@ -365,9 +365,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
        ([temp2 length]!=0)&&
        ([temp3 length]!=0)&&
        ([temp4 length]!=0)&&
-       ([temp5 length]!=0)&&
-       ([temp6 length]!=0)&&
-       ([temp7 length]!=0))
+//       ([temp5 length]!=0)&&
+       ([temp6 length]!=0)
+       //([temp7 length]!=0)
+       )
     {
         if([self validateDate:temp1]==1)
         {
@@ -377,11 +378,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 {
                     if([self validateDate:temp4]==1)
                     {
-                        if([du otherfields:temp5]==1)
+                        if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
                         {
+                        
                             if([self validateDate:temp6]==1)
                             {
-                                if([du otherfields:temp7]==1)
+                                if((([temp7 length]>0)&&([du otherfields:temp7]==1))||([temp7 length]==0))
                                 {
                                     
                                     [recorddict setValue:date.text forKey:@"Date"];

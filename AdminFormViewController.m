@@ -48,6 +48,11 @@
 @synthesize cancel2;
 @synthesize reset2;
 @synthesize cancel;
+@synthesize t1;
+@synthesize t2;
+@synthesize t3;
+@synthesize t4;
+@synthesize t5;
 
 
 - (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
@@ -88,11 +93,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty31=@"null";
     texty32=@"null";
     texty33=@"null";
-    texty34=@"null";
-    texty35=@"null";
-    texty36=@"null";
-    texty37=@"null";
-    texty38=@"null";
+//    texty34=@"null";
+//    texty35=@"null";
+//    texty36=@"null";
+//    texty37=@"null";
+//    texty38=@"null";
     
     other.hidden=YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -115,6 +120,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [clinicrepsign resignFirstResponder];
     [toaddress resignFirstResponder];
     [tofax resignFirstResponder];
+    [t1 resignFirstResponder];
+     [t2 resignFirstResponder];
+     [t3 resignFirstResponder];
+     [t4 resignFirstResponder];
+     [t5 resignFirstResponder];
 }
 - (void)dealloc {
     
@@ -123,6 +133,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     [reset2 release];
     [cancel2 release];
     [cancel release];
+   
     [super dealloc];
 }
 - (IBAction)checkchange:(UIButton*)sender {
@@ -330,37 +341,38 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     else{
         texty33=@"null";
     }
-    if(check8.selected){
+    /*if(check8.selected){
         texty34=@"on";
     }
     else{
-        texty34=@"null";
+        texty34=@"";
     }
     if(check9.selected){
         texty35=@"on";
     }
     else{
-        texty35=@"null";
+        texty35=@"";
     }
     if(check10.selected){
         texty36=@"on";
     }
     else{
-        texty36=@"null";
+        texty36=@"";
     }
     if(check11.selected){
         texty37=@"on";
     }
     else{
-        texty37=@"null";
+        texty37=@"";
     }
     if(check12.selected){
         texty38=@"on";
     }
     else{
-        texty38=@"null";
+        texty38=@"";
     }
-    if(([clinicrepsign.text length]!=0)&&([toaddress.text length]!=0)&&([tofax.text length]!=0))
+     */
+    if(([clinicrepsign.text length]!=0)&&([toaddress.text length]!=0)&&([tofax.text length]!=0)&&([t1.text length]!=0)&&([t2.text length]!=0)&&([t3.text length]!=0)&&([t4.text length]!=0)&&([t5.text length]!=0))
     {
         
         if ([du patname:texty3])
@@ -371,26 +383,128 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 {
                     if(([du patname:texty2]==1))
                     {
-                        suc=1;
+                        if(([du otherfields:t1.text]==1))
+                        {
+                            if(([du otherfields:t2.text]==1))
+                            {
+                                if(([du otherfields:t3.text]==1))
+                                {
+                                    if(([du otherfields:t4.text]==1))
+                                    {
+                                        if(([du otherfields:t5.text]==1))
+                                        {
+                                            suc=1;
+                                            
+                                            recorddict=[[NSMutableDictionary alloc]init];
+                                            [recorddict setObject:other.text forKey:@"requestdemandother"];
+                                            [recorddict setObject:clinicrepsign.text forKey:@"requestdemandclinicsignature"];
+                                            
+                                            [recorddict setObject:texty27 forKey:@"requestdemandcheck1"];
+                                            [recorddict setObject:texty28 forKey:@"requestdemandcheck2"];
+                                            [recorddict setObject:texty29 forKey:@"requestdemandcheck3"];
+                                            [recorddict setObject:texty30 forKey:@"requestdemandcheck4"];
+                                            [recorddict setObject:texty31 forKey:@"requestdemandcheck5"];
+                                            [recorddict setObject:texty32 forKey:@"requestdemandcheck6"];
+                                            [recorddict setObject:text32other forKey:@"requestdemandcheck6other"];
+                                            [recorddict setObject:texty33 forKey:@"requestdemandcheck7"];
+                                            [recorddict setObject:t1.text forKey:@"requestdemandcheck8"];
+                                            [recorddict setObject:t2.text forKey:@"requestdemandcheck9"];
+                                            [recorddict setObject:t3.text forKey:@"requestdemandcheck10"];
+                                            [recorddict setObject:t4.text forKey:@"requestdemandcheck11"];
+                                            [recorddict setObject:t5.text forKey:@"requestdemandcheck12"];
+
+                                        }
+                                        else
+                                        {
+                                            suc=0;
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Please enter valid corresponding field."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        suc=0;
+                                        
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Please enter valid front and back of certified mail field."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    }
+
+                                }
+                                else
+                                {
+                                    suc=0;
+                                    
+                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                   description:@"Please enter valid copy of assignment field."
+                                                                                          type:TWMessageBarMessageTypeError
+                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                      callback:nil];
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                }
+
+                            }
+                            else
+                            {
+                                suc=0;
+                                
+                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                               description:@"Please enter valid copy of form cover letter field."
+                                                                                      type:TWMessageBarMessageTypeError
+                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                  callback:nil];
+                                
+                                
+                                
+                                
+                                
+                                
+                            }
+
+                        }
+                        else
+                        {
+                            suc=0;
+                            
+                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                           description:@"Please enter valid copy of med pay field."
+                                                                                  type:TWMessageBarMessageTypeError
+                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                              callback:nil];
+                            
+                            
+                            
+                            
+                            
+                            
+                        }
+
                         
-                        recorddict=[[NSMutableDictionary alloc]init];
-                        [recorddict setObject:other.text forKey:@"requestdemandother"];
-                        [recorddict setObject:clinicrepsign.text forKey:@"requestdemandclinicsignature"];
-                        
-                        [recorddict setObject:texty27 forKey:@"requestdemandcheck1"];
-                        [recorddict setObject:texty28 forKey:@"requestdemandcheck2"];
-                        [recorddict setObject:texty29 forKey:@"requestdemandcheck3"];
-                        [recorddict setObject:texty30 forKey:@"requestdemandcheck4"];
-                        [recorddict setObject:texty31 forKey:@"requestdemandcheck5"];
-                        [recorddict setObject:texty32 forKey:@"requestdemandcheck6"];
-                        [recorddict setObject:text32other forKey:@"requestdemandcheck6other"];
-                        [recorddict setObject:texty33 forKey:@"requestdemandcheck7"];
-                        [recorddict setObject:texty34 forKey:@"requestdemandcheck8"];
-                        [recorddict setObject:texty35 forKey:@"requestdemandcheck9"];
-                        [recorddict setObject:texty36 forKey:@"requestdemandcheck10"];
-                        [recorddict setObject:texty37 forKey:@"requestdemandcheck11"];
-                        [recorddict setObject:texty38 forKey:@"requestdemandcheck12"];
-                        //NSLog(@"Record dict in request demand form::%@",recorddict);
+                                               //NSLog(@"Record dict in request demand form::%@",recorddict);
                         
                         
                     }
@@ -551,6 +665,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             temp12 =[arrayList1 objectForKey:@"clinicrep"];
             temp13 =[arrayList1 objectForKey:@"tonum"];
             temp14 =[arrayList1 objectForKey:@"fax"];
+            t1.text=temp7;
+            t2.text=temp8;
+            t3.text=temp9;
+            t4.text=temp10;
+            t5.text=temp11;
             
             toaddress.text=temp13;
             tofax.text=temp14;
@@ -632,7 +751,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check7 setSelected:NO];
                 [check7 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp7 isEqualToString:@"on"])
+          /*  if([temp7 isEqualToString:@"on"])
             {
                 [check8 setSelected:YES];
                 [check8 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -683,7 +802,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check12 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
             
-            
+            */
             
             
         }
@@ -984,7 +1103,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url1=@"Requestfordemand.php?service=requestinsert";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&tonum=%@&fax=%@&faultinsurer=%@&medpayinsurer=%@&paidbenefits=%@&bankrupt=%@&treatment=%@&other=%@&txtare=%@&pleasesend=%@&copymedpay=%@&copyform=%@&copyassign=%@&greencard=%@&defaultattorney=%@&clinicrep=%@&%@=%@",firstEntity,value1,toaddress.text,tofax.text,texty27,texty28,texty29,texty30,texty31,texty32,text32other,texty33,texty34,texty35,texty36,texty37,texty38,clinicrepsign.text,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&tonum=%@&fax=%@&faultinsurer=%@&medpayinsurer=%@&paidbenefits=%@&bankrupt=%@&treatment=%@&other=%@&txtare=%@&pleasesend=%@&copymedpay=%@&copyform=%@&copyassign=%@&greencard=%@&defaultattorney=%@&clinicrep=%@&%@=%@",firstEntity,value1,toaddress.text,tofax.text,texty27,texty28,texty29,texty30,texty31,texty32,text32other,texty33,t1.text,t2.text,t3.text,t4.text,t5.text,clinicrepsign.text,secondEntity,value2];
     
     //    NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
@@ -1020,7 +1139,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url1=@"Requestfordemand.php?service=requestedit";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&tonum=%@&fax=%@&faultinsurer=%@&medpayinsurer=%@&paidbenefits=%@&bankrupt=%@&treatment=%@&other=%@&txtare=%@&pleasesend=%@&copymedpay=%@&copyform=%@&copyassign=%@&greencard=%@&defaultattorney=%@&clinicrep=%@&%@=%@",firstEntity,value1,toaddress.text,tofax.text,texty27,texty28,texty29,texty30,texty31,texty32,text32other,texty33,texty34,texty35,texty36,texty37,texty38,clinicrepsign.text,secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&tonum=%@&fax=%@&faultinsurer=%@&medpayinsurer=%@&paidbenefits=%@&bankrupt=%@&treatment=%@&other=%@&txtare=%@&pleasesend=%@&copymedpay=%@&copyform=%@&copyassign=%@&greencard=%@&defaultattorney=%@&clinicrep=%@&%@=%@",firstEntity,value1,toaddress.text,tofax.text,texty27,texty28,texty29,texty30,texty31,texty32,text32other,texty33,t1.text,t2.text,t3.text,t4.text,t5.text,clinicrepsign.text,secondEntity,value2];
     //    NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     

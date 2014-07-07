@@ -150,13 +150,15 @@
     temp2 =[text1.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if(([re.text length]!=0)&&
        ([ssn.text length]!=0)&&
-       ([claim.text length]!=0)&&
-       ([adjust.text length]!=0)&&
-       ([date.text length]!=0)&&
-       ([dear.text length]!=0)&&
-       ([date1.text length]!=0)&&
-       ([date2.text length]!=0)&&
-       ([doi.text length]!=0)&&([text1.text length]!=0))
+       ([claim.text length]!=0)
+       //([adjust.text length]!=0)&&
+//       ([date.text length]!=0)&&
+//       ([dear.text length]!=0)&&
+//       ([date1.text length]!=0)&&
+//       ([date2.text length]!=0)&&
+//       ([doi.text length]!=0)&&
+//       ([text1.text length]!=0)
+       )
     {
         if([du patname:re.text]==1)
         {
@@ -166,23 +168,24 @@
                 {
                     if([self validateDate:doi.text]==1)
                     {
-                        if([du patname:adjust.text]==1)
+                       if((([adjust.text length]>0)&&([du patname:adjust.text]==1))||([adjust.text length]==0))
                         {
-                            if([self validateDate:date.text]==1)
+                            if((([date.text length]>0)&&([du dateexpress:date.text]==1))||([date.text length]==0))
                             {
-                                if([du patname:dear.text]==1)
+                              if((([dear.text length]>0)&&([du patname:dear.text]==1))||([dear.text length]==0))
                                 {
                                     
                                     
                                     
-                                    if([self validateDate:date1.text]==1)
+                                    if((([date1.text length]>0)&&([du dateexpress:date1.text]==1))||([date1.text length]==0))
                                     {
                                         
                                         
                                         
-                                        if([self validateDate:date2.text]==1)
+                                        if((([date2.text length]>0)&&([du dateexpress:date2.text]==1))||([date2.text length]==0))
                                         {
-                                            if ([du patname:text1.text]==1) {
+                                            if((([text1.text length]>0)&&([du patname:text1.text]==1))||([text1.text length]==0))
+                                            {
                                                 
                                                 
                                                 a=1;
