@@ -235,6 +235,7 @@
 		84987A551953F5F500CB4136 /* icon-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84987A4F1953F5F500CB4136 /* icon-info@2x.png */; };
 		84987A561953F5F500CB4136 /* icon-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 84987A501953F5F500CB4136 /* icon-success.png */; };
 		84987A571953F5F500CB4136 /* icon-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84987A511953F5F500CB4136 /* icon-success@2x.png */; };
+		849A91C6196A7B270096A3E1 /* print2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 849A91C5196A7B270096A3E1 /* print2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -638,6 +639,7 @@
 		84987A4F1953F5F500CB4136 /* icon-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-info@2x.png"; sourceTree = "<group>"; };
 		84987A501953F5F500CB4136 /* icon-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success.png"; sourceTree = "<group>"; };
 		84987A511953F5F500CB4136 /* icon-success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success@2x.png"; sourceTree = "<group>"; };
+		849A91C5196A7B270096A3E1 /* print2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = print2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1307,6 +1309,7 @@
 		0D9D0EAD17FDAD1B00E93F81 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				849A91C5196A7B270096A3E1 /* print2.jpg */,
 				8490FAB81967CD3B0083CE98 /* athterisk-red.png */,
 				00B8E80419413E3500D95F9E /* EHR button images */,
 				0D2EAB521802D101004F5859 /* logo.png */,
@@ -1814,6 +1817,7 @@
 				0D2EAB541802D101004F5859 /* logo.png in Resources */,
 				00B8E81219413E3500D95F9E /* savebutton.png in Resources */,
 				0D2EAB551802D101004F5859 /* logo2.png in Resources */,
+				849A91C6196A7B270096A3E1 /* print2.jpg in Resources */,
 				00B8E81419413E3500D95F9E /* updatebutton.png in Resources */,
 				848F0EF3195AB865003B6427 /* bodyfront.png in Resources */,
 				848F0EF1195AB865003B6427 /* aches.jpg in Resources */,
