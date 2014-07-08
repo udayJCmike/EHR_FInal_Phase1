@@ -14,7 +14,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface FootAnkleViewController3 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UITextFieldDelegate>
+@interface FootAnkleViewController3 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate,UITextFieldDelegate>
 {
     IBOutlet UITextField *ssn;
     IBOutlet UITextField *birthdate;
@@ -48,6 +48,7 @@
     NSMutableDictionary *resultset;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property(nonatomic,retain)NSMutableDictionary*resultset;

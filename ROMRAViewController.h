@@ -12,7 +12,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
-@interface ROMRAViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface ROMRAViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * name;
     IBOutlet UITextField * doc;
@@ -30,6 +30,7 @@
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 -(IBAction)submit:(id)sender;
 -(IBAction)reset:(id)sender;

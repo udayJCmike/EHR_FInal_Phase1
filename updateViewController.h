@@ -10,7 +10,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface updateViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface updateViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *attorney1;
      IBOutlet UITextField *attorney2;
@@ -24,6 +24,7 @@
     BOOL isConnect;
     int a;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary *recorddict;
 @property(nonatomic,retain)IBOutlet UIButton *submit;
 @property(nonatomic,retain)IBOutlet UIButton *update;

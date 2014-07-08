@@ -15,7 +15,9 @@
 #import "staffautocheckViewController.h"
 @interface HipKneeViewController ()
 {
-    
+    UIView *printView;
+    UIBarButtonItem *barButton;
+    UIButton *button;
 }
 @end
 
@@ -29,6 +31,7 @@
 - (void)viewDidLoad
 {
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+       [super viewDidLoad];
     texty1=@"null";
     texty2=@"null";
     texty3=@"null";
@@ -38,10 +41,41 @@
     
     recorddict=[[NSMutableDictionary alloc]init];
     resultset=[[NSMutableDictionary alloc]init];
-    [super viewDidLoad];
+ 
+    // Adding BarButton With Action Symbol
+    barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
+    [self.navigationItem setRightBarButtonItem:barButton animated:NO];
+    
+    // Adding small sub view to main View
+    printView = [[UIView alloc]initWithFrame:CGRectMake(695, 60, 75, 75)];
+    // Creating Button
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(0, 0, 75, 75);
+    [button setBackgroundImage:[UIImage imageNamed:@"print.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(printAction) forControlEvents:UIControlEventTouchUpInside];
+    // adding button to small subview
+    [printView addSubview:button];
+    [self.view addSubview:printView];
+    // default the subview was hidden
+    printView.hidden = YES;
+    self.picVisible = NO;
+
     [self Getdata];
+//	// Do any additional setup after loading the view, typically from a nib.
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    
+//    [self.view addGestureRecognizer:tap];
+//    [self.navigationController.view addGestureRecognizer:tap];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+//-(void)dismissKeyboard
+//{
+//    printView.hidden = YES;
+//}
 -(NSString *)HttpPostGetdetails:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     
@@ -735,4 +769,67 @@
     [seg6 setSelectedSegmentIndex:UISegmentedControlNoSegment];
     
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        if ([self isPicVisible]) {
+            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+            [pc dismissAnimated:animated];
+            self.picVisible = NO;
+            printView.hidden = YES;
+        }
+    }
+    
+}
+
+- (void)printInteractionControllerDidPresentPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    [printView setHidden:YES];
+    self.picVisible = YES;
+}
+
+- (void)printInteractionControllerDidDismissPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    self.picVisible = NO;
+}
+
+-(void)performAction:(id)sender
+{
+    printView.hidden = NO;
+}
+
+- (void)printAction
+{
+    UIGraphicsBeginImageContext(self.view.frame.size);
+	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    NSData *imageData = UIImagePNGRepresentation(viewImage);
+    [self printItem:imageData];
+}
+#pragma mark - Printing
+
+-(void)printItem :(NSData*)data {
+    UIPrintInteractionController *printController = [UIPrintInteractionController sharedPrintController];
+    if(printController && [UIPrintInteractionController canPrintData:data]) {
+        printController.delegate = self;
+        UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+        printInfo.outputType = UIPrintInfoOutputGeneral;
+        printInfo.jobName = [NSString stringWithFormat:@""];
+        printInfo.duplex = UIPrintInfoDuplexLongEdge;
+        printController.printInfo = printInfo;
+        printController.showsPageRange = YES;
+        printController.printingItem = data;
+        
+        
+        
+        void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+            if (!completed && error) {
+                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+            }
+        };
+        [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];
+    }
+}
+
 @end

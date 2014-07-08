@@ -12,7 +12,6 @@
 #import "TextFieldDatePicker.h"
 #import "WelcomeViewController.h"
 #import "MBProgressHUD.h"
-#import "UYLGenericPrintPageRenderer.h"
 
 @interface PatientInfoViewController : UIViewController<UIPickerViewDelegate,TextFieldDatePickerDelegate,UITextFieldDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
@@ -71,7 +70,7 @@
 }
 -(IBAction)saveandcontinue:(id)sender;
 - (IBAction)cancel:(id)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)setFromDate;
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 -(IBAction) toggleEnabledTextForSwitch2onSomeLabel: (id) sender;
@@ -102,9 +101,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *sl1;
 @property (retain, nonatomic) IBOutlet UILabel *sl2;
 @property (retain, nonatomic) IBOutlet UILabel *sl3;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *printAction;
-@property(strong,nonatomic) UIPrintInteractionController *printController;
-- (IBAction)printAction:(id)sender;
+
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 - (IBAction)segment:(UISegmentedControl *)sender;

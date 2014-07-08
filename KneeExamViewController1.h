@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface KneeExamViewController1 : UIViewController<UIPickerViewDelegate,UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface KneeExamViewController1 : UIViewController<UIPickerViewDelegate,UITextViewDelegate,UIPrintInteractionControllerDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextField *sensleft;
     IBOutlet UITextField *sensright;
@@ -75,7 +75,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *check1;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property (nonatomic, strong) NSMutableArray *patcarearray;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)check1:(UIButton*)sender;
 @property (retain, nonatomic) IBOutlet UIButton *check2;
 - (IBAction)nextact:(id)sender;

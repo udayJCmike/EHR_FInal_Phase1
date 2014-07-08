@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface ProtectPatientAttorneyViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface ProtectPatientAttorneyViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *clinicname;
     
@@ -42,5 +42,6 @@
 - (IBAction)reset:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)deletefuc:(id)sender;
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 @end

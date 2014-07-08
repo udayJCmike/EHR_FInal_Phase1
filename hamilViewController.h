@@ -12,7 +12,7 @@
 #import "TextFieldDatePicker.h"
 #import "WelcomeViewController.h"
 #import "MBProgressHUD.h"
-@interface hamilViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate>
+@interface hamilViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *gradualH;
     IBOutlet UITextField *gradualD;
@@ -133,6 +133,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)MoreTest:(id)sender;
 - (IBAction)reset:(id)sender;
 - (IBAction)cancel:(id)sender;

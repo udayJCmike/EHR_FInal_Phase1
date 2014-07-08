@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface WristExamViewController2 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface WristExamViewController2 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UITextField *first;
@@ -67,6 +67,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *submit;
 @property (retain, nonatomic) IBOutlet UIButton *update;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 @end

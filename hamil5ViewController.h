@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface hamil5ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface hamil5ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UIButton *b1;
     IBOutlet UIButton *b2;
@@ -74,7 +74,7 @@
 }
 
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 - (IBAction)alenright:(id)sender;

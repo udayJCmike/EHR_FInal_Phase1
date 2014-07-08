@@ -11,7 +11,7 @@
 #import "TextFieldDatePicker.h"
 
 
-@interface narrative1ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,TextFieldDatePickerDelegate>
+@interface narrative1ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIPrintInteractionControllerDelegate,TextFieldDatePickerDelegate>
 
 {
     int a;
@@ -105,7 +105,7 @@
 
 @property (retain, nonatomic) NSMutableDictionary *mutearray;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @end

@@ -12,7 +12,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface PerryFaxCoverViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface PerryFaxCoverViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *fax;
     IBOutlet UITextField *nubofpag;
@@ -42,6 +42,7 @@
     IBOutlet UIButton *reset2;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)cancel:(id)sender;
 - (IBAction)submit:(id)sender;
 @property (retain, nonatomic) IBOutlet UILabel *todaydate;

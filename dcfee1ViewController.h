@@ -13,7 +13,7 @@
 #import "TextFieldDatePicker.h"
 
 
-@interface dcfee1ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface dcfee1ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary *recorddict,*resultset;
     int c;
@@ -78,7 +78,7 @@
 @property( retain, nonatomic)NSMutableDictionary *resultset;
 
 @property (retain, nonatomic) IBOutlet UITextField *page2;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)next:(id)sender;
 
 @end

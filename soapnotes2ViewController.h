@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface soapnotes2ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface soapnotes2ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 
 {
     NSArray *a1;
@@ -96,6 +96,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *cancel2;
 @property (retain, nonatomic) IBOutlet UIButton *reset1;
 @property (retain, nonatomic) IBOutlet UIButton *reset2;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 @end

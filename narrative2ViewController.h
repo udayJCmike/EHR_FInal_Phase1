@@ -10,7 +10,7 @@
 
 
 
-@interface narrative2ViewController : UIViewController
+@interface narrative2ViewController : UIViewController<UIPrintInteractionControllerDelegate>
 
 {
     int a;
@@ -167,7 +167,7 @@
 @property (retain, nonatomic)NSMutableDictionary *recorddict;
 
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

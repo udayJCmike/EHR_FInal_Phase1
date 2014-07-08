@@ -13,7 +13,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
-@interface authorizeandconsenttreatViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface authorizeandconsenttreatViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * sign;
     IBOutlet UITextField * date;
@@ -35,6 +35,7 @@
     IBOutlet UIButton *cancel2;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)delete:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *submit;
 @property (retain, nonatomic) IBOutlet UIButton *update;

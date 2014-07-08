@@ -12,7 +12,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface KneeExamViewController2 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface KneeExamViewController2 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UITextField *first;
@@ -76,7 +76,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *checkbut2;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut1;
 - (IBAction)checked:(UIButton*)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut9;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut10;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut13;

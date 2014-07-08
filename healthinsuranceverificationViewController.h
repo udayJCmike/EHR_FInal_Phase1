@@ -13,7 +13,7 @@
 #import "TWMessageBarManager.h"
 #import "WelcomeViewController.h"
 
-@interface healthinsuranceverificationViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface healthinsuranceverificationViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UILabel * healthinsuranceswitchlabel;
     IBOutlet UITextField * patientname;
@@ -43,6 +43,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)insuranceswitchchange:(id)sender;
 -(IBAction)submit:(id)sender;
 -(IBAction)reset:(id)sender;

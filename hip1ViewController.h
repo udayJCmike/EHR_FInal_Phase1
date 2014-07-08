@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 
 #import "TextFieldDatePicker.h"
-@interface hip1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface hip1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 
 {
     int c;
@@ -149,7 +149,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *b8;
 @property (retain, nonatomic) IBOutlet UITextView *othernote;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @end

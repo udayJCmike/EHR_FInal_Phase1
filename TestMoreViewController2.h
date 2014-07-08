@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestMoreViewController2 : UIViewController
+@interface TestMoreViewController2 : UIViewController<UIPrintInteractionControllerDelegate>
 {
      NSMutableDictionary *moretestdict;
     
@@ -69,6 +69,8 @@
 - (IBAction)checkchange:(id)sender;
 @property (strong, nonatomic) NSMutableDictionary * moretestdict;
 
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 - (IBAction)cancel:(id)sender;

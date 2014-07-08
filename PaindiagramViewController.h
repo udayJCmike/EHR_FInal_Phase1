@@ -13,7 +13,7 @@
 #import "MBProgressHUD.h"
 #import "TextFieldDatePicker.h"
 @class DragDropManager;
-@interface PaindiagramViewController : UIViewController<MBProgressHUDDelegate,TextFieldDatePickerDelegate>
+@interface PaindiagramViewController : UIViewController<MBProgressHUDDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
 @private
 UIView * _viewA;
@@ -37,6 +37,8 @@ IBOutlet UITextField *name;
 IBOutlet UITextField *number;
 IBOutlet UITextField *date;
 }
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)save:(id)sender;
 @property(nonatomic, retain) UIView *viewA;
 @property(nonatomic, retain) UIView *viewB;

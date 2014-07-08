@@ -14,7 +14,7 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface lumbopelvic1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface lumbopelvic1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     int c;
     NSMutableDictionary *recorddict;
@@ -145,7 +145,7 @@
 
 -(BOOL)validateNo:(NSString *)country1;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

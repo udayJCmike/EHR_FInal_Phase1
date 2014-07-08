@@ -18,6 +18,9 @@
 @interface narrative1ViewController ()
 {
     databaseurl *du;
+    UIView *printView;
+    UIBarButtonItem *barButton;
+    UIButton *button;
 }
 
 @end
@@ -694,6 +697,24 @@
 - (void)viewDidLoad
 {
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+    // Adding BarButton With Action Symbol
+    barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
+    [self.navigationItem setRightBarButtonItem:barButton animated:NO];
+    
+    // Adding small sub view to main View
+    printView = [[UIView alloc]initWithFrame:CGRectMake(695, 60, 75, 75)];
+    // Creating Button
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(0, 0, 75, 75);
+    [button setBackgroundImage:[UIImage imageNamed:@"print.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(printAction) forControlEvents:UIControlEventTouchUpInside];
+    // adding button to small subview
+    [printView addSubview:button];
+    [self.view addSubview:printView];
+    // default the subview was hidden
+    printView.hidden = YES;
+    self.picVisible = NO;
+
     [super viewDidLoad];
     
     for (UIView *v in [self.view subviews])
@@ -860,6 +881,7 @@
 }
 -(void)dismissKeyboard
 {
+    printView.hidden = YES;
     [tender resignFirstResponder];
     [note resignFirstResponder];
     [range resignFirstResponder];
@@ -986,6 +1008,69 @@
     
     
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        if ([self isPicVisible]) {
+            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+            [pc dismissAnimated:animated];
+            self.picVisible = NO;
+            printView.hidden = YES;
+        }
+    }
+    
+}
+
+- (void)printInteractionControllerDidPresentPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    [printView setHidden:YES];
+    self.picVisible = YES;
+}
+
+- (void)printInteractionControllerDidDismissPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    self.picVisible = NO;
+}
+
+-(void)performAction:(id)sender
+{
+    printView.hidden = NO;
+}
+
+- (void)printAction
+{
+    UIGraphicsBeginImageContext(self.view.frame.size);
+	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    NSData *imageData = UIImagePNGRepresentation(viewImage);
+    [self printItem:imageData];
+}
+#pragma mark - Printing
+
+-(void)printItem :(NSData*)data {
+    UIPrintInteractionController *printController = [UIPrintInteractionController sharedPrintController];
+    if(printController && [UIPrintInteractionController canPrintData:data]) {
+        printController.delegate = self;
+        UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+        printInfo.outputType = UIPrintInfoOutputGeneral;
+        printInfo.jobName = [NSString stringWithFormat:@""];
+        printInfo.duplex = UIPrintInfoDuplexLongEdge;
+        printController.printInfo = printInfo;
+        printController.showsPageRange = YES;
+        printController.printingItem = data;
+        
+        
+        
+        void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+            if (!completed && error) {
+                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+            }
+        };
+        [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];
+    }
+}
+
 
 - (void)dealloc {
     

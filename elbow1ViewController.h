@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface elbow1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface elbow1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary *resultset;
     NSMutableDictionary *recorddict;
@@ -109,4 +109,5 @@
 @property (retain, nonatomic) IBOutlet UITextField *funcother;
 @property (retain, nonatomic) IBOutlet UITextField *planother;
 @property (strong, nonatomic) NSMutableDictionary * resultset;
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

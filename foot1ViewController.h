@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface foot1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface foot1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int c;
     NSMutableDictionary *recorddict;
@@ -152,7 +152,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *reset2;
 @property (retain, nonatomic) IBOutlet UIButton *cancel1;
 @property (retain, nonatomic) IBOutlet UIButton *cancel2;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @end

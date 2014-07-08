@@ -9,7 +9,7 @@
 
 
 #import "TextFieldDatePicker.h"
-@interface physicalexamViewController : UIViewController<TextFieldDatePickerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface physicalexamViewController : UIViewController<TextFieldDatePickerDelegate,UIPickerViewDataSource,UIPrintInteractionControllerDelegate,UIPickerViewDelegate>
 {
     IBOutlet UITextField *physiciansign;
     
@@ -32,6 +32,8 @@
     IBOutlet UISegmentedControl *cnexam;
     IBOutlet UITextField *abnormalfind;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *sexseg;
 - (IBAction)seg8:(id)sender;

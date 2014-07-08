@@ -13,7 +13,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 #import "WelcomeViewController.h"
-@interface WorkaccidentViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface WorkaccidentViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField*jobclass;
     IBOutlet UILabel*doyou;
@@ -61,6 +61,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)UISwitch *switch1;
 @property(nonatomic,retain)UISwitch*switch2;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface cervicalexam2ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface cervicalexam2ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     NSString *databasePath;
     MBProgressHUD *HUD;
@@ -137,7 +137,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *reset1;
 
 @property (retain, nonatomic) IBOutlet UIButton *cancel1;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIButton *reset3;
 
 @property (retain, nonatomic) IBOutlet UIButton *cancel3;

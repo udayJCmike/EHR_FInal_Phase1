@@ -12,7 +12,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 #import "WelcomeViewController.h"
-@interface AutoAccidentViewController1 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface AutoAccidentViewController1 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * claimno;
     IBOutlet UITextField * adjustername;
@@ -75,7 +75,7 @@
     
 }
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)IBOutlet UITextField *roadother;
 
 @property (nonatomic, retain)NSMutableDictionary *staff;

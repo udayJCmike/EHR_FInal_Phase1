@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface radiological3ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface radiological3ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -41,5 +41,5 @@
 @property (retain, nonatomic)NSMutableDictionary *recorddict;
 @property (retain, nonatomic) IBOutlet UIButton *nor;
 @property (retain, nonatomic) IBOutlet UIButton *pos;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

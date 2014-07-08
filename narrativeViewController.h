@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface narrativeViewController : UIViewController<UITextFieldDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface narrativeViewController : UIViewController<UITextFieldDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -119,5 +119,5 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *patientname;
 @property (retain, nonatomic) IBOutlet UITextField *reportdate;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

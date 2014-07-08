@@ -15,7 +15,7 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface footViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface footViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recordict;
@@ -239,7 +239,7 @@
 
 @property (retain, nonatomic) IBOutlet UITextView *notes;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

@@ -11,7 +11,7 @@
 
 #import "MBProgressHUD.h"
 #import "TextFieldDatePicker.h"
-@interface hipViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface hipViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recordict;
@@ -190,7 +190,7 @@
 @property (retain, nonatomic) IBOutlet UISegmentedControl *gait;
 @property(strong, nonatomic)NSMutableDictionary *recorddict;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(strong, nonatomic)NSMutableDictionary *resultset;
 
 

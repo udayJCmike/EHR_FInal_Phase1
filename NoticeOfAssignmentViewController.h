@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface NoticeOfAssignmentViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface NoticeOfAssignmentViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*temp10,*temp11,*temp12,*temp13;
     MBProgressHUD *HUD;
@@ -45,5 +45,5 @@
 @property(nonatomic,retain)IBOutlet UIButton *cancel;
 
 @property(nonatomic,retain)IBOutlet UIButton *cancel2;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

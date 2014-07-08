@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FootAnkleViewController2 : UIViewController
+@interface FootAnkleViewController2 : UIViewController<UIPrintInteractionControllerDelegate>
 {
     IBOutlet UIButton *radi7;
     IBOutlet UIButton *radi6;
@@ -41,6 +41,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)rad7:(id)sender;
 - (IBAction)rad6:(id)sender;
 - (IBAction)rad5:(id)sender;

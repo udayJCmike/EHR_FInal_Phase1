@@ -14,7 +14,7 @@
 #import "databaseurl.h"
 #import "JSON.h"
 #import "TextFieldDatePicker.h"
-@interface elbowViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface elbowViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     int c,a;
     NSMutableDictionary *resultset;
@@ -100,7 +100,7 @@
 - (IBAction)NEXT:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)reset:(id)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

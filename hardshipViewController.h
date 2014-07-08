@@ -11,7 +11,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 #import "WelcomeViewController.h"
-@interface hardshipViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface hardshipViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * date;
     IBOutlet UITextField * name;
@@ -29,7 +29,7 @@
     //  sqlite3 * ehrdbase;
     
 }
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)NSMutableDictionary * recorddict;
 @property(nonatomic,retain)IBOutlet UIButton *submit;

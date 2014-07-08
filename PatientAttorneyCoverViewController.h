@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface PatientAttorneyCoverViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface PatientAttorneyCoverViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextField *patname;
   
@@ -45,7 +45,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *cancel2;
 @property (retain, nonatomic) IBOutlet UIButton *reset2;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @end

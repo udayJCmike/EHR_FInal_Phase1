@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface narrativereport4ViewController : UIViewController<UITextFieldDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface narrativereport4ViewController : UIViewController<UITextFieldDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -111,7 +111,7 @@
 @property (retain, nonatomic) IBOutlet UISegmentedControl *genderseg;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *nourishedseg;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *whiteseg;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 @end
 

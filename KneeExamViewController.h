@@ -16,7 +16,7 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface KneeExamViewController : UIViewController<UIPickerViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface KneeExamViewController : UIViewController<UIPickerViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UILabel *gaitlabel;
     IBOutlet UITextField *datefield;
@@ -133,7 +133,7 @@
 - (IBAction)checkChanged:(UIButton *)sender;
 - (IBAction)pelseg:(id)sender;
 - (IBAction)anqseg:(id)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 - (IBAction)segment2:(id)sender;
 - (IBAction)segment3:(id)sender;

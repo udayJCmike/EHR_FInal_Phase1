@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface chiropractictheraphycenterViewController : UIViewController<TextFieldDatePickerDelegate,UITextFieldDelegate,MBProgressHUDDelegate>
+@interface chiropractictheraphycenterViewController : UIViewController<TextFieldDatePickerDelegate,UITextFieldDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 
 {
     int a;
@@ -42,6 +42,7 @@
     IBOutlet UIButton *reset;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (strong, nonatomic) IBOutlet UITextField *text1;
 @property (retain, nonatomic) IBOutlet UITextField *re;
 @property (retain, nonatomic) IBOutlet UITextField *claim;

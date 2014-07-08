@@ -13,7 +13,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface schoolslipViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface schoolslipViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     
@@ -97,6 +97,7 @@
     NSString *temp10,*temp11,*temp12,*temp13,*temp14,*temp15,*temp16,*temp17,*temp18,*temp19,*temp20,*temp21,*temp22,*temp23,*temp24,*temp25,*temp26,*temp27,*temp28,*temp29,*temp34,*temp31,*temp32,*temp33;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIButton *reset;
 
 @property (retain, nonatomic) IBOutlet UIButton *reset1;

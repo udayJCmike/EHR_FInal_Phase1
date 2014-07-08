@@ -11,7 +11,7 @@
 
 
 
-@interface soapnotes1ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,TextFieldDatePickerDelegate,UITextFieldDelegate,UIScrollViewDelegate>
+@interface soapnotes1ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,TextFieldDatePickerDelegate,UITextFieldDelegate,UIScrollViewDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -83,7 +83,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *next;
 @property (retain, nonatomic) IBOutlet UITextField *other;
 @property (retain, nonatomic) IBOutlet UIImageView *imageview;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIImageView *line1;
 @property (retain, nonatomic) IBOutlet UIImageView *line2;
 @property (retain, nonatomic) IBOutlet UIImageView *line3;

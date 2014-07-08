@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface MedPayViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface MedPayViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *patname;
     IBOutlet UITextView *addrs;
@@ -32,6 +32,7 @@
     BOOL isConnect;
     NSString *temp6,*temp7,*temp8,*temp9,*temp10,*temp11,*temp12,*temp13,*temp14,*temp15,*temp16,*temp17,*temp18,*temp19,*temp20,*temp21,*temp22,*temp23,*temp24,*temp25,*temp26,*temp27,*temp28,*temp29,*temp30;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property (retain, nonatomic) IBOutlet UILabel *mail;
 - (IBAction)submit:(id)sender;

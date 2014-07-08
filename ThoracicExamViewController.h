@@ -13,7 +13,7 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface ThoracicExamViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface ThoracicExamViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UITextField *patname;
@@ -112,7 +112,7 @@
 - (IBAction)next:(id)sender;
 - (IBAction)checkchange:(UIButton *)sender;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

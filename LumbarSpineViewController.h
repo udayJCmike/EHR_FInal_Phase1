@@ -12,7 +12,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface LumbarSpineViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface LumbarSpineViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSString *databasePath;
     MBProgressHUD *HUD;
@@ -42,6 +42,8 @@
     IBOutlet UITextField *_24;
     NSMutableDictionary *recorddict;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 - (IBAction)next:(id)sender;
 @property (retain, nonatomic) IBOutlet UIButton *check1;
 - (IBAction)checkchange:(id)sender;

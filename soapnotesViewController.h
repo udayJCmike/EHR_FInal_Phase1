@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface soapnotesViewController : UIViewController
+@interface soapnotesViewController : UIViewController<UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary *recorddict;
     NSMutableDictionary *resultset;
@@ -56,6 +56,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *val2;
 @property (retain, nonatomic) IBOutlet UILabel *val1;
 @property (retain, nonatomic) IBOutlet UISlider *painscale1;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @end

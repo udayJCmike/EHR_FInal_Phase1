@@ -11,7 +11,7 @@
 
 
 #import "TextFieldDatePicker.h"
-@interface radiologicalViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface radiologicalViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -192,6 +192,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *other;
 @property (strong, nonatomic) IBOutlet UITextField *othertext;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (strong, nonatomic)NSMutableDictionary *recorddict;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestMoreViewController : UIViewController
+@interface TestMoreViewController : UIViewController<UIPrintInteractionControllerDelegate>
 {
 IBOutlet UIButton *button1;
 IBOutlet UIButton *button2;
@@ -70,6 +70,8 @@ IBOutlet UIButton *button50;
 - (IBAction)checkchange:(id)sender;
 
 
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 - (IBAction)cancel:(id)sender;

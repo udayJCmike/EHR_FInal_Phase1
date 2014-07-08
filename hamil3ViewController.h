@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
-@interface hamil3ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface hamil3ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UILabel *painlevel;
@@ -36,4 +36,5 @@
 - (IBAction)moretest:(id)sender;
 @property(nonatomic,retain)NSMutableDictionary *recorddict;
 @property(nonatomic,retain) NSMutableDictionary *moretestdict;
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

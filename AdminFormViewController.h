@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface AdminFormViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface AdminFormViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 
 {
     
@@ -30,6 +30,7 @@
     BOOL isConnect;
     int a;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property (retain, nonatomic) IBOutlet UIButton *check1;
 @property (retain, nonatomic) IBOutlet UIButton *check2;

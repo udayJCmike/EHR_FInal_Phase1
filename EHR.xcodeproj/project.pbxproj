@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		004459C8196B315F00ED44F2 /* UYLGenericPrintPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 004459C7196B315F00ED44F2 /* UYLGenericPrintPageRenderer.m */; };
 		004459CB196B368200ED44F2 /* print.png in Resources */ = {isa = PBXBuildFile; fileRef = 004459CA196B368200ED44F2 /* print.png */; };
 		00B8E80D19413E3500D95F9E /* cancelbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B8E80519413E3500D95F9E /* cancelbutton.png */; };
 		00B8E80E19413E3500D95F9E /* deletebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B8E80619413E3500D95F9E /* deletebutton.png */; };
@@ -251,8 +250,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		004459C6196B315F00ED44F2 /* UYLGenericPrintPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UYLGenericPrintPageRenderer.h; sourceTree = "<group>"; };
-		004459C7196B315F00ED44F2 /* UYLGenericPrintPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UYLGenericPrintPageRenderer.m; sourceTree = "<group>"; };
 		004459CA196B368200ED44F2 /* print.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = print.png; sourceTree = "<group>"; };
 		00B8E80519413E3500D95F9E /* cancelbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelbutton.png; sourceTree = "<group>"; };
 		00B8E80619413E3500D95F9E /* deletebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deletebutton.png; sourceTree = "<group>"; };
@@ -672,15 +669,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		004459C9196B316700ED44F2 /* Print */ = {
-			isa = PBXGroup;
-			children = (
-				004459C6196B315F00ED44F2 /* UYLGenericPrintPageRenderer.h */,
-				004459C7196B315F00ED44F2 /* UYLGenericPrintPageRenderer.m */,
-			);
-			name = Print;
-			sourceTree = "<group>";
-		};
 		00B8E80419413E3500D95F9E /* EHR button images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1393,7 +1381,6 @@
 		0DCD15C917FD4F5200748DD7 = {
 			isa = PBXGroup;
 			children = (
-				004459C9196B316700ED44F2 /* Print */,
 				848F0EDE195A9C17003B6427 /* Quadruple Visual Analogue Scale */,
 				848F0ED4195A9B85003B6427 /* Auto Accident */,
 				848F0ECA195A9AB1003B6427 /* PainDiagram */,
@@ -1908,7 +1895,6 @@
 				0D2CBC00180D5AAA00D7B1D0 /* authorizeandconsenttreatViewController.m in Sources */,
 				0D15B60418BDCA120031E36C /* KneeExamViewController2.m in Sources */,
 				84121C14195826A200A8D856 /* TestMoreViewController1.m in Sources */,
-				004459C8196B315F00ED44F2 /* UYLGenericPrintPageRenderer.m in Sources */,
 				0D15B64218BEFB5F0031E36C /* lumbopelvicViewController.m in Sources */,
 				0D22B55418C4B686001A8A6B /* LumbarSpineViewController.m in Sources */,
 				0D2EAB711804187C004F5859 /* RegisterViewController.m in Sources */,

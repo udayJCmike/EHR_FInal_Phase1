@@ -10,7 +10,7 @@
 
 
 #import "TextFieldDatePicker.h"
-@interface ThoracicSpineViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface ThoracicSpineViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UITextField *smoker;
@@ -42,6 +42,8 @@
     
     IBOutlet UISegmentedControl *seg;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 - (IBAction)segc:(id)sender;
 
 - (IBAction)next:(id)sender;

@@ -15,7 +15,7 @@
 #import "TextFieldDatePicker.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
-@interface AutoAccidentViewController3 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface AutoAccidentViewController3 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary * recorddict,* resultset;
     IBOutlet UIButton *button1;
@@ -69,6 +69,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIButton *submit;
 @property (retain, nonatomic) IBOutlet UIButton *reset;
 @property (retain, nonatomic) IBOutlet UIButton *reset1;

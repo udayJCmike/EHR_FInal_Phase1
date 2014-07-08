@@ -14,7 +14,7 @@
 #import "TWMessageBarManager.h"
 #import "JSON.h"
 #import "TextFieldDatePicker.h"
-@interface Workaccident2ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>{
+@interface Workaccident2ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>{
     NSMutableDictionary*recorddict,*resultset;
     IBOutlet UITextField *givespecificsyestext;
     IBOutlet UISwitch*switch1;
@@ -47,6 +47,7 @@
     BOOL isConnect;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property(nonatomic,retain)NSMutableDictionary*resultset;

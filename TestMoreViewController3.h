@@ -11,7 +11,7 @@
 
 #import "MBProgressHUD.h"
 
-@interface TestMoreViewController3 : UIViewController<MBProgressHUDDelegate>{
+@interface TestMoreViewController3 : UIViewController<MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>{
     IBOutlet UIButton *button1;
     IBOutlet UIButton *button2;
     IBOutlet UIButton *button3;
@@ -37,6 +37,8 @@ NSMutableDictionary *recorddict;
 
 
 @property (strong, nonatomic) NSMutableDictionary * moretestdict;
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)reset:(id)sender;

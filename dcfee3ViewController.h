@@ -14,7 +14,7 @@
 #import "dcfee4ViewController.h"
 #import "TextFieldDatePicker.h"
 
-@interface dcfee3ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface dcfee3ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     
     NSMutableDictionary *recorddict,*resultset;
@@ -56,7 +56,7 @@
 
 
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @property (retain, nonatomic) IBOutlet UITextField *supplies;

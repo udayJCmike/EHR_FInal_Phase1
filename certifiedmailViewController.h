@@ -11,7 +11,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface certifiedmailViewController :UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface certifiedmailViewController :UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 
 {
     int a;
@@ -40,6 +40,7 @@
     IBOutlet UITextView *sample;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UIButton *save;
 @property (retain, nonatomic) IBOutlet UIButton *cancel;
 @property (retain, nonatomic) IBOutlet UIButton *reset;

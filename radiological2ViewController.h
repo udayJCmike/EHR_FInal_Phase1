@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TextFieldDatePicker.h"
-@interface radiological2ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface radiological2ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -143,7 +143,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *softtext;
 @property (retain, nonatomic) IBOutlet UIButton *other;
 @property (retain, nonatomic) IBOutlet UITextField *othertext;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic)NSMutableDictionary *recorddict;
 
 @end

@@ -15,7 +15,7 @@
 #import "JSON.h"
 #import "TextFieldDatePicker.h"
 
-@interface HipKneeViewController2 : UIViewController<TextFieldDatePickerDelegate,UITextFieldDelegate,MBProgressHUDDelegate>
+@interface HipKneeViewController2 : UIViewController<TextFieldDatePickerDelegate,UITextFieldDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UIButton *radi6;
     IBOutlet UIButton *radi5;
@@ -38,6 +38,7 @@
     NSMutableDictionary *recorddict;
     NSMutableDictionary *resultset;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 - (IBAction)rad6:(id)sender;
 - (IBAction)rad5:(id)sender;

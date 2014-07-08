@@ -13,7 +13,7 @@
 #import "TWMessageBarManager.h"
 #import "WelcomeViewController.h"
 
-@interface noticeandrequestViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface noticeandrequestViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * insurancecompanyname;
     IBOutlet UITextField * address;
@@ -41,7 +41,7 @@
 -(IBAction)submit:(id)sender;
 -(IBAction)reset:(id)sender;
 - (IBAction)cancel:(id)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary * recorddict;
 -(IBAction)checkboxSelected:(UIButton*)sender;
 @property(nonatomic,retain)NSMutableArray * selectforms;

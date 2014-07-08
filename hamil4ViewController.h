@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
-@interface hamil4ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface hamil4ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UISlider *slider1;
     IBOutlet UILabel *painlevel;
@@ -51,6 +51,7 @@
     NSString *segg1,*segg2,*segg3,*segg4,*segg5,*segg6;
     int a;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)seg4:(id)sender;
 - (IBAction)seg3:(id)sender;
 - (IBAction)seg2:(id)sender;

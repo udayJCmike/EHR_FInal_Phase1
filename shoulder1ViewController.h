@@ -12,7 +12,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface shoulder1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface shoulder1ViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 
 {
     int a;
@@ -143,7 +143,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *reset1;
 @property (retain, nonatomic) IBOutlet UIButton *reset2;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

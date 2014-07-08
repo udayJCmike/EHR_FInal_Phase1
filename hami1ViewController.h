@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TextFieldDatePicker.h"
-@interface hami1ViewController : UIViewController<TextFieldDatePickerDelegate>
+@interface hami1ViewController : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 
 {
     
@@ -80,4 +80,7 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)reset:(id)sender;
 @property(nonatomic,retain)NSMutableDictionary *recorddict;
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 @end

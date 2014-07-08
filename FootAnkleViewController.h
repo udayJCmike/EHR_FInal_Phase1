@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
-@interface FootAnkleViewController : UIViewController<MBProgressHUDDelegate>
+@interface FootAnkleViewController : UIViewController<MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UISegmentedControl *seg1;
     IBOutlet UISegmentedControl *seg2;
@@ -32,6 +32,7 @@
     BOOL isConnect;
     NSMutableDictionary *resultset;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property(nonatomic,retain)NSMutableDictionary*resultset;

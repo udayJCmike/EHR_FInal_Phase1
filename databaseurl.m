@@ -24,15 +24,16 @@ static databaseurl * appInstance;
 }
 -(NSString*)DBurl
 {
+   // NSString * link=@"http://192.168.1.106:8888/Ehrservicefiles/Service/";
     NSString * link=@"http://medsmonit.com/ehr/Service/";
     return link;
     
 }
 -(BOOL)username:(NSString *)name
 {
-    if (([name length]>4)&&([name length]<32))
+    if (([name length]>3)&&([name length]<32))
     {
-        NSLog(@"inside username");
+       // NSLog(@"inside username");
         NSString *nameFormat = @"[A-Z0-9a-z_@.]+";
         NSPredicate *nameTest= [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameFormat];
         return [nameTest evaluateWithObject:name];
@@ -47,7 +48,7 @@ static databaseurl * appInstance;
 -(BOOL)patname:(NSString *)name
 {
     NSRange whiteSpaceRange = [name rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+   // NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
     if (whiteSpaceRange.location >0)
     {
         if (([name length]>3)&&([name length]<32))
@@ -277,13 +278,13 @@ static databaseurl * appInstance;
 {
     
     NSRange whiteSpaceRange = [other rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+    //NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
     if (whiteSpaceRange.location >0)
     {
         NSString *countryFormat1 = @"[A-Za-z. ]+";
         
         
-        NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
+        //NSLog(@"Found whitespace  ::%d",whiteSpaceRange.location);
         NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
         return [countryTest1 evaluateWithObject:other];
         

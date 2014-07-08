@@ -11,7 +11,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface ThoracicExamViewController1 : UIViewController<UIPickerViewDelegate,UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>{
+@interface ThoracicExamViewController1 : UIViewController<UIPickerViewDelegate,UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>{
     
     IBOutlet UITextField *first;
     
@@ -95,6 +95,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *checkbut9;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut10;
 @property (retain, nonatomic) IBOutlet UIButton *checkbut13;
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end
 
 

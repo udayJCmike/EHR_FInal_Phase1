@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 
-@interface CervicalSpineViewController1 : UIViewController<TextFieldDatePickerDelegate>
+@interface CervicalSpineViewController1 : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     
     
@@ -55,6 +55,8 @@
     
     NSMutableDictionary *recorddict;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)checkchange:(UIButton*)sender;

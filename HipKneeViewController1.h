@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HipKneeViewController1 : UIViewController
+@interface HipKneeViewController1 : UIViewController<UIPrintInteractionControllerDelegate>
 {
     IBOutlet UIButton *radi6;
     IBOutlet UIButton *radi5;
@@ -35,6 +35,7 @@
     NSMutableDictionary *resultset;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property(nonatomic,retain)NSMutableDictionary*resultset;
 - (IBAction)rad7:(id)sender;

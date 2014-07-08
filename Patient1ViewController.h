@@ -12,7 +12,7 @@
 #import "TWMessageBarManager.h"
 
 
-@interface Patient1ViewController :UIViewController<UITextViewDelegate,UIScrollViewDelegate>
+@interface Patient1ViewController :UIViewController<UITextViewDelegate,UIScrollViewDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary *recorddict;
     int inc;
@@ -22,7 +22,9 @@
     IBOutlet UITextView *textview1;
     NSMutableArray *symptomdata;
     
+  
 }
+  @property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic)NSMutableDictionary *resultset;
 @property (retain, nonatomic) IBOutlet UITextView *textview1;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;

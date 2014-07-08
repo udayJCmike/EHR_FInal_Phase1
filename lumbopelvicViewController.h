@@ -13,7 +13,7 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
-@interface lumbopelvicViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface lumbopelvicViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     int a,c;
@@ -149,7 +149,7 @@
 @property (retain, nonatomic) IBOutlet UISegmentedControl *pelvicseg;
 @property (retain, nonatomic) IBOutlet UIButton *leftbut;
 @property (retain, nonatomic) IBOutlet UIButton *rightbut;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)NEXT:(id)sender;
 
 

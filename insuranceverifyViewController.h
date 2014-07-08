@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface insuranceverifyViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface insuranceverifyViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary * recorddict;
     IBOutlet UITextField * patientname;
@@ -123,5 +123,5 @@
 @property(nonatomic,retain) UILabel * networkbenefitsswitchlabel;
 @property(nonatomic,retain) UILabel * xraydeductswitchlabel;
 @property(nonatomic,retain) UILabel * honoredswitchlabel;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @end

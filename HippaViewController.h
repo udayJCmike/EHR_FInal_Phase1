@@ -15,7 +15,7 @@
 
 
 
-@interface HippaViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface HippaViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField *effectivedate;
     NSMutableDictionary * recorddict;
@@ -38,6 +38,7 @@
     
 }
 
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)submit:(id)sender;
 -(IBAction)reset:(id)sender;
 

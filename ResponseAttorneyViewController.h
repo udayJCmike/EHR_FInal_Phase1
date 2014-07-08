@@ -12,7 +12,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface ResponseAttorneyViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface ResponseAttorneyViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextField *patname;
   
@@ -39,6 +39,7 @@
     int a;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property (retain, nonatomic) IBOutlet UILabel *mail;
 - (IBAction)submit:(id)sender;

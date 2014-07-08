@@ -18,6 +18,11 @@
 @interface PatientInfoViewController ()
 {
     databaseurl *du;
+   
+        UIView *printView;
+        UIBarButtonItem *barButton;
+        UIButton *button;
+    
 }
 @end
 
@@ -39,7 +44,7 @@
 @synthesize sl1;
 @synthesize sl2;
 @synthesize sl3;
-@synthesize printController;
+
 - (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
 {
     self = [super init];
@@ -356,17 +361,29 @@
 
 - (void)viewDidLoad
 {
+     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
-  printController.delegate = self;
- /*   UIButton *btnNext1 =[[UIButton alloc] init];
-    [btnNext1 setBackgroundImage:[UIImage imageNamed:@"print.png"] forState:UIControlStateNormal];
+  
+    // Adding BarButton With Action Symbol
+    barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
+    [self.navigationItem setRightBarButtonItem:barButton animated:NO];
     
-    btnNext1.frame = CGRectMake(100, 100, 50, 30);
-    UIBarButtonItem *btnNext =[[UIBarButtonItem alloc] initWithCustomView:btnNext1];
-    [btnNext1 addTarget:self action:@selector(printAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = btnNext;*/
+    // Adding small sub view to main View
+    printView = [[UIView alloc]initWithFrame:CGRectMake(695, 60, 75, 75)];
+    // Creating Button
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(0, 0, 75, 75);
+    [button setBackgroundImage:[UIImage imageNamed:@"print.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(printAction) forControlEvents:UIControlEventTouchUpInside];
+    // adding button to small subview
+    [printView addSubview:button];
+    [self.view addSubview:printView];
+    // default the subview was hidden
+    printView.hidden = YES;
+    self.picVisible = NO;
+
     
-    self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
+   
     for (UIView *v in [self.view subviews])  // loop for adding clear button to all textfileds of this view
     {
         if ([v isKindOfClass:[UITextField class]]) {
@@ -872,7 +889,7 @@
     [todaydate resignFirstResponder];
     [streetaddress resignFirstResponder];
     [homeph resignFirstResponder];
-    
+     printView.hidden = YES;
     [city resignFirstResponder];
     
     [cellph resignFirstResponder];
@@ -1425,9 +1442,46 @@
     spouseph.hidden=NO;
 }
 
-- (IBAction)printAction:(id)sender
+- (BOOL)presentFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated completionHandler:(UIPrintInteractionCompletionHandler)completion {
+    return YES;
+}
+- (void)didReceiveMemoryWarning
 {
-    UIGraphicsBeginImageContext(self.scroll.frame.size);
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        if ([self isPicVisible]) {
+            UIPrintInteractionController *pc = [UIPrintInteractionController sharedPrintController];
+            [pc dismissAnimated:animated];
+            self.picVisible = NO;
+            printView.hidden = YES;
+        }
+    }
+    
+}
+
+- (void)printInteractionControllerDidPresentPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    [printView setHidden:YES];
+    self.picVisible = YES;
+}
+
+- (void)printInteractionControllerDidDismissPrinterOptions:(UIPrintInteractionController *)printInteractionController {
+    self.picVisible = NO;
+}
+
+-(void)performAction:(id)sender
+{
+    printView.hidden = NO;
+}
+
+- (void)printAction
+{
+    UIGraphicsBeginImageContext(self.view.frame.size);
 	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
@@ -1438,43 +1492,29 @@
 #pragma mark - Printing
 
 -(void)printItem :(NSData*)data {
-    printController = [UIPrintInteractionController sharedPrintController];
+    UIPrintInteractionController *printController = [UIPrintInteractionController sharedPrintController];
     if(printController && [UIPrintInteractionController canPrintData:data]) {
         printController.delegate = self;
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
-        printInfo.jobName = [du headername];
+        printInfo.jobName = [NSString stringWithFormat:@""];
         printInfo.duplex = UIPrintInfoDuplexLongEdge;
         printController.printInfo = printInfo;
         printController.showsPageRange = YES;
         printController.printingItem = data;
         
-        UYLGenericPrintPageRenderer *renderer = [[UYLGenericPrintPageRenderer alloc] init];
-        renderer.headerText = printInfo.jobName;
-        renderer.footerText = @"Printer - Deemsys,Inc";
         
-        UIViewPrintFormatter *formatter = [self.scroll viewPrintFormatter];
-        [renderer addPrintFormatter:formatter startingAtPageAtIndex:0];
-        formatter.contentInsets = UIEdgeInsetsMake(72, 72, 0, 72);
-        printController.printPageRenderer = renderer;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
                 //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
-        [printController presentFromBarButtonItem:self.printAction animated:YES completionHandler:completionHandler];
+        [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];
     }
 }
 
-- (BOOL)presentFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated completionHandler:(UIPrintInteractionCompletionHandler)completion {
-    return YES;
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (void)dealloc {
     
     

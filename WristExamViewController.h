@@ -16,7 +16,7 @@
 #import "databaseurl.h"
 #import "JSON.h"
 
-@interface WristExamViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate>
+@interface WristExamViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     
     IBOutlet UITextField *patname;
@@ -75,7 +75,7 @@
 }
 @property(nonatomic,retain)NSMutableDictionary*recorddict;
 @property(nonatomic,retain)NSMutableDictionary*resultset;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 - (IBAction)next:(id)sender;
 - (IBAction)s11:(id)sender;
 - (IBAction)s10:(id)sender;

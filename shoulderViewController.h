@@ -15,7 +15,7 @@
 #import "databaseurl.h"
 #import "JSON.h"
 
-@interface shoulderViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface shoulderViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int a;
     NSMutableDictionary *recorddict;
@@ -210,7 +210,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *date;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *ao;
 
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 

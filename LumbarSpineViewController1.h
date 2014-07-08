@@ -11,7 +11,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface LumbarSpineViewController1 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface LumbarSpineViewController1 : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     
     NSString *databasePath;
@@ -53,6 +53,8 @@
     
     NSMutableDictionary *recorddict;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)checkchange:(UIButton*)sender;

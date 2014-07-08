@@ -11,7 +11,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 #import "MBProgressHUD.h"
-@interface aobViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface aobViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary * recorddict ;
     IBOutlet UITextField * day;
@@ -38,6 +38,8 @@
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*temp10,*temp11,*temp12,*temp13,*temp14,*temp15;
     
 }
+
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 @property (retain, nonatomic) IBOutlet UIButton *submit;
 @property (retain, nonatomic) IBOutlet UIButton *reset1;

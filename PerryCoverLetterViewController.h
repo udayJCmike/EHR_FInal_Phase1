@@ -10,7 +10,7 @@
 
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface PerryCoverLetterViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface PerryCoverLetterViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate,MBProgressHUDDelegate>
 
 {
     IBOutlet UITextField *patname;
@@ -38,7 +38,7 @@
 @property(nonatomic,retain)IBOutlet UIButton *reset;
 @property(nonatomic,retain)IBOutlet UIButton *reset2;
 @property(nonatomic,retain)IBOutlet UIButton *cancel2;                                                                                                                                                          
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 
 
 @property (retain, nonatomic) IBOutlet UILabel *certified;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FootAnkleViewController1 : UIViewController
+@interface FootAnkleViewController1 : UIViewController<UIPrintInteractionControllerDelegate>
 {
     IBOutlet UIButton *radi7;
     IBOutlet UIButton *radi6;
@@ -44,6 +44,7 @@
     IBOutlet UISegmentedControl *seg3;
     NSMutableDictionary *recorddict,*resultset;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (nonatomic, retain)NSMutableDictionary *staff;
 - (IBAction)rad7:(id)sender;
 - (IBAction)rad6:(id)sender;

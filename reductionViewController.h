@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface reductionViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface reductionViewController : UIViewController<UITextViewDelegate,TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     int suc;
     IBOutlet UITextField *attorney;
@@ -30,6 +30,7 @@
     BOOL isConnect;
     int a;
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property(nonatomic,retain)NSMutableDictionary *recorddict;
 @property(nonatomic,retain)IBOutlet UIButton *submit;
 @property(nonatomic,retain)IBOutlet UIButton *update;

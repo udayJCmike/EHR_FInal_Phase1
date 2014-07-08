@@ -12,7 +12,7 @@
 #import "dcfee4ViewController.h"
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
-@interface dcfee4ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UITextFieldDelegate>
+@interface dcfee4ViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate,UITextFieldDelegate>
 {
     NSMutableDictionary *recorddict,*resultset;
     int c;
@@ -94,7 +94,7 @@
 - (IBAction)deletefuc:(id)sender;
 
 - (IBAction)reset:(id)sender;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 @property (retain, nonatomic) IBOutlet UITextField *pillow;
 @property (retain, nonatomic) IBOutlet UITextField *lumbarsupport;
 @property (retain, nonatomic) IBOutlet UITextField *orthoticleft;

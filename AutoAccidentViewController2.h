@@ -11,7 +11,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
-@interface AutoAccidentViewController2 : UIViewController<TextFieldDatePickerDelegate>
+@interface AutoAccidentViewController2 : UIViewController<TextFieldDatePickerDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary *recorddict;
     NSMutableDictionary *resultset;
@@ -84,6 +84,7 @@
     
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)saveandcontinue:(id)sender;
 -(IBAction)clearall:(id)sender;
 -(IBAction)shoulderseatbeltsegmentchange:(id)sender;

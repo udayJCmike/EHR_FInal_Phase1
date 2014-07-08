@@ -13,7 +13,7 @@
 #import "TextFieldDatePicker.h"
 #import "MBProgressHUD.h"
 
-@interface screendisclosureViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface screendisclosureViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     IBOutlet UITextField * date;
     IBOutlet UITextField * name;
@@ -31,7 +31,7 @@
     
     IBOutlet UIButton *submit1;
 }
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)submit:(id)sender;
 -(IBAction)reset:(id)sender;
 @property (nonatomic, retain)NSMutableDictionary *staff;

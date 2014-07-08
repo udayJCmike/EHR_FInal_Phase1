@@ -10,7 +10,7 @@
 #import "TextFieldDatePicker.h"
 //#import "/usr/include/sqlite3.h"
 #import "MBProgressHUD.h"
-@interface staffautocheckViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UITextFieldDelegate,UIScrollViewDelegate>
+@interface staffautocheckViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UITextFieldDelegate,UIScrollViewDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary * recorddict;
     NSMutableArray * selectforms;
@@ -69,7 +69,16 @@
 
 @property (retain, nonatomic) IBOutlet UITextField * billeddate;
 @property (retain, nonatomic) IBOutlet UITextField * remdate;
-
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
+@property (retain, nonatomic) IBOutlet UIImageView *im1;
+@property (retain, nonatomic) IBOutlet UIImageView *im2;
+@property (retain, nonatomic) IBOutlet UIImageView *im3;
+@property (retain, nonatomic) IBOutlet UIImageView *im4;
+@property (retain, nonatomic) IBOutlet UIImageView *im5;
+@property (retain, nonatomic) IBOutlet UIImageView *im6;
+@property (retain, nonatomic) IBOutlet UIImageView *im7;
+@property (retain, nonatomic) IBOutlet UIImageView *im8;
+@property (retain, nonatomic) IBOutlet UIImageView *im9;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)deletefunc:(id)sender;

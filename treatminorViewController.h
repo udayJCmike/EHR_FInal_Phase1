@@ -12,7 +12,7 @@
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 
-@interface treatminorViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate>
+@interface treatminorViewController : UIViewController<TextFieldDatePickerDelegate,MBProgressHUDDelegate,UIPrintInteractionControllerDelegate>
 {
     NSMutableDictionary * recorddict;
     IBOutlet UITextField * patientName;
@@ -34,6 +34,7 @@
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8;
     
 }
+@property (nonatomic, assign, getter = isPicVisible) BOOL picVisible;
 -(IBAction)submit:(id)sender;
 - (IBAction)delete:(id)sender;
 -(IBAction)reset:(id)sender;
