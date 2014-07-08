@@ -237,6 +237,7 @@
 		84987A561953F5F500CB4136 /* icon-success.png in Resources */ = {isa = PBXBuildFile; fileRef = 84987A501953F5F500CB4136 /* icon-success.png */; };
 		84987A571953F5F500CB4136 /* icon-success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84987A511953F5F500CB4136 /* icon-success@2x.png */; };
 		849A91C6196A7B270096A3E1 /* print2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 849A91C5196A7B270096A3E1 /* print2.jpg */; };
+		84FD6D4B196C0CD70042E345 /* loginpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FD6D4A196C0CD70042E345 /* loginpage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -642,6 +643,7 @@
 		84987A501953F5F500CB4136 /* icon-success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success.png"; sourceTree = "<group>"; };
 		84987A511953F5F500CB4136 /* icon-success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-success@2x.png"; sourceTree = "<group>"; };
 		849A91C5196A7B270096A3E1 /* print2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = print2.jpg; sourceTree = "<group>"; };
+		84FD6D4A196C0CD70042E345 /* loginpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginpage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1317,6 +1319,7 @@
 				0D2EAB521802D101004F5859 /* logo.png */,
 				0D6799941818EE8B00BDC1FC /* regist.png */,
 				0D6799951818EE8B00BDC1FC /* BG.png */,
+				84FD6D4A196C0CD70042E345 /* loginpage.png */,
 				0DA24976180E6F3100C9A9C6 /* checkBox.png */,
 				0DA24977180E6F3100C9A9C6 /* checkBox@2x.png */,
 				0DA24978180E6F3100C9A9C6 /* checkBoxMarked.png */,
@@ -1839,6 +1842,7 @@
 				00B8E81119413E3500D95F9E /* resetbutton.png in Resources */,
 				84987A541953F5F500CB4136 /* icon-info.png in Resources */,
 				84903937194C11B50017263C /* patient.png in Resources */,
+				84FD6D4B196C0CD70042E345 /* loginpage.png in Resources */,
 				0D2EAB9D18051F21004F5859 /* alert-red-button.png in Resources */,
 				0D075165195994CB00EEA6BA /* snap.PNG in Resources */,
 				00B8E80E19413E3500D95F9E /* deletebutton.png in Resources */,
