@@ -231,7 +231,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     
@@ -837,7 +837,7 @@
 {
     
     
-    NSLog(@"record dict in insert %@",recorddict);
+   // NSLog(@"record dict in insert %@",recorddict);
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Quadruple.php?service=quadrupleinsert";
     
@@ -847,7 +847,7 @@
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&number=%@&date=%@&painname=%@&otherpainname=%@&painscale=%@&painscale1=%@&painscale2=%@&painscale3=%@&awakehours=%@&%@=%@",firstEntity,value1,[recorddict valueForKey:@"symptomtext"],[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"segval"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"scale1"],[recorddict objectForKey:@"scale2"],[recorddict objectForKey:@"scale3"],[recorddict objectForKey:@"scale4"],[recorddict objectForKey:@"worst"],secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+  //  NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -906,7 +906,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     

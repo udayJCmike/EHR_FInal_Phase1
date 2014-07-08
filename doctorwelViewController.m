@@ -174,6 +174,11 @@
 }
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
+    HUD.mode=MBProgressHUDModeDeterminate;
+    HUD.delegate = self;
+    HUD.labelText = @"Submitting";
+    [HUD show:YES];
     NSLog(@"Button Index =%d",buttonIndex);
     if (buttonIndex == 1)
     {
@@ -181,6 +186,7 @@
         NSString *result=[self Getdata1:username.text];
         if([result isEqualToString:@"Success"])
         {
+            [HUD hide:YES];
             
             
             if(([username.text length]!=0)&&([self validateNames:username.text]==1))
@@ -202,6 +208,7 @@
         }//end of database checking
         else if([result isEqualToString:@"Successnopatient"])
         {
+            [HUD hide:YES];
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
                                                            description:@"Patient information not found."
                                                                   type:TWMessageBarMessageTypeError
@@ -212,6 +219,7 @@
         }
         else if([result isEqualToString:@"Failure"])
         {
+            [HUD hide:YES];
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
                                                            description:@"The user was not registered.Enter valid username."
                                                                   type:TWMessageBarMessageTypeError

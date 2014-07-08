@@ -139,14 +139,14 @@ int y;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)number:(NSString *)zipnumber{
     NSString *zipFormat1 =  @"[0-9]+";
@@ -184,18 +184,18 @@ int y;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -567,7 +567,7 @@ int y;
         
         
         
-        NSLog(@"recorddict in Staff Auto Checklist %@",recorddict);
+        //NSLog(@"recorddict in Staff Auto Checklist %@",recorddict);
     }
     
     
@@ -608,18 +608,18 @@ int y;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -668,7 +668,7 @@ int y;
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -686,7 +686,7 @@ int y;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -704,20 +704,20 @@ int y;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -750,18 +750,18 @@ int y;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -808,7 +808,7 @@ int y;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::%@",recorddict);
+    //NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pat_name=%@&insure=%@&damage_amount=%@&fault_insure=%@&med_pay=%@&other_attorney=%@&protect_received=%@&bill=%@&re_date=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"insuranceattorney"],[recorddict objectForKey:@"damageamount"],[recorddict objectForKey:@"faultinsurance"],[recorddict objectForKey:@"medpay"],[recorddict objectForKey:@"otherattorney"],[recorddict objectForKey:@"protectionreceived"],[recorddict objectForKey:@"billed"],[recorddict objectForKey:@"remdate"],secondEntity,value2];
@@ -818,12 +818,12 @@ int y;
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    NSLog(@"postvalue%@",post);
+    //NSLog(@"postvalue%@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSLog(@"postrequest %@",url);
+    //NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -838,7 +838,7 @@ int y;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -857,10 +857,10 @@ int y;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -878,7 +878,7 @@ int y;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1012,14 +1012,14 @@ int y;
         }
         else
         {
-            NSLog(@"no data filled");
+            //NSLog(@"no data filled");
             
         }
         
         
     }
     
-    NSLog(@"result value %@",recorddict);
+    //NSLog(@"result value %@",recorddict);
     
 }
 -(void)displaybuttons:(NSString*)buttonname
@@ -1147,7 +1147,7 @@ int y;
 {
     [recorddict setObject:@"1" forKey:@"staff"];
     NSString *name=[sender titleForState:UIControlStateNormal];
-    NSLog(@"selected button name %@",name);
+    ////NSLog(@"selected button name %@",name);
     if ([name isEqualToString:@"Confidential Patient Information"]) {
         [self performSegueWithIdentifier:@"stafftopatient" sender:self];
     }
@@ -1231,7 +1231,7 @@ int y;
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+            ////NSLog(@"arraylist count %d",[arrayList1 count]);
             
             
             temp10=[arrayList1 objectForKey:@"patientusername"];
@@ -1266,7 +1266,7 @@ int y;
         
         
         [[NSUserDefaults standardUserDefaults]setObject:@"Datas read" forKey:@"status"];
-        //  NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //  ////NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -1307,10 +1307,10 @@ int y;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    ////NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    //////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1328,7 +1328,7 @@ int y;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // ////NSLog(@"data %@",data);
     
     return data;
     
@@ -1343,10 +1343,10 @@ int y;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&table=%@&%@=%@",firstEntity,value1,value3,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1364,7 +1364,7 @@ int y;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //NSLog(@"data %@",data);
+    ////NSLog(@"data %@",data);
     
     return data;
     
@@ -1379,7 +1379,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftoautoacc"])
     {
@@ -1388,7 +1388,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftoworkacc"])
     {
@@ -1397,7 +1397,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftowaiver"])
     {
@@ -1406,7 +1406,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftohealth"])
     {
@@ -1415,7 +1415,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftotreat"])
     {
@@ -1424,7 +1424,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftominor"])
     {
@@ -1433,7 +1433,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftohardship"])
     {
@@ -1442,7 +1442,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftoscreen"])
     {
@@ -1451,7 +1451,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftorelease"])
     {
@@ -1460,7 +1460,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftoaob"])
     {
@@ -1469,7 +1469,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftohip"])
     {
@@ -1478,7 +1478,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftoknee"])
     {
@@ -1487,7 +1487,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftohippa"])
     {
@@ -1496,7 +1496,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     else if ([segue.identifier isEqualToString:@"stafftopain"])
     {
@@ -1505,7 +1505,7 @@ int y;
         
         destViewController.staff=recorddict;
         
-        NSLog(@"recorddict in staff first page %@",recorddict);
+        //NSLog(@"recorddict in staff first page %@",recorddict);
     }
     
     
@@ -1572,7 +1572,7 @@ int y;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

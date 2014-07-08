@@ -69,7 +69,7 @@
 - (IBAction)accessforms:(id)sender
 {
     tagnumber=[sender tag];
-    NSLog(@"value of tag numbr value %d",tagnumber);
+   // NSLog(@"value of tag numbr value %d",tagnumber);
     
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"" message:@"Please enter a Patient User Name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -79,14 +79,22 @@
 }
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"Button Index =%d",buttonIndex);
+    
+    HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
+    HUD.mode=MBProgressHUDModeDeterminate;
+    HUD.delegate = self;
+    HUD.labelText = @"Submitting";
+    [HUD show:YES];
    
     if (buttonIndex==1)
     {
+       
+
         UITextField *username = [alertView textFieldAtIndex:0];
         NSString *result=[self Getdata1:username.text];
         if(([result isEqualToString:@"Success"])||([result isEqualToString:@"Successnopatient"]))
         {
+            [HUD hide:YES];
         
         if ((alertView.tag==9)&&(tagnumber!=19))
         {
@@ -214,9 +222,12 @@
             
             
         }//end of DC name alertview
+        
+            [HUD hide:YES];
         }//end of database checking for patient name
         else
         {
+            [HUD hide:YES];
              if (alertView.tag!=10)
              {
                  [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
@@ -230,10 +241,10 @@
         {
             
             
-            
+            [HUD hide:YES];
             UITextField *billdate=[alertView textFieldAtIndex:0];
             NSString * dat =[billdate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-            NSLog(@"value of date::%@",dat);
+          //  NSLog(@"value of date::%@",dat);
             
             if(([dat length]!=0)&&([self validateDate:dat ]==1))
             {

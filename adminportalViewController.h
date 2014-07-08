@@ -10,13 +10,15 @@
 #import "SBJSON.h"
 #import "Recipe.h"
 #import "SampleViewController.h"
-@interface adminportalViewController : UIViewController<UIAlertViewDelegate>
+#import "MBProgressHUD.h"
+@interface adminportalViewController : UIViewController<UIAlertViewDelegate,MBProgressHUDDelegate>
 {
 int tagnumber;
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9;
     UITextField *user;
     UITextField *date;
     NSMutableArray*resultset;
+    MBProgressHUD *HUD;
 }
 
 @property (retain, nonatomic) IBOutlet UIButton *logout;

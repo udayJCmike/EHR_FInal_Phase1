@@ -125,14 +125,14 @@ int a,b,c,d;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)delete:(id)sender {
     HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
@@ -149,18 +149,18 @@ int a,b,c,d;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -195,12 +195,12 @@ int a,b,c,d;
     NSString *url1=@"AutoAccident.php?service=autoaccidentedit";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&claimnumber=%@&adjustersname=%@&estimate=%@&seating=%@&companion=%@&vehicle_make=%@&vehicle_model=%@&vehicle_year=%@&vehicle_hit=%@&other_vehicle_make=%@&other_vehicle_model=%@&other_vehicle_year=%@&carstopped=%@&driverposition=%@&vehicle_moving_time=%@&wascar=%@&estimated_rate=%@&time_of_day=%@&road_conditions=%@&conditions=%@&head_restraints=%@&seatpos_after_accident=%@&seat_after_accident=%@&lap_seat_belt=%@&shoulder_seat_belt=%@&airbag=%@&wereyou=%@&body_position=%@&body_position1=%@&head_position=%@&head_position1=%@&hands_on_wheel=%@&aware_of_crash=%@&brace=%@&ifyes=%@&further_injury=%@&injurytext=%@&patient_body=%@&patient_body1=%@&body_strike=%@&head_hit=%@&rlshoulder_hit=%@&rlhip_hit=%@&rlknee_hit=%@&chest_hit=%@&rlarm_hit=%@&rlleg_hit=%@&otherpart_hit=%@&wearing_glasses=%@&glasses_impact=%@&unconscious=%@&uncon=%@&estimated_amount=%@&damage=%@&was_anyone_cited=%@&who=%@&headache=%@&dizziness=%@&nausea=%@&confusion=%@&disorientation=%@&neckpain=%@&otherpain=%@&otherpaintext=%@&first_symptom=%@&symptom=%@&after_accident=%@&accident=%@&hosname=%@&city=%@&staylength=%@&hospitalget=%@&hospital1=%@&xray=%@&wrong=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"claim No"],[recorddict objectForKey:@"adjustername"],[recorddict objectForKey:@"estimatelabel"],[recorddict objectForKey:@"wereyouthelabel"],[recorddict objectForKey:@"anyoneincar"],[recorddict objectForKey:@"mymake"],[recorddict objectForKey:@"mymodel"],[recorddict objectForKey:@"myyear"],[recorddict objectForKey:@"vehiclehitlabel"],[recorddict objectForKey:@"othermake"],[recorddict objectForKey:@"othermodel"],[recorddict objectForKey:@"otheryear"],[recorddict objectForKey:@"carstoppedlabel"],[recorddict objectForKey:@"footonbrakelabel"],[recorddict objectForKey:@"vehiclemovinglabel"],[recorddict objectForKey:@"wasscarlabel"],[recorddict objectForKey:@"speed"],[recorddict objectForKey:@"timeofdaylabel"],[recorddict objectForKey:@"roadconditionlabel"],[recorddict objectForKey:@"roadother"],[recorddict objectForKey:@"headrestraintlabel"],[recorddict objectForKey:@"seatbeforelabel"],[recorddict objectForKey:@"seatafterlabel"],[recorddict objectForKey:@"lapseatbeltlabel"],[recorddict objectForKey:@"shoulderseatbeltlabel"],[recorddict objectForKey:@"airbagdeployed"],[recorddict objectForKey:@"wereyou"],[recorddict objectForKey:@"bodyposition"],[recorddict objectForKey:@"bodyposition1"],[recorddict objectForKey:@"headposition"],[recorddict objectForKey:@"headposition1"],[recorddict objectForKey:@"handsonwheel"],[recorddict objectForKey:@"awareofcrash"],[recorddict objectForKey:@"braceoption"],[recorddict objectForKey:@"braceseg"],[recorddict objectForKey:@"furtherinjury"],[recorddict objectForKey:@"injuryexplainlabel"],[recorddict objectForKey:@"patientbodyseg"],[recorddict objectForKey:@"patientbodyother"],[recorddict objectForKey:@"patientbodystrikelabel"],[recorddict objectForKey:@"myheadhitlabel"],[recorddict objectForKey:@"rlshoulderhitlabel"],[recorddict objectForKey:@"rlhiphitlabel"],[recorddict objectForKey:@"rlkneehitlabel"],[recorddict objectForKey:@"chesthitlabel"],[recorddict objectForKey:@"rlarmhitlabel"],[recorddict objectForKey:@"rlleghitlabel"],[recorddict objectForKey:@"otherparthitlabel"],[recorddict objectForKey:@"wearingglasslabel"],[recorddict objectForKey:@"glassesstilllabel"],[recorddict objectForKey:@"unconsiouslabel"],[recorddict objectForKey:@"unconsiousforlabel"],[recorddict objectForKey:@"propertydamagelabel"],[recorddict objectForKey:@"damageseg"],[recorddict objectForKey:@"anyonesited"],[recorddict objectForKey:@"anyonesitedseglabel"],[recorddict objectForKey:@"button1"],[recorddict objectForKey:@"button2"],[recorddict objectForKey:@"button3"],[recorddict objectForKey:@"button4"],[recorddict objectForKey:@"button5"],[recorddict objectForKey:@"button6"],[recorddict objectForKey:@"button7"],[recorddict objectForKey:@"afteraccidentwhere"],[recorddict objectForKey:@"symptomsappearedsegmentlabel"],[recorddict objectForKey:@"symptomshours"],[recorddict objectForKey:@"afteraccidentwent"],[recorddict objectForKey:@"afteraccidentwentother"],[recorddict objectForKey:@"hospitalname"],[recorddict objectForKey:@"hospitalcity"],[recorddict objectForKey:@"hospitalstay"],[recorddict objectForKey:@"hospitalgoing"],[recorddict objectForKey:@"hospitalgoingother"],[recorddict objectForKey:@"treatmentgiven"],[recorddict objectForKey:@"waswrong"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     
     
@@ -220,7 +220,7 @@ int a,b,c,d;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -233,18 +233,18 @@ int a,b,c,d;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -276,10 +276,10 @@ int a,b,c,d;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -297,7 +297,7 @@ int a,b,c,d;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -313,7 +313,7 @@ int a,b,c,d;
     
     if(button1.currentImage!=img)
     {
-        NSLog(@"INSIDE BUTTON ONE CLICK");
+        //NSLog(@"INSIDE BUTTON ONE CLICK");
         _1=@"Headache";
         
         _11=@"";
@@ -566,7 +566,7 @@ int a,b,c,d;
         
        
         int num=[recorddict count];
-        NSLog(@"recorddict count in autoaccident second page %d",num);
+        //NSLog(@"recorddict count in autoaccident second page %d",num);
         
         
         UIButton *buton=(UIButton*)sender;
@@ -627,20 +627,20 @@ int a,b,c,d;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -674,18 +674,18 @@ int a,b,c,d;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -720,15 +720,15 @@ int a,b,c,d;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"record dict value%@",recorddict);
-    NSLog(@"object for key claimnumber is::%@",[recorddict objectForKey:@"adjustername"]);
+    //NSLog(@"record dict value%@",recorddict);
+    //NSLog(@"object for key claimnumber is::%@",[recorddict objectForKey:@"adjustername"]);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&claimnumber=%@&adjustersname=%@&estimate=%@&seating=%@&companion=%@&vehicle_make=%@&vehicle_model=%@&vehicle_year=%@&vehicle_hit=%@&other_vehicle_make=%@&other_vehicle_model=%@&other_vehicle_year=%@&carstopped=%@&driverposition=%@&vehicle_moving_time=%@&wascar=%@&estimated_rate=%@&time_of_day=%@&road_conditions=%@&conditions=%@&head_restraints=%@&seatpos_after_accident=%@&seat_after_accident=%@&lap_seat_belt=%@&shoulder_seat_belt=%@&airbag=%@&wereyou=%@&body_position=%@&body_position1=%@&head_position=%@&head_position1=%@&hands_on_wheel=%@&aware_of_crash=%@&brace=%@&ifyes=%@&further_injury=%@&injurytext=%@&patient_body=%@&patient_body1=%@&body_strike=%@&head_hit=%@&rlshoulder_hit=%@&rlhip_hit=%@&rlknee_hit=%@&chest_hit=%@&rlarm_hit=%@&rlleg_hit=%@&otherpart_hit=%@&wearing_glasses=%@&glasses_impact=%@&unconscious=%@&uncon=%@&estimated_amount=%@&damage=%@&was_anyone_cited=%@&who=%@&headache=%@&dizziness=%@&nausea=%@&confusion=%@&disorientation=%@&neckpain=%@&otherpain=%@&otherpaintext=%@&first_symptom=%@&symptom=%@&after_accident=%@&accident=%@&hosname=%@&city=%@&staylength=%@&hospitalget=%@&hospital1=%@&xray=%@&wrong=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"claim No"],[recorddict objectForKey:@"adjustername"],[recorddict objectForKey:@"estimatelabel"],[recorddict objectForKey:@"wereyouthelabel"],[recorddict objectForKey:@"anyoneincar"],[recorddict objectForKey:@"mymake"],[recorddict objectForKey:@"mymodel"],[recorddict objectForKey:@"myyear"],[recorddict objectForKey:@"vehiclehitlabel"],[recorddict objectForKey:@"othermake"],[recorddict objectForKey:@"othermodel"],[recorddict objectForKey:@"otheryear"],[recorddict objectForKey:@"carstoppedlabel"],[recorddict objectForKey:@"footonbrakelabel"],[recorddict objectForKey:@"vehiclemovinglabel"],[recorddict objectForKey:@"wasscarlabel"],[recorddict objectForKey:@"speed"],[recorddict objectForKey:@"timeofdaylabel"],[recorddict objectForKey:@"roadconditionlabel"],[recorddict objectForKey:@"roadother"],[recorddict objectForKey:@"headrestraintlabel"],[recorddict objectForKey:@"seatbeforelabel"],[recorddict objectForKey:@"seatafterlabel"],[recorddict objectForKey:@"lapseatbeltlabel"],[recorddict objectForKey:@"shoulderseatbeltlabel"],[recorddict objectForKey:@"airbagdeployed"],[recorddict objectForKey:@"wereyou"],[recorddict objectForKey:@"bodyposition"],[recorddict objectForKey:@"bodyposition1"],[recorddict objectForKey:@"headposition"],[recorddict objectForKey:@"headposition1"],[recorddict objectForKey:@"handsonwheel"],[recorddict objectForKey:@"awareofcrash"],[recorddict objectForKey:@"braceoption"],[recorddict objectForKey:@"braceseg"],[recorddict objectForKey:@"furtherinjury"],[recorddict objectForKey:@"injuryexplainlabel"],[recorddict objectForKey:@"patientbodyseg"],[recorddict objectForKey:@"patientbodyother"],[recorddict objectForKey:@"patientbodystrikelabel"],[recorddict objectForKey:@"myheadhitlabel"],[recorddict objectForKey:@"rlshoulderhitlabel"],[recorddict objectForKey:@"rlhiphitlabel"],[recorddict objectForKey:@"rlkneehitlabel"],[recorddict objectForKey:@"chesthitlabel"],[recorddict objectForKey:@"rlarmhitlabel"],[recorddict objectForKey:@"rlleghitlabel"],[recorddict objectForKey:@"otherparthitlabel"],[recorddict objectForKey:@"wearingglasslabel"],[recorddict objectForKey:@"glassesstilllabel"],[recorddict objectForKey:@"unconsiouslabel"],[recorddict objectForKey:@"unconsiousforlabel"],[recorddict objectForKey:@"propertydamagelabel"],[recorddict objectForKey:@"damageseg"],[recorddict objectForKey:@"anyonesited"],[recorddict objectForKey:@"anyonesitedseglabel"],[recorddict objectForKey:@"button1"],[recorddict objectForKey:@"button2"],[recorddict objectForKey:@"button3"],[recorddict objectForKey:@"button4"],[recorddict objectForKey:@"button5"],[recorddict objectForKey:@"button6"],[recorddict objectForKey:@"button7"],[recorddict objectForKey:@"afteraccidentwhere"],[recorddict objectForKey:@"symptomsappearedsegmentlabel"],[recorddict objectForKey:@"symptomshours"],[recorddict objectForKey:@"afteraccidentwent"],[recorddict objectForKey:@"afteraccidentwentother"],[recorddict objectForKey:@"hospitalname"],[recorddict objectForKey:@"hospitalcity"],[recorddict objectForKey:@"hospitalstay"],[recorddict objectForKey:@"hospitalgoing"],[recorddict objectForKey:@"hospitalgoingother"],[recorddict objectForKey:@"treatmentgiven"],[recorddict objectForKey:@"waswrong"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -746,7 +746,7 @@ int a,b,c,d;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1146,7 +1146,7 @@ int a,b,c,d;
     _12=@"Immediately";
     _13=@"null";
     _14=@"null";
-    NSLog(@"resul sert count in 3rd auto form:%@",resultset);
+    //NSLog(@"resul sert count in 3rd auto form:%@",resultset);
     if ([resultset count]>0)
     {
         update.hidden=NO;
@@ -1563,7 +1563,7 @@ int a,b,c,d;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

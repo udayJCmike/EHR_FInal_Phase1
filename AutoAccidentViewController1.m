@@ -106,14 +106,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(IBAction)estimatechange:(id)sender
 {
@@ -419,14 +419,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"autoaccidentuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    NSLog(@"items1app %d",[items1App count]);
+    //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -435,7 +435,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+            //NSLog(@"arraylist count %d",[arrayList1 count]);
             temp=[arrayList1 objectForKey:@"patient_number"];
             temp1 =[arrayList1 objectForKey:@"username"];
             temp2 =[arrayList1 objectForKey:@"claimnumber"];
@@ -519,7 +519,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             temp77=[arrayList1 objectForKey:@"hospital1"];
             temp78=[arrayList1 objectForKey:@"xray"];
             temp79=[arrayList1 objectForKey:@"wrong"];
-            NSLog(@"array list one::%@",arrayList1);
+            //NSLog(@"array list one::%@",arrayList1);
             
             
             [self setdatas];//set database values
@@ -585,7 +585,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
         }
         [[NSUserDefaults standardUserDefaults]setObject:@"Datas read" forKey:@"status"];
-        NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -597,7 +597,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 -(void)setdatas
 {
-    NSLog(@"In setdatas before condition");
+    //NSLog(@"In setdatas before condition");
     claimno.text=temp2;
     adjustername.text=temp3;
     mymake.text=temp8;
@@ -609,8 +609,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     speed.text=temp19;
     //roadother.text=temp22;
     anyoneincar.text=temp7;
-    NSLog(@"othr conditon::%@",temp22);
-    NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
+    //NSLog(@"othr conditon::%@",temp22);
+    //NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
     if ([temp4 length]>0)
     {
         if ([temp4 isEqualToString:@"Your Insurance Company"])
@@ -837,7 +837,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     if ([temp21 length]>0)
     {
-        NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
+        //NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
         if ([temp21 isEqualToString:@"Dry"])
         {
             [roadconditionsegment setSelectedSegmentIndex:0];
@@ -886,7 +886,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             [roadconditionsegment setSelectedSegmentIndex:5];
             _6=@"Others";
-            NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
+            //NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
             roadother.text=temp22;
             _40=roadother.text;
             roadother.hidden=NO;
@@ -1046,20 +1046,20 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -1100,10 +1100,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1121,7 +1121,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -1185,10 +1185,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 -(IBAction)savecontinue:(id)sender
 {
-    //NSLog(@"estimee %@",estimatelabel.text);
+    ////NSLog(@"estimee %@",estimatelabel.text);
   
     du=[[databaseurl alloc]init];
-    NSLog(@"b value::%d",b);
+    //NSLog(@"b value::%d",b);
     texty1=[claimno.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty2=[adjustername.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty3=[mymake.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -1285,7 +1285,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                 [recorddict setValue:footonbrakelabel.text forKey:@"footonbrakelabel"];
                                                 [recorddict setValue:vehiclemovinglabel.text forKey:@"vehiclemovinglabel"];
                                                 [recorddict setValue:speed.text forKey:@"speed"];
-                                                NSLog(@"record dict value in auto accident one:%@",recorddict);
+                                                //NSLog(@"record dict value in auto accident one:%@",recorddict);
                                                 [recorddict setValue:_5 forKey:@"timeofdaylabel"];
                                                  [recorddict setValue:anyoneincar.text forKey:@"anyoneincar"];
                                                 }
@@ -1563,9 +1563,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         NSString *indexvalues=[country11 substringWithRange: NSMakeRange (0, 3)];
         NSString *indexvalues1=[country11 substringWithRange: NSMakeRange (3,2)];
         NSString *indexvalues2=[country11 substringWithRange: NSMakeRange (5,4)];
-        //        NSLog(@"val1 %@",indexvalues);
-        //         NSLog(@"val2 %@",indexvalues1);
-        //         NSLog(@"val3 %@",indexvalues2);
+        //        //NSLog(@"val1 %@",indexvalues);
+        //         //NSLog(@"val2 %@",indexvalues1);
+        //         //NSLog(@"val3 %@",indexvalues2);
         
         if (([indexvalues isEqualToString:@"000"])||([indexvalues1 isEqualToString:@"00"])||([indexvalues2 isEqualToString:@"0000"]))
         {
@@ -1595,8 +1595,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         destViewController.resultset=resultset;
          destViewController.staff=staff;
-        NSLog(@"value in resultset::%@",resultset);
-        NSLog(@"recorddict in autoaccident first page %@",recorddict);
+        //NSLog(@"value in resultset::%@",resultset);
+        //NSLog(@"recorddict in autoaccident first page %@",recorddict);
     }
     
     
@@ -1657,7 +1657,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -267,7 +267,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in AOB %@",recorddict);
+      //  NSLog(@"recorddict in AOB %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

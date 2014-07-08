@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "MBProgressHUD.h"
-@interface doctorwelViewController : UIViewController<UIAlertViewDelegate>
+@interface doctorwelViewController : UIViewController<UIAlertViewDelegate,MBProgressHUDDelegate>
 {
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9;
     NSMutableArray*resultset;
+    MBProgressHUD *HUD;
 }
 @property (retain, nonatomic) IBOutlet UIButton *pat;
 @property (retain, nonatomic) IBOutlet UIButton *forms;

@@ -128,14 +128,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(IBAction)wereyousegmentchange:(id)sender
 {
@@ -182,7 +182,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         _14=@"Other";
         //bodypositionotherlabel.text=@"";
         _16=bodypositionotherlabel.text;
-        NSLog(@"in body segment body::%@",_16);
+        //NSLog(@"in body segment body::%@",_16);
         bodypositionotherlabel.hidden=NO;
     }
     
@@ -589,7 +589,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
 
     
-    NSLog(@"16th value::%@",_16);
+    //NSLog(@"16th value::%@",_16);
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
     
@@ -774,7 +774,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
  
     if (c==1)
     {
-        NSLog(@"record dict in auto 2nd page:%@",recorddict);
+        //NSLog(@"record dict in auto 2nd page:%@",recorddict);
         [self performSegueWithIdentifier:@"autoacc5" sender:self];
     }
     
@@ -1011,7 +1011,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     _30=@"Minimal";
     _35=@"null";
     [self displaydata];
-    NSLog(@"count in result set::%@",recorddict);
+    //NSLog(@"count in result set::%@",recorddict);
 	
     
     // Do any additional setup after loading the view.
@@ -1032,26 +1032,26 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         rlkneehitlabel.text=[resultset objectForKey:@"rlknee_hit"];
         rlarmhitlabel.text=[resultset objectForKey:@"rlarm_hit"];
         otherparthitlabel.text=[resultset objectForKey:@"otherpart_hit"];
-        NSLog(@"value of shoulder belt::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
+        //NSLog(@"value of shoulder belt::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
         
         
         if([[resultset objectForKey:@"shoulder_seat_belt"]isEqualToString:@"Worn"]){
-            NSLog(@"value of shoulder belt one::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
+            //NSLog(@"value of shoulder belt one::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
             [shoulderseatbeltsegment setSelectedSegmentIndex:0];
             _11=@"Worn";
         }
         else if([[resultset objectForKey:@"shoulder_seat_belt"]isEqualToString:@"Not Worn"]){
-            NSLog(@"value of shoulder belt two::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
+            //NSLog(@"value of shoulder belt two::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
             [shoulderseatbeltsegment setSelectedSegmentIndex:1];
             _11=@"Not Worn";
         }
         else if([[resultset objectForKey:@"shoulder_seat_belt"]isEqualToString:@"Dont Know"]){
-            NSLog(@"value of shoulder belt three::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
+            //NSLog(@"value of shoulder belt three::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
             [shoulderseatbeltsegment setSelectedSegmentIndex:2];
             _11=@"Dont Know";
         }
         else{
-            NSLog(@"value of shoulder belt nothing selected::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
+            //NSLog(@"value of shoulder belt nothing selected::%@",[resultset objectForKey:@"shoulder_seat_belt"]);
             
             [shoulderseatbeltsegment setSelectedSegmentIndex:0];
             _11=@"Worn";
@@ -1122,7 +1122,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             bodypositionotherlabel.text=[resultset objectForKey:@"body_position1"];
             _16=bodypositionotherlabel.text;
             
-            NSLog(@"in body segment body::%@",[resultset objectForKey:@"body_position1"]);
+            //NSLog(@"in body segment body::%@",[resultset objectForKey:@"body_position1"]);
             bodypositionotherlabel.hidden=NO;
         }
         
@@ -1185,7 +1185,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             headpositionotherlabel.text=[resultset objectForKey:@"head_position1"];
             _18=headpositionotherlabel.text;
-            NSLog(@"in head segment head::%@",_18);
+            //NSLog(@"in head segment head::%@",_18);
             headpositionotherlabel.hidden=NO;
         }
         
@@ -1474,8 +1474,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         destViewController.resultset=resultset;
            destViewController.staff=staff;
         int num=[recorddict count];
-        NSLog(@"result set in second apge:%@",resultset);
-        NSLog(@"recorddict count in autoaccident second page %d",num);
+        //NSLog(@"result set in second apge:%@",resultset);
+        //NSLog(@"recorddict count in autoaccident second page %d",num);
     }
     
     
@@ -1558,7 +1558,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];
