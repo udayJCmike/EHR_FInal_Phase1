@@ -136,21 +136,21 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag==2) {
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        //        NSLog(@"VALUES %@%@",chargeslabel.text,newString);
-        //        NSLog(@"VALUES %D %D",[chargeslabel.text intValue],[newString intValue]);
+        //        //NSLog(@"VALUES %@%@",chargeslabel.text,newString);
+        //        //NSLog(@"VALUES %D %D",[chargeslabel.text intValue],[newString intValue]);
         int res= [chargeslabel.text intValue]-[newString intValue];
         balancelabel.text=[NSString stringWithFormat:@"%d",res];
         return YES;
@@ -331,8 +331,8 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
                                                                                         [recorddict setValue:reshedule.text forKey:@"reshedule"];
                                                                                         [recorddict setValue:months.text forKey:@"months"];
                                                                                         [recorddict setValue:amt.text forKey:@"amt"];
-                                                                                        NSLog(@"success!!!recorddict final %@",recorddict);
-                                                                                        NSLog(@"success!!!recorddict final %d",[recorddict count]);
+                                                                                        //NSLog(@"success!!!recorddict final %@",recorddict);
+                                                                                        //NSLog(@"success!!!recorddict final %d",[recorddict count]);
                                                                                         
                                                                                         c=1;
                                                                                     }
@@ -719,20 +719,20 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -766,18 +766,18 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -835,12 +835,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pid=%@&date=%@&pname=%@&dr1=%@&rpt=%@&pta=%@&initialemlimited=%@&initialexpanded=%@&initialdetailed=%@&initialemextended=%@&estpatientltd=%@&estpatientexp=%@&estpatientdetails=%@&estpatientcomp=%@&consultphys=%@&consultdetail=%@&consultcomp=%@&patientexp=%@&patientdetails=%@&patientcomp=%@&telephonebrief=%@&telephoneintermediate=%@&telephonecomp=%@&tractionmechanical=%@&electricstim=%@&vasopneumatic=%@&paraffin=%@&whirlpool=%@&diathermy=%@&infrared=%@&ultraviolet=%@&microwave=%@&manualelectricalstim=%@&iontophoresis=%@&contrastbaths=%@&ultrasound=%@&unlisted=%@&therapeutic=%@&neuromuscular=%@&aquatic=%@&gaittraining=%@&massage=%@&manualtherapy=%@&unlistedother=%@&orthotics=%@&kinetic=%@&adlselfcare=%@&grouptherapy=%@&reintegration=%@&acupuncturewo=%@&acupuncturew=%@&spine12=%@&spine34=%@&spine5=%@&extremity=%@&muscle=%@&routine=%@&musclehand=%@&rangeofmotion=%@&rangeofmotionhand=%@&ncv=%@&ncvw=%@&ncvea=%@&sseplower=%@&ssepupper=%@&ssephead=%@&hreflex=%@&physicalperformance=%@&functionalcapacity=%@&text1=%@&text2=%@&supplies=%@&patienteducation=%@&medicaltestimony=%@&insuranceform=%@&teamconference=%@&completespine=%@&cervical23=%@&cervical4=%@&cervical67=%@&thoracic4=%@&thoracic2=%@&scoliosis=%@&lumbosacral=%@&lumbosacral4=%@&pelvis2=%@&lumbarcomplete=%@&elbow2=%@&wrist2=%@&hand2=%@&knee2=%@&ankle2=%@&foot2=%@&readotherfilms=%@&cervicalpillow=%@&lumbarsupport=%@&orthoticcustoml=%@&orthoticcustomr=%@&tensunit=%@&coldpack=%@&wristsplint=%@&heellift=%@&exerciseball=%@&exerciseband=%@&unlisteditem=%@&charges=%@&less=%@&balance=%@&payment=%@&paymentcashcheck=%@&amex=%@&discover=%@&mc=%@&visa=%@&cardsign=%@&date1=%@&parentsign=%@&doctorsign=%@&week=%@&months=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientid"],[recorddict objectForKey:@"datefirst"],[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"physicianname"],[recorddict objectForKey:@"RPT"],[recorddict objectForKey:@"PTA"],[recorddict objectForKey:@"Limited"],[recorddict objectForKey:@"Expanded"],[recorddict objectForKey:@"Detailed"],[recorddict objectForKey:@"Extended"],[recorddict objectForKey:@"Ltd"],[recorddict objectForKey:@"Exp"],[recorddict objectForKey:@"Detail"],[recorddict objectForKey:@"comp"],[recorddict objectForKey:@"refexp"],[recorddict objectForKey:@"refdetail"],[recorddict objectForKey:@"refcomp"],[recorddict objectForKey:@"consultexp"],[recorddict objectForKey:@"consultdetail"],[recorddict objectForKey:@"consultcomp"],[recorddict objectForKey:@"brief"],[recorddict objectForKey:@"intermediate"],[recorddict objectForKey:@"consultationcomp"],[recorddict objectForKey:@"mechanical"],[recorddict objectForKey:@"unattended"],[recorddict objectForKey:@"device"],[recorddict objectForKey:@"bath"],[recorddict objectForKey:@"hydrotheraphy"],[recorddict objectForKey:@"diathermy"],[recorddict objectForKey:@"infrared"],[recorddict objectForKey:@"ultraviolet"],[recorddict objectForKey:@"microwave"],[recorddict objectForKey:@"stim"],[recorddict objectForKey:@"iontophoresis"],[recorddict objectForKey:@"contrastbaths"],[recorddict objectForKey:@"ultrasound"],[recorddict objectForKey:@"unlisted"],[recorddict objectForKey:@"exersice"],[recorddict objectForKey:@"re"],[recorddict objectForKey:@"theraphy"],[recorddict objectForKey:@"gait"],[recorddict objectForKey:@"massage"],[recorddict objectForKey:@"manualtheraphy"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"fitting"],[recorddict objectForKey:@"activities"],[recorddict objectForKey:@"selfcare"],[recorddict objectForKey:@"grouptheraphy"],[recorddict objectForKey:@"training"],[recorddict objectForKey:@"wostimulation"],[recorddict objectForKey:@"wstimulation"],[recorddict objectForKey:@"regions1"],[recorddict objectForKey:@"regions2"],[recorddict objectForKey:@"regions3"],[recorddict objectForKey:@"extremity"],[recorddict objectForKey:@"urinalysis"],[recorddict objectForKey:@"muscletest"],[recorddict objectForKey:@"muscletesthand"],[recorddict objectForKey:@"rangeofmotion"],[recorddict objectForKey:@"rangeofmotionhand"],[recorddict objectForKey:@"wofave"],[recorddict objectForKey:@"wfwave"],[recorddict objectForKey:@"sensory"],[recorddict objectForKey:@"upper"],[recorddict objectForKey:@"lower"],[recorddict objectForKey:@"trunk"],[recorddict objectForKey:@"rl"],[recorddict objectForKey:@"test"],[recorddict objectForKey:@"evaluation"],[recorddict objectForKey:@"text1"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"supplies"],[recorddict objectForKey:@"materials"],[recorddict objectForKey:@"testimony"],[recorddict objectForKey:@"insurance"],[recorddict objectForKey:@"conference"],[recorddict objectForKey:@"spine"],[recorddict objectForKey:@"cervicalview1"],[recorddict objectForKey:@"cervicalview2"],[recorddict objectForKey:@"cervicalview3"],[recorddict objectForKey:@"thoracic"],[recorddict objectForKey:@"thoracicview"],[recorddict objectForKey:@"scoliosis"],[recorddict objectForKey:@"lumbview1"],[recorddict objectForKey:@"lumbview2"],[recorddict objectForKey:@"pelvis"],[recorddict objectForKey:@"lumbar"],[recorddict objectForKey:@"elbow"],[recorddict objectForKey:@"wrist"],[recorddict objectForKey:@"hand"],[recorddict objectForKey:@"knee"],[recorddict objectForKey:@"ankle"],[recorddict objectForKey:@"foot"],[recorddict objectForKey:@"readother"],[recorddict objectForKey:@"pillow"],[recorddict objectForKey:@"lumbarsupport"],[recorddict objectForKey:@"orthoticleft"],[recorddict objectForKey:@"orthoticright"],[recorddict objectForKey:@"tensunit"],[recorddict objectForKey:@"coldpack"],[recorddict objectForKey:@"wristsplint"],[recorddict objectForKey:@"heellift"],[recorddict objectForKey:@"exerciseball"],[recorddict objectForKey:@"exerciseband"],[recorddict objectForKey:@"unlisteditem"],[recorddict objectForKey:@"charges"],[recorddict objectForKey:@"less"],[recorddict objectForKey:@"balance"],[recorddict objectForKey:@"payment"],[recorddict objectForKey:@"amt"],[recorddict objectForKey:@"amex"],[recorddict objectForKey:@"discover"],[recorddict objectForKey:@"mc"],[recorddict objectForKey:@"visa"],[recorddict objectForKey:@"cardsign"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"patientsign"],[recorddict objectForKey:@"drsign"],[recorddict objectForKey:@"reshedule"],[recorddict objectForKey:@"months"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -858,7 +858,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -884,18 +884,18 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -992,7 +992,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
 
 - (IBAction)calculate:(id)sender {
     
-    //    NSLog(@"dcfee4%@",recorddict);
+    //    //NSLog(@"dcfee4%@",recorddict);
     NSString *page1=[recorddict objectForKey:@"calc1"];
     calc1=[page1 floatValue];
     NSString *page2=[recorddict objectForKey:@"calc2"];
@@ -1311,12 +1311,12 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     NSString *url1=@"DCFeeSlip.php?service=dcfeeslipedit";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pid=%@&date=%@&pname=%@&dr1=%@&rpt=%@&pta=%@&initialemlimited=%@&initialexpanded=%@&initialdetailed=%@&initialemextended=%@&estpatientltd=%@&estpatientexp=%@&estpatientdetails=%@&estpatientcomp=%@&consultphys=%@&consultdetail=%@&consultcomp=%@&patientexp=%@&patientdetails=%@&patientcomp=%@&telephonebrief=%@&telephoneintermediate=%@&telephonecomp=%@&tractionmechanical=%@&electricstim=%@&vasopneumatic=%@&paraffin=%@&whirlpool=%@&diathermy=%@&infrared=%@&ultraviolet=%@&microwave=%@&manualelectricalstim=%@&iontophoresis=%@&contrastbaths=%@&ultrasound=%@&unlisted=%@&therapeutic=%@&neuromuscular=%@&aquatic=%@&gaittraining=%@&massage=%@&manualtherapy=%@&unlistedother=%@&orthotics=%@&kinetic=%@&adlselfcare=%@&grouptherapy=%@&reintegration=%@&acupuncturewo=%@&acupuncturew=%@&spine12=%@&spine34=%@&spine5=%@&extremity=%@&muscle=%@&routine=%@&musclehand=%@&rangeofmotion=%@&rangeofmotionhand=%@&ncv=%@&ncvw=%@&ncvea=%@&sseplower=%@&ssepupper=%@&ssephead=%@&hreflex=%@&physicalperformance=%@&functionalcapacity=%@&text1=%@&text2=%@&supplies=%@&patienteducation=%@&medicaltestimony=%@&insuranceform=%@&teamconference=%@&completespine=%@&cervical23=%@&cervical4=%@&cervical67=%@&thoracic4=%@&thoracic2=%@&scoliosis=%@&lumbosacral=%@&lumbosacral4=%@&pelvis2=%@&lumbarcomplete=%@&elbow2=%@&wrist2=%@&hand2=%@&knee2=%@&ankle2=%@&foot2=%@&readotherfilms=%@&cervicalpillow=%@&lumbarsupport=%@&orthoticcustoml=%@&orthoticcustomr=%@&tensunit=%@&coldpack=%@&wristsplint=%@&heellift=%@&exerciseball=%@&exerciseband=%@&unlisteditem=%@&charges=%@&less=%@&balance=%@&payment=%@&paymentcashcheck=%@&amex=%@&discover=%@&mc=%@&visa=%@&cardsign=%@&date1=%@&parentsign=%@&doctorsign=%@&week=%@&months=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientid"],[recorddict objectForKey:@"datefirst"],[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"physicianname"],[recorddict objectForKey:@"RPT"],[recorddict objectForKey:@"PTA"],[recorddict objectForKey:@"Limited"],[recorddict objectForKey:@"Expanded"],[recorddict objectForKey:@"Detailed"],[recorddict objectForKey:@"Extended"],[recorddict objectForKey:@"Ltd"],[recorddict objectForKey:@"Exp"],[recorddict objectForKey:@"Detail"],[recorddict objectForKey:@"comp"],[recorddict objectForKey:@"refexp"],[recorddict objectForKey:@"refdetail"],[recorddict objectForKey:@"refcomp"],[recorddict objectForKey:@"consultexp"],[recorddict objectForKey:@"consultdetail"],[recorddict objectForKey:@"consultcomp"],[recorddict objectForKey:@"brief"],[recorddict objectForKey:@"intermediate"],[recorddict objectForKey:@"consultationcomp"],[recorddict objectForKey:@"mechanical"],[recorddict objectForKey:@"unattended"],[recorddict objectForKey:@"device"],[recorddict objectForKey:@"bath"],[recorddict objectForKey:@"microwave"],[recorddict objectForKey:@"hydrotheraphy"],[recorddict objectForKey:@"diathermy"],[recorddict objectForKey:@"infrared"],[recorddict objectForKey:@"ultraviolet"],[recorddict objectForKey:@"stim"],[recorddict objectForKey:@"iontophoresis"],[recorddict objectForKey:@"contrastbaths"],[recorddict objectForKey:@"ultrasound"],[recorddict objectForKey:@"unlisted"],[recorddict objectForKey:@"exersice"],[recorddict objectForKey:@"re"],[recorddict objectForKey:@"theraphy"],[recorddict objectForKey:@"gait"],[recorddict objectForKey:@"massage"],[recorddict objectForKey:@"manualtheraphy"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"fitting"],[recorddict objectForKey:@"activities"],[recorddict objectForKey:@"selfcare"],[recorddict objectForKey:@"grouptheraphy"],[recorddict objectForKey:@"training"],[recorddict objectForKey:@"wostimulation"],[recorddict objectForKey:@"wstimulation"],[recorddict objectForKey:@"regions1"],[recorddict objectForKey:@"regions2"],[recorddict objectForKey:@"regions3"],[recorddict objectForKey:@"extremity"],[recorddict objectForKey:@"urinalysis"],[recorddict objectForKey:@"muscletest"],[recorddict objectForKey:@"muscletesthand"],[recorddict objectForKey:@"rangeofmotion"],[recorddict objectForKey:@"rangeofmotionhand"],[recorddict objectForKey:@"wofave"],[recorddict objectForKey:@"wfwave"],[recorddict objectForKey:@"sensory"],[recorddict objectForKey:@"upper"],[recorddict objectForKey:@"lower"],[recorddict objectForKey:@"trunk"],[recorddict objectForKey:@"rl"],[recorddict objectForKey:@"test"],[recorddict objectForKey:@"evaluation"],[recorddict objectForKey:@"text1"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"supplies"],[recorddict objectForKey:@"materials"],[recorddict objectForKey:@"testimony"],[recorddict objectForKey:@"insurance"],[recorddict objectForKey:@"conference"],[recorddict objectForKey:@"spine"],[recorddict objectForKey:@"cervicalview1"],[recorddict objectForKey:@"cervicalview2"],[recorddict objectForKey:@"cervicalview3"],[recorddict objectForKey:@"thoracic"],[recorddict objectForKey:@"thoracicview"],[recorddict objectForKey:@"scoliosis"],[recorddict objectForKey:@"lumbview1"],[recorddict objectForKey:@"lumbview2"],[recorddict objectForKey:@"pelvis"],[recorddict objectForKey:@"lumbar"],[recorddict objectForKey:@"elbow"],[recorddict objectForKey:@"wrist"],[recorddict objectForKey:@"hand"],[recorddict objectForKey:@"knee"],[recorddict objectForKey:@"ankle"],[recorddict objectForKey:@"foot"],[recorddict objectForKey:@"readother"],[recorddict objectForKey:@"pillow"],[recorddict objectForKey:@"lumbarsupport"],[recorddict objectForKey:@"orthoticleft"],[recorddict objectForKey:@"orthoticright"],[recorddict objectForKey:@"tensunit"],[recorddict objectForKey:@"coldpack"],[recorddict objectForKey:@"wristsplint"],[recorddict objectForKey:@"heellift"],[recorddict objectForKey:@"exerciseball"],[recorddict objectForKey:@"exerciseband"],[recorddict objectForKey:@"unlisteditem"],[recorddict objectForKey:@"charges"],[recorddict objectForKey:@"less"],[recorddict objectForKey:@"balance"],[recorddict objectForKey:@"payment"],[recorddict objectForKey:@"amt"],[recorddict objectForKey:@"amex"],[recorddict objectForKey:@"discover"],[recorddict objectForKey:@"mc"],[recorddict objectForKey:@"visa"],[recorddict objectForKey:@"cardsign"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"patientsign"],[recorddict objectForKey:@"drsign"],[recorddict objectForKey:@"reshedule"],[recorddict objectForKey:@"months"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     
     
@@ -1336,7 +1336,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1349,18 +1349,18 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1413,10 +1413,10 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1434,7 +1434,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1546,7 +1546,7 @@ NSString *_1,*_2,*_3,*_4,*_5,*_6,*_7;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

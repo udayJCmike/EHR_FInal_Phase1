@@ -74,7 +74,7 @@ if(([temp1 length]!=0)&&
                             [recorddict setValue:accident.text forKey:@"Date of Accident"];
                             [recorddict setValue:dr.text forKey:@"Doctor name"];
                             [recorddict setValue:sign.text forKey:@"Client Sign"];
-                            NSLog(@"Success!!! %@",recorddict);
+                           // NSLog(@"Success!!! %@",recorddict);
                             BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Info!" message:@"Success."];                                                        [alert setDestructiveButtonWithTitle:@"x" block:nil];
                             [alert show];
                             

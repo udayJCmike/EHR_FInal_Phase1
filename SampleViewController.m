@@ -68,7 +68,7 @@
         //[self performSegueWithIdentifier: @"showRecipeDetail" sender: self];
         indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
         Recipe *recipe=[searchResults objectAtIndex:indexPath.row];
-        NSLog(@"value===%@",recipe.username);
+       // NSLog(@"value===%@",recipe.username);
         [[NSUserDefaults standardUserDefaults]setValue:recipe.username forKey:@"username"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
@@ -77,7 +77,7 @@
     else
     {
         Recipe *recipe=[recipes objectAtIndex:indexPath.row];
-        NSLog(@"value===%@",recipe.username);
+       // NSLog(@"value===%@",recipe.username);
         [[NSUserDefaults standardUserDefaults]setValue:recipe.username forKey:@"username"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }

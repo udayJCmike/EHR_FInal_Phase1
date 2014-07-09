@@ -151,7 +151,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+         //   NSLog(@"arraylist count %d",[arrayList1 count]);
             
             
             temp6=[arrayList1 objectForKey:@"insurance"];
@@ -359,7 +359,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 [recorddict setValue:dearname.text forKey:@"doctor name"];
                                 [recorddict setValue:sincname.text forKey:@"doctor signature"];
                                 
-                                NSLog(@"Record dict Value in MedPay:%@",recorddict);
+                              //  NSLog(@"Record dict Value in MedPay:%@",recorddict);
                                 
                                 
                                 
@@ -709,7 +709,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSLog(@"postrequest %@",url);
+   // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

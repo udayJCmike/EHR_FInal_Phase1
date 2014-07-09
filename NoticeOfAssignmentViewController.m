@@ -774,7 +774,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                 
                                                 [recorddict setValue:writingby.text forKey:@"dashfill"];
                                                 
-                                                NSLog(@"Record dict Value in Notice Of an Assignment:%@",recorddict);
+                                               // NSLog(@"Record dict Value in Notice Of an Assignment:%@",recorddict);
                                                 
                                                 
                                             }

@@ -678,8 +678,8 @@
     [recorddict setObject:texty7 forKey:@"seghip7"];
     [recorddict setObject:texty8 forKey:@"seghip8"];
     suc=1;
-    NSLog(@"Record dict in hipkneequestionnaire form two::%@",recorddict);
-    NSLog(@"texty 11 value::%@",texty11);
+//    NSLog(@"Record dict in hipkneequestionnaire form two::%@",recorddict);
+//    NSLog(@"texty 11 value::%@",texty11);
     if(suc==1){
         [self performSegueWithIdentifier:@"hipknee2" sender:self];
     }
@@ -687,7 +687,7 @@
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
+   // NSLog(@"succc value in perform segue %i",suc);
     //NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"hipknee2"])
     {
@@ -712,7 +712,7 @@
     if ([segue.identifier isEqualToString:@"hipknee2"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+       // NSLog(@"succc value in prepre segue %i ",suc);
         HipKneeViewController2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;

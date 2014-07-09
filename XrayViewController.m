@@ -162,7 +162,7 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+          //  NSLog(@"arraylist count %d",[arrayList1 count]);
             
             
             temp6=[arrayList1 objectForKey:@"name"];
@@ -610,7 +610,7 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::%@",recorddict);
+   // NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&name=%@&date=%@&date1=%@&sign=%@&date2=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"Name"],[recorddict objectForKey:@"Date Borrowed"],[recorddict objectForKey:@"Date Due"],[recorddict objectForKey:@"Signature"],[recorddict objectForKey:@"Date"],secondEntity,value2];
@@ -625,7 +625,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSLog(@"postrequest %@",url);
+   // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

@@ -449,7 +449,7 @@
                                                                             
                                                                             [recorddict setValue:patientstatuslabel forKey:@"patientstatus"];
                                                                             [recorddict setValue:otherte.text forKey:@"othertext"];
-                                                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                                                            //NSLog(@"success!!!recorddict %@",recorddict);
                                                                             c=1;
                                                                         }
                                                                         else
@@ -799,18 +799,18 @@
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -883,20 +883,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -937,18 +937,18 @@
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -1021,18 +1021,18 @@
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1099,7 +1099,7 @@
     
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Hipexam.php?service=hipexaminsert";
-    NSLog(@"value of s1left%@",[recorddict objectForKey:@"s1left"]);
+    //NSLog(@"value of s1left%@",[recorddict objectForKey:@"s1left"]);
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&gait=%@&pelvic=%@&ao=%@&dysfuncion=%@&shortlegleft=%@&shortlegleftvalue=%@&shortlegleftother=%@&shortlegright=%@&shortlegrightvalue=%@&shortlegrightother=%@&piriformisleft=%@&gluteusleft=%@&iliopsoasleft=%@&hamstringsleft=%@&note=%@&functional=%@&orthotpedic=%@&flexionleft=%@&flexionright=%@&extensionleft=%@&extensionright=%@&abductionleft=%@&abductionright=%@&adductionleft=%@&adductionright=%@&internalrotationleft=%@&internalrotationright=%@&externalrotationleft=%@&externalrotationright=%@&fabereleft=%@&fabereright=%@&nachlasleft=%@&nachlasright=%@&elysleft=%@&elysright=%@&yeomansleft=%@&yeomansright=%@&obersleft=%@&obersright=%@&hibbsleft=%@&hibbsright=%@&thomasleft=%@&thomasright=%@&neurological=%@&inguinalarealeft=%@&inguinalarearight=%@&antleft=%@&antright=%@&kneeleft=%@&kneeright=%@&medialleft=%@&medialright=%@&latleft=%@&latright=%@&plantarleft=%@&plantarright=%@&iliopsoasfirstleft=%@&iliopsoasfirstright=%@&iliopsoas1left=%@&iliopsoas1right=%@&iliopsoas2left=%@& iliopsoas2right=%@&femleft=%@&femright=%@&medleft=%@&medright=%@&maxleft=%@&maxright=%@&patellarleft=%@&patellarright=%@&hsleft=%@&hsright=%@&achillesleft=%@&achillesright=%@&walking=%@&standing=%@&stairs=%@&other=%@&otherdefict=%@&comments=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&times=%@&weeks=%@&spinaldecompression=%@&chiropractic=%@&physicaltherapy=%@&bracing=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&scan=%@&conduction=%@&emg=%@&outsidereferral=%@&dc=%@&signature=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"gaitl"],[recorddict objectForKey:@"pelvicl"],[recorddict objectForKey:@"aol"],[recorddict objectForKey:@"palpationlabel"],[recorddict objectForKey:@"palleft"],[recorddict objectForKey:@"left"],[recorddict objectForKey:@"palpationleftother"],[recorddict objectForKey:@"palright"],[recorddict objectForKey:@"right"],[recorddict objectForKey:@"palpationrightother"],texty11,texty12,texty13,texty14,othernote.text,[recorddict objectForKey:@"rangeofmotionlabel"],[recorddict objectForKey:@"orthotestinglabel"],[recorddict objectForKey:@"flexionleft"],[recorddict objectForKey:@"flexionright"],[recorddict objectForKey:@"extensionleft"],[recorddict objectForKey:@"extensionright"],[recorddict objectForKey:@"abductionleft"],[recorddict objectForKey:@"abdutionright"],[recorddict objectForKey:@"adductionleft"],[recorddict objectForKey:@"adductionright"],[recorddict objectForKey:@"internalrotationleft"],[recorddict objectForKey:@"internalrotationright"],[recorddict objectForKey:@"externalrotationleft"],[recorddict objectForKey:@"externalrotationright"],[recorddict objectForKey:@"patrickleft"],[recorddict objectForKey:@"patrickright"],[recorddict objectForKey:@"nachlasleft"],[recorddict objectForKey:@"nachlasright"],[recorddict objectForKey:@"elyleft"],[recorddict objectForKey:@"elyright"],[recorddict objectForKey:@"yeomanleft"],[recorddict objectForKey:@"yeomanright"],[recorddict objectForKey:@"oberleft"],[recorddict objectForKey:@"oberright"],[recorddict objectForKey:@"hibbsleft"],[recorddict objectForKey:@"hibbsright"],[recorddict objectForKey:@"thomasleft"],[recorddict objectForKey:@"thomasright"],[recorddict objectForKey:@"neurologicallabel"],[recorddict objectForKey:@"l1left"],[recorddict objectForKey:@"l1right"],[recorddict objectForKey:@"l2left"],[recorddict objectForKey:@"l2right"],[recorddict objectForKey:@"l3left"],[recorddict objectForKey:@"l3right" ],[recorddict objectForKey:@"l4left"],[recorddict objectForKey:@"l4right"],[recorddict objectForKey:@"l5left"],[recorddict objectForKey:@"l5right"],[recorddict objectForKey:@"s1left"],[recorddict objectForKey:@"s1right"],[recorddict objectForKey:@"ml1left"],[recorddict objectForKey:@"ml1right"],[recorddict objectForKey:@"ml2left"],[recorddict objectForKey:@"ml2right"],[recorddict objectForKey:@"ml3left"],[recorddict objectForKey:@"ml3right"],[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"ml4right"],[recorddict objectForKey:@"ml5left"],[recorddict objectForKey:@"ml5right"],[recorddict objectForKey:@"ms1left"],[recorddict objectForKey:@"ms1right"],[recorddict objectForKey:@"ll4left"],[recorddict objectForKey:@"ll4right"],[recorddict objectForKey:@"ll5left"],[recorddict objectForKey:@"ll5right"],[recorddict objectForKey:@"ls1left"],[recorddict objectForKey:@"ls1right"],walking1,standing1,stairs1,other1,otherte.text,addcomments.text,patientstatuslabel,diag1.text,diag2.text,diag3.text,diag4.text,diag5.text,plantime.text,planweek.text,spinal1,chiropractic1,physical1,orthotics1,modalities1,supplementation1,hep1,radiolab ,mri1,ct1,nerve1,emg1,outsidereferral1,d1,physiciansign.text,secondEntity,value2];
     
@@ -1107,11 +1107,11 @@
     
     
     
-    //       NSLog(@"POST:%@",post);
+    //       //NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1130,7 +1130,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1143,7 +1143,7 @@
     NSString *url1=@"Hipexam.php?service=hipexamedit";
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
-    NSLog(@"patient in update%@",patientstatuslabel);
+    //NSLog(@"patient in update%@",patientstatuslabel);
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&gait=%@&pelvic=%@&ao=%@&dysfuncion=%@&shortlegleft=%@&shortlegleftvalue=%@&shortlegleftother=%@&shortlegright=%@&shortlegrightvalue=%@&shortlegrightother=%@&piriformisleft=%@&gluteusleft=%@&iliopsoasleft=%@&hamstringsleft=%@&note=%@&functional=%@&orthotpedic=%@&flexionleft=%@&flexionright=%@&extensionleft=%@&extensionright=%@&abductionleft=%@&abductionright=%@&adductionleft=%@&adductionright=%@&internalrotationleft=%@&internalrotationright=%@&externalrotationleft=%@&externalrotationright=%@&fabereleft=%@&fabereright=%@&nachlasleft=%@&nachlasright=%@&elysleft=%@&elysright=%@&yeomansleft=%@&yeomansright=%@&obersleft=%@&obersright=%@&hibbsleft=%@&hibbsright=%@&thomasleft=%@&thomasright=%@&neurological=%@&inguinalarealeft=%@&inguinalarearight=%@&antleft=%@&antright=%@&kneeleft=%@&kneeright=%@&medialleft=%@&medialright=%@&latleft=%@&latright=%@&plantarleft=%@&plantarright=%@&iliopsoasfirstleft=%@&iliopsoasfirstright=%@&iliopsoas1left=%@&iliopsoas1right=%@&iliopsoas2left=%@& iliopsoas2right=%@&femleft=%@&femright=%@&medleft=%@&medright=%@&maxleft=%@&maxright=%@&patellarleft=%@&patellarright=%@&hsleft=%@&hsright=%@&achillesleft=%@&achillesright=%@&walking=%@&standing=%@&stairs=%@&other=%@&otherdefict=%@&comments=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&times=%@&weeks=%@&spinaldecompression=%@&chiropractic=%@&physicaltherapy=%@&bracing=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&scan=%@&conduction=%@&emg=%@&outsidereferral=%@&dc=%@&signature=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"gaitl"],[recorddict objectForKey:@"pelvicl"],[recorddict objectForKey:@"aol"],[recorddict objectForKey:@"palpationlabel"],[recorddict objectForKey:@"palleft"],[recorddict objectForKey:@"left"],[recorddict objectForKey:@"palpationleftother"],[recorddict objectForKey:@"palright"],[recorddict objectForKey:@"right"],[recorddict objectForKey:@"palpationrightother"],texty11,texty12,texty13,texty14,othernote.text,[recorddict objectForKey:@"rangeofmotionlabel"],[recorddict objectForKey:@"orthotestinglabel"],[recorddict objectForKey:@"flexionleft"],[recorddict objectForKey:@"flexionright"],[recorddict objectForKey:@"extensionleft"],[recorddict objectForKey:@"extensionright"],[recorddict objectForKey:@"abductionleft"],[recorddict objectForKey:@"abdutionright"],[recorddict objectForKey:@"adductionleft"],[recorddict objectForKey:@"adductionright"],[recorddict objectForKey:@"internalrotationleft"],[recorddict objectForKey:@"internalrotationright"],[recorddict objectForKey:@"externalrotationleft"],[recorddict objectForKey:@"externalrotationright"],[recorddict objectForKey:@"patrickleft"],[recorddict objectForKey:@"patrickright"],[recorddict objectForKey:@"nachlasleft"],[recorddict objectForKey:@"nachlasright"],[recorddict objectForKey:@"elyleft"],[recorddict objectForKey:@"elyright"],[recorddict objectForKey:@"yeomanleft"],[recorddict objectForKey:@"yeomanright"],[recorddict objectForKey:@"oberleft"],[recorddict objectForKey:@"oberright"],[recorddict objectForKey:@"hibbsleft"],[recorddict objectForKey:@"hibbsright"],[recorddict objectForKey:@"thomasleft"],[recorddict objectForKey:@"thomasright"],[recorddict objectForKey:@"neurologicallabel"],[recorddict objectForKey:@"l1left"],[recorddict objectForKey:@"l1right"],[recorddict objectForKey:@"l2left"],[recorddict objectForKey:@"l2right"],[recorddict objectForKey:@"l3left"],[recorddict objectForKey:@"l3right" ],[recorddict objectForKey:@"l4left"],[recorddict objectForKey:@"l4right"],[recorddict objectForKey:@"l5left"],[recorddict objectForKey:@"l5right"],[recorddict objectForKey:@"s1left"],[recorddict objectForKey:@"s1right"],[recorddict objectForKey:@"ml1left"],[recorddict objectForKey:@"ml1right"],[recorddict objectForKey:@"ml2left"],[recorddict objectForKey:@"ml2right"],[recorddict objectForKey:@"ml3left"],[recorddict objectForKey:@"ml3right"],[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"ml4right"],[recorddict objectForKey:@"ml5left"],[recorddict objectForKey:@"ml5right"],[recorddict objectForKey:@"ms1left"],[recorddict objectForKey:@"ms1right"],[recorddict objectForKey:@"ll4left"],[recorddict objectForKey:@"ll4right"],[recorddict objectForKey:@"ll5left"],[recorddict objectForKey:@"ll5right"],[recorddict objectForKey:@"ls1left"],[recorddict objectForKey:@"ls1right"],walking1,standing1,stairs1,other1,otherte.text,addcomments.text,patientstatuslabel,diag1.text,diag2.text,diag3.text,diag4.text,diag5.text,plantime.text,planweek.text,spinal1,chiropractic1,physical1,orthotics1,modalities1,supplementation1,hep1,radiolab ,mri1,ct1,nerve1,emg1,outsidereferral1,d1,physiciansign.text,secondEntity,value2];
     
@@ -1152,7 +1152,7 @@
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1170,7 +1170,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1185,10 +1185,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1206,7 +1206,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1230,7 +1230,7 @@
     {
         patientstatuslabel=@"Poor";
     }
-    NSLog(@"value of patientlasbe%@",patientstatuslabel);
+    //NSLog(@"value of patientlasbe%@",patientstatuslabel);
 }
 - (IBAction)checkboxselected:(UIButton *)sender {
     
@@ -1257,14 +1257,14 @@
 
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -1279,7 +1279,7 @@
 {
     
     [super viewDidLoad];
-    //    NSLog(@"hip%@",recorddict);
+    //    //NSLog(@"hip%@",recorddict);
     patientstatuslabel=@"Excellent";
     texty11=@"";
     texty12=@"";
@@ -1724,7 +1724,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -142,7 +142,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                         [recorddict setValue:dearname.text forKey:@"doctor name"];
                                         [recorddict setValue:sincname.text forKey:@"doctor signature"];
                                         [recorddict setValue:todaydate.text forKey:@"today date"];
-                                        NSLog(@"Record dict Value in request fee::%@",recorddict);
+                                       // NSLog(@"Record dict Value in request fee::%@",recorddict);
                                         
                                         BlockAlertView *alert = [BlockAlertView alertWithTitle:@"Oh Snap!" message:@"Success."];
                                         

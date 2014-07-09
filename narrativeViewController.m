@@ -114,14 +114,14 @@
 
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateNames:(NSString *)country1
 {
@@ -262,7 +262,7 @@
     {
         
         
-        NSLog(@"name %@",patientname.text);
+      //  //NSLog(@"name %@",patientname.text);
         
         if([du patname:patientname.text]==1)
             
@@ -325,7 +325,7 @@
                                                             [recorddict setValue:gen1.text  forKey:@"he"];
                                                             [recorddict setValue:his.text forKey:@"his"];
                                                             
-                                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                                         //   //NSLog(@"success!!!recorddict %@",recorddict);
                                                             
                                                             
                                                             
@@ -664,14 +664,14 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"narrativeuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    //   NSLog(@"items1app %d",[items1App count]);
+    //   //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -680,7 +680,7 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            //        NSLog(@"arraylist count %d",[arrayList1 count]);
+            //        //NSLog(@"arraylist count %d",[arrayList1 count]);
             temp=[arrayList1 objectForKey:@"reportdate"];
             temp1 =[arrayList1 objectForKey:@"patient"];
             temp2 =[arrayList1 objectForKey:@"dateofinjury"];
@@ -1065,7 +1065,7 @@
             
         }
         
-        //         NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //         //NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -1084,17 +1084,17 @@
     NSString *resultResponse=[self HttpPostGetdetails1:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"physicalexamuser List"];
     
-    NSLog(@"in detectdata");
+  //  //NSLog(@"in detectdata");
     
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    //   NSLog(@"items1app %d",[items1App count]);
+    //   //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -1103,7 +1103,7 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+          //  //NSLog(@"arraylist count %d",[arrayList1 count]);
             physictemp=[arrayList1 objectForKey:@"age"];
             physictemp1 =[arrayList1 objectForKey:@"sex"];
             physictemp2 =[arrayList1 objectForKey:@"weight1"];
@@ -1140,17 +1140,17 @@
     NSString *resultResponse=[self HttpPostGetdetails2:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"patient_detailsuser List"];
     
-    NSLog(@"in detect pat data");
+    //NSLog(@"in detect pat data");
     
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    NSLog(@"items1app %d",[items1App count]);
+    //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -1164,13 +1164,13 @@
             temp20=[arrayList1 objectForKey:@"Name"];
             [mutearray setObject:temp20 forKey:@"patiname"];
             
-            NSLog(@"mutearray temp 20value::%@",temp20);
+            //NSLog(@"mutearray temp 20value::%@",temp20);
         }
         patientname.text=temp20;
         self.patname.text = temp20;
         self.patname2.text=temp20;
         self.patname3.text=temp20;
-        NSLog(@"mutearray value::%@",mutearray);
+        //NSLog(@"mutearray value::%@",mutearray);
     }
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
@@ -1185,10 +1185,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1206,7 +1206,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1223,10 +1223,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1244,7 +1244,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1260,10 +1260,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1281,7 +1281,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1295,7 +1295,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"narr1"])
     {
         if (a==1)
@@ -1321,8 +1321,8 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.mutearray=mutearray;
-        NSLog(@"recorddict in narrative first page %@",recorddict);
-        NSLog(@"resultset in narrative first page %@",resultset);
+        //NSLog(@"recorddict in narrative first page %@",recorddict);
+        //NSLog(@"resultset in narrative first page %@",resultset);
     }
     
     
@@ -1441,7 +1441,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

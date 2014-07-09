@@ -1489,7 +1489,7 @@
         shoulder1ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in shoulder first %@",recorddict);
+       // NSLog(@"recorddict in shoulder first %@",recorddict);
     }
     
     
@@ -1660,7 +1660,7 @@
     NSDictionary *arrayList1;
     //     To check whether its having data or not
     //   NSLog(@"items1app %d",[items1App count]);
-    NSLog(@"items1app %@",items1App);
+  //  NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         

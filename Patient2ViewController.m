@@ -273,6 +273,7 @@
         helname.text=[resultset objectForKey:@"Name_health"];
         helph.text=[resultset objectForKey:@"Health_phone"];
         optwhen.text=[resultset objectForKey:@"Prev_When"];
+        NSLog(@"type of acc %@",[resultset objectForKey:@"Type_Of_Accident"]);
         if([[resultset objectForKey:@"Type_Of_Accident"]isEqualToString:@"Auto"])
         {
             [seg setSelectedSegmentIndex:0];
@@ -496,6 +497,13 @@
         else
         {
             optwhen.text=@"";
+        }
+        if ([segtype.text isEqualToString:@"Other"]) {
+            
+        }
+        else
+        {
+            other.text=@"";
         }
         if((([other.text length]>0)&&([du otherfields:other.text]==1))||([other.text length]==0))
         {
@@ -802,7 +810,7 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.staff=staff;
-        NSLog(@"record %@",recorddict);
+       // NSLog(@"record %@",recorddict);
     }
     
     

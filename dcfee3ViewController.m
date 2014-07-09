@@ -400,8 +400,8 @@
                                                                                                 [recorddict setValue:ankle.text forKey:@"ankle"];
                                                                                                 [recorddict setValue:foot.text forKey:@"foot"];
                                                                                                 [recorddict setValue:readother.text forKey:@"readother"];
-                                                                                                NSLog(@"success!!!recorddict in dcfee3%@",recorddict);
-                                                                                                NSLog(@"success!!!recorddict in dcfee3%d",[recorddict count]);
+                                                                                                //NSLog(@"success!!!recorddict in dcfee3%@",recorddict);
+                                                                                                //NSLog(@"success!!!recorddict in dcfee3%d",[recorddict count]);
                                                                                                 
                                                                                                 
                                                                                                 c=1;
@@ -783,7 +783,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"dcfee4"])
     {
         if (c==1)
@@ -810,7 +810,7 @@
         dcfee4ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in dcfeedetail3%@",recorddict);
+        //NSLog(@"recorddict in dcfeedetail3%@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -818,14 +818,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 
 - (void)dealloc {
@@ -943,7 +943,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

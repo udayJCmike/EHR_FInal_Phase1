@@ -279,7 +279,7 @@ int suc;
                     [recorddict setObject:texty2 forKey:@"date2"];
                     [recorddict setObject:texty3 forKey:@"ssn3"];
                     [recorddict setObject:texty11 forKey:@"radioselinhipthree4"];
-                    NSLog(@"Record dict in hipkneequestionnaire form three::%@",recorddict);
+                   // NSLog(@"Record dict in hipkneequestionnaire form three::%@",recorddict);
                     suc=1;
                     
                 }
@@ -303,7 +303,7 @@ int suc;
     }
     if (suc==1) {
         
-        NSLog(@"recorddict in hip and knee ques %@",recorddict);
+       // NSLog(@"recorddict in hip and knee ques %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

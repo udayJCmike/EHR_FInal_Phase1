@@ -124,14 +124,14 @@
 
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateDate:(NSString *)country1
 {
@@ -1251,7 +1251,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"radio1"])
     {
         if (a==1)
@@ -1278,8 +1278,8 @@
         
         radiological1ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in radio first %@",recorddict);
-        NSLog(@"size of recorddict:%d",[recorddict count]);
+        //NSLog(@"recorddict in radio first %@",recorddict);
+        //NSLog(@"size of recorddict:%d",[recorddict count]);
     }
     
     
@@ -1551,7 +1551,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

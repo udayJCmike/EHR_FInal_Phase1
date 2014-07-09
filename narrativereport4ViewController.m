@@ -93,14 +93,14 @@
 
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateNames:(NSString *)country1
 {
@@ -564,7 +564,7 @@
                                             [recorddict setValue:gen1.text  forKey:@"genderval"];
                                             
                                             
-                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                          //  //NSLog(@"success!!!recorddict %@",recorddict);
                                             
                                             
                                             
@@ -1054,7 +1054,7 @@
     
     
     //Let's print in the console what the user had chosen;
-    // NSLog(@"Chosen item: %@", [itemsArray objectAtIndex:row]);
+    // //NSLog(@"Chosen item: %@", [itemsArray objectAtIndex:row]);
 }
 - (IBAction)hypoact:(id)sender
 {
@@ -1073,7 +1073,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"narr11"])
     {
         if (a==1)
@@ -1099,7 +1099,7 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.mutearray=mutearray;
-        NSLog(@"recorddict in narrative first page %@",recorddict);
+       // //NSLog(@"recorddict in narrative first page %@",recorddict);
     }
     
     
@@ -1599,7 +1599,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

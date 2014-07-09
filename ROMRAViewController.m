@@ -139,7 +139,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in releaseofmed %@",recorddict);
+      //  NSLog(@"recorddict in releaseofmed %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

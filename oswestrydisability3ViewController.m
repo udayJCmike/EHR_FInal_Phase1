@@ -633,7 +633,7 @@
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&painintensity=%@&standing=%@&personal=%@&sleeping=%@&lifting=%@&life=%@&walking=%@&social=%@&sitting=%@&traveling=%@&comments=%@&name=%@&date=%@&scores=%@&painscale=%@&painscale1=%@&job=%@&joboptional=%@&work=%@&worka=%@&workb=%@&workc=%@&sport=%@&sportoptional=%@&instrument=%@&instrumenta=%@&instrumentb=%@&instrumentc=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"comment"],[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"score"],[recorddict objectForKey:@"painlevel"],[recorddict objectForKey:@"painlevel1"],[recorddict objectForKey:@"jobwork"],[recorddict objectForKey:@"dontwork"],[recorddict objectForKey:@"seg1"],[recorddict objectForKey:@"seg2"],[recorddict objectForKey:@"seg3"],[recorddict objectForKey:@"seg4"],[recorddict objectForKey:@"sport"],[recorddict objectForKey:@"dontplay"],[recorddict objectForKey:@"segsport1"],[recorddict objectForKey:@"segsport2"],[recorddict objectForKey:@"segsport3"],[recorddict objectForKey:@"segsport4"],secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+  //  NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -655,7 +655,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     
@@ -825,7 +825,7 @@
     
     
     
-    NSLog(@"record dict %@",recorddict);
+   // NSLog(@"record dict %@",recorddict);
 }
 - (IBAction)reset:(id)sender
 {

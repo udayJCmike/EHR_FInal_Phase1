@@ -816,7 +816,7 @@
         shoulderpainscore1ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in shoulder first %@",recorddict);
+       // NSLog(@"recorddict in shoulder first %@",recorddict);
     }
     
     

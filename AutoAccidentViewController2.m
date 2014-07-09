@@ -607,7 +607,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty12=[rlleghitlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty13=[unconsiousforlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     texty14=[injuryexplainlabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    c=1;
+   
+    if ([propertydamagelabel.text length]>0) {
+         c=1;
+    
     if((([bodypositionotherlabel.text length]>0)&&([du otherfields:bodypositionotherlabel.text]==1))||([bodypositionotherlabel.text length]==0))
     {
         if((([headpositionotherlabel.text length]>0)&&([du otherfields:headpositionotherlabel.text]==1))||([headpositionotherlabel.text length]==0))
@@ -769,6 +772,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     {
         c=0;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid body position at the time of accident." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+    }
+        }
+    else{
+        c=0;
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Required fields should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        
     }
     
  

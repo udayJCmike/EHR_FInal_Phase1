@@ -125,17 +125,17 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    NSLog(@"response %@",resultResponse);
+    //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-    NSLog(@"luckyNumbers %@",luckyNumbers);
+    //NSLog(@"luckyNumbers %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
-    NSLog(@"itemsApp %@",itemsApp);
+    //NSLog(@"itemsApp %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"thoracicexam List"];
     //     To check whether its having data or not
-    //   NSLog(@"items1app %d",[items1App count]);
+    //   //NSLog(@"items1app %d",[items1App count]);
     
-    NSLog(@"items1app count %lu",(unsigned long)[items1App count]);
-    NSLog(@"items1app %@",items1App);
+    //NSLog(@"items1app count %lu",(unsigned long)[items1App count]);
+    //NSLog(@"items1app %@",items1App);
     
     if ([items1App count]>0)
     {
@@ -143,7 +143,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         for (id anUpdate1 in items1App)
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
-            NSLog(@"Array list %@",arrayList1);
+            //NSLog(@"Array list %@",arrayList1);
             texty1 = [arrayList1 objectForKey:@"pname"];
             texty2 = [arrayList1 objectForKey:@"date"];
             texty3 = [arrayList1 objectForKey:@"muscle"];
@@ -526,7 +526,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -548,7 +548,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
 }
@@ -766,14 +766,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateDate:(NSString *)country1
 {
@@ -1071,8 +1071,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                                                                                                                             [recorddict setValue:check2 forKey:@"secondcheck"];
                                                                                                                                                             [recorddict setValue:check3 forKey:@"thirdcheck"];
                                                                                                                                                             [recorddict setValue:check4 forKey:@"fourthcheck"];
-                                                                                                                                                            NSLog(@"recorddict in thoracic exam controller %@",recorddict);
-                                                                                                                                                            NSLog(@"size of recorddict %d",[recorddict count]);}
+                                                                                                                                                            //NSLog(@"recorddict in thoracic exam controller %@",recorddict);
+                                                                                                                                                            //NSLog(@"size of recorddict %d",[recorddict count]);
+                                                                                                                                                        }
                                                                                                                                                         else{
                                                                                                                                                             suc=0;
                                                                                                                                                             
@@ -1660,8 +1661,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
-    //NSLog(@"identifier %@",identifier);
+    //NSLog(@"succc value in perform segue %i",suc);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"thoracic1"])
     {
         if (suc==1)
@@ -1685,12 +1686,12 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if ([segue.identifier isEqualToString:@"thoracic1"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+        //NSLog(@"succc value in prepre segue %i ",suc);
         ThoracicExamViewController1 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in thoracic exam controller %@",recorddict);
-        NSLog(@"count of thoracic recorddict   %lu",(unsigned long)[recorddict count]);
+        //NSLog(@"recorddict in thoracic exam controller %@",recorddict);
+        //NSLog(@"count of thoracic recorddict   %lu",(unsigned long)[recorddict count]);
         
     }
     
@@ -1870,7 +1871,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

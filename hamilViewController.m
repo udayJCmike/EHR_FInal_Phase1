@@ -161,14 +161,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateDate:(NSString *)country1
 {
@@ -947,7 +947,7 @@
                                         [self performSegueWithIdentifier:@"hami2" sender:self];
                                     }
                                     
-                                    //  NSLog(@"success%@",recorddict);
+                                    //  //NSLog(@"success%@",recorddict);
                                 }
                                 else
                                 {
@@ -1173,8 +1173,8 @@
         
         hami1ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in hmail first %@",recorddict);
-        NSLog(@"recorddict count in hmail first %d",[recorddict count]);
+        //NSLog(@"recorddict in hmail first %@",recorddict);
+        //NSLog(@"recorddict count in hmail first %d",[recorddict count]);
     }
     
     
@@ -1503,7 +1503,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

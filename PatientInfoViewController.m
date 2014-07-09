@@ -297,14 +297,14 @@
 
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateDate:(NSString *)country1
 {
@@ -328,9 +328,9 @@
         NSString *indexvalues=[country11 substringWithRange: NSMakeRange (0, 3)];
         NSString *indexvalues1=[country11 substringWithRange: NSMakeRange (3,2)];
         NSString *indexvalues2=[country11 substringWithRange: NSMakeRange (5,4)];
-        //        NSLog(@"val1 %@",indexvalues);
-        //         NSLog(@"val2 %@",indexvalues1);
-        //         NSLog(@"val3 %@",indexvalues2);
+        //        //NSLog(@"val1 %@",indexvalues);
+        //         //NSLog(@"val2 %@",indexvalues1);
+        //         //NSLog(@"val3 %@",indexvalues2);
         
         if (([indexvalues isEqualToString:@"000"])||([indexvalues1 isEqualToString:@"00"])||([indexvalues2 isEqualToString:@"0000"]))
         {
@@ -429,7 +429,7 @@
         [self Getdata];
     }
     @catch (NSException *exception) {
-        NSLog(@"%@",exception);
+        //NSLog(@"%@",exception);
     }
     @finally {
         
@@ -443,14 +443,14 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"patient_detailsuser List"];
     
     NSString *resultResponse1;
     
-    NSLog(@"datassssss %@",items1App);
+    //NSLog(@"datassssss %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -458,7 +458,7 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist Data %@",arrayList1);
+            //NSLog(@"arraylist Data %@",arrayList1);
             temp=[arrayList1 objectForKey:@"Patient_id"];
             temp1 =[arrayList1 objectForKey:@"Name"];
             temp2 =[arrayList1 objectForKey:@"Date"];
@@ -711,7 +711,7 @@
             
         }
         
-        //         NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //         //NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -722,12 +722,12 @@
         
         NSError *error1;
         SBJSON *json1 = [[SBJSON new] autorelease];
-        //  NSLog(@"response %@",resultResponse1);
+        //  //NSLog(@"response %@",resultResponse1);
         NSDictionary *luckyNumbers1 = [json1 objectWithString:resultResponse1 error:&error1];
         NSDictionary *itemsApp1 = [luckyNumbers1 objectForKey:@"serviceresponse"];
         NSArray *items1App1=[itemsApp1 objectForKey:@"patientinfodiagnosisuser List"];
         
-        NSLog(@"items1app1 %@",items1App1);
+        //NSLog(@"items1app1 %@",items1App1);
         NSMutableArray *sym=[[NSMutableArray alloc]init];
         
         if ([items1App1 count]>0)
@@ -742,7 +742,7 @@
                 
                 
             }
-            NSLog(@"symptom values %@",sym);
+            //NSLog(@"symptom values %@",sym);
             [resultset setObject:sym forKey:@"symptoms"];
             
             
@@ -773,20 +773,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -821,10 +821,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    // NSLog(@"POST:%@ %@",post,url2);
+    // //NSLog(@"POST:%@ %@",post,url2);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -842,7 +842,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //   NSLog(@"data %@",data);
+    //   //NSLog(@"data %@",data);
     
     return data;
     
@@ -857,10 +857,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    // NSLog(@"POST:%@",post);
+    // //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -878,7 +878,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -959,7 +959,7 @@
     {
         c=1;
         
-        NSLog(@"resu %hhd",[du username:temp1]);
+        //NSLog(@"resu %hhd",[du username:temp1]);
         
         if  ([marital.text isEqualToString:@"Single"]) {
             
@@ -1052,7 +1052,7 @@
                                                                         [recorddict setValue:workstate.text forKey:@"workstate"];
                                                                         [recorddict setValue:workzip.text forKey:@"workzipcode"];
                                                                         [recorddict setValue:areyoulabel forKey:@"areyoulabel"];
-                                                                        NSLog(@"label %@",areyoulabel);
+                                                                        //NSLog(@"label %@",areyoulabel);
                                                                         if([areyoulabel isEqual:@"Student"])
                                                                         {
                                                                             c=1;
@@ -1393,8 +1393,8 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.staff=staff;
-        NSLog(@"record in PatientVC first %@",recorddict);
-        NSLog(@"resultset in PatientVC first %@",resultset);
+        //NSLog(@"record in PatientVC first %@",recorddict);
+        //NSLog(@"resultset in PatientVC first %@",resultset);
         // destViewController.delegate=self;
         
     }
@@ -1507,7 +1507,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

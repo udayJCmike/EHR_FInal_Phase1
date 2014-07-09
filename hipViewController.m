@@ -157,14 +157,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(NSString *)HttpPostGetdetails:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
@@ -176,10 +176,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -197,7 +197,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -210,15 +210,15 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    //NSLog(@"response %@",resultResponse);
+    ////NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"hipexamuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    NSLog(@"items1app count %d",[items1App count]);
-    NSLog(@"items1app %@",items1App);
+    //NSLog(@"items1app count %d",[items1App count]);
+    //NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -378,8 +378,8 @@
             [resultset setValue:texty106 forKey:@"signature"];
             
             
-            NSLog(@"resultset count%d",[resultset count]);
-            NSLog(@"value of result set::%@",resultset);
+            //NSLog(@"resultset count%d",[resultset count]);
+            //NSLog(@"value of result set::%@",resultset);
             
             
             patientname.text=texty2;
@@ -1000,7 +1000,7 @@
                                                                                                                                                                                                                                     [recorddict setValue:rightother.text forKey:@"palpationrightother"];
                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                     
-                                                                                                                                                                                                                                    NSLog(@"success!!!recorddict %@",recorddict);
+                                                                                                                                                                                                                                    //NSLog(@"success!!!recorddict %@",recorddict);
                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                     
@@ -2091,7 +2091,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"hip1"])
     {
         if (a==1)
@@ -2118,7 +2118,7 @@
         hip1ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in hip%@",recorddict);
+        //NSLog(@"recorddict in hip%@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -2401,7 +2401,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

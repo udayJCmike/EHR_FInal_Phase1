@@ -503,7 +503,7 @@
     if (c==1)
     {
         [recorddict addEntriesFromDictionary:temp];
-        NSLog(@"record dict values %@",recorddict);
+       // NSLog(@"record dict values %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

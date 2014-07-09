@@ -499,15 +499,15 @@ int a;
     a=1;
 
     [self performSegueWithIdentifier:@"moretest2" sender:self];
-    NSLog(@"recoed dict in second:::%@",recorddict);
-    NSLog(@"size of record dict in second:::%d",[recorddict count]);
+    //NSLog(@"recoed dict in second:::%@",recorddict);
+    //NSLog(@"size of record dict in second:::%d",[recorddict count]);
     
     
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"moretest2"])
     {
         if (a==1)
@@ -535,8 +535,8 @@ int a;
         TestMoreViewController2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
          destViewController.moretestdict=moretestdict;
-        NSLog(@"recorddict in radio second %@",recorddict);
-        NSLog(@"size of recorddict:%d",[recorddict count]);
+        //NSLog(@"recorddict in radio second %@",recorddict);
+        //NSLog(@"size of recorddict:%d",[recorddict count]);
     }
     
     
@@ -705,7 +705,7 @@ int a;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

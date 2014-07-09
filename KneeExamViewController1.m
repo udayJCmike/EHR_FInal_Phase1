@@ -478,14 +478,14 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(void)dismissKeyboard {
        printView.hidden = YES;
@@ -712,7 +712,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
                                                                                                                                     
                                                                                                                                     
                                                                                                                                     
-                                                                                                                                    NSLog(@"Dicionary in knee form two::%@",recorddict);
+                                                                                                                                    //NSLog(@"Dicionary in knee form two::%@",recorddict);
                                                                                                                                     
                                                                                                                                 }
                                                                                                                                 else{
@@ -1158,8 +1158,8 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
-    //NSLog(@"identifier %@",identifier);
+    //NSLog(@"succc value in perform segue %i",suc);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"kneeexam1"])
     {
         if (suc==1)
@@ -1183,12 +1183,12 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
     if ([segue.identifier isEqualToString:@"kneeexam1"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+        //NSLog(@"succc value in prepre segue %i ",suc);
         KneeExamViewController2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in knee exam controller 2nd page %@",recorddict);
-        NSLog(@"count of recorddict::%d",[recorddict count]);
+        //NSLog(@"recorddict in knee exam controller 2nd page %@",recorddict);
+        //NSLog(@"count of recorddict::%d",[recorddict count]);
         // destViewController.delegate=self;
         
     }
@@ -1335,7 +1335,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

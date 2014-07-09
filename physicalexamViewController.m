@@ -636,7 +636,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     [recorddict setValue:texty18 forKey:@"posture"];
                                     [recorddict setValue:texty19 forKey:@"romber"];
                                     [recorddict setValue:texty20 forKey:@"cnexam"];
-                                    NSLog(@"Record dict Value in Physical Exam:%@",recorddict);
+                                  //  NSLog(@"Record dict Value in Physical Exam:%@",recorddict);
                                     suc=1;
                                     
                                 }

@@ -124,16 +124,16 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    NSLog(@"response %@",json);
+  //  NSLog(@"response %@",json);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
-    NSLog(@"luckynumbers %@",luckyNumbers);
+   /// NSLog(@"luckynumbers %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
-    NSLog(@"items app %@",itemsApp);
+   // NSLog(@"items app %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"letterofprotectionuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    NSLog(@"items1app %d",[items1App count]);
+  //  NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -142,7 +142,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+          //  NSLog(@"arraylist count %d",[arrayList1 count]);
             
             
             temp10=[arrayList1 objectForKey:@"date"];
@@ -726,7 +726,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSLog(@"postrequest %@",url);
+   // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

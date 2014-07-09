@@ -174,7 +174,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in Hippa %@",recorddict);
+       // NSLog(@"recorddict in Hippa %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

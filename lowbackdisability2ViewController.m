@@ -207,10 +207,10 @@
         t=(aa+bb+cc)*2;
     result1=noofattend*10;
     exe=(float)(t)/(float)(result1);
-    NSLog(@"exe val %f",exe);
+   // NSLog(@"exe val %f",exe);
     
     if (exe) {
-        NSLog(@"nan exe val %f",exe);
+       // NSLog(@"nan exe val %f",exe);
         disab.text=[NSString stringWithFormat:@"( %d * 2) / ( %d * 10 ) = %f %% ADL ",result,noofattend,exe];
     }
     else
@@ -536,7 +536,7 @@
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&pname=%@&date=%@&tolerate=%@&withoutpain=%@&withoutcausingpain=%@&sleepingwell=%@&canlift=%@&normal=%@&walkingdistance=%@&withoutextrapain=%@&cansit=%@&rapidlybetter=%@&score=%@&section=%@&adl=%@&adl2=%@&comment=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"totalscore"],[recorddict objectForKey:@"sections"],[recorddict objectForKey:@"result"],@"",comments.text,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+  //  NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -558,7 +558,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     

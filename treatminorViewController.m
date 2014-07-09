@@ -65,14 +65,14 @@ int a;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)dateexpress:(NSString *)country1
 {
@@ -177,7 +177,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in consent to treat a minor form %@",recorddict);
+        //NSLog(@"recorddict in consent to treat a minor form %@",recorddict);
         
         
         UIButton *buton=(UIButton*)sender;
@@ -191,7 +191,7 @@ int a;
             //        [self updatedata];
             if ([[self submitvalues]isEqualToString:@"success"])
             {
-                NSLog(@"in insertdata");
+                //NSLog(@"in insertdata");
                 [self insertdata];
             }
             
@@ -231,34 +231,34 @@ int a;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers in insert== nil");
+        //NSLog(@"luckyNumbers in insert== nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
-        NSLog(@"before 1st if");
+        //NSLog(@"before 1st if");
         // if ([[menu objectForKey:@"servicename"] isEqualToString:@"consentminor Data"])
         if ([[menu objectForKey:@"servicename"] isEqualToString:@"consentminor Data"])
         {
             
             
-            NSLog(@"before 2nd if");
+            //NSLog(@"before 2nd if");
             if ([[menu objectForKey:@"success"] isEqualToString:@"Yes"])
             {
                 
-                NSLog(@"luckyNumbers befor hud");
+                //NSLog(@"luckyNumbers befor hud");
                 [HUD hide:YES];
                 
-                NSLog(@"uckyNumbers after hud");
+                //NSLog(@"uckyNumbers after hud");
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarSuccessTitle description:@"Form submission successful." type:TWMessageBarMessageTypeSuccess statusBarStyle:UIStatusBarStyleDefault callback:nil];
                 [self cancel:self];
@@ -292,18 +292,18 @@ int a;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            NSLog(@"luckyNumbers in delete == nil");
+            //NSLog(@"luckyNumbers in delete == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -338,18 +338,18 @@ int a;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers == nil");
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -480,20 +480,20 @@ int a;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -525,14 +525,14 @@ int a;
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"consentminoruser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    //   NSLog(@"items1app %d",[items1App count]);
+    //   //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -541,7 +541,7 @@ int a;
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            //        NSLog(@"arraylist count %d",[arrayList1 count]);
+            //        //NSLog(@"arraylist count %d",[arrayList1 count]);
             temp=[arrayList1 objectForKey:@"minor_no"];
             temp1 =[arrayList1 objectForKey:@"username"];
             temp2 =[arrayList1 objectForKey:@"guardian"];
@@ -566,7 +566,7 @@ int a;
         cancel1.hidden=YES;
         cancel2.hidden=NO;
         
-        //         NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        //         //NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -594,10 +594,10 @@ int a;
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&guardian=%@&age=%@&Drname=%@&signed=%@&pdate=%@&pwitness=%@&%@=%@",firstEntity,value1,patientName.text,age.text,drname.text,sign.text,date.text,witness.text,secondEntity,value2];
     
     
-    //  NSLog(@"POST:%@",post);
+    //  //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -615,7 +615,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -630,10 +630,10 @@ int a;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&guardian=%@&age=%@&Drname=%@&signed=%@&pdate=%@&pwitness=%@&%@=%@",firstEntity,value1,patientName.text,age.text,drname.text,sign.text,date.text,witness.text,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -651,7 +651,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -666,10 +666,10 @@ int a;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -687,7 +687,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -703,10 +703,10 @@ int a;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -724,7 +724,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -793,7 +793,7 @@ int a;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

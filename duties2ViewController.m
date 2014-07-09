@@ -107,6 +107,564 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     else{
         [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     }
+    if (!button1.selected) {
+        button6.hidden=NO;
+        button13.hidden=NO;
+        button20.hidden=NO;
+        button27.hidden=NO;
+        button34.hidden=NO;
+        lab1.hidden=NO;
+        lab6.hidden=NO;
+        lab13 .hidden=NO;
+        lab20.hidden=NO;
+        lab27.hidden=NO;
+        lab34.hidden=NO;
+    }
+    else
+    {
+        button6.hidden=YES;
+        button13.hidden=YES;
+        button20.hidden=YES;
+        button27.hidden=YES;
+        button34.hidden=YES;
+        lab1.hidden=YES;
+        lab6.hidden=YES;
+        lab13 .hidden=YES;
+        lab20.hidden=YES;
+        lab27.hidden=YES;
+        lab34.hidden=YES;
+    }
+    if (!button2.selected) {
+        button7.hidden=NO;
+        button14.hidden=NO;
+        button21.hidden=NO;
+        button28.hidden=NO;
+        button35.hidden=NO;
+        lab2.hidden=NO;
+        lab7.hidden=NO;
+        lab14.hidden=NO;
+        lab21.hidden=NO;
+        lab28.hidden=NO;
+        lab35.hidden=NO;
+    }
+    else
+    {
+        button7.hidden=YES;
+        button14.hidden=YES;
+        button21.hidden=YES;
+        button28.hidden=YES;
+        button35.hidden=YES;
+        lab2.hidden=YES;
+        lab7.hidden=YES;
+        lab14.hidden=YES;
+        lab21.hidden=YES;
+        lab28.hidden=YES;
+        lab35.hidden=YES;
+    }
+
+    if (!button3.selected) {
+        button8.hidden=NO;
+        button15.hidden=NO;
+        button22.hidden=NO;
+        button29.hidden=NO;
+        button36.hidden=NO;
+        lab3.hidden=NO;
+        lab8.hidden=NO;
+        lab15.hidden=NO;
+        lab22.hidden=NO;
+        lab29.hidden=NO;
+        lab36.hidden=NO;
+    }
+    else
+    {
+        button8.hidden=YES;
+        button15.hidden=YES;
+        button22.hidden=YES;
+        button29.hidden=YES;
+        button36.hidden=YES;
+        lab3.hidden=YES;
+        lab8.hidden=YES;
+        lab15.hidden=YES;
+        lab22.hidden=YES;
+        lab29.hidden=YES;
+        lab36.hidden=YES;
+    }
+
+    if (!button4.selected) {
+        button9.hidden=NO;
+        button16.hidden=NO;
+        button23.hidden=NO;
+        button30.hidden=NO;
+        button37.hidden=NO;
+        lab4.hidden=NO;
+        lab9.hidden=NO;
+        lab16.hidden=NO;
+        lab23.hidden=NO;
+        lab30.hidden=NO;
+        lab37.hidden=NO;
+    }
+    else
+    {
+        button9.hidden=YES;
+        button16.hidden=YES;
+        button23.hidden=YES;
+        button30.hidden=YES;
+        button37.hidden=YES;
+        lab4.hidden=YES;
+        lab9.hidden=YES;
+        lab16.hidden=YES;
+        lab23.hidden=YES;
+        lab30.hidden=YES;
+        lab37.hidden=YES;
+    }
+
+    if (!button5.selected) {
+        button10.hidden=NO;
+        button17.hidden=NO;
+        button24.hidden=NO;
+        button31.hidden=NO;
+        button38.hidden=NO;
+        lab5.hidden=NO;
+        lab10.hidden=NO;
+        lab17.hidden=NO;
+        lab24.hidden=NO;
+        lab31.hidden=NO;
+        lab38.hidden=NO;
+    }
+    else
+    {
+        button10.hidden=YES;
+        button17.hidden=YES;
+        button24.hidden=YES;
+        button31.hidden=YES;
+        button38.hidden=YES;
+        lab5.hidden=YES;
+        lab10.hidden=YES;
+        lab17.hidden=YES;
+        lab24.hidden=YES;
+        lab31.hidden=YES;
+        lab38.hidden=YES;
+    }
+
+    if (!button41.selected) {
+        button48.hidden=NO;
+        button57.hidden=NO;
+        button66.hidden=NO;
+        button75.hidden=NO;
+        button84.hidden=NO;
+        lab41.hidden=NO;
+        lab48.hidden=NO;
+        lab57.hidden=NO;
+        lab66.hidden=NO;
+        lab75.hidden=NO;
+        lab84.hidden=NO;
+    }
+    else
+    {
+        button48.hidden=YES;
+        button57.hidden=YES;
+        button66.hidden=YES;
+        button75.hidden=YES;
+        button84.hidden=YES;
+        lab41.hidden=YES;
+        lab48.hidden=YES;
+        lab57.hidden=YES;
+        lab66.hidden=YES;
+        lab75.hidden=YES;
+        lab84.hidden=YES;
+    }
+
+    if (!button42.selected) {
+        button49.hidden=NO;
+        button58.hidden=NO;
+        button67.hidden=NO;
+        button76.hidden=NO;
+        button85.hidden=NO;
+        lab42.hidden=NO;
+        lab49.hidden=NO;
+        lab58.hidden=NO;
+        lab67.hidden=NO;
+        lab76.hidden=NO;
+        lab85.hidden=NO;
+    }
+    else
+    {
+        button49.hidden=YES;
+        button58.hidden=YES;
+        button67.hidden=YES;
+        button76.hidden=YES;
+        button85.hidden=YES;
+        lab42.hidden=YES;
+        lab49.hidden=YES;
+        lab58.hidden=YES;
+        lab67.hidden=YES;
+        lab76.hidden=YES;
+        lab85.hidden=YES;
+    }
+
+    if (!button43.selected) {
+        button50.hidden=NO;
+        button59.hidden=NO;
+        button68.hidden=NO;
+        button77.hidden=NO;
+        button86.hidden=NO;
+        lab43.hidden=NO;
+        lab50.hidden=NO;
+        lab59.hidden=NO;
+        lab68.hidden=NO;
+        lab77.hidden=NO;
+        lab86.hidden=NO;
+    }
+    else
+    {
+        button50.hidden=YES;
+        button59.hidden=YES;
+        button68.hidden=YES;
+        button77.hidden=YES;
+        button86.hidden=YES;
+        lab43.hidden=YES;
+        lab50.hidden=YES;
+        lab59.hidden=YES;
+        lab68.hidden=YES;
+        lab77.hidden=YES;
+        lab86.hidden=YES;
+    }
+
+    if (!button44.selected) {
+        button51.hidden=NO;
+        button60.hidden=NO;
+        button69.hidden=NO;
+        button78.hidden=NO;
+        button87.hidden=NO;
+        lab44.hidden=NO;
+        lab51.hidden=NO;
+        lab60.hidden=NO;
+        lab69.hidden=NO;
+        lab78.hidden=NO;
+        lab87.hidden=NO;
+    }
+    else
+    {
+        button51.hidden=YES;
+        button60.hidden=YES;
+        button69.hidden=YES;
+        button78.hidden=YES;
+        button87.hidden=YES;
+        lab44.hidden=YES;
+        lab51.hidden=YES;
+        lab60.hidden=YES;
+        lab69.hidden=YES;
+        lab78.hidden=YES;
+        lab87.hidden=YES;
+    }
+
+    if (!button45.selected) {
+        button52.hidden=NO;
+        button61.hidden=NO;
+        button70.hidden=NO;
+        button79.hidden=NO;
+        button88.hidden=NO;
+        lab45.hidden=NO;
+        lab52.hidden=NO;
+        lab61.hidden=NO;
+        lab70.hidden=NO;
+        lab79.hidden=NO;
+        lab88.hidden=NO;
+    }
+    else
+    {
+        button52.hidden=YES;
+        button61.hidden=YES;
+        button70.hidden=YES;
+        button79.hidden=YES;
+        button88.hidden=YES;
+        lab45.hidden=YES;
+        lab52.hidden=YES;
+        lab61.hidden=YES;
+        lab70.hidden=YES;
+        lab79.hidden=YES;
+        lab88.hidden=YES;
+    }
+
+    if (!button46.selected) {
+        button53.hidden=NO;
+        button62.hidden=NO;
+        button71.hidden=NO;
+        button80.hidden=NO;
+        button89.hidden=NO;
+        lab46.hidden=NO;
+        lab53.hidden=NO;
+        lab62.hidden=NO;
+        lab71.hidden=NO;
+        lab80.hidden=NO;
+        lab89.hidden=NO;
+    }
+    else
+    {
+        button53.hidden=YES;
+        button62.hidden=YES;
+        button71.hidden=YES;
+        button80.hidden=YES;
+        button89.hidden=YES;
+        lab46.hidden=YES;
+        lab53.hidden=YES;
+        lab62.hidden=YES;
+        lab71.hidden=YES;
+        lab80.hidden=YES;
+        lab89.hidden=YES;
+    }
+
+    if (!button47.selected) {
+        button54.hidden=NO;
+        button63.hidden=NO;
+        button72.hidden=NO;
+        button81.hidden=NO;
+        button90.hidden=NO;
+        lab47.hidden=NO;
+        lab54.hidden=NO;
+        lab63.hidden=NO;
+        lab72.hidden=NO;
+        lab81.hidden=NO;
+        lab90.hidden=NO;
+    }
+    else
+    {
+        button54.hidden=YES;
+        button63.hidden=YES;
+        button72.hidden=YES;
+        button81.hidden=YES;
+        button90.hidden=YES;
+        lab47.hidden=YES;
+        lab54.hidden=YES;
+        lab63.hidden=YES;
+        lab72.hidden=YES;
+        lab81.hidden=YES;
+        lab90.hidden=YES;
+    }
+
+    if (!button93.selected) {
+        button97.hidden=NO;
+        button103.hidden=NO;
+        button109.hidden=NO;
+        button115.hidden=NO;
+        button121.hidden=NO;
+        lab93.hidden=NO;
+        lab97.hidden=NO;
+        lab103.hidden=NO;
+        lab109.hidden=NO;
+        lab115.hidden=NO;
+        lab121.hidden=NO;
+    }
+    else
+    {
+        button97.hidden=YES;
+        button103.hidden=YES;
+        button109.hidden=YES;
+        button115.hidden=YES;
+        button121.hidden=YES;
+        lab93.hidden=YES;
+        lab97.hidden=YES;
+        lab103.hidden=YES;
+        lab109.hidden=YES;
+        lab115.hidden=YES;
+        lab121.hidden=YES;
+    }
+
+    if (!button94.selected) {
+        button98.hidden=NO;
+        button104.hidden=NO;
+        button110.hidden=NO;
+        button116.hidden=NO;
+        button122.hidden=NO;
+        lab94.hidden=NO;
+        lab98.hidden=NO;
+        lab104.hidden=NO;
+        lab110.hidden=NO;
+        lab116.hidden=NO;
+        lab122.hidden=NO;
+    }
+    else
+    {
+        button98.hidden=YES;
+        button104.hidden=YES;
+        button110.hidden=YES;
+        button116.hidden=YES;
+        button122.hidden=YES;
+        lab94.hidden=YES;
+        lab98.hidden=YES;
+        lab104.hidden=YES;
+        lab110.hidden=YES;
+        lab116.hidden=YES;
+        lab122.hidden=YES;
+    }
+
+    if (!button95.selected) {
+        button99.hidden=NO;
+        button105.hidden=NO;
+        button111.hidden=NO;
+        button117.hidden=NO;
+        button123.hidden=NO;
+        lab95.hidden=NO;
+        lab99.hidden=NO;
+        lab105.hidden=NO;
+        lab111.hidden=NO;
+        lab117.hidden=NO;
+        lab123.hidden=NO;
+    }
+    else
+    {
+        button99.hidden=YES;
+        button105.hidden=YES;
+        button111.hidden=YES;
+        button117.hidden=YES;
+        button123.hidden=YES;
+        lab95.hidden=YES;
+        lab99.hidden=YES;
+        lab105.hidden=YES;
+        lab111.hidden=YES;
+        lab117.hidden=YES;
+        lab123.hidden=YES;
+    }
+
+    if (!button96.selected) {
+        button100.hidden=NO;
+        button106.hidden=NO;
+        button112.hidden=NO;
+        button118.hidden=NO;
+        button124.hidden=NO;
+        lab96.hidden=NO;
+        lab100.hidden=NO;
+        lab106.hidden=NO;
+        lab112.hidden=NO;
+        lab118.hidden=NO;
+        lab124.hidden=NO;
+    }
+    else
+    {
+        button100.hidden=YES;
+        button106.hidden=YES;
+        button112.hidden=YES;
+        button118.hidden=YES;
+        button124.hidden=YES;
+        lab96.hidden=YES;
+        lab100.hidden=YES;
+        lab106.hidden=YES;
+        lab112.hidden=YES;
+        lab118.hidden=YES;
+        lab124.hidden=YES;
+    }
+    if (!button127.selected) {
+        button131.hidden=NO;
+        button137.hidden=NO;
+        button143.hidden=NO;
+        button149.hidden=NO;
+        button155.hidden=NO;
+        lab127.hidden=NO;
+        lab131.hidden=NO;
+        lab137.hidden=NO;
+        lab143.hidden=NO;
+        lab149.hidden=NO;
+        lab155.hidden=NO;
+    }
+    else
+    {
+        button131.hidden=YES;
+        button137.hidden=YES;
+        button143.hidden=YES;
+        button149.hidden=YES;
+        button155.hidden=YES;
+        lab127.hidden=YES;
+        lab131.hidden=YES;
+        lab137.hidden=YES;
+        lab143.hidden=YES;
+        lab149.hidden=YES;
+        lab155.hidden=YES;
+    }
+    if (!button128.selected) {
+        button132.hidden=NO;
+        button138.hidden=NO;
+        button144.hidden=NO;
+        button150.hidden=NO;
+        button156.hidden=NO;
+        lab128.hidden=NO;
+        lab132.hidden=NO;
+        lab138.hidden=NO;
+        lab144.hidden=NO;
+        lab150.hidden=NO;
+        lab156.hidden=NO;
+    }
+    else
+    {
+        button132.hidden=YES;
+        button138.hidden=YES;
+        button144.hidden=YES;
+        button150.hidden=YES;
+        button156.hidden=YES;
+        lab128.hidden=YES;
+        lab132.hidden=YES;
+        lab138.hidden=YES;
+        lab144.hidden=YES;
+        lab150.hidden=YES;
+        lab156.hidden=YES;
+    }
+    if (!button129.selected) {
+         button133.hidden=NO;
+        button139.hidden=NO;
+        button145.hidden=NO;
+        button151.hidden=NO;
+        button157.hidden=NO;
+        lab129.hidden=NO;
+        lab133.hidden=NO;
+        lab139.hidden=NO;
+        lab145.hidden=NO;
+        lab151.hidden=NO;
+        lab157.hidden=NO;
+    }
+    else
+    {
+        button133.hidden=YES;
+        button139.hidden=YES;
+        button145.hidden=YES;
+        button151.hidden=YES;
+        button157.hidden=YES;
+        lab129.hidden=YES;
+        lab133.hidden=YES;
+        lab139.hidden=YES;
+        lab145.hidden=YES;
+        lab151.hidden=YES;
+        lab157.hidden=YES;
+    }
+    if (!button130.selected) {
+        button134.hidden=NO;
+        button140.hidden=NO;
+        button146.hidden=NO;
+        button152.hidden=NO;
+        button158.hidden=NO;
+        lab130.hidden=NO;
+        lab134.hidden=NO;
+        lab140.hidden=NO;
+        lab146.hidden=NO;
+        lab152.hidden=NO;
+        lab158.hidden=NO;
+    }
+    else
+    {
+        button134.hidden=YES;
+        button140.hidden=YES;
+        button146.hidden=YES;
+        button152.hidden=YES;
+        button158.hidden=YES;
+        lab130.hidden=YES;
+        lab134.hidden=YES;
+        lab140.hidden=YES;
+        lab146.hidden=YES;
+        lab152.hidden=YES;
+        lab158.hidden=YES;
+    }
+
+
+    
+    
     
 }
 - (IBAction)cancel:(id)sender {
@@ -4439,365 +4997,400 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             //            NSLog(@"value of temp70:%@",temp70);
             
             
+            
             if([temp5 isEqualToString:@"null"]){
+                button1.selected=NO;
                 [button1 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                [self checkboxSelected:nil];
+                
                 
             }
             else{
+                button1.selected=YES;
                 [button1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             
             if([temp6 isEqualToString:@"null"]){
                 [button6 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button6 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                [self checkboxSelected:nil];
                 
             }
             
             if([temp7 isEqualToString:@"null"]){
                 [button13 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button13 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp8 isEqualToString:@"null"]){
                 [button20 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button20 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp9 isEqualToString:@"null"]){
                 [button27 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button27 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp10 isEqualToString:@"null"]){
                 [button34 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button34 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp11 isEqualToString:@"null"]){
+                button2.selected=NO;
                 [button2 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
+                button2.selected=YES;
                 [button2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp12 isEqualToString:@"null"]){
                 [button7 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button7 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp13 isEqualToString:@"null"]){
                 [button14 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button14 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp14 isEqualToString:@"null"]){
                 [button21 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button21 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp15 isEqualToString:@"null"]){
                 [button28 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button28 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp16 isEqualToString:@"null"]){
                 [button35 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button35 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp17 isEqualToString:@"null"]){
                 [button3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                button3.selected=NO;
+                 [self checkboxSelected:nil];
             }
             else{
                 [button3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                button3.selected=YES;
+                 [self checkboxSelected:nil];
             }
             
             if([temp18 isEqualToString:@"null"]){
                 [button8 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button8 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             if([temp19 isEqualToString:@"null"]){
                 [button15 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button15 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             
             if([temp20 isEqualToString:@"null"]){
                 [button22 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button22 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp21 isEqualToString:@"null"]){
                 [button29 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button29 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp22 isEqualToString:@"null"]){
                 [button36 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button36 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             if([temp23 isEqualToString:@"null"]){
                 [button4 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                button4.selected=NO;
+                [self checkboxSelected:nil];
             }
             else{
                 [button4 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button4.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
             if([temp24 isEqualToString:@"null"]){
                 [button9 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button9 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp25 isEqualToString:@"null"]){
                 [button16 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button16 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp26 isEqualToString:@"null"]){
                 [button23 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             else{
                 [button23 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp27 isEqualToString:@"null"]){
                 [button30 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button30 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp28 isEqualToString:@"null"]){
                 [button37 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button37 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp29 isEqualToString:@"null"]){
                 [button5 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                button5.selected=NO;
+                 [self checkboxSelected:nil];
             }
             else{
                 [button5 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                button5.selected=YES;
+                [self checkboxSelected:nil];
             }
             
             if([temp30 isEqualToString:@"null"]){
                 [button10 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button10 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
+                [self checkboxSelected:nil];
             }
             
             if([temp31 isEqualToString:@"null"]){
                 [button17 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             else{
                 [button17 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             
             if([temp32 isEqualToString:@"null"]){
                 [button24 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             else{
                 [button24 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             if([temp33 isEqualToString:@"null"]){
                 [button31 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button31 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             
             if([temp34 isEqualToString:@"null"]){
                 [button38 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button38 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             if([temp36 isEqualToString:@"null"]){
+                 [self checkboxSelected:nil];
                 [button11 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
                 [button11 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             
             if([temp37 isEqualToString:@"null"]){
+                 [self checkboxSelected:nil];
                 [button18 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
                 [button18 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             if([temp38 isEqualToString:@"null"]){
                 [button25 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button25 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp39 isEqualToString:@"null"]){
                 [button32 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button32 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp40 isEqualToString:@"null"]){
                 [button39 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button39 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp42 isEqualToString:@"null"]){
                 [button12 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button12 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp43 isEqualToString:@"null"]){
                 [button19 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button19 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             
             if([temp44 isEqualToString:@"null"]){
                 [button26 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                [self checkboxSelected:nil];
             }
             else{
                 [button26 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp45 isEqualToString:@"null"]){
                 [button33 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button33 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             if([temp46 isEqualToString:@"null"]){
                 [button40 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-                
+                 [self checkboxSelected:nil];
             }
             else{
                 [button40 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                [self checkboxSelected:nil];
                 
             }
             
             if([temp47 isEqualToString:@"null"]){
+                button41.selected=NO;
                 [button41 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
+                button41.selected=YES;
                 [button41 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             
             if([temp48 isEqualToString:@"null"]){
                 [button48 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                 [self checkboxSelected:nil];
                 
             }
             else{
@@ -4841,10 +5434,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp53 isEqualToString:@"null"]){
                 [button42 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button42.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button42 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button42.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
@@ -4891,10 +5488,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp59 isEqualToString:@"null"]){
                 [button43 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button43.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button43 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button43.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
@@ -4943,10 +5544,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp65 isEqualToString:@"null"]){
                 [button44 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button44.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button44 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button44.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             if([temp66 isEqualToString:@"null"]){
@@ -4994,10 +5599,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp71 isEqualToString:@"null"]){
                 [button45 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button45.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button45 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button45.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
@@ -5046,10 +5655,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             if([temp77 isEqualToString:@"null"]){
                 [button46 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button46.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button46 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button46.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
@@ -5097,10 +5710,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             
             if([temp83 isEqualToString:@"null"]){
+                button47.selected=NO;
+                 [self checkboxSelected:nil];
                 [button47 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button47.selected=YES;
+                 [self checkboxSelected:nil];
                 [button47 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5230,10 +5847,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp101 isEqualToString:@"null"]){
+                button93.selected=NO;
+                 [self checkboxSelected:nil];
                 [button93 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button93.selected=YES;
+                 [self checkboxSelected:nil];
                 [button93 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5281,10 +5902,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp107 isEqualToString:@"null"]){
                 [button94 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button94.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button94 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button94.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             if([temp108 isEqualToString:@"null"]){
@@ -5330,10 +5955,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             if([temp113 isEqualToString:@"null"]){
                 [button95 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+                button95.selected=NO;
+                 [self checkboxSelected:nil];
                 
             }
             else{
                 [button95 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
+                button95.selected=YES;
+                 [self checkboxSelected:nil];
                 
             }
             
@@ -5379,10 +6008,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp119 isEqualToString:@"null"]){
+                button96.selected=NO;
+                 [self checkboxSelected:nil];
                 [button96 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button96.selected=YES;
+                 [self checkboxSelected:nil];
                 [button96 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5512,10 +6145,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             }
             
             if([temp137 isEqualToString:@"null"]){
+                button127.selected=NO;
+                 [self checkboxSelected:nil];
                 [button127 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button127.selected=YES;
+                 [self checkboxSelected:nil];
                 [button127 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5561,10 +6198,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp143 isEqualToString:@"null"]){
+                button128.selected=NO;
+                 [self checkboxSelected:nil];
                 [button128 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button128.selected=YES;
+                 [self checkboxSelected:nil];
                 [button128 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5611,10 +6252,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp149 isEqualToString:@"null"]){
+                button129.selected=NO;
+                 [self checkboxSelected:nil];
                 [button129 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button129.selected=YES;
+                 [self checkboxSelected:nil];
                 [button129 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5660,10 +6305,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp155 isEqualToString:@"null"]){
+                button130.selected=NO;
+                 [self checkboxSelected:nil];
                 [button130 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button130.selected=YES;
+                 [self checkboxSelected:nil];
                 [button130 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -5785,10 +6434,14 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 
             }
             if([temp172 isEqualToString:@"null"]){
+                button160.selected=NO;
+                 [self checkboxSelected:nil];
                 [button160 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 
             }
             else{
+                button160.hidden=YES;
+                 [self checkboxSelected:nil];
                 [button160 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 
             }
@@ -6408,7 +7061,237 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     other5.text=@"";
     other6.text=@"";
     other7.text=@"";
-    
+    for (UIView *view in [self.view subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *but=(UIButton *)view;
+            if (but.tag==0) {
+                
+            
+            but.selected=NO;
+            [but setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
+            }
+        }
+    }
+    button6.hidden=NO;
+    button13.hidden=NO;
+    button20.hidden=NO;
+    button27.hidden=NO;
+    button34.hidden=NO;
+    lab1.hidden=NO;
+    lab6.hidden=NO;
+    lab13 .hidden=NO;
+    lab20.hidden=NO;
+    lab27.hidden=NO;
+    lab34.hidden=NO;
+    button7.hidden=NO;
+    button14.hidden=NO;
+    button21.hidden=NO;
+    button28.hidden=NO;
+    button35.hidden=NO;
+    lab2.hidden=NO;
+    lab7.hidden=NO;
+    lab14.hidden=NO;
+    lab21.hidden=NO;
+    lab28.hidden=NO;
+    lab35.hidden=NO;
+    button8.hidden=NO;
+    button15.hidden=NO;
+    button22.hidden=NO;
+    button29.hidden=NO;
+    button36.hidden=NO;
+    lab3.hidden=NO;
+    lab8.hidden=NO;
+    lab15.hidden=NO;
+    lab22.hidden=NO;
+    lab29.hidden=NO;
+    lab36.hidden=NO;
+    button9.hidden=NO;
+    button16.hidden=NO;
+    button23.hidden=NO;
+    button30.hidden=NO;
+    button37.hidden=NO;
+    lab4.hidden=NO;
+    lab9.hidden=NO;
+    lab16.hidden=NO;
+    lab23.hidden=NO;
+    lab30.hidden=NO;
+    lab37.hidden=NO;
+    button10.hidden=NO;
+    button17.hidden=NO;
+    button24.hidden=NO;
+    button31.hidden=NO;
+    button38.hidden=NO;
+    lab5.hidden=NO;
+    lab10.hidden=NO;
+    lab17.hidden=NO;
+    lab24.hidden=NO;
+    lab31.hidden=NO;
+    lab38.hidden=NO;
+    button48.hidden=NO;
+    button57.hidden=NO;
+    button66.hidden=NO;
+    button75.hidden=NO;
+    button84.hidden=NO;
+    lab41.hidden=NO;
+    lab48.hidden=NO;
+    lab57.hidden=NO;
+    lab66.hidden=NO;
+    lab75.hidden=NO;
+    lab84.hidden=NO;
+    button49.hidden=NO;
+    button58.hidden=NO;
+    button67.hidden=NO;
+    button76.hidden=NO;
+    button85.hidden=NO;
+    lab42.hidden=NO;
+    lab49.hidden=NO;
+    lab58.hidden=NO;
+    lab67.hidden=NO;
+    lab76.hidden=NO;
+    lab85.hidden=NO;
+    button50.hidden=NO;
+    button59.hidden=NO;
+    button68.hidden=NO;
+    button77.hidden=NO;
+    button86.hidden=NO;
+    lab43.hidden=NO;
+    lab50.hidden=NO;
+    lab59.hidden=NO;
+    lab68.hidden=NO;
+    lab77.hidden=NO;
+    lab86.hidden=NO;
+    button51.hidden=NO;
+    button60.hidden=NO;
+    button69.hidden=NO;
+    button78.hidden=NO;
+    button87.hidden=NO;
+    lab44.hidden=NO;
+    lab51.hidden=NO;
+    lab60.hidden=NO;
+    lab69.hidden=NO;
+    lab78.hidden=NO;
+    lab87.hidden=NO;
+    button52.hidden=NO;
+    button61.hidden=NO;
+    button70.hidden=NO;
+    button79.hidden=NO;
+    button88.hidden=NO;
+    lab45.hidden=NO;
+    lab52.hidden=NO;
+    lab61.hidden=NO;
+    lab70.hidden=NO;
+    lab79.hidden=NO;
+    lab88.hidden=NO;
+    button53.hidden=NO;
+    button62.hidden=NO;
+    button71.hidden=NO;
+    button80.hidden=NO;
+    button89.hidden=NO;
+    lab46.hidden=NO;
+    lab53.hidden=NO;
+    lab62.hidden=NO;
+    lab71.hidden=NO;
+    lab80.hidden=NO;
+    lab89.hidden=NO;
+    button54.hidden=NO;
+    button63.hidden=NO;
+    button72.hidden=NO;
+    button81.hidden=NO;
+    button90.hidden=NO;
+    lab47.hidden=NO;
+    lab54.hidden=NO;
+    lab63.hidden=NO;
+    lab72.hidden=NO;
+    lab81.hidden=NO;
+    lab90.hidden=NO;
+    button97.hidden=NO;
+    button103.hidden=NO;
+    button109.hidden=NO;
+    button115.hidden=NO;
+    button121.hidden=NO;
+    lab93.hidden=NO;
+    lab97.hidden=NO;
+    lab103.hidden=NO;
+    lab109.hidden=NO;
+    lab115.hidden=NO;
+    lab121.hidden=NO;
+    button98.hidden=NO;
+    button104.hidden=NO;
+    button110.hidden=NO;
+    button116.hidden=NO;
+    button122.hidden=NO;
+    lab94.hidden=NO;
+    lab98.hidden=NO;
+    lab104.hidden=NO;
+    lab110.hidden=NO;
+    lab116.hidden=NO;
+    lab122.hidden=NO;
+        button99.hidden=NO;
+        button105.hidden=NO;
+        button111.hidden=NO;
+        button117.hidden=NO;
+        button123.hidden=NO;
+        lab95.hidden=NO;
+        lab99.hidden=NO;
+        lab105.hidden=NO;
+        lab111.hidden=NO;
+        lab117.hidden=NO;
+        lab123.hidden=NO;
+        button100.hidden=NO;
+        button106.hidden=NO;
+        button112.hidden=NO;
+        button118.hidden=NO;
+        button124.hidden=NO;
+        lab96.hidden=NO;
+        lab100.hidden=NO;
+        lab106.hidden=NO;
+        lab112.hidden=NO;
+        lab118.hidden=NO;
+        lab124.hidden=NO;
+        button131.hidden=NO;
+        button137.hidden=NO;
+        button143.hidden=NO;
+        button149.hidden=NO;
+        button155.hidden=NO;
+        lab127.hidden=NO;
+        lab131.hidden=NO;
+        lab137.hidden=NO;
+        lab143.hidden=NO;
+        lab149.hidden=NO;
+        lab155.hidden=NO;
+        button132.hidden=NO;
+        button138.hidden=NO;
+        button144.hidden=NO;
+        button150.hidden=NO;
+        button156.hidden=NO;
+        lab128.hidden=NO;
+        lab132.hidden=NO;
+        lab138.hidden=NO;
+        lab144.hidden=NO;
+        lab150.hidden=NO;
+        lab156.hidden=NO;
+        button133.hidden=NO;
+        button139.hidden=NO;
+        button145.hidden=NO;
+        button151.hidden=NO;
+        button157.hidden=NO;
+        lab129.hidden=NO;
+        lab133.hidden=NO;
+        lab139.hidden=NO;
+        lab145.hidden=NO;
+        lab151.hidden=NO;
+        lab157.hidden=NO;
+        button134.hidden=NO;
+        button140.hidden=NO;
+        button146.hidden=NO;
+        button152.hidden=NO;
+        button158.hidden=NO;
+        lab130.hidden=NO;
+        lab134.hidden=NO;
+        lab140.hidden=NO;
+        lab146.hidden=NO;
+        lab152.hidden=NO;
+        lab158.hidden=NO;
     [button1 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [button2 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [button3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];

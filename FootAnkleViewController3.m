@@ -527,7 +527,7 @@
                     
                     [recorddict setValue:texty3 forKey:@"radiogroup2"];
                     
-                    NSLog(@"Record dict in footanklequestionnaire form four::%@",recorddict);
+                   // NSLog(@"Record dict in footanklequestionnaire form four::%@",recorddict);
                 }
                 else{
                     suc=0;
@@ -550,7 +550,7 @@
     }
     if (suc==1) {
         
-        NSLog(@"recorddict in foot ankle ques %@",recorddict);
+      //  NSLog(@"recorddict in foot ankle ques %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

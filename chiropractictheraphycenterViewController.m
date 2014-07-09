@@ -203,7 +203,7 @@
                                                 [recorddict setValue:doi.text forKey:@"doi"];
                                                 [recorddict setValue:ssn.text forKey:@"ssn"];
                                                 [recorddict setValue:text1.text forKey:@"amount"];
-                                                NSLog(@"success!!!recorddict %@",recorddict);
+                                              //  NSLog(@"success!!!recorddict %@",recorddict);
                                                 
                                                 
                                                 
@@ -900,7 +900,7 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&re=%@&ssn=%@&claim=%@&doi=%@&adjuster=%@&date=%@&dear=%@&date1=%@&date2=%@&letter=%@&%@=%@",firstEntity,value1,re.text,ssn.text,claim.text,doi.text,adjust.text,date.text,dear.text,date1.text,date2.text,text1.text,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+   // NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);
@@ -921,7 +921,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     
@@ -1029,7 +1029,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     

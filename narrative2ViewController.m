@@ -102,7 +102,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"narr3"])
     {
         if (a==1)
@@ -128,7 +128,7 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.mutearray=mutearray;
-        NSLog(@"recorddict in narrative second page %@",recorddict);
+       // //NSLog(@"recorddict in narrative second page %@",recorddict);
     }
     
     
@@ -661,7 +661,7 @@
                                             [recorddict setValue:ls6l forKey:@"ls6"];
                                             [recorddict setValue:ls5l forKey:@"ls5"];
                                             
-                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                           // //NSLog(@"success!!!recorddict %@",recorddict);
                                         }
                                         else
                                         {
@@ -1534,7 +1534,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -613,7 +613,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                           callback:nil];
     }
     if (suc==1) {
-        NSLog(@"recorddict in perry %@",recorddict);
+       // NSLog(@"recorddict in perry %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

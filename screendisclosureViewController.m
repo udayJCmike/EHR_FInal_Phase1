@@ -131,7 +131,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in ROMRA %@",recorddict);
+      //  NSLog(@"recorddict in ROMRA %@",recorddict);
         
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
@@ -630,7 +630,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     
@@ -665,7 +665,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     
@@ -737,7 +737,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     

@@ -518,7 +518,7 @@
         shoulderpainscore2ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in shoulder seconds %@",recorddict);
+      //  NSLog(@"recorddict in shoulder seconds %@",recorddict);
     }
     
     

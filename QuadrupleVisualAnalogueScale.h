@@ -18,7 +18,7 @@
     NSMutableDictionary*resultset;
     BOOL isConnect;
     MBProgressHUD *HUD;
-    NSString *segval;
+   
     IBOutlet UISegmentedControl *painseg;
     NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*temp10,*temp11,*temp12,*temp13,*temp14,*temp15;
     NSString *temp16,*temp17,*temp18,*temp19,*temp20,*temp21,*temp22,*temp23,*temp24,*temp25,*temp26,*temp27,*temp28,*temp29,*temp30,*temp31,*temp32,*temp33;
@@ -46,5 +46,6 @@
 @property(nonatomic,retain)IBOutlet UIButton *cancel1;
 @property(nonatomic,retain)IBOutlet UIButton *cancel2;
 @property (retain, nonatomic) IBOutlet UIButton *edit;
+@property(nonatomic,retain)NSString *segval;
 
 @end

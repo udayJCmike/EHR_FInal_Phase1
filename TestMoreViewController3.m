@@ -202,8 +202,8 @@ int a;
     a=1;
     
   //  [self performSegueWithIdentifier:@"moretest3" sender:self];
-    NSLog(@"recoed dict in final:::%@",recorddict);
-    NSLog(@"size of record dict in final:::%d",[recorddict count]);
+    //NSLog(@"recoed dict in final:::%@",recorddict);
+    //NSLog(@"size of record dict in final:::%d",[recorddict count]);
     HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     HUD.mode=MBProgressHUDModeIndeterminate;
     HUD.delegate = self;
@@ -228,20 +228,20 @@ int a;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -274,18 +274,18 @@ int a;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -448,19 +448,19 @@ int a;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::%@",recorddict);
-    // NSLog(@"recorddict values::%@",recorddict);
-    NSLog(@"value of georges si:%@",[recorddict objectForKey:@"L_hyper"]);
+    //NSLog(@"values in record dictionaries::%@",recorddict);
+    // //NSLog(@"recorddict values::%@",recorddict);
+    //NSLog(@"value of georges si:%@",[recorddict objectForKey:@"L_hyper"]);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&emptycan=%@&yergason=%@&speed=%@&ludington=%@&droparm=%@&apley=%@&crossover=%@&neerimpingement=%@&hawkinskennedy=%@&sternoclavicular=%@&acjdtest=%@&acjctest=%@&piano=%@&apprehensiona=%@&apprehensionp=%@&sulcus=%@&anterior=%@&posterior=%@&jobe=%@&feagin=%@&loadshift=%@&grind=%@&clunk=%@&obrien=%@&brachial=%@&shoulder=%@&adson=%@&allen=%@&roos=%@&military=%@&pectoralis=%@&chvostek=%@&loadingtest=%@&palpation=%@&vertebral=%@&foraminalct=%@&foraminaldt=%@&valsalva=%@&swallowing=%@&tinelsign=%@&cozen=%@&resistive=%@&passive=%@&golfer=%@&hyperextension=%@&elbowflexion=%@&varus=%@&valgus=%@&tinel=%@&pinchgrip=%@&percussion=%@&compression=%@&longfinger=%@&finkelstein=%@&phalen=%@&tinelp=%@&froment=%@&wrinkle=%@&digital=%@&bunnel=%@&murphy=%@&watson=%@&valgusst=%@&varusst=%@&selectionvi=%@&kernig=%@&lateral=%@&anteriorl=%@&inspiration=%@&kernigt=%@&lateralt=%@&anteriort=%@&inspirationt=%@&valsalvat=%@&stoop=%@&hoover=%@&kernigl=%@&straight=%@&bowstring=%@&sitting=%@&unilateral=%@&bilateral=%@&wellstraight=%@&slump=%@&thomas=%@&spring=%@&trendelenburg=%@&stork=%@&sijft=%@&gillet=%@&sijst=%@&squish=%@&yeoman=%@&gaenslen=%@&patrick=%@&longsitting=%@&hipscouring=%@&nelaton=%@&craig=%@&straightc=%@&fabertest=%@&trendelenburgf=%@&ober=%@&piriformis=%@&thomasp=%@&trueleg=%@&",firstEntity,value1,[recorddict objectForKey:@"emptycan"],[recorddict objectForKey:@"yergason"],[recorddict objectForKey:@"speed"],[recorddict objectForKey:@"ludington"],[recorddict objectForKey:@"droparm"],[recorddict objectForKey:@"apley"],[recorddict objectForKey:@"crossover"],[recorddict objectForKey:@"neerimpingement"],[recorddict objectForKey:@"hawkinskennedy"],[recorddict objectForKey:@"sternoclavicular"],[recorddict objectForKey:@"acjdtest"],[recorddict objectForKey:@"acjctest"],[recorddict objectForKey:@"piano"],[recorddict objectForKey:@"apprehensiona"],[recorddict objectForKey:@"apprehensionp"],[recorddict objectForKey:@"sulcus"],[recorddict objectForKey:@"anterior"],[recorddict objectForKey:@"posterior"],[recorddict objectForKey:@"jobe"],[recorddict objectForKey:@"feagin"],[recorddict objectForKey:@"loadshift"],[recorddict objectForKey:@"grind"],[recorddict objectForKey:@"clunk"],[recorddict objectForKey:@"obrien"],[recorddict objectForKey:@"brachial"],[recorddict objectForKey:@"shoulder"],[recorddict objectForKey:@"adson"],[recorddict objectForKey:@"allen"],[recorddict objectForKey:@"roos"],[recorddict objectForKey:@"military"],[recorddict objectForKey:@"pectoralis"],[recorddict objectForKey:@"chvostek"],[recorddict objectForKey:@"loadingtest"],[recorddict objectForKey:@"palpation"],[recorddict objectForKey:@"vertebral"],[recorddict objectForKey:@"foraminalct"],[recorddict objectForKey:@"foraminaldt"],[recorddict objectForKey:@"valsalva"],[recorddict objectForKey:@"swallowing"],[recorddict objectForKey:@"tinelsign"],[recorddict objectForKey:@"cozen"],[recorddict objectForKey:@"resistive"],[recorddict objectForKey:@"passive"],[recorddict objectForKey:@"golfer"],[recorddict objectForKey:@"hyperextension"],[recorddict objectForKey:@"elbowflexion"],[recorddict objectForKey:@"varus"],[recorddict objectForKey:@"valgus"],[recorddict objectForKey:@"tinel"],[recorddict objectForKey:@"pinchgrip"],[recorddict objectForKey:@"percussion"],[recorddict objectForKey:@"compression"],[recorddict objectForKey:@"longfinger"],[recorddict objectForKey:@"finkelstein"],[recorddict objectForKey:@"phalen"],[recorddict objectForKey:@"tinelp"],[recorddict objectForKey:@"froment"],[recorddict objectForKey:@"wrinkle"],[recorddict objectForKey:@"digital"],[recorddict objectForKey:@"bunnel"],[recorddict objectForKey:@"murphy"],[recorddict objectForKey:@"watson"],[recorddict objectForKey:@"valgusst"],[recorddict objectForKey:@"varusst"],[recorddict objectForKey:@"selectionvi"],[recorddict objectForKey:@"kernig"],[recorddict objectForKey:@"lateral"],[recorddict objectForKey:@"anteriorl"],[recorddict objectForKey:@"inspiration"],[recorddict objectForKey:@"kernigt"],[recorddict objectForKey:@"lateralt"],[recorddict objectForKey:@"anteriort"],[recorddict objectForKey:@"inspirationt"],[recorddict objectForKey:@"valsalvat"],[recorddict objectForKey:@"stoop"],[recorddict objectForKey:@"hoover"],[recorddict objectForKey:@"kernigl"],[recorddict objectForKey:@"straight"],[recorddict objectForKey:@"bowstring"],[recorddict objectForKey:@"sitting"],[recorddict objectForKey:@"unilateral"],[recorddict objectForKey:@"bilateral"],[recorddict objectForKey:@"wellstraight"],[recorddict objectForKey:@"slump"],[recorddict objectForKey:@"thomas"],[recorddict objectForKey:@"spring"],[recorddict objectForKey:@"trendelenburg"],[recorddict objectForKey:@"stork"],[recorddict objectForKey:@"sijft"],[recorddict objectForKey:@"gillet"],[recorddict objectForKey:@"sijst"],[recorddict objectForKey:@"squish"],[recorddict objectForKey:@"yeoman"],[recorddict objectForKey:@"gaenslen"],[recorddict objectForKey:@"patrick"],[recorddict objectForKey:@"longsitting"],[recorddict objectForKey:@"hipscouring"],[recorddict objectForKey:@"nelaton"],[recorddict objectForKey:@"craig"],[recorddict objectForKey:@"straightc"],[recorddict objectForKey:@"fabertest"],[recorddict objectForKey:@"trendelenburgf"],[recorddict objectForKey:@"ober"],[recorddict objectForKey:@"piriformis"],[recorddict objectForKey:@"thomasp"],[recorddict objectForKey:@"trueleg"]];
     
     NSString *post1=[[NSString alloc] initWithFormat:@"apparentleg=%@&ely=%@&tripod=%@&femoral=%@&patella=%@&patellarp=%@&ballotable=%@&sweep=%@&quadriceps=%@&medial=%@&bounce=%@&patellar=%@&renne=%@&noble=%@&hughston=%@&godfrey=%@&posteriorg=%@&reverse=%@&anteriorlt=%@&anteriordt=%@&slocuminternal=%@&slocumexternal=%@&pivot=%@&jerk=%@&posteriordt=%@&hughstonposteromedial=%@&hughstonposterolateral=%@&posteriorlt=%@&externalrotation=%@&valgusstt=%@&varusstt=%@&mcmurray=%@&apleyct=%@&steinmann=%@&rectus=%@&homans=%@&anteriorh=%@&talarinversion=%@&talareversion=%@&thompson=%@&tap=%@&feiss=%@&interdigital=%@&compressiontest=%@&longbone=%@&swingtest=%@&kleiger=%@&tinelsignk=%@&%@=%@",[recorddict objectForKey:@"apparentleg"],[recorddict objectForKey:@"ely"],[recorddict objectForKey:@"tripod"],[recorddict objectForKey:@"femoral"],[recorddict objectForKey:@"patella"],[recorddict objectForKey:@"patellarp"],[recorddict objectForKey:@"ballotable"],[recorddict objectForKey:@"sweep"],[recorddict objectForKey:@"quadriceps"],[recorddict objectForKey:@"medial"],[recorddict objectForKey:@"bounce"],[recorddict objectForKey:@"patellar"],[recorddict objectForKey:@"renne"],[recorddict objectForKey:@"noble"],[recorddict objectForKey:@"hughston"],[recorddict objectForKey:@"godfrey"],[recorddict objectForKey:@"posteriorg"],[recorddict objectForKey:@"reverse"],[recorddict objectForKey:@"anteriorlt"],[recorddict objectForKey:@"anteriordt"],[recorddict objectForKey:@"slocuminternal"],[recorddict objectForKey:@"slocumexternal"],[recorddict objectForKey:@"pivot"],[recorddict objectForKey:@"jerk"],[recorddict objectForKey:@"posteriordt"],[recorddict objectForKey:@"hughstonposteromedial"],[recorddict objectForKey:@"hughstonposterolateral"],[recorddict objectForKey:@"posteriorlt"],[recorddict objectForKey:@"externalrotation"],[recorddict objectForKey:@"valgusstt"],[recorddict objectForKey:@"varusstt"],[recorddict objectForKey:@"mcmurray"],[recorddict objectForKey:@"apleyct"],[recorddict objectForKey:@"steinmann"],[recorddict objectForKey:@"rectus"],[recorddict objectForKey:@"homans"],[recorddict objectForKey:@"anteriorh"],[recorddict objectForKey:@"talarinversion"],[recorddict objectForKey:@"talareversion"],[recorddict objectForKey:@"thompson"],[recorddict objectForKey:@"tap"],[recorddict objectForKey:@"feiss"],[recorddict objectForKey:@"interdigital"],[recorddict objectForKey:@"compressiontest"],[recorddict objectForKey:@"longbone"],[recorddict objectForKey:@"swingtest"],[recorddict objectForKey:@"kleiger"],[recorddict objectForKey:@"tinelsignk"],secondEntity,value2];
     
     NSString *str = [NSString stringWithFormat: @"%@%@", post, post1];
-   // NSLog(@"POST:%@",str);
+   // //NSLog(@"POST:%@",str);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [str dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -479,7 +479,7 @@ int a;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+   // //NSLog(@"data %@",data);
     
     return data;
     
@@ -629,7 +629,7 @@ int a;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

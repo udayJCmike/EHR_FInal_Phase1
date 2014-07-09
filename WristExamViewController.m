@@ -208,7 +208,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     NSDictionary *arrayList1;
     //     To check whether its having data or not
     //   NSLog(@"items1app %d",[items1App count]);
-    NSLog(@"items1app %@",items1App);
+  //  NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -616,7 +616,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     
@@ -1444,7 +1444,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
+  //  NSLog(@"succc value in perform segue %i",suc);
     //NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"wrist1"])
     {
@@ -1469,11 +1469,11 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     if ([segue.identifier isEqualToString:@"wrist1"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+       // NSLog(@"succc value in prepre segue %i ",suc);
         WristExamViewController1 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in knee exam controller %@",recorddict);
+       // NSLog(@"recorddict in knee exam controller %@",recorddict);
         // destViewController.delegate=self;
         
     }

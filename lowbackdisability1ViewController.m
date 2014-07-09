@@ -721,7 +721,7 @@
         lowbackdisability2ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in low back second %@",recorddict);
+      //  NSLog(@"recorddict in low back second %@",recorddict);
     }
     
     

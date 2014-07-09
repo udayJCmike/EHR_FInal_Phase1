@@ -825,7 +825,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                             [recorddict setValue:fax.text forKey:@"fax"];
                                             [recorddict setObject:texty11 forKey:@"checkselected1"];
                                             
-                                            NSLog(@"Record dict Value perry fax cover ::%@",recorddict);
+                                         //   NSLog(@"Record dict Value perry fax cover ::%@",recorddict);
                                             
                                             
                                             

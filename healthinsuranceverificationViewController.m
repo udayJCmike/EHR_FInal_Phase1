@@ -197,7 +197,7 @@ int a;
                                                         {
                                                             
                                                             a=1;
-                                                            NSLog(@"a value %i",a);
+                                                           // NSLog(@"a value %i",a);
                                                             [recorddict setValue:healthinsuranceswitchlabel.text forKey:@"healthinsurancelabel"];
                                                             [recorddict setValue:patientname.text forKey:@"patientname"];
                                                             [recorddict setValue:accidentdate.text forKey:@"accidentdate"];
@@ -306,7 +306,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in health insurace patient info %@",recorddict);
+      //  NSLog(@"recorddict in health insurace patient info %@",recorddict);
         
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
@@ -786,7 +786,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     

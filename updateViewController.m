@@ -150,7 +150,7 @@
                                 [recorddict setValue:regards.text forKey:@"Regards"];
                                 [recorddict setValue:injury.text forKey:@"Date of injury"];
                                 [recorddict setValue:date.text forKey:@"Date"];
-                                NSLog(@"Success!!!%@",recorddict);
+                              //  NSLog(@"Success!!!%@",recorddict);
                                 
                             }
                             else
@@ -216,7 +216,7 @@
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle                                                                                                                                                                                                                             description:@"Required field should not be empty."                                                                                                                                                                                                                                    type:TWMessageBarMessageTypeError                                                                                                                                                                                                                          statusBarStyle:UIStatusBarStyleLightContent                                                                                                                                                                                                                                callback:nil];
     }
     if (a==1) {
-        NSLog(@"recorddict in updateletter %@",recorddict);
+       // NSLog(@"recorddict in updateletter %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

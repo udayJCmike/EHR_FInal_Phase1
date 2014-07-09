@@ -121,7 +121,7 @@ NSString *classfname;
     }
     
     
-    NSLog(@"class name::%@",classfname);
+    //NSLog(@"class name::%@",classfname);
          //[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 }
 
@@ -613,15 +613,15 @@ NSString *classfname;
     }
 
      [self performSegueWithIdentifier:@"moretest1" sender:self];
-    NSLog(@"recoed dict in first:::%@",recorddict);
-    NSLog(@"size of record dict in first:::%d",[recorddict count]);
+    //NSLog(@"recoed dict in first:::%@",recorddict);
+    //NSLog(@"size of record dict in first:::%d",[recorddict count]);
     
     
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"moretest1"])
     {
         if (a==1)
@@ -649,8 +649,8 @@ NSString *classfname;
         TestMoreViewController1 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.moretestdict=moretestdict;
-        NSLog(@"recorddict in radio first %@",recorddict);
-        NSLog(@"size of recorddict:%d",[recorddict count]);
+        //NSLog(@"recorddict in radio first %@",recorddict);
+        //NSLog(@"size of recorddict:%d",[recorddict count]);
     }
     
     
@@ -712,7 +712,7 @@ NSString *classfname;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

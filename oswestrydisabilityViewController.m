@@ -708,7 +708,7 @@
     if (c==1)
     {
         [self performSegueWithIdentifier:@"oswestry1" sender:self];
-        NSLog(@"record %@",recorddict);
+       // NSLog(@"record %@",recorddict);
     }
     
 }

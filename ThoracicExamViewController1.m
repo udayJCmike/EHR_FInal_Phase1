@@ -101,7 +101,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     [super viewDidLoad];
     
     
-    NSLog(@"thoracic %@",recorddict); du=[[databaseurl alloc]init];
+    //NSLog(@"thoracic %@",recorddict); du=[[databaseurl alloc]init];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
@@ -629,14 +629,14 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(BOOL)validateString:(NSString *)user
 
@@ -907,7 +907,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
                                                     [recorddict setObject:chec15 forKey:@"checkselected15"];
                                                     [recorddict setObject:pickonelab.text forKey:@"picker one"];
                                                     [recorddict setObject:segva forKey:@"seg for pat ccare"];
-                                                    NSLog(@"Record dict Value in final thoracic exam::%@",recorddict);
+                                                    //NSLog(@"Record dict Value in final thoracic exam::%@",recorddict);
                                                     
                                                 }
                                                 else{
@@ -1088,8 +1088,8 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         
     }
     if(suc==1){
-        //        NSLog(@"record dict in 2nd page:%@",recorddict);
-        NSLog(@"count in record dict:%lu",(unsigned long)[recorddict count]);
+        //        //NSLog(@"record dict in 2nd page:%@",recorddict);
+        //NSLog(@"count in record dict:%lu",(unsigned long)[recorddict count]);
         UIButton *button = (UIButton*) sender;
         if(button.tag == 11)
         {
@@ -1121,8 +1121,8 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         {
             NULL;
         }
-        NSLog(@"record dict in 2nd page:%@",recorddict);
-        NSLog(@"count in record dict:%d",[recorddict count]);
+        //NSLog(@"record dict in 2nd page:%@",recorddict);
+        //NSLog(@"count in record dict:%d",[recorddict count]);
     }
 }
 
@@ -1138,20 +1138,20 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -1184,18 +1184,18 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers == nil");
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1267,15 +1267,15 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::");
-    // NSLog(@"recorddict values::%@",recorddict);
-    //NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
+    //NSLog(@"values in record dictionaries::");
+    // //NSLog(@"recorddict values::%@",recorddict);
+    ////NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&muscle=%@&swelling=%@&acromion=%@&inferior=%@&iliac=%@&ribhumping=%@&allsoft=%@&rectus=%@&obliques=%@&levator=%@&serratus=%@&pectoralis=%@&trapezius=%@&rhomboids=%@&pectoralisminor=%@&paraspinals=%@&othernotes=%@&functionalrangeofmotion=%@&subluxation=%@&orthopedic=%@&flexion=%@&t12=%@&t23=%@&adamsignl=%@&adamsignr=%@&extension=%@&t34=%@&t45=%@&schepelmanl=%@&schepelmanr=%@&lflexion=%@&rflexion=%@&t56=%@&t67=%@&valsalval=%@&valsalvar=%@&lrotation=%@&rrotation=%@&t78=%@&t89=%@&dejerinel=%@&dejeriner=%@&t910=%@&t1011=%@&sotohalll=%@&sotohallr=%@&t1112=%@&t12l1=%@&sternall=%@&sternalr=%@&beevorl=%@&beevorr=%@&neurologicaltest=%@&notes=%@&intercostal=%@&sitting=%@&standing=%@&driving=%@&otherfunctional=%@&break_text3=%@&assessment=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&diagnosis6=%@&times=%@&week=%@&spinal=%@&chiropractic=%@&physical=%@&orthotics=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&ctscan=%@&nerve=%@&emg=%@&outside=%@&dc=%@&otheraddress=%@&break_text4=%@&sign=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patname"],[recorddict objectForKey:@"datey"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"text3"],[recorddict objectForKey:@"firstseg"],[recorddict objectForKey:@"secondseg"],[recorddict objectForKey:@"thirdseg"],[recorddict objectForKey:@"fourthseg"],[recorddict objectForKey:@"firstcheck"],[recorddict objectForKey:@"fifthseg"],[recorddict objectForKey:@"sixthseg"],[recorddict objectForKey:@"seventhseg"],[recorddict objectForKey:@"eigthseg"],[recorddict objectForKey:@"ninthseg"],[recorddict objectForKey:@"tenthseg"],[recorddict objectForKey:@"eleventhseg"],[recorddict objectForKey:@"twelthseg"],[recorddict objectForKey:@"thirteenthseg"],[recorddict objectForKey:@"othernotes"],[recorddict objectForKey:@"secondcheck"],[recorddict objectForKey:@"thirdcheck"],[recorddict objectForKey:@"fourthcheck"],[recorddict objectForKey:@"flex"],[recorddict objectForKey:@"t1"],[recorddict objectForKey:@"t2"],[recorddict objectForKey:@"adl"],[recorddict objectForKey:@"adr"],[recorddict objectForKey:@"extens"],[recorddict objectForKey:@"t3"],[recorddict objectForKey:@"t4"],[recorddict objectForKey:@"sl"],[recorddict objectForKey:@"sr"],[recorddict objectForKey:@"latflex"],[recorddict objectForKey:@"latflexr"],[recorddict objectForKey:@"t5"],[recorddict objectForKey:@"t6"],[recorddict objectForKey:@"vl"],[recorddict objectForKey:@"vr"],[recorddict objectForKey:@"rotl"],[recorddict objectForKey:@"rotr"],[recorddict objectForKey:@"t7"],[recorddict objectForKey:@"t8"],[recorddict objectForKey:@"dl"],[recorddict objectForKey:@"dr"],[recorddict objectForKey:@"t9"],[recorddict objectForKey:@"t10"],[recorddict objectForKey:@"sol"],[recorddict objectForKey:@"sor"],[recorddict objectForKey:@"t11"],[recorddict objectForKey:@"t12"],[recorddict objectForKey:@"stl"],[recorddict objectForKey:@"str"],[recorddict objectForKey:@"bl"],[recorddict objectForKey:@"br"],[recorddict objectForKey:@"checkstringone"],[recorddict objectForKey:@"textstringone"],[recorddict objectForKey:@"picker one"],[recorddict objectForKey:@"checkstringtwo"],[recorddict objectForKey:@"checkstringthree"],[recorddict objectForKey:@"checkstringfour"],[recorddict objectForKey:@"checkstringfive"],[recorddict objectForKey:@"otherstringggooo"],[recorddict objectForKey:@"textstringtwo"],[recorddict objectForKey:@"seg for pat ccare"],[recorddict objectForKey:@"firstdiagnosis"],[recorddict objectForKey:@"seconddiagnosis"],[recorddict objectForKey:@"thirddiagnosis"],[recorddict objectForKey:@"fourthdiagnosis"],[recorddict objectForKey:@"fifthdiagnosis"],[recorddict objectForKey:@"sixthdiagnosis"],[recorddict objectForKey:@"day"],[recorddict objectForKey:@"week"],[recorddict objectForKey:@"checkselected1"],[recorddict objectForKey:@"checkselected2"],[recorddict objectForKey:@"checkselected3"],[recorddict objectForKey:@"checkselected4"],[recorddict objectForKey:@"checkselected5"],[recorddict objectForKey:@"checkselected6"],[recorddict objectForKey:@"checkselected7"],[recorddict objectForKey:@"checkselected8"],[recorddict objectForKey:@"checkselected9"],[recorddict objectForKey:@"checkselected10"],[recorddict objectForKey:@"checkselected11"],[recorddict objectForKey:@"checkselected12"],[recorddict objectForKey:@"checkselected13"],[recorddict objectForKey:@"checkselected14"],[recorddict objectForKey:@"checkselected15"],[recorddict objectForKey:@"othercheck"],[recorddict objectForKey:@"signature"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -1294,7 +1294,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1307,18 +1307,18 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers == nil");
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1393,15 +1393,15 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::");
-    // NSLog(@"recorddict values::%@",recorddict);
-    //NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
+    //NSLog(@"values in record dictionaries::");
+    // //NSLog(@"recorddict values::%@",recorddict);
+    ////NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&muscle=%@&swelling=%@&acromion=%@&inferior=%@&iliac=%@&ribhumping=%@&allsoft=%@&rectus=%@&obliques=%@&levator=%@&serratus=%@&pectoralis=%@&trapezius=%@&rhomboids=%@&pectoralisminor=%@&paraspinals=%@&othernotes=%@&functionalrangeofmotion=%@&subluxation=%@&orthopedic=%@&flexion=%@&t12=%@&t23=%@&adamsignl=%@&adamsignr=%@&extension=%@&t34=%@&t45=%@&schepelmanl=%@&schepelmanr=%@&lflexion=%@&rflexion=%@&t56=%@&t67=%@&valsalval=%@&valsalvar=%@&lrotation=%@&rrotation=%@&t78=%@&t89=%@&dejerinel=%@&dejeriner=%@&t910=%@&t1011=%@&sotohalll=%@&sotohallr=%@&t1112=%@&t12l1=%@&sternall=%@&sternalr=%@&beevorl=%@&beevorr=%@&neurologicaltest=%@&notes=%@&intercostal=%@&sitting=%@&standing=%@&driving=%@&otherfunctional=%@&break_text3=%@&assessment=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&diagnosis6=%@&times=%@&week=%@&spinal=%@&chiropractic=%@&physical=%@&orthotics=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&ctscan=%@&nerve=%@&emg=%@&outside=%@&dc=%@&otheraddress=%@&break_text4=%@&sign=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patname"],[recorddict objectForKey:@"datey"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"text3"],[recorddict objectForKey:@"firstseg"],[recorddict objectForKey:@"secondseg"],[recorddict objectForKey:@"thirdseg"],[recorddict objectForKey:@"fourthseg"],[recorddict objectForKey:@"firstcheck"],[recorddict objectForKey:@"fifthseg"],[recorddict objectForKey:@"sixthseg"],[recorddict objectForKey:@"seventhseg"],[recorddict objectForKey:@"eigthseg"],[recorddict objectForKey:@"ninthseg"],[recorddict objectForKey:@"tenthseg"],[recorddict objectForKey:@"eleventhseg"],[recorddict objectForKey:@"twelthseg"],[recorddict objectForKey:@"thirteenthseg"],[recorddict objectForKey:@"othernotes"],[recorddict objectForKey:@"secondcheck"],[recorddict objectForKey:@"thirdcheck"],[recorddict objectForKey:@"fourthcheck"],[recorddict objectForKey:@"flex"],[recorddict objectForKey:@"t1"],[recorddict objectForKey:@"t2"],[recorddict objectForKey:@"adl"],[recorddict objectForKey:@"adr"],[recorddict objectForKey:@"extens"],[recorddict objectForKey:@"t3"],[recorddict objectForKey:@"t4"],[recorddict objectForKey:@"sl"],[recorddict objectForKey:@"sr"],[recorddict objectForKey:@"latflex"],[recorddict objectForKey:@"latflexr"],[recorddict objectForKey:@"t5"],[recorddict objectForKey:@"t6"],[recorddict objectForKey:@"vl"],[recorddict objectForKey:@"vr"],[recorddict objectForKey:@"rotl"],[recorddict objectForKey:@"rotr"],[recorddict objectForKey:@"t7"],[recorddict objectForKey:@"t8"],[recorddict objectForKey:@"dl"],[recorddict objectForKey:@"dr"],[recorddict objectForKey:@"t9"],[recorddict objectForKey:@"t10"],[recorddict objectForKey:@"sol"],[recorddict objectForKey:@"sor"],[recorddict objectForKey:@"t11"],[recorddict objectForKey:@"t12"],[recorddict objectForKey:@"stl"],[recorddict objectForKey:@"str"],[recorddict objectForKey:@"bl"],[recorddict objectForKey:@"br"],[recorddict objectForKey:@"checkstringone"],[recorddict objectForKey:@"textstringone"],[recorddict objectForKey:@"picker one"],[recorddict objectForKey:@"checkstringtwo"],[recorddict objectForKey:@"checkstringthree"],[recorddict objectForKey:@"checkstringfour"],[recorddict objectForKey:@"checkstringfive"],[recorddict objectForKey:@"otherstringggooo"],[recorddict objectForKey:@"textstringtwo"],[recorddict objectForKey:@"seg for pat ccare"],[recorddict objectForKey:@"firstdiagnosis"],[recorddict objectForKey:@"seconddiagnosis"],[recorddict objectForKey:@"thirddiagnosis"],[recorddict objectForKey:@"fourthdiagnosis"],[recorddict objectForKey:@"fifthdiagnosis"],[recorddict objectForKey:@"sixthdiagnosis"],[recorddict objectForKey:@"day"],[recorddict objectForKey:@"week"],[recorddict objectForKey:@"checkselected1"],[recorddict objectForKey:@"checkselected2"],[recorddict objectForKey:@"checkselected3"],[recorddict objectForKey:@"checkselected4"],[recorddict objectForKey:@"checkselected5"],[recorddict objectForKey:@"checkselected6"],[recorddict objectForKey:@"checkselected7"],[recorddict objectForKey:@"checkselected8"],[recorddict objectForKey:@"checkselected9"],[recorddict objectForKey:@"checkselected10"],[recorddict objectForKey:@"checkselected11"],[recorddict objectForKey:@"checkselected12"],[recorddict objectForKey:@"checkselected13"],[recorddict objectForKey:@"checkselected14"],[recorddict objectForKey:@"checkselected15"],[recorddict objectForKey:@"othercheck"],[recorddict objectForKey:@"signature"],secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -1420,7 +1420,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
 }
@@ -1538,18 +1538,18 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers == nil");
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1617,15 +1617,15 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::");
-    // NSLog(@"recorddict values::%@",recorddict);
-    //NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
+    //NSLog(@"values in record dictionaries::");
+    // //NSLog(@"recorddict values::%@",recorddict);
+    ////NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
@@ -1644,7 +1644,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
 }
@@ -1704,7 +1704,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

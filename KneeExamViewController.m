@@ -197,15 +197,15 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    NSLog(@"response %@",resultResponse);
+    //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"kneeexamuserList"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    //NSLog(@"lucky %d",[luckyNumbers count]);
-    NSLog(@"items1app %@",items1App);
+    ////NSLog(@"lucky %d",[luckyNumbers count]);
+    //NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -447,7 +447,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
             
             
             if ([temp19 isEqualToString:@"Unremarkable"]) {
-                NSLog(@"value of temp19:::%@",temp19);
+                //NSLog(@"value of temp19:::%@",temp19);
                 check44.selected=YES;
                 [check44 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 checky4=@"Unremarkable";
@@ -946,7 +946,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
             }
             
             
-            NSLog(@"resultset value::%@",resultset);
+            //NSLog(@"resultset value::%@",resultset);
             
             
             
@@ -964,10 +964,10 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -985,7 +985,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -1376,19 +1376,19 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     texty36=check2text.text;
     //  texty37=[patname.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     // texty35=[check1text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    // NSLog(@"String in checktextfields  one::%@",[check1text text]);
-    // NSLog(@"String in checktextfields   two ::%@",[check2text text]);
+    // //NSLog(@"String in checktextfields  one::%@",[check1text text]);
+    // //NSLog(@"String in checktextfields   two ::%@",[check2text text]);
     if(([patname.text length]!=0)&&([datefield.text length]!=0))
     {
         if([du patname:texty1]==1)
         {
             if([self validateDate:texty2]==1)
             {
-                // NSLog(@"check one text %@",[check1text text]);
-                // NSLog(@"Succes 1");
-                // NSLog(@"check two texty%@",[check2text text]);
-                //NSLog(@"checktets chanracters::%i",[check1text.text length]);
-                //NSLog(@"checktets chanracters::%i",[check2text.text length]);
+                // //NSLog(@"check one text %@",[check1text text]);
+                // //NSLog(@"Succes 1");
+                // //NSLog(@"check two texty%@",[check2text text]);
+                ////NSLog(@"checktets chanracters::%i",[check1text.text length]);
+                ////NSLog(@"checktets chanracters::%i",[check2text.text length]);
                 if([check1text.text length]==0||([du otherfields:texty35]==1)||[check1text text]==NULL)
                 {
                     
@@ -1401,54 +1401,54 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                             
                             if([antleft.text length]==0||[du date:texty4]==1)
                             {
-                                NSLog(@"%@",[antleft text]);
+                                //NSLog(@"%@",[antleft text]);
                                 
                                 if([antright.text length]==0||[du date:texty5]==1)
                                 {
-                                    NSLog(@"ant right %@",[antright text]);
+                                    //NSLog(@"ant right %@",[antright text]);
                                     
                                     if([extension.text length]==0||[du date:texty6]==1)
                                     {
-                                        NSLog(@"extension %@",[extension text]);
+                                        //NSLog(@"extension %@",[extension text]);
                                         
                                         if([postleft.text length]==0||[du date:texty7]==1)
                                         {
-                                            NSLog(@"post left %@",[postleft text]);
+                                            //NSLog(@"post left %@",[postleft text]);
                                             
                                             if([postright.text length]==0||[du date:texty8]==1)
                                             {
                                                 
-                                                NSLog(@"post rght%@",[postright text]);
+                                                //NSLog(@"post rght%@",[postright text]);
                                                 
                                                 if([internalleft.text length]==0||[du date:texty9]==1)
                                                 {
                                                     
-                                                    NSLog(@"inter left %@",[internalleft text]);
+                                                    //NSLog(@"inter left %@",[internalleft text]);
                                                     
                                                     if([internalright.text length]==0||[du date:texty10]==1)
                                                     {
                                                         
-                                                        NSLog(@"internal right %@",[internalright text]);
+                                                        //NSLog(@"internal right %@",[internalright text]);
                                                         
                                                         if([lclleft.text length]==0||[du date:texty11]==1)
                                                         {
                                                             
-                                                            NSLog(@"lcl left %@",[lclleft text]);
+                                                            //NSLog(@"lcl left %@",[lclleft text]);
                                                             
                                                             if([lclright.text length]==0||[du date:texty12]==1)
                                                             {
                                                                 
-                                                                NSLog(@"Lcl right %@",[lclright text]);
+                                                                //NSLog(@"Lcl right %@",[lclright text]);
                                                                 
                                                                 if([mclleft.text length]==0||[du date:texty13]==1)
                                                                 {
                                                                     
-                                                                    NSLog(@"mcl left %@",[mclleft text]);
+                                                                    //NSLog(@"mcl left %@",[mclleft text]);
                                                                     
                                                                     if([mclright.text length]==0||[du date:texty14]==1)
                                                                     {
                                                                         
-                                                                        NSLog(@"mcl right %@",[mclright text]);
+                                                                        //NSLog(@"mcl right %@",[mclright text]);
                                                                         
                                                                         if([externalleft.text length]==0||[du date:texty15]==1)
                                                                         {
@@ -1517,7 +1517,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                     
                                                                                                                                                     if([right4.text length]==0||[du date:texty34]==1){
                                                                                                                                                         
-                                                                                                                                                        NSLog(@"Succes Finall");
+                                                                                                                                                        //NSLog(@"Succes Finall");
                                                                                                                                                         
                                                                                                                                                         
                                                                                                                                                         [recorddict setValue:check1 forKey:@"firstcheck"];
@@ -1576,8 +1576,8 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                         [recorddict setValue:right2.text forKey:@"right2"];
                                                                                                                                                         [recorddict setValue:right3.text forKey:@"right3"];
                                                                                                                                                         [recorddict setValue:right4.text forKey:@"right4"];
-                                                                                                                                                        NSLog(@"succc value %i",suc);
-                                                                                                                                                        NSLog(@"recorddict in knee exam controller %@",recorddict);                                                                                                                                                                                                            suc=1;
+                                                                                                                                                        //NSLog(@"succc value %i",suc);
+                                                                                                                                                        //NSLog(@"recorddict in knee exam controller %@",recorddict);                                                                                                                                                                                                            suc=1;
                                                                                                                                                     }else{
                                                                                                                                                         suc=0;
                                                                                                                                                         
@@ -2070,19 +2070,19 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
-    //NSLog(@"identifier %@",identifier);
+    //NSLog(@"succc value in perform segue %i",suc);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"kneeexam"])
     {
         if (suc==1)
@@ -2106,11 +2106,11 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     if ([segue.identifier isEqualToString:@"kneeexam"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+        //NSLog(@"succc value in prepre segue %i ",suc);
         KneeExamViewController1 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in knee exam controller one %@",recorddict);
+        //NSLog(@"recorddict in knee exam controller one %@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -2299,7 +2299,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -877,7 +877,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     

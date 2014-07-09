@@ -504,10 +504,10 @@
     [recorddict setValue:thirteern forKey:@"twentythree"];
     [recorddict setValue:fourteen forKey:@"twentyfour"];
     [recorddict setValue:fifteen forKey:@"twentyfive"];
-    NSLog(@"final result %@",recorddict);
+   // NSLog(@"final result %@",recorddict);
     if (suc==1) {
         
-        NSLog(@"recorddict in hip and knee ques %@",recorddict);
+       // NSLog(@"recorddict in hip and knee ques %@",recorddict);
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
         {

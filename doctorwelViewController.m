@@ -174,14 +174,15 @@
 }
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
-    HUD.mode=MBProgressHUDModeDeterminate;
-    HUD.delegate = self;
-    HUD.labelText = @"Submitting";
-    [HUD show:YES];
-    NSLog(@"Button Index =%d",buttonIndex);
+  
+  //  NSLog(@"Button Index =%d",buttonIndex);
     if (buttonIndex == 1)
     {
+        HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
+        HUD.mode=MBProgressHUDModeIndeterminate;
+        HUD.delegate = self;
+        HUD.labelText = @"Submitting";
+        [HUD show:YES];
         UITextField *username = [alertView textFieldAtIndex:0];
         NSString *result=[self Getdata1:username.text];
         if([result isEqualToString:@"Success"])

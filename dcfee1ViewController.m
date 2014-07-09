@@ -394,8 +394,8 @@
                                                                                             [recorddict setValue:manualtheraphy.text forKey:@"manualtheraphy"];
                                                                                             [recorddict setValue:other.text forKey:@"other"];
                                                                                             [recorddict setValue:grouptheraphy.text forKey:@"grouptheraphy"];
-                                                                                            NSLog(@"success!!!recorddict %@",recorddict);
-                                                                                            NSLog(@"success!!!recorddict count%d",[recorddict count]);
+                                                                                            //NSLog(@"success!!!recorddict %@",recorddict);
+                                                                                            //NSLog(@"success!!!recorddict count%d",[recorddict count]);
                                                                                             
                                                                                             
                                                                                             
@@ -776,19 +776,19 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"dcfee2"])
     {
         if (c==1)
@@ -815,7 +815,7 @@
         dcfee2ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in dcfeedetail1%@",recorddict);
+        //NSLog(@"recorddict in dcfeedetail1%@",recorddict);
         // destViewController.delegate=self;
         
     }
@@ -909,7 +909,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

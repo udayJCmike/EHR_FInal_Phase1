@@ -300,7 +300,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in Notice Form %@",recorddict);
+     //   NSLog(@"recorddict in Notice Form %@",recorddict);
         
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
@@ -744,7 +744,7 @@ int a;
     
     
     
-    NSLog(@"POST:%@",post);
+  //  NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
     //////NSLog(post);
@@ -765,7 +765,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     

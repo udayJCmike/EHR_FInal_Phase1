@@ -23,10 +23,12 @@
 {
     NSString *symptom;
     databaseurl *du;
+     
 }
 @end
 
 @implementation QuadrupleVisualAnalogueScale
+@synthesize segval;
 @synthesize edit;
 @synthesize name;
 @synthesize number;
@@ -343,6 +345,7 @@
             {
                 [slider4 setValue:[scale4.text floatValue] animated:YES];
             }
+            NSLog(@"pain %@",temp3);
             if ([temp3 isEqualToString:@"Wrist/Hand"]) {
                 [painseg setSelectedSegmentIndex:0];
                 segval=@"Wrist/Hand";
@@ -512,7 +515,7 @@
     }
     else
     {
-        segval=@"";
+        painname.text=@"";
     }
     
     if (//([tempp1 length]>0)&&
@@ -530,11 +533,12 @@
                      if((([percentage.text length]>0)&&([du percentage:percentage.text]==1))||([percentage.text length]==0))
                      {
              c=1;
+                         NSLog(@"segval %@",segval);
             
             [recorddict setValue:name.text forKey:@"name"];
             [recorddict setValue:number.text forKey:@"number"];
             [recorddict setValue:date.text forKey:@"date"];
-            [recorddict setValue:segval forKey:@"segval"];
+            [recorddict setValue:segval forKey:@"segval1"];
             [recorddict setValue:painname.text forKey:@"othertext"];
             [recorddict setValue:scale1.text forKey:@"scale1"];
             [recorddict setValue:scale2.text forKey:@"scale2"];
@@ -845,7 +849,7 @@
     
     
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&number=%@&date=%@&painname=%@&otherpainname=%@&painscale=%@&painscale1=%@&painscale2=%@&painscale3=%@&awakehours=%@&%@=%@",firstEntity,value1,[recorddict valueForKey:@"symptomtext"],[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"segval"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"scale1"],[recorddict objectForKey:@"scale2"],[recorddict objectForKey:@"scale3"],[recorddict objectForKey:@"scale4"],[recorddict objectForKey:@"worst"],secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&number=%@&date=%@&painname=%@&otherpainname=%@&painscale=%@&painscale1=%@&painscale2=%@&painscale3=%@&awakehours=%@&%@=%@",firstEntity,value1,[recorddict valueForKey:@"symptomtext"],[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"segval1"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"scale1"],[recorddict objectForKey:@"scale2"],[recorddict objectForKey:@"scale3"],[recorddict objectForKey:@"scale4"],[recorddict objectForKey:@"worst"],secondEntity,value2];
     
   //  NSLog(@"POST:%@",post);
     
@@ -884,7 +888,7 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&oldsymptom=%@&name=%@&number=%@&date=%@&painname=%@&otherpainname=%@&painscale=%@&painscale1=%@&painscale2=%@&painscale3=%@&awakehours=%@&%@=%@",firstEntity,value1,[recorddict valueForKey:@"symptomtext"],symptom,[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"segval"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"scale1"],[recorddict objectForKey:@"scale2"],[recorddict objectForKey:@"scale3"],[recorddict objectForKey:@"scale4"],[recorddict objectForKey:@"worst"],secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&oldsymptom=%@&name=%@&number=%@&date=%@&painname=%@&otherpainname=%@&painscale=%@&painscale1=%@&painscale2=%@&painscale3=%@&awakehours=%@&%@=%@",firstEntity,value1,[recorddict valueForKey:@"symptomtext"],symptom,[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"segval1"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"scale1"],[recorddict objectForKey:@"scale2"],[recorddict objectForKey:@"scale3"],[recorddict objectForKey:@"scale4"],[recorddict objectForKey:@"worst"],secondEntity,value2];
     
     NSURL *url = [NSURL URLWithString:url2];
     

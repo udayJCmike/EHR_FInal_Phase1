@@ -71,7 +71,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
@@ -97,8 +97,8 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
         
         TestMoreViewController*destViewController = [segue destinationViewController];
         destViewController.moretestdict=moretestdict;
-        NSLog(@"moretest in third %@",moretestdict);
-        NSLog(@"moretest count in third %d",[moretestdict count]);
+        //NSLog(@"moretest in third %@",moretestdict);
+        //NSLog(@"moretest count in third %d",[moretestdict count]);
     }
     
 }
@@ -112,7 +112,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)save:(id)sender
 {
@@ -426,7 +426,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     [recorddict setValue:seg11 forKey:@"drawer2right"];
     [recorddict setValue:seg12 forKey:@"drawer2left"];
     
-    NSLog(@"count in record dict:%d",[recorddict count]);
+    //NSLog(@"count in record dict:%d",[recorddict count]);
     HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     HUD.mode=MBProgressHUDModeIndeterminate;
     HUD.delegate = self;
@@ -925,20 +925,20 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -971,18 +971,18 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    NSLog(@"%@ lucky numbers",luckyNumbers);
+    //NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        NSLog(@"luckyNumbers == nil");
+        //NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1037,9 +1037,9 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::%@",recorddict);
-    // NSLog(@"recorddict values::%@",recorddict);
-    //NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
+    //NSLog(@"values in record dictionaries::%@",recorddict);
+    // //NSLog(@"recorddict values::%@",recorddict);
+    ////NSLog(@"value of reflesxes si:%@",[recorddict objectForKey:@"reflexes SI left"]);
     //  NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&lumbopelvic=%@&lumboright=%@&lumboleft=%@&cervical=%@&cervicalright=%@&cervicalleft=%@&thoracic=%@&thoracicright=%@&thoracicleft=%@&hacheck=%@&ha=%@&haa=%@&neckcheck=%@&neck=%@&necka=%@&mbcheck=%@&mb=%@&mba=%@&ribscheck=%@&ribs=%@&ribsa=%@&shouldercheck=%@&shoulder=%@&shouldera=%@&elbowcheck=%@&elbow=%@&elbowa=%@&handcheck=%@&hand=%@&handa=%@&wristcheck=%@&wrist=%@&wrista=%@&lbpcheck=%@&lbp=%@&lbpa=%@&hipcheck=%@&hip=%@&hipa=%@&legcheck=%@&leg=%@&lega=%@&kneecheck=%@&knee=%@&kneea=%@&footcheck=%@&foot=%@&foota=%@&anklecheck=%@&ankle=%@&anklea=%@&suddenly=%@&gradually=%@&hours=%@&days=%@&date=%@&reason=%@&acute=%@&subacute=%@&chronic=%@&lyingdown=%@&sitting=%@&standing=%@&bending=%@&rest=%@&otherb=%@&othere=%@&ice=%@&heat=%@&massage=%@&aspirin=%@&otherdone=%@&otherit=%@&bendingworse=%@&twisting=%@&lifting=%@&walking=%@&activity=%@&otherworse=%@&otherfeel=%@&sharp=%@&severe=%@&dull=%@&burning=%@&nagging=%@&throbbing=%@&numb=%@&tingling=%@&stiff=%@&stabbing=%@&cramping=%@&otherdescribe=%@&otherpain=%@&constant=%@&intermittent=%@&local=%@&diffuse=%@&radiates=%@&otherradiates=%@&mild=%@&moderate=%@&severepain=%@&crippling=%@&am=%@&pm=%@&othertime=%@&otherdn=%@&better=%@&same=%@&worse=%@&yes=%@&no=%@&day=%@&work=%@&sleep=%@&otherdaily=%@&othercondition=%@&sameass=%@&improved=%@&worseass=%@&plateau=%@&preinjury=%@&slight=%@&moderatly=%@&great=%@&chiropractic=%@&ems=%@&iceplan=%@&heatplan=%@&nimmo=%@&ultrasound=%@&manualtraction=%@&massageplan=%@&neuromuscular=%@&stretching=%@&strengthening=%@&remobilization=%@&improvesubluxations=%@&rehab=%@&modificat=%@&care=%@&refer=%@&decreasepain=%@&decreasespam=%@&increaserom=%@&improveadl=%@&fullactivity=%@&returntowork=%@&renewsports=%@&jacksonsr=%@&jacksonsl=%@&jacksonslo=%@&foramin_compr=%@&foramin_compl=%@&foramin_complo=%@&shoulder_deprr=%@&shoulder_deprl=%@&shoulder_deprlo=%@&georgesr=%@&georgesl=%@&georgeslo=%@&odonor=%@&odonol=%@&bakody_signr=%@&bakody_signl=%@&bakody_signlo=%@&distraction_testr=%@&distraction_testl=%@&valsalvar=%@&valsalval=%@&valsalvalo=%@&spinal_percuss=%@&gripdynamomright=%@&gripdynamomleft=%@&adsonsr=%@&adsonsl=%@&adsonslo=%@&rustsignr=%@&rustsignl=%@&rustsignlo=%@&spinal_percusst=%@&adams_testr=%@&adams_testl=%@&sheppal_signr=%@&sheppal_signl=%@&soto_hallr=%@&soto_halll=%@&compression_testr=%@&compression_testl=%@&compression_testlo=%@&antalgiar=%@&antalgial=%@&spinal_percusslr=%@&valsalvalr=%@&valsalvall=%@&minors_signr=%@&minors_signl=%@&braggards_testr=%@&braggards_testl=%@&slrr=%@&slrl=%@&wlrr=%@&wlrl=%@&hooversr=%@&hooversl=%@&dbl_leg_raiser=%@&dbl_leg_raisel=%@&long_leg_testr=%@&long_leg_testl=%@&anvil_testr=%@&anvil_testl=%@&thomasr=%@&thomasl=%@&milgrams_testr=%@&milgrams_testl=%@&obersr=%@&obersl=%@&illiaccompr=%@&illiaccompl=%@&yeomansr=%@&yeomansl=%@&allis_signr=%@&allis_signl=%@&dugasr=%@&dugasl=%@&supraspinatusr=%@&supraspinatusl=%@&codmansr=%@&codmansl=%@&speeds_testr=%@&speeds_testl=%@&yergasonsr=%@&yergasonsl=%@&tinelser=%@&tinelsel=%@&lingaminstabr=%@&lingaminstabl=%@&golfers_elbowr=%@&golfers_elbowl=%@&tennis_elbowr=%@&tennis_elbowl=%@&tinelsr=%@&tinelsl=%@&phalensr=%@&phalensl=%@&finkelsteins_testr=%@&finkelsteins_testl=%@&braceletr=%@&braceletl=%@&allensr=%@&allensl=%@&valgus_varusr=%@&valgus_varusl=%@&pat_ballr=%@&pat_balll=%@&drawerr=%@&drawerl=%@&val_varusr=%@&val_varusl=%@&apleysr=%@&apleysl=%@&ankdrawr=%@&ankdrawl=%@&ankthomr=%@&ankthoml=%@&anktinelr=%@&anktinell=%@&ankstrunkr=%@&ankstrunkl=%@&ankhomanr=%@&ankhomanl=%@&ankclaudicr=%@&ankclaudicl=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patname"],[recorddict objectForKey:@"datey"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"text3"],[recorddict objectForKey:@"firstseg"],[recorddict objectForKey:@"secondseg"],[recorddict objectForKey:@"thirdseg"],[recorddict objectForKey:@"fourthseg"],[recorddict objectForKey:@"firstcheck"],[recorddict objectForKey:@"fifthseg"],[recorddict objectForKey:@"sixthseg"],[recorddict objectForKey:@"seventhseg"],[recorddict objectForKey:@"eigthseg"],[recorddict objectForKey:@"ninthseg"],[recorddict objectForKey:@"tenthseg"],[recorddict objectForKey:@"eleventhseg"],[recorddict objectForKey:@"twelthseg"],[recorddict objectForKey:@"thirteenthseg"],[recorddict objectForKey:@"othernotes"],[recorddict objectForKey:@"secondcheck"],[recorddict objectForKey:@"thirdcheck"],[recorddict objectForKey:@"fourthcheck"],[recorddict objectForKey:@"flex"],[recorddict objectForKey:@"t1"],[recorddict objectForKey:@"t2"],[recorddict objectForKey:@"adl"],[recorddict objectForKey:@"adr"],[recorddict objectForKey:@"extens"],[recorddict objectForKey:@"t3"],[recorddict objectForKey:@"t4"],[recorddict objectForKey:@"sl"],[recorddict objectForKey:@"sr"],[recorddict objectForKey:@"latflex"],[recorddict objectForKey:@"latflexr"],[recorddict objectForKey:@"t5"],[recorddict objectForKey:@"t6"],[recorddict objectForKey:@"vl"],[recorddict objectForKey:@"vr"],[recorddict objectForKey:@"rotl"],[recorddict objectForKey:@"rotr"],[recorddict objectForKey:@"t7"],[recorddict objectForKey:@"t8"],[recorddict objectForKey:@"dl"],[recorddict objectForKey:@"dr"],[recorddict objectForKey:@"t9"],[recorddict objectForKey:@"t10"],[recorddict objectForKey:@"sol"],[recorddict objectForKey:@"sor"],[recorddict objectForKey:@"t11"],[recorddict objectForKey:@"t12"],[recorddict objectForKey:@"stl"],[recorddict objectForKey:@"str"],[recorddict objectForKey:@"bl"],[recorddict objectForKey:@"br"],[recorddict objectForKey:@"checkstringone"],[recorddict objectForKey:@"textstringone"],[recorddict objectForKey:@"picker one"],[recorddict objectForKey:@"checkstringtwo"],[recorddict objectForKey:@"checkstringthree"],[recorddict objectForKey:@"checkstringfour"],[recorddict objectForKey:@"checkstringfive"],[recorddict objectForKey:@"otherstringggooo"],[recorddict objectForKey:@"textstringtwo"],[recorddict objectForKey:@"seg for pat ccare"],[recorddict objectForKey:@"firstdiagnosis"],[recorddict objectForKey:@"seconddiagnosis"],[recorddict objectForKey:@"thirddiagnosis"],[recorddict objectForKey:@"fourthdiagnosis"],[recorddict objectForKey:@"fifthdiagnosis"],[recorddict objectForKey:@"sixthdiagnosis"],[recorddict objectForKey:@"day"],[recorddict objectForKey:@"week"],[recorddict objectForKey:@"checkselected1"],[recorddict objectForKey:@"checkselected2"],[recorddict objectForKey:@"checkselected3"],[recorddict objectForKey:@"checkselected4"],[recorddict objectForKey:@"checkselected5"],[recorddict objectForKey:@"checkselected6"],[recorddict objectForKey:@"checkselected7"],[recorddict objectForKey:@"checkselected8"],[recorddict objectForKey:@"checkselected9"],[recorddict objectForKey:@"checkselected10"],[recorddict objectForKey:@"checkselected11"],[recorddict objectForKey:@"checkselected12"],[recorddict objectForKey:@"checkselected13"],[recorddict objectForKey:@"checkselected14"],[recorddict objectForKey:@"checkselected15"],[recorddict objectForKey:@"othercheck"],[recorddict objectForKey:@"signature"],secondEntity,value2];
     
     
@@ -1055,11 +1055,11 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
-    //NSLog(post);
+    ////NSLog(post);
     
     NSString *wholepost=[NSString stringWithFormat:@"%@%@%@%@",post,post1,post2,post3];
     
-    //NSLog(@"POST:%@",wholepost);
+    ////NSLog(@"POST:%@",wholepost);
     NSData *postData = [wholepost dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
@@ -1077,7 +1077,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -1139,7 +1139,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

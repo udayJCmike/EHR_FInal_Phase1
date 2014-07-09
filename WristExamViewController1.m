@@ -1028,7 +1028,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"succc value in perform segue %i",suc);
+  //  NSLog(@"succc value in perform segue %i",suc);
     //NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"wrist2"])
     {
@@ -1053,11 +1053,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if ([segue.identifier isEqualToString:@"wrist2"])
     {
         
-        NSLog(@"succc value in prepre segue %i ",suc);
+       // NSLog(@"succc value in prepre segue %i ",suc);
         WristExamViewController2 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in knee exam controller %@",recorddict);
+       // NSLog(@"recorddict in knee exam controller %@",recorddict);
         // destViewController.delegate=self;
         
     }

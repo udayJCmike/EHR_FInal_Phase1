@@ -587,14 +587,14 @@ int suc;
         NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
         NSError *error;
         SBJSON *json = [[SBJSON new] autorelease];
-        // NSLog(@"response %@",resultResponse);
+        // //NSLog(@"response %@",resultResponse);
         NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
         NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
         NSArray *items1App=[itemsApp objectForKey:@"symptomuser List"];
         
         NSString *resultResponse1=[self HttpPostGetsymptomdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
         
-//        NSLog(@"datassssss %@",items1App);
+//        //NSLog(@"datassssss %@",items1App);
         if ([items1App count]>0)
         {
             
@@ -602,7 +602,7 @@ int suc;
             {
                 NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
                 
-                //        NSLog(@"arraylist count %d",[arrayList1 count]);
+                //        //NSLog(@"arraylist count %d",[arrayList1 count]);
                 temp=[arrayList1 objectForKey:@"patient_no"];
                 temp1 =[arrayList1 objectForKey:@"username"];
                 name.text =[arrayList1 objectForKey:@"name"];
@@ -630,12 +630,12 @@ int suc;
             
             NSError *error1;
             SBJSON *json1 = [[SBJSON new] autorelease];
-//            NSLog(@"response %@",resultResponse1);
+//            //NSLog(@"response %@",resultResponse1);
             NSDictionary *luckyNumbers1 = [json1 objectWithString:resultResponse1 error:&error1];
             NSDictionary *itemsApp1 = [luckyNumbers1 objectForKey:@"serviceresponse"];
             NSArray *items1App1=[itemsApp1 objectForKey:@"symptomuser List"];
             
-//            NSLog(@"items1app1 %@",items1App1);
+//            //NSLog(@"items1app1 %@",items1App1);
             NSMutableArray *image=[[NSMutableArray alloc]init];
              NSMutableArray *tagnum=[[NSMutableArray alloc]init];
              NSMutableArray *xpos=[[NSMutableArray alloc]init];
@@ -656,23 +656,23 @@ int suc;
                     
                     
                 }
-                NSLog(@"tag values %@",tagnum);
-                NSLog(@"x values %@",xpos);
-                NSLog(@"y values %@",ypos);
+                //NSLog(@"tag values %@",tagnum);
+                //NSLog(@"x values %@",xpos);
+                //NSLog(@"y values %@",ypos);
                 
                 if ([tagnum count]>0)
                 {
-//                    NSLog(@"called");
+//                    //NSLog(@"called");
                     for (int i=0; i< [tagnum count]; i++)
                     {
                         for (UIView *view in [_viewA subviews])
                         {
                             if ([view isKindOfClass:[UIView class]])
                             {
-//                                NSLog(@"called1");
+//                                //NSLog(@"called1");
                                 if (view.tag==[[tagnum objectAtIndex:i]intValue])
                                 {
-                                   NSLog(@"called2 in viewa");
+                                   //NSLog(@"called2 in viewa");
                                     float val1= [xpos[i] floatValue];
                                     float val2= [ypos[i] floatValue];
                                    
@@ -684,7 +684,7 @@ int suc;
                                     
                                     if ([[image objectAtIndex:i]isEqualToString:@"bodyfront.png"]) {
                                         [_viewB addSubview:dragDropView111];
-                                       // NSLog(@"assigned");
+                                       // //NSLog(@"assigned");
                                     }
                                     else if ([[image objectAtIndex:i]isEqualToString:@"bodyback.png"]) {
                                         [_viewY addSubview:dragDropView111];
@@ -703,10 +703,10 @@ int suc;
                         {
                             if ([view isKindOfClass:[UIView class]])
                             {
-                                //                                NSLog(@"called1");
+                                //                                //NSLog(@"called1");
                                 if (view.tag==[[tagnum objectAtIndex:i]intValue])
                                 {
-                                    NSLog(@"called2 in viewc");
+                                    //NSLog(@"called2 in viewc");
                                     float val1= [xpos[i] floatValue];
                                     float val2= [ypos[i] floatValue];
                                     
@@ -718,7 +718,7 @@ int suc;
                                     
                                     if ([[image objectAtIndex:i]isEqualToString:@"bodyfront.png"]) {
                                         [_viewB addSubview:dragDropView111];
-                                        // NSLog(@"assigned");
+                                        // //NSLog(@"assigned");
                                     }
                                     else if ([[image objectAtIndex:i]isEqualToString:@"bodyback.png"]) {
                                         [_viewY addSubview:dragDropView111];
@@ -735,10 +735,10 @@ int suc;
                         {
                             if ([view isKindOfClass:[UIView class]])
                             {
-                                //                                NSLog(@"called1");
+                                //                                //NSLog(@"called1");
                                 if (view.tag==[[tagnum objectAtIndex:i]intValue])
                                 {
-                                   NSLog(@"called2 in viewd");
+                                   //NSLog(@"called2 in viewd");
                                     float val1= [xpos[i] floatValue];
                                     float val2= [ypos[i] floatValue];
                                     
@@ -750,7 +750,7 @@ int suc;
                                     
                                     if ([[image objectAtIndex:i]isEqualToString:@"bodyfront.png"]) {
                                         [_viewB addSubview:dragDropView111];
-                                        // NSLog(@"assigned");
+                                        // //NSLog(@"assigned");
                                     }
                                     else if ([[image objectAtIndex:i]isEqualToString:@"bodyback.png"]) {
                                         [_viewY addSubview:dragDropView111];
@@ -767,10 +767,10 @@ int suc;
                         {
                             if ([view isKindOfClass:[UIView class]])
                             {
-                                //                                NSLog(@"called1");
+                                //                                //NSLog(@"called1");
                                 if (view.tag==[[tagnum objectAtIndex:i]intValue])
                                 {
-                                   NSLog(@"called2 in viewe");
+                                   //NSLog(@"called2 in viewe");
                                     float val1= [xpos[i] floatValue];
                                     float val2= [ypos[i] floatValue];
                                     
@@ -782,7 +782,7 @@ int suc;
                                     
                                     if ([[image objectAtIndex:i]isEqualToString:@"bodyfront.png"]) {
                                         [_viewB addSubview:dragDropView111];
-                                        // NSLog(@"assigned");
+                                        // //NSLog(@"assigned");
                                     }
                                     else if ([[image objectAtIndex:i]isEqualToString:@"bodyback.png"]) {
                                         [_viewY addSubview:dragDropView111];
@@ -799,10 +799,10 @@ int suc;
                         {
                             if ([view isKindOfClass:[UIView class]])
                             {
-                                //                                NSLog(@"called1");
+                                //                                //NSLog(@"called1");
                                 if (view.tag==[[tagnum objectAtIndex:i]intValue])
                                 {
-                                    NSLog(@"called2 in vief");
+                                    //NSLog(@"called2 in vief");
                                     float val1= [xpos[i] floatValue];
                                     float val2= [ypos[i] floatValue];
                                     
@@ -814,7 +814,7 @@ int suc;
                                     
                                     if ([[image objectAtIndex:i]isEqualToString:@"bodyfront.png"]) {
                                         [_viewB addSubview:dragDropView111];
-                                        // NSLog(@"assigned");
+                                        // //NSLog(@"assigned");
                                     }
                                     else if ([[image objectAtIndex:i]isEqualToString:@"bodyback.png"]) {
                                         [_viewY addSubview:dragDropView111];
@@ -858,10 +858,10 @@ int suc;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-   // NSLog(@"POST:%@ %@",post,url2);
+   // //NSLog(@"POST:%@ %@",post,url2);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -879,7 +879,7 @@ int suc;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //   NSLog(@"data %@",data);
+    //   //NSLog(@"data %@",data);
     
     return data;
     
@@ -894,10 +894,10 @@ int suc;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    // NSLog(@"POST:%@",post);
+    // //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -915,7 +915,7 @@ int suc;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data in scal %@",data);
+   // //NSLog(@"data in scal %@",data);
     
     return data;
     
@@ -980,21 +980,21 @@ int suc;
 //                    _3=&cg2.x;
 //                    _4=&cg2.y;
 //                    
-//                    NSLog(@"UIVIEw of X using convertview ::%f",_1);
-//                    NSLog(@"UIVIEw of Y using convertview ::%f",_2);
-//                    NSLog(@"UIVIEw of 3 X using convertview ::%f",_3);
-//                    NSLog(@"UIVIEw of 4 Y using convertview ::%f",_4);
+//                    //NSLog(@"UIVIEw of X using convertview ::%f",_1);
+//                    //NSLog(@"UIVIEw of Y using convertview ::%f",_2);
+//                    //NSLog(@"UIVIEw of 3 X using convertview ::%f",_3);
+//                    //NSLog(@"UIVIEw of 4 Y using convertview ::%f",_4);
 //                    
 //                    NSString *str1=NSStringFromCGRect(_dragdroppin1.frame);
 //                    NSString *str2=NSStringFromCGRect(_dragdroppin2.frame);
 //                    NSString *str3=NSStringFromCGRect(_dragdroppin3.frame);
 //                    NSString *str4=NSStringFromCGRect(_dragdroppin4.frame);
-//                    NSLog(@"UIVIEw of 1  ::%@",str1);
-//                    NSLog(@"UIVIEw of 2::%@",str2);
-//                    NSLog(@"UIVIEw of 3::%@",str3);
-//                    NSLog(@"UIVIEw of 4::%@",NSStringFromCGRect(_dragdroppin4.frame));
+//                    //NSLog(@"UIVIEw of 1  ::%@",str1);
+//                    //NSLog(@"UIVIEw of 2::%@",str2);
+//                    //NSLog(@"UIVIEw of 3::%@",str3);
+//                    //NSLog(@"UIVIEw of 4::%@",NSStringFromCGRect(_dragdroppin4.frame));
                     
-                    NSLog(@"Record dict Value in symptom diagram::%@",recorddict);
+                    //NSLog(@"Record dict Value in symptom diagram::%@",recorddict);
                     
                   
                 }
@@ -1070,18 +1070,18 @@ int suc;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1111,14 +1111,14 @@ int suc;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 -(IBAction)cancel:(id)sender
 {
@@ -1557,20 +1557,20 @@ int suc;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -1611,18 +1611,18 @@ int suc;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -1663,18 +1663,18 @@ int suc;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1717,7 +1717,7 @@ int suc;
             if (view.tag!=0)
             {
                 
-            NSLog(@"Front Body views tag number %d and view %f",view.tag,view.frame.origin.x);
+            //NSLog(@"Front Body views tag number %d and view %f",view.tag,view.frame.origin.x);
             fronttext=[NSString stringWithFormat:@"%@&fronttag%d=%d&frontx%d=%f&fronty%d=%f",fronttext,i,view.tag,i,view.frame.origin.x,i,view.frame.origin.y];
                 i++;
             }
@@ -1725,7 +1725,7 @@ int suc;
         
     }
     fronttext=[NSString stringWithFormat:@"frontcount=%d%@",i,fronttext];
-    NSLog(@"text %@",fronttext);
+    //NSLog(@"text %@",fronttext);
    
     for (UIView *view in [_viewY subviews]) {
         if ([view isKindOfClass:[UIView class]]) {
@@ -1733,7 +1733,7 @@ int suc;
             if (view.tag!=0)
             {
                 
-                NSLog(@"back body views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
+                //NSLog(@"back body views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
                 backtext=[NSString stringWithFormat:@"%@&backtag%d=%d&backx%d=%f&backy%d=%f",backtext,j,view.tag,j,view.frame.origin.x,j,view.frame.origin.y];
                 j++;
             }
@@ -1742,14 +1742,14 @@ int suc;
         
     }
     backtext=[NSString stringWithFormat:@"backcount=%d%@",j,backtext];
-     NSLog(@"text %@",backtext);
+     //NSLog(@"text %@",backtext);
     for (UIView *view in [_viewZ subviews]) {
         if ([view isKindOfClass:[UIView class]]) {
            
             if (view.tag!=0)
             {
                 
-                 NSLog(@"face views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
+                 //NSLog(@"face views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
                 headtext=[NSString stringWithFormat:@"%@&headtag%d=%d&headx%d=%f&heady%d=%f",headtext,k,view.tag,k,view.frame.origin.x,k,view.frame.origin.y];
                 k++;
             }
@@ -1757,7 +1757,7 @@ int suc;
         
     }
     headtext=[NSString stringWithFormat:@"headcount=%d%@",k,headtext];
-     NSLog(@"text %@",headtext);
+     //NSLog(@"text %@",headtext);
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Symptomios.php?service=symptominsert";
     
@@ -1767,11 +1767,11 @@ int suc;
    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&name=%@&number=%@&date=%@",firstEntity,value1,[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"]];
     
     post=[NSString stringWithFormat:@"%@&%@&%@&%@&%@=%@",post,fronttext,backtext,headtext,secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1789,7 +1789,7 @@ int suc;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
    
@@ -1808,7 +1808,7 @@ int suc;
             if (view.tag!=0)
             {
                 
-                NSLog(@"Front Body views tag number %d and view %f",view.tag,view.frame.origin.x);
+                //NSLog(@"Front Body views tag number %d and view %f",view.tag,view.frame.origin.x);
                 fronttext=[NSString stringWithFormat:@"%@&fronttag%d=%d&frontx%d=%f&fronty%d=%f",fronttext,i,view.tag,i,view.frame.origin.x,i,view.frame.origin.y];
                 i++;
             }
@@ -1816,7 +1816,7 @@ int suc;
         
     }
     fronttext=[NSString stringWithFormat:@"frontcount=%d%@",i,fronttext];
-    NSLog(@"text %@",fronttext);
+    //NSLog(@"text %@",fronttext);
     
     for (UIView *view in [_viewY subviews]) {
         if ([view isKindOfClass:[UIView class]]) {
@@ -1824,7 +1824,7 @@ int suc;
             if (view.tag!=0)
             {
                 
-                NSLog(@"back body views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
+                //NSLog(@"back body views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
                 backtext=[NSString stringWithFormat:@"%@&backtag%d=%d&backx%d=%f&backy%d=%f",backtext,j,view.tag,j,view.frame.origin.x,j,view.frame.origin.y];
                 j++;
             }
@@ -1833,14 +1833,14 @@ int suc;
         
     }
     backtext=[NSString stringWithFormat:@"backcount=%d%@",j,backtext];
-    NSLog(@"text %@",backtext);
+    //NSLog(@"text %@",backtext);
     for (UIView *view in [_viewZ subviews]) {
         if ([view isKindOfClass:[UIView class]]) {
             
             if (view.tag!=0)
             {
                 
-                NSLog(@"face views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
+                //NSLog(@"face views tag number %d and view %@",view.tag,NSStringFromCGRect(view.frame));
                 headtext=[NSString stringWithFormat:@"%@&headtag%d=%d&headx%d=%f&heady%d=%f",headtext,k,view.tag,k,view.frame.origin.x,k,view.frame.origin.y];
                 k++;
             }
@@ -1848,7 +1848,7 @@ int suc;
         
     }
     headtext=[NSString stringWithFormat:@"headcount=%d%@",k,headtext];
-    NSLog(@"text %@",headtext);
+    //NSLog(@"text %@",headtext);
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Symptomios.php?service=symptomedit";
     
@@ -1858,11 +1858,11 @@ int suc;
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&name=%@&number=%@&date=%@",firstEntity,value1,[recorddict objectForKey:@"name"],[recorddict objectForKey:@"number"],[recorddict objectForKey:@"date"]];
     
     post=[NSString stringWithFormat:@"%@&%@&%@&%@&%@=%@",post,fronttext,backtext,headtext,secondEntity,value2];
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1880,7 +1880,7 @@ int suc;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1895,10 +1895,10 @@ int suc;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1916,7 +1916,7 @@ int suc;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1977,7 +1977,7 @@ int suc;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

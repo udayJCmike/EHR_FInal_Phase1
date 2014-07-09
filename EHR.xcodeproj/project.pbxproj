@@ -886,7 +886,6 @@
 		0D20316318B921F800033508 /* Cervical Exam */ = {
 			isa = PBXGroup;
 			children = (
-				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				0D20316718B9223300033508 /* cervicalexamViewController.h */,
 				0D20316818B9223300033508 /* cervicalexamViewController.m */,
 				0D20316418B9221F00033508 /* cervicalexam2ViewController.h */,
@@ -1384,6 +1383,7 @@
 		0DCD15C917FD4F5200748DD7 = {
 			isa = PBXGroup;
 			children = (
+				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				848F0EDE195A9C17003B6427 /* Quadruple Visual Analogue Scale */,
 				848F0ED4195A9B85003B6427 /* Auto Accident */,
 				848F0ECA195A9AB1003B6427 /* PainDiagram */,

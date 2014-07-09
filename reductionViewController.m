@@ -152,7 +152,7 @@
                                         [recorddict setValue:date.text forKey:@"date"];
                                         [recorddict setValue:name.text forKey:@"dear name"];
                                         [recorddict setValue:sign.text forKey:@"sign"];
-                                        NSLog(@"success %@",recorddict);
+                                       // NSLog(@"success %@",recorddict);
                                     }
                                     else
                                     {

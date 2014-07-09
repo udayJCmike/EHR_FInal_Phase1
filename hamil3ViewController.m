@@ -46,14 +46,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)next:(id)sender {
     
@@ -142,7 +142,7 @@
         [self performSegueWithIdentifier:@"hami5" sender:self];
     }
     
-    //  NSLog(@"success%@",recorddict);
+    //  //NSLog(@"success%@",recorddict);
     
     
     
@@ -232,16 +232,16 @@
         
         hamil4ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in fourth %@",recorddict);
-        NSLog(@"recorddict count in fourth %d",[recorddict count]);
+        //NSLog(@"recorddict in fourth %@",recorddict);
+        //NSLog(@"recorddict count in fourth %d",[recorddict count]);
     }
     else if ([segue.identifier isEqualToString:@"more2"])
     {
         
         TestMoreViewController*destViewController = [segue destinationViewController];
         destViewController.moretestdict=moretestdict;
-        NSLog(@"moretest in four %@",moretestdict);
-        // NSLog(@"moretest count in third %d",[moretestdict count]);
+        //NSLog(@"moretest in four %@",moretestdict);
+        // //NSLog(@"moretest count in third %d",[moretestdict count]);
     }
     
     
@@ -371,7 +371,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -80,7 +80,7 @@ NSMutableArray *symptomresult;
     self.picVisible = NO;
 
     [scrollview setScrollEnabled:YES];
-    changesize=1801;
+    changesize=1200;
     [scrollview setContentSize:CGSizeMake(768, changesize)];
     [imageview setImage:[UIImage imageNamed:@"BG.png"]];
     // [scrollview setContentSize:CGSizeMake(768, changesize)];
@@ -105,7 +105,7 @@ NSMutableArray *symptomresult;
         symptomresult=[resultset objectForKey:@"symptoms"];
         textview1.text=[symptomresult objectAtIndex:0];
         for (int j=1;j<[symptomresult count]; j++) {
-            //            NSLog(@"method called");
+            //            //NSLog(@"method called");
             [self addfields];
         }
         
@@ -159,6 +159,7 @@ NSMutableArray *symptomresult;
     
     reset.hidden=YES;
     next.hidden=YES;
+    addmore.hidden=YES;
     //    UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     //    UIImage *homeImage = [UIImage imageNamed:@" "]  ;
     //    [home setBackgroundImage:homeImage forState:UIControlStateNormal];
@@ -172,7 +173,7 @@ NSMutableArray *symptomresult;
     //    self.navigationController.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
-    NSLog(@"text ciew at begin %@",textView.text);
+    //NSLog(@"text ciew at begin %@",textView.text);
     
     [recorddict setValue:textView.text forKey:@"oldsymptom"];
     
@@ -181,30 +182,140 @@ NSMutableArray *symptomresult;
 {
     
     int currenttv=textView.tag;
-    //    NSLog(@"tag end %d",textsame);
-    NSLog(@"tag end tag %d",textView.tag);
+    [recorddict setValue:textView.text forKey:@"symptomtext"];
+    //    //NSLog(@"tag end %d",textsame);
+    //NSLog(@"tag end tag %d",textView.tag);
     
     NSString* textString=[textView text];
     textString = [textString stringByReplacingOccurrencesOfString:@" " withString:@""];
     if ([textString length]>0)
     {
-        next.hidden=NO;
-        reset.hidden=NO;
-        self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
-        self.navigationItem.hidesBackButton = NO;
-        //            self.navigationController.navigationItem.hidesBackButton=NO;
-        //            self.navigationController.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
-        
-        
-        NSLog(@"tag end tag %d",textView.tag);
-        
-        [recorddict setValue:textView.text forKey:@"symptomtext"];
-        navigationcheck=0;
-        [self performSegueWithIdentifier:@"quadruple" sender:self];
+        for (UIScrollView *view in [self.scrollview subviews])
+        {
+            if ([view isKindOfClass:[UITextView class]])
+            {
+                if (view.tag <= texttag)
+                {
+                    NSString *tempp1;
+                    UITextView *textvalue = (UITextView*)[self.view viewWithTag:view.tag];
+                    NSString* textString=[textvalue text];
+                    tempp1 = [textString stringByReplacingOccurrencesOfString:@" " withString:@""];
+                    if ([tempp1 length]>0) {
+                        success=1;
+                        //NSLog(@"fields not empty");
+                        continue;
+                    }
+                    else
+                    {
+                        success=0;//some textviews are empty
+                        //NSLog(@"fields  empty");
+                        break;
+                        
+                    }
+                    
+                }
+            }
+            
+        }
+        for (UIScrollView *view in [self.scrollview subviews])
+        {
+            if ([view isKindOfClass:[UITextView class]])
+            {
+                if (view.tag <= texttag)
+                {
+                    NSString *tempp1;
+                    UITextView *textvalue = (UITextView*)[self.view viewWithTag:view.tag];
+                    NSString* textString=[textvalue text];
+                    tempp1 = [textString stringByReplacingOccurrencesOfString:@" " withString:@""];
+                    if ([tempp1 length]>0)
+                    {
+                        for (UIScrollView *view1 in [self.scrollview subviews])
+                        {
+                            if ([view1 isKindOfClass:[UITextView class]])
+                            {
+                                if ((view1.tag != view.tag)&&(view1.tag <= texttag))
+                                {
+                                    // //NSLog(@"tag view1 %@ view tag %@",view1.tag,view.tag);
+                                    NSString *tempp2;
+                                    UITextView *textvalue1 = (UITextView*)[self.view viewWithTag:view1.tag];
+                                    NSString* textString1=[textvalue1 text];
+                                    tempp2 = [textString1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                                    if ([tempp2 length]>0)
+                                    {
+                                        if ([textString isEqualToString:textString1])
+                                        {
+                                            success1=0;
+                                            // NSLog(@"fields same");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            success1=1;
+                                            // NSLog(@"fields not same");
+                                            continue;
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        }
+        if ((success==1)&&(success1==1))
+        {
+            next.hidden=NO;
+            reset.hidden=NO;
+            addmore.hidden=NO;
+            self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+            self.navigationItem.hidesBackButton = NO;
+            //            self.navigationController.navigationItem.hidesBackButton=NO;
+            //            self.navigationController.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+            
+            
+            //NSLog(@"tag end tag %d",textView.tag);
+            
+            [recorddict setValue:textView.text forKey:@"symptomtext"];
+            navigationcheck=0;
+            [self performSegueWithIdentifier:@"quadruple" sender:self];
+        }//end of success if block
+        else
+        {
+            if (success==0)
+            {
+                success=1;
+                next.hidden=NO;
+                reset.hidden=NO;
+                addmore.hidden=NO;
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            }
+            else if (success1==0)
+            {
+                success1=1;
+                next.hidden=NO;
+                reset.hidden=NO;
+                addmore.hidden=NO;
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            }
+            
+        }
+
+
+       
     }
     else
     {
-        success=0;
+        success=1;
+        next.hidden=NO;
+        reset.hidden=NO;
+        addmore.hidden=NO;
         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     
@@ -239,7 +350,7 @@ NSMutableArray *symptomresult;
         }
     }
     @catch (NSException *e) {
-        NSLog(@"index not found");
+        //NSLog(@"index not found");
     }
     @finally {
         
@@ -285,7 +396,10 @@ NSMutableArray *symptomresult;
         }
         else
         {
-            success=0;
+            success=1;
+            next.hidden=NO;
+            reset.hidden=NO;
+            addmore.hidden=NO;
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
@@ -304,13 +418,13 @@ NSMutableArray *symptomresult;
                     tempp1 = [textString stringByReplacingOccurrencesOfString:@" " withString:@""];
                     if ([tempp1 length]>0) {
                         success=1;
-                        NSLog(@"fields not empty");
+                        //NSLog(@"fields not empty");
                         continue;
                     }
                     else
                     {
                         success=0;//some textviews are empty
-                        NSLog(@"fields  empty");
+                        //NSLog(@"fields  empty");
                         break;
                         
                     }
@@ -335,9 +449,9 @@ NSMutableArray *symptomresult;
                         {
                             if ([view1 isKindOfClass:[UITextView class]])
                             {
-                                if (view1.tag != view.tag)
+                                if ((view1.tag != view.tag)&&(view1.tag <= texttag))
                                 {
-                                    // NSLog(@"tag view1 %@ view tag %@",view1.tag,view.tag);
+                                    // //NSLog(@"tag view1 %@ view tag %@",view1.tag,view.tag);
                                     NSString *tempp2;
                                     UITextView *textvalue1 = (UITextView*)[self.view viewWithTag:view1.tag];
                                     NSString* textString1=[textvalue1 text];
@@ -347,13 +461,13 @@ NSMutableArray *symptomresult;
                                         if ([textString isEqualToString:textString1])
                                         {
                                             success1=0;
-                                            NSLog(@"fields same");
+                                           // NSLog(@"fields same");
                                             break;
                                         }
                                         else
                                         {
                                             success1=1;
-                                            NSLog(@"fields not same");
+                                           // NSLog(@"fields not same");
                                             continue;
                                         }
                                         
@@ -375,7 +489,8 @@ NSMutableArray *symptomresult;
         if ((success==1)&&(success1==1))
         {
             
-            
+            if (inc<=9) {
+                
             
             UITextView *mytv  = [[UITextView alloc] initWithFrame:CGRectMake(178, y, 328, 87)];
             //    [mytv setBackgroundColor:[UIColor grayColor]];
@@ -399,7 +514,7 @@ NSMutableArray *symptomresult;
                 }
             }
             @catch (NSException *e) {
-                NSLog(@"index not found");
+                //NSLog(@"index not found");
             }
             @finally {
                 
@@ -430,22 +545,38 @@ NSMutableArray *symptomresult;
             [scrollview setScrollEnabled:YES];
             
             [scrollview setContentSize:CGSizeMake(768, changesize)];
+                 imageview.frame=CGRectMake(0.0 ,0.0, imageview.image.size.width, changesize);
             changesize=changesize+87;
             
             //    CGFloat width = self.scrollview.bounds.size.width;
             //    CGFloat height = CGRectGetMaxY(mytv.frame);
             //    self.scrollview.contentSize = CGSizeMake(width, height);
+            }//end of below 11 comparison
+            else
+            {
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"You can not add more than ten symptoms." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            }
+
             
         }//end of success if block
         else
         {
             if (success==0)
             {
+                success=1;
+                
+                next.hidden=NO;
+                reset.hidden=NO;
+                addmore.hidden=NO;
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             else if (success1==0)
             {
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                success1=1;
+                next.hidden=NO;
+                reset.hidden=NO;
+                addmore.hidden=NO;
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             
         }
@@ -474,7 +605,7 @@ NSMutableArray *symptomresult;
     
     //    UITextView *temptv=(UITextView*)[self.scrollview viewWithTag:texttag];
     
-    //    NSLog(@"button exists");
+    //    //NSLog(@"button exists");
     
     for (UIScrollView *view in [self.scrollview subviews])
     {
@@ -546,6 +677,9 @@ NSMutableArray *symptomresult;
         }
         
     }
+    next.hidden=NO;
+    reset.hidden=NO;
+    addmore.hidden=NO;
     [scrollview setScrollEnabled:YES];
     
     [scrollview setContentSize:CGSizeMake(768, changesize)];
@@ -581,7 +715,7 @@ NSMutableArray *symptomresult;
         
         QuadrupleVisualAnalogueScale *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in quad %@",recorddict);
+        //NSLog(@"recorddict in quad %@",recorddict);
         
     }
     
@@ -645,7 +779,7 @@ NSMutableArray *symptomresult;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

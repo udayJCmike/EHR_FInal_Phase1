@@ -132,14 +132,14 @@ int tagnumber;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (void)viewDidLoad
 {
@@ -1306,7 +1306,7 @@ int tagnumber;
     if(c==1)
     {
         
-        NSLog(@"submit full recorddict values %@",recorddict);
+        //NSLog(@"submit full recorddict values %@",recorddict);
         
         UIButton *buton=(UIButton*)sender;
         if(buton.tag==12)
@@ -1393,7 +1393,7 @@ int tagnumber;
         }
         else
         {
-            NSLog(@"Welcome Page");
+            //NSLog(@"Welcome Page");
             [self performSegueWithIdentifier:@"to_welcome" sender:self];
         }
     }
@@ -1407,18 +1407,18 @@ int tagnumber;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1457,18 +1457,18 @@ int tagnumber;
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -1505,20 +1505,20 @@ int tagnumber;
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
             
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -1552,18 +1552,18 @@ int tagnumber;
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -1610,10 +1610,10 @@ int tagnumber;
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&Name=%@&Date=%@&StreetAddress=%@&City=%@&State=%@&ZipCode=%@&Homephone=%@&Emailid=%@&MobileNumber=%@&DateOfBirth=%@&SocialSecurityNumber=%@&Gender=%@&MaritalStatus=%@&Areyou=%@&Student=%@&EmployerName=%@&Occupation=%@&EmployerAddress=%@&Workphone=%@&zip=%@&EmployerCity=%@&Estate=%@&Ezip=%@&SpousesName=%@&SpousesEmp=%@&Spousesph=%@&Name_friend=%@&Phone_friend=%@&Chiropratic_care=%@&Symptom_Accident=%@&Type_Of_Accident=%@&accident=%@&Date_Of_Accident=%@&Accident_Reported=%@&when1=%@&where1=%@&Attorney_accident=%@&retain=%@&record=%@&phyname=%@&phyphone=%@&car11=%@&xray=%@&treat=%@&NameOfAttorney=%@&Phone_Number=%@&Fault_accident=%@&claim_open=%@&Insurance=%@&Insurance_phone=%@&Name_auto=%@&Phone_auto=%@&Policy=%@&Name_health=%@&Health_phone=%@&Prev_accident=%@&Prev_When=%@&Anemia=%@&Muscular=%@&Rheumatic=%@&Allergies=%@&Cancer=%@&Polio1=%@&Multiple=%@&Scarlet=%@&HIV=%@&Sinus=%@&Asthma=%@&German=%@&Nervousness=%@&Numbness=%@&Convulsions=%@&Epilepsy=%@&Concussion=%@&Dizziness=%@&Neuritis=%@&Rheumatism=%@&Diabetes=%@&Arthritis=%@&Venereal=%@&Backaches=%@&Tuberculosis=%@&Liver=%@&Kidney=%@&Thyroid=%@&Alcoholism=%@&Hepatitis=%@&Mental=%@&High=%@&Digestive=%@&Heart=%@&Other=%@&Ifother=%@&Illness=%@&Dates=%@&Medications=%@&Drink=%@&Smoke=%@&Drugs=%@&Diet=%@&Exercise=%@&Hazardous=%@&Hazardousyes=%@&Female=%@&Dr=%@&Patient=%@",firstEntity,value1,[recorddict objectForKey:@"name"],[recorddict objectForKey:@"todaydate"],[recorddict objectForKey:@"streetaddress"],[recorddict objectForKey:@"city"],[recorddict objectForKey:@"state"],[recorddict objectForKey:@"zipcode"],[recorddict objectForKey:@"homephone"],[recorddict objectForKey:@"pager"],[recorddict objectForKey:@"cellphone"],[recorddict objectForKey:@"DateOfBirth"],[recorddict objectForKey:@"ssn"],[recorddict objectForKey:@"sex"],[recorddict objectForKey:@"Maritalstatus"],[recorddict objectForKey:@"areyoulabel"],[recorddict objectForKey:@"Student"],[recorddict objectForKey:@"empname"],[recorddict objectForKey:@"occupation"],[recorddict objectForKey:@"empaddress"],[recorddict objectForKey:@"workphone"],[recorddict objectForKey:@"workzipcode"],[recorddict objectForKey:@"empcity"],[recorddict objectForKey:@"workstate"],[recorddict objectForKey:@"workzipcode"],[recorddict objectForKey:@"spousename"],[recorddict objectForKey:@"spouseemp"],[recorddict objectForKey:@"spousephone"],[recorddict objectForKey:@"relativename"],[recorddict objectForKey:@"relativephone"],[recorddict objectForKey:@"hadchiropractic"],[recorddict objectForKey:@"symduetoacc"],[recorddict objectForKey:@"Typeofaccident"],[recorddict objectForKey:@"otheracc"],[recorddict objectForKey:@"Medicaltime"],[recorddict objectForKey:@"accreported"],[recorddict objectForKey:@"medwhen"],[recorddict objectForKey:@"MedicalLocation"],[recorddict objectForKey:@"retainedattorney"],[recorddict objectForKey:@"res6"],[recorddict objectForKey:@"res7"],[recorddict objectForKey:@"text1"],[recorddict objectForKey:@"text2"],[recorddict objectForKey:@"text3"],[recorddict objectForKey:@"text4"],[recorddict objectForKey:@"text5"],[recorddict objectForKey:@"nameofattorney"],[recorddict objectForKey:@"attorneyphone"],[recorddict objectForKey:@"NOP"],[recorddict objectForKey:@"res5"],[recorddict objectForKey:@"insurancecom"],[recorddict objectForKey:@"insurancepho"],[recorddict objectForKey:@"autoname"],[recorddict objectForKey:@"autoph"],[recorddict objectForKey:@"autopolicy"],[recorddict objectForKey:@"healthname"],[recorddict objectForKey:@"healthphone"],[recorddict objectForKey:@"prevautoorwork"],[recorddict objectForKey:@"prevauto"],[recorddict objectForKey:@"b1"],[recorddict objectForKey:@"b2"],[recorddict objectForKey:@"b3"],[recorddict objectForKey:@"b4"],[recorddict objectForKey:@"b29"],[recorddict objectForKey:@"b5"],[recorddict objectForKey:@"b6"],[recorddict objectForKey:@"b7"],[recorddict objectForKey:@"b8"],[recorddict objectForKey:@"b30"],[recorddict objectForKey:@"b9"],[recorddict objectForKey:@"b10"],[recorddict objectForKey:@"b11"],[recorddict objectForKey:@"b12"],[recorddict objectForKey:@"b31"],[recorddict objectForKey:@"b13"],[recorddict objectForKey:@"b14"],[recorddict objectForKey:@"b15"],[recorddict objectForKey:@"b16"],[recorddict objectForKey:@"b32"],[recorddict objectForKey:@"b17"],[recorddict objectForKey:@"b18"],[recorddict objectForKey:@"b19"],[recorddict objectForKey:@"b20"],[recorddict objectForKey:@"b33"],[recorddict objectForKey:@"b21"],[recorddict objectForKey:@"b22"],[recorddict objectForKey:@"b23"],[recorddict objectForKey:@"b24"],[recorddict objectForKey:@"b34"],[recorddict objectForKey:@"b25"],[recorddict objectForKey:@"b26"],[recorddict objectForKey:@"b27"],[recorddict objectForKey:@"b28"],[recorddict objectForKey:@"b35"],[recorddict objectForKey:@"bother"],[recorddict objectForKey:@"majorillness"],[recorddict objectForKey:@"majorillnessdate"],[recorddict objectForKey:@"medicines"],[recorddict objectForKey:@"b36"],[recorddict objectForKey:@"b39"],[recorddict objectForKey:@"b40"],[recorddict objectForKey:@"b37"],[recorddict objectForKey:@"b38"],[recorddict objectForKey:@"hazardoussubstances"],[recorddict objectForKey:@"hazardouslist"],[recorddict objectForKey:@"femalepregnant"],[recorddict objectForKey:@"doctorname"],[recorddict objectForKey:@"patsign"]];
     post=[NSString stringWithFormat:@"%@&%@&%@=%@",post,res,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1631,7 +1631,7 @@ int tagnumber;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1660,10 +1660,10 @@ int tagnumber;
     
     post=[NSString stringWithFormat:@"%@&%@&%@=%@",post,res,secondEntity,value2];
     
-    NSLog(@"POST:%@",post);
+    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1681,7 +1681,7 @@ int tagnumber;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    NSLog(@"data %@",data);
+    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1696,10 +1696,10 @@ int tagnumber;
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -1717,7 +1717,7 @@ int tagnumber;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -1780,7 +1780,7 @@ int tagnumber;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

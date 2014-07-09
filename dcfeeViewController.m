@@ -246,9 +246,9 @@
                                                                                                     [recorddict setValue:brief.text forKey:@"brief"];
                                                                                                     [recorddict setValue:intermediate.text forKey:@"intermediate"];
                                                                                                     [recorddict setValue:consultationcomp.text forKey:@"consultationcomp"];
-                                                                                                    NSLog(@"success!!!recorddict %@",recorddict);
+                                                                                                    //NSLog(@"success!!!recorddict %@",recorddict);
                                                                                                     //
-                                                                                                    NSLog(@"record dict count %d",[recorddict count]);
+                                                                                                    //NSLog(@"record dict count %d",[recorddict count]);
                                                                                                     
                                                                                                     c=1;
                                                                                                     
@@ -634,19 +634,19 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     
-    //NSLog(@"identifier %@",identifier);
+    ////NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"dcfee1"])
     {
         if (c==1)
@@ -673,8 +673,8 @@
         dcfee1ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in dcfeedetail%@",recorddict);
-        NSLog(@"rsultset in dcfeedetail%@",resultset);
+        //NSLog(@"recorddict in dcfeedetail%@",recorddict);
+        //NSLog(@"rsultset in dcfeedetail%@",resultset);
         // destViewController.delegate=self;
         
     }
@@ -743,7 +743,7 @@
             textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
         }
     }
-    NSLog(@"patient name in dc %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"]);
+    //NSLog(@"patient name in dc %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"]);
     patientname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     date.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"billdate"];
     page1.hidden=YES;
@@ -766,14 +766,14 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV" EntityThird:@"date" ForValue3:billdate];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    // //NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"dcfeeslipuser List"];
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
-    NSLog(@"items1app %d",[items1App count]);
+    //NSLog(@"items1app %d",[items1App count]);
     
     if ([items1App count]>0)
     {
@@ -782,11 +782,11 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            NSLog(@"arraylist count %d",[arrayList1 count]);
+            //NSLog(@"arraylist count %d",[arrayList1 count]);
             pid=[arrayList1 objectForKey:@"pid"];dates=[arrayList1 objectForKey:@"date"];pname=[arrayList1 objectForKey:@"pname"];dr1=[arrayList1 objectForKey:@"dr1"];rpts=[arrayList1 objectForKey:@"rpt"];ptas=[arrayList1 objectForKey:@"pta"];initialemlimited=[arrayList1 objectForKey:@"initialemlimited"];initialexpanded=[arrayList1 objectForKey:@"initialexpanded"];initialdetailed=[arrayList1 objectForKey:@"initialdetailed"];initialemextended=[arrayList1 objectForKey:@"initialemextended"];estpatientltd=[arrayList1 objectForKey:@"estpatientltd"];estpatientexp=[arrayList1 objectForKey:@"estpatientexp"];estpatientdetails=[arrayList1 objectForKey:@"estpatientdetails"];estpatientcomp=[arrayList1 objectForKey:@"estpatientcomp"];consultphys=[arrayList1 objectForKey:@"consultphys"];consultdetails=[arrayList1 objectForKey:@"consultdetail"];consultcomps=[arrayList1 objectForKey:@"consultcomp"];patientexp=[arrayList1 objectForKey:@"patientexp"];patientdetails=[arrayList1 objectForKey:@"patientdetails"];patientcomp=[arrayList1 objectForKey:@"patientcomp"];telephonebrief=[arrayList1 objectForKey:@"telephonebrief"];telephoneintermediate=[arrayList1 objectForKey:@"telephoneintermediate"];telephonecomp=[arrayList1 objectForKey:@"telephonecomp"];tractionmechanical=[arrayList1 objectForKey:@"tractionmechanical"];electricstim=[arrayList1 objectForKey:@"electricstim"];vasopneumatic=[arrayList1 objectForKey:@"vasopneumatic"];paraffin=[arrayList1 objectForKey:@"paraffin"];whirlpool=[arrayList1 objectForKey:@"whirlpool"];diathermy=[arrayList1 objectForKey:@"diathermy"];infrared=[arrayList1 objectForKey:@"infrared"];ultraviolet=[arrayList1 objectForKey:@"ultraviolet"];microwave=[arrayList1 objectForKey:@"microwave"];manualelectricalstim=[arrayList1 objectForKey:@"manualelectricalstim"];iontophoresis=[arrayList1 objectForKey:@"iontophoresis"];contrastbathss=[arrayList1 objectForKey:@"contrastbaths"];ultrasounds=[arrayList1 objectForKey:@"ultrasound"];unlisted=[arrayList1 objectForKey:@"unlisted"];therapeutic=[arrayList1 objectForKey:@"therapeutic"];neuromuscular=[arrayList1 objectForKey:@"neuromuscular"];aquatic=[arrayList1 objectForKey:@"aquatic"];gaittraining=[arrayList1 objectForKey:@"gaittraining"];massage=[arrayList1 objectForKey:@"massage"];manualtherapy=[arrayList1 objectForKey:@"manualtherapy"];unlistedother=[arrayList1 objectForKey:@"unlistedother"];orthotics=[arrayList1 objectForKey:@"orthotics"];kinetic=[arrayList1 objectForKey:@"kinetic"];adlselfcare=[arrayList1 objectForKey:@"adlselfcare"];grouptherapy=[arrayList1 objectForKey:@"grouptherapy"];reintegration=[arrayList1 objectForKey:@"reintegration"];acupuncturewo=[arrayList1 objectForKey:@"acupuncturewo"];acupuncturew=[arrayList1 objectForKey:@"acupuncturew"];spine12=[arrayList1 objectForKey:@"spine12"];spine34=[arrayList1 objectForKey:@"spine34"];spine5=[arrayList1 objectForKey:@"spine5"];extremity=[arrayList1 objectForKey:@"extremity"];muscle=[arrayList1 objectForKey:@"muscle"];routine=[arrayList1 objectForKey:@"routine"];musclehand=[arrayList1 objectForKey:@"musclehand"];rangeofmotion=[arrayList1 objectForKey:@"rangeofmotion"];rangeofmotionhand=[arrayList1 objectForKey:@"rangeofmotionhand"];ncv=[arrayList1 objectForKey:@"ncv"];ncvw=[arrayList1 objectForKey:@"ncvw"];ncvea=[arrayList1 objectForKey:@"ncvea"];sseplower=[arrayList1 objectForKey:@"sseplower"];ssepupper=[arrayList1 objectForKey:@"ssepupper"];ssephead=[arrayList1 objectForKey:@"ssephead"];hreflex=[arrayList1 objectForKey:@"hreflex"];physicalperformance=[arrayList1 objectForKey:@"physicalperformance"];functionalcapacity=[arrayList1 objectForKey:@"functionalcapacity"];text1=[arrayList1 objectForKey:@"text1"];text2=[arrayList1 objectForKey:@"text2"];supplies=[arrayList1 objectForKey:@"supplies"];patienteducation=[arrayList1 objectForKey:@"patienteducation"];medicaltestimony=[arrayList1 objectForKey:@"medicaltestimony"];insuranceform=[arrayList1 objectForKey:@"insuranceform"];teamconference=[arrayList1 objectForKey:@"teamconference"];completespine=[arrayList1 objectForKey:@"completespine"];cervical23=[arrayList1 objectForKey:@"cervical23"];cervical4=[arrayList1 objectForKey:@"cervical4"];cervical67=[arrayList1 objectForKey:@"cervical67"];thoracic4=[arrayList1 objectForKey:@"thoracic4"];thoracic2=[arrayList1 objectForKey:@"thoracic2"];scoliosis=[arrayList1 objectForKey:@"scoliosis"];lumbosacral=[arrayList1 objectForKey:@"lumbosacral"];lumbosacral4=[arrayList1 objectForKey:@"lumbosacral4"];pelvis2=[arrayList1 objectForKey:@"pelvis2"];lumbarcomplete=[arrayList1 objectForKey:@"lumbarcomplete"];elbow2=[arrayList1 objectForKey:@"elbow2"];wrist2=[arrayList1 objectForKey:@"wrist2"];hand2=[arrayList1 objectForKey:@"hand2"];knee2=[arrayList1 objectForKey:@"knee2"];ankle2=[arrayList1 objectForKey:@"ankle2"];foot2=[arrayList1 objectForKey:@"foot2"];readotherfilms=[arrayList1 objectForKey:@"readotherfilms"];cervicalpillow=[arrayList1 objectForKey:@"cervicalpillow"];lumbarsupport=[arrayList1 objectForKey:@"lumbarsupport"];orthoticcustoml=[arrayList1 objectForKey:@"orthoticcustoml"];orthoticcustomr=[arrayList1 objectForKey:@"orthoticcustomr"];tensunit=[arrayList1 objectForKey:@"tensunit"];coldpack=[arrayList1 objectForKey:@"coldpack"];wristsplint=[arrayList1 objectForKey:@"wristsplint"];heellift=[arrayList1 objectForKey:@"heellift"];exerciseball=[arrayList1 objectForKey:@"exerciseball"];exerciseband=[arrayList1 objectForKey:@"exerciseband"];unlisteditem=[arrayList1 objectForKey:@"unlisteditem"];charges=[arrayList1 objectForKey:@"charges"];less=[arrayList1 objectForKey:@"less"];balance=[arrayList1 objectForKey:@"balance"];payment=[arrayList1 objectForKey:@"payment"];paymentcashcheck=[arrayList1 objectForKey:@"paymentcashcheck"];amex=[arrayList1 objectForKey:@"amex"];discover=[arrayList1 objectForKey:@"discover"];mc=[arrayList1 objectForKey:@"mc"];visa=[arrayList1 objectForKey:@"visa"];cardsign=[arrayList1 objectForKey:@"cardsign"];date1=[arrayList1 objectForKey:@"date1"];parentsign=[arrayList1 objectForKey:@"parentsign"];doctorsign=[arrayList1 objectForKey:@"doctorsign"];week=[arrayList1 objectForKey:@"week"];months=[arrayList1 objectForKey:@"months"];
             
             
-            NSLog(@"array list one::%@",arrayList1);
+            //NSLog(@"array list one::%@",arrayList1);
             
             
             [self setdatas];//set database values
@@ -800,7 +800,7 @@
             
         }
         [[NSUserDefaults standardUserDefaults]setObject:@"Datas read" forKey:@"status"];
-        // NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
+        // //NSLog(@"temp ===%@,temp1==%@,temp2===%@,temp3===%@",temp,temp1,temp2,temp3);
     }
     else
     {
@@ -917,10 +917,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@&%@=%@",firstEntity,value1,secondEntity,value2,thirdEntity,value3];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -938,7 +938,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    // NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -1036,7 +1036,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

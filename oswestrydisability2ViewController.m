@@ -628,7 +628,7 @@
         oswestrydisability3ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in oswestry third %@",recorddict);
+      //  NSLog(@"recorddict in oswestry third %@",recorddict);
     }
     
     

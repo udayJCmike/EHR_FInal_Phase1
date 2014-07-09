@@ -1082,7 +1082,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Wristexam.php?service=wristexamedit";
-    NSLog(@"vlaue for date field::%@",[recorddict objectForKey:@"datefield"]);
+   // NSLog(@"vlaue for date field::%@",[recorddict objectForKey:@"datefield"]);
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&muscle=%@&swelling=%@&dominanthand=%@&ao=%@&dysfunction=%@&thenareminence=%@&flexorcarpiradialis=%@&commonflexors=%@&hypothenareminence=%@&extensorcarpiradialis=%@&commonextensor=%@&abductorpolliuslongus=%@&abductorpollicisbrevis=%@&extensorpollicisbrevis=%@&note=%@&functional=%@&orthotpedic=%@&flexionleft=%@&flexionright=%@&extensionleft=%@&extensionright=%@&ulnarleft=%@&ulnarright=%@&radialleft=%@&radialright=%@&pronationleft=%@&pronationright=%@&allenleft=%@&allenright=%@&phalenleft=%@&phalenright=%@&reverseleft=%@&reverseright=%@&tenosynovitisleft=%@&tenosynovitisright=%@&tinnelsleft=%@&tinnelsright=%@&ulttleft=%@&ulttright=%@&neurological=%@&latdeltoidleft=%@&latdeltoidright=%@&latarmleft=%@&latarmright=%@&thirdleft=%@&thirdright=%@&medforearmleft=%@&medforearmright=%@&medelbowleft=%@&medelbowright=%@&shdleft=%@&shdright=%@&elbflexleft=%@&elbflexright=%@&elbextleft=%@&elbextright=%@&digitflexionleft=%@& digitflexionright=%@&digitabdleft=%@&digitabdright=%@&bicepsleft=%@&bicepsright=%@&brachioradleft=%@&brachioradright=%@&tricepsleft=%@&tricepsright=%@&typing=%@&driving=%@&other=%@&otherdefict=%@&comments=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&diagnosis6=%@&times=%@&weeks=%@&spinaldecompression=%@&chiropractic=%@&physicaltherapy=%@&bracing=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&scan=%@&conduction=%@&emg=%@&outsiderefferal=%@&dc=%@&others=%@&othervalue=%@&signature=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"patname"],[recorddict objectForKey:@"datefield"],[recorddict objectForKey:@"muscle"],[recorddict objectForKey:@"swell"],[recorddict objectForKey:@"seg1"],[recorddict objectForKey:@"seg2"],[recorddict objectForKey:@"checkstringone"],[recorddict objectForKey:@"seg3"],[recorddict objectForKey:@"seg4"],[recorddict objectForKey:@"seg5"],[recorddict objectForKey:@"seg6"],[recorddict objectForKey:@"seg7"],[recorddict objectForKey:@"seg8"],[recorddict objectForKey:@"seg9"],[recorddict objectForKey:@"seg10"],[recorddict objectForKey:@"seg11"],[recorddict objectForKey:@"textviewone"],[recorddict objectForKey:@"checkstringtwo"],[recorddict objectForKey:@"checkstringthree"],[recorddict objectForKey:@"one"],[recorddict objectForKey:@"two"],[recorddict objectForKey:@"five"],[recorddict objectForKey:@"six"],[recorddict objectForKey:@"nine"],[recorddict objectForKey:@"ten"],[recorddict objectForKey:@"thirteen"],[recorddict objectForKey:@"fourteen"],[recorddict objectForKey:@"seventeen"],[recorddict objectForKey:@"eighteen"],[recorddict objectForKey:@"three"],[recorddict objectForKey:@"four"],[recorddict objectForKey:@"seven"],[recorddict objectForKey:@"eight"],[recorddict objectForKey:@"eleven"],[recorddict objectForKey:@"twelve"],[recorddict objectForKey:@"fifteen"],[recorddict objectForKey:@"sixteen"],[recorddict objectForKey:@"nineteen"],[recorddict objectForKey:@"twenty"],[recorddict objectForKey:@"twentyone"],[recorddict objectForKey:@"twentytwo"],[recorddict objectForKey:@"neuro"],[recorddict objectForKey:@"first"],[recorddict objectForKey:@"2nd"],[recorddict objectForKey:@"7th"],[recorddict objectForKey:@"8th"],[recorddict objectForKey:@"13th"],[recorddict objectForKey:@"14th"],[recorddict objectForKey:@"19th"],[recorddict objectForKey:@"20th" ],[recorddict objectForKey:@"23rd"],[recorddict objectForKey:@"24th"],[recorddict objectForKey:@"3rd"],[recorddict objectForKey:@"4th"],[recorddict objectForKey:@"9th"],[recorddict objectForKey:@"10th"],[recorddict objectForKey:@"15th"],[recorddict objectForKey:@"16th"],[recorddict objectForKey:@"21st"],[recorddict objectForKey:@"22nd"],[recorddict objectForKey:@"25th"],[recorddict objectForKey:@"26th"],[recorddict objectForKey:@"5th"],[recorddict objectForKey:@"6th"],[recorddict objectForKey:@"11th"],[recorddict objectForKey:@"12th"],[recorddict objectForKey:@"17th"],[recorddict objectForKey:@"18th"],[recorddict objectForKey:@"typing"],[recorddict objectForKey:@"driving"],[recorddict objectForKey:@"ot"],[recorddict objectForKey:@"othertext"],[recorddict objectForKey:@"addcmt"],[recorddict objectForKey:@"patientstatus"],[recorddict objectForKey:@"diagnosis1"],[recorddict objectForKey:@"diagnosis2"],[recorddict objectForKey:@"diagnosis3"],[recorddict objectForKey:@"diagnosis4"],[recorddict objectForKey:@"diagnosis5"],[recorddict objectForKey:@"diagnosis6"],[recorddict objectForKey:@"day"],[recorddict objectForKey:@"week"],chec1,chec2,chec3,chec4,chec5,chec6,chec7,chec8,chec9,chec10,chec11,chec12,chec13,chec14,chec15,othertext.text,signature.text,secondEntity,value2];
     
@@ -1113,7 +1113,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     
@@ -1264,7 +1264,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     
     
     
-    NSLog(@"POST:%@",post);
+  //  NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -1287,7 +1287,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+  //  NSLog(@"data %@",data);
     
     return data;
     

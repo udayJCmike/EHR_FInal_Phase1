@@ -70,14 +70,14 @@ NSString *leftsegm,*rightsegm,*painscale;
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)next:(id)sender
 {
@@ -323,7 +323,7 @@ NSString *leftsegm,*rightsegm,*painscale;
                 [self performSegueWithIdentifier:@"hami4" sender:self];
             }
             
-            // NSLog(@"success%@",recorddict);
+            // //NSLog(@"success%@",recorddict);
             
         }
         
@@ -477,16 +477,16 @@ NSString *leftsegm,*rightsegm,*painscale;
         
         hamil3ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in third %@",recorddict);
-        NSLog(@"recorddict count in third %d",[recorddict count]);
+        //NSLog(@"recorddict in third %@",recorddict);
+        //NSLog(@"recorddict count in third %d",[recorddict count]);
     }
     else if ([segue.identifier isEqualToString:@"more1"])
     {
         
         TestMoreViewController*destViewController = [segue destinationViewController];
         destViewController.moretestdict=moretestdict;
-        NSLog(@"moretest in third %@",moretestdict);
-        NSLog(@"moretest count in third %d",[moretestdict count]);
+        //NSLog(@"moretest in third %@",moretestdict);
+        //NSLog(@"moretest count in third %d",[moretestdict count]);
     }
     
 }
@@ -711,7 +711,7 @@ NSString *leftsegm,*rightsegm,*painscale;
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

@@ -126,14 +126,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)reset:(id)sender {
     [mrseg setSelectedSegmentIndex:0];
@@ -253,7 +253,7 @@
                                                         [recorddict setValue:de4.text forKey:@"de4"];
                                                         [recorddict setValue:he1.text forKey:@"he1"];
                                                         [recorddict setValue:his1.text forKey:@"his1"];
-                                                        NSLog(@"success!!!recorddict %@",recorddict);
+                                                       // //NSLog(@"success!!!recorddict %@",recorddict);
                                                         
                                                         
                                                         
@@ -514,18 +514,18 @@
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -581,20 +581,20 @@
 		case NotReachable:
 		{
 			isConnect=NO;
-			//NSLog(@"Access Not Available");
+			////NSLog(@"Access Not Available");
 			break;
 		}
 			
 		case ReachableViaWWAN:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WWAN");
+			////NSLog(@"Reachable WWAN");
 			break;
 		}
 		case ReachableViaWiFi:
 		{
 			isConnect=YES;
-			//NSLog(@"Reachable WiFi");
+			////NSLog(@"Reachable WiFi");
 			break;
 		}
 	}
@@ -628,18 +628,18 @@
     SBJSON *json = [[SBJSON new] autorelease];
     NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
     
-    //NSLog(@"%@ lucky numbers",luckyNumbers);
+    ////NSLog(@"%@ lucky numbers",luckyNumbers);
     if (luckyNumbers == nil)
     {
         
-        //NSLog(@"luckyNumbers == nil");
+        ////NSLog(@"luckyNumbers == nil");
         
     }
     else
     {
         
         NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-        // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+        // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
         
         
         
@@ -701,18 +701,18 @@
         SBJSON *json = [[SBJSON new] autorelease];
         NSDictionary *luckyNumbers = [json objectWithString:response error:&error];
         
-        //NSLog(@"%@ lucky numbers",luckyNumbers);
+        ////NSLog(@"%@ lucky numbers",luckyNumbers);
         if (luckyNumbers == nil)
         {
             
-            //NSLog(@"luckyNumbers == nil");
+            ////NSLog(@"luckyNumbers == nil");
             
         }
         else
         {
             
             NSDictionary* menu = [luckyNumbers objectForKey:@"serviceresponse"];
-            // NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
+            // //NSLog(@"Menu id: %@", [menu objectForKey:@"servicename"]);
             
             
             
@@ -760,7 +760,7 @@
 
 -(NSString *)HttpPostEntityFirst1:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
-    // NSLog(@"dermatome=%@&gender42=%@&gender43=%@&gender44=%@&level1=%@&level=%@&gender45=%@&level2=%@&orthopedictest1=%@&jacksonsr=%@&jacksonsl=%@&orthopedictest2=%@&doublelegraiser=%@&doublelegraisel=%@&orthopedictest3=%@&yeomansr=%@&yeomansl=%@&orthopedictest4=%@&foraminalr=%@&foraminall=%@&orthopedictest5=%@&shoulderr=%@&shoulderl=%@&orthopedictest6=%@&orthopedicr=%@&orthopedicl=%@",[recorddict objectForKey:@"textl1"],[recorddict objectForKey:@"s1r"],[recorddict objectForKey:@"s2r"],[recorddict objectForKey:@"s3r"],[recorddict objectForKey:@"textl2"],[recorddict objectForKey:@"s4r"],@"null",@"null",[recorddict objectForKey:@"o1"],[recorddict objectForKey:@"rs1"],[recorddict objectForKey:@"ls1"],[recorddict objectForKey:@"o2"],[recorddict objectForKey:@"rs2"],[recorddict objectForKey:@"ls2"],[recorddict objectForKey:@"o3"],[recorddict objectForKey:@"rs3"],[recorddict objectForKey:@"ls3"],[recorddict objectForKey:@"o4"],[recorddict objectForKey:@"rs4"],[recorddict objectForKey:@"ls4"],[recorddict objectForKey:@"o5"],[recorddict objectForKey:@"rs5"],[recorddict objectForKey:@"ls5"],[recorddict objectForKey:@"o6"],[recorddict objectForKey:@"rs6"],[recorddict objectForKey:@"ls6"]);
+    // //NSLog(@"dermatome=%@&gender42=%@&gender43=%@&gender44=%@&level1=%@&level=%@&gender45=%@&level2=%@&orthopedictest1=%@&jacksonsr=%@&jacksonsl=%@&orthopedictest2=%@&doublelegraiser=%@&doublelegraisel=%@&orthopedictest3=%@&yeomansr=%@&yeomansl=%@&orthopedictest4=%@&foraminalr=%@&foraminall=%@&orthopedictest5=%@&shoulderr=%@&shoulderl=%@&orthopedictest6=%@&orthopedicr=%@&orthopedicl=%@",[recorddict objectForKey:@"textl1"],[recorddict objectForKey:@"s1r"],[recorddict objectForKey:@"s2r"],[recorddict objectForKey:@"s3r"],[recorddict objectForKey:@"textl2"],[recorddict objectForKey:@"s4r"],@"null",@"null",[recorddict objectForKey:@"o1"],[recorddict objectForKey:@"rs1"],[recorddict objectForKey:@"ls1"],[recorddict objectForKey:@"o2"],[recorddict objectForKey:@"rs2"],[recorddict objectForKey:@"ls2"],[recorddict objectForKey:@"o3"],[recorddict objectForKey:@"rs3"],[recorddict objectForKey:@"ls3"],[recorddict objectForKey:@"o4"],[recorddict objectForKey:@"rs4"],[recorddict objectForKey:@"ls4"],[recorddict objectForKey:@"o5"],[recorddict objectForKey:@"rs5"],[recorddict objectForKey:@"ls5"],[recorddict objectForKey:@"o6"],[recorddict objectForKey:@"rs6"],[recorddict objectForKey:@"ls6"]);
     
     NSString *urltemp=[[databaseurl sharedInstance]DBurl];
     NSString *url1=@"Narrativereport.php?service=narrativeinsert";
@@ -772,12 +772,12 @@
     
     NSString *post=[NSString stringWithFormat:@"%@%@",post1,post2];
     
-    // NSLog(@"POST:%@",post);
+    // //NSLog(@"POST:%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -795,7 +795,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //  NSLog(@"data %@",data);
+    //  //NSLog(@"data %@",data);
     
     return data;
     
@@ -814,10 +814,10 @@
     
     NSString *post=[NSString stringWithFormat:@"%@%@",post1,post2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -835,7 +835,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -850,10 +850,10 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&%@=%@",firstEntity,value1,secondEntity,value2];
     
-    //    NSLog(@"POST:%@",post);
+    //    //NSLog(@"POST:%@",post);
     NSURL *url = [NSURL URLWithString:url2];
     
-    //////NSLog(post);
+    ////////NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -871,7 +871,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+    //    //NSLog(@"data %@",data);
     
     return data;
     
@@ -952,7 +952,7 @@
     return self;
 }
 -(void)dataset{
-    NSLog(@"in dataset narrative third");
+   // //NSLog(@"in dataset narrative third");
     name.text=[mutearray objectForKey:@"patiname"];
     self.name1.text = name.text;
     self.name2.text=name.text;
@@ -1005,7 +1005,7 @@
     mr2.text=[NSString stringWithFormat:@"%@%@",mr,@"."];
     mr3.text=[NSString stringWithFormat:@"%@%@",mr,@"."];
     [self displaydata];
-    NSLog(@"mute array count in submit page::%d",[mutearray count]);
+   // //NSLog(@"mute array count in submit page::%d",[mutearray count]);
     if([mutearray count]>0){
         [self dataset];
     }
@@ -1195,7 +1195,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

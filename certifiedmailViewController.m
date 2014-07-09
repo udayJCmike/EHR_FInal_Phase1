@@ -405,7 +405,7 @@
                                             [recorddict setValue:patadd.text forKey:@"paient add"];
                                             [recorddict setValue:amt1.text forKey:@"amt1"];
                                             [recorddict setValue:amt2.text forKey:@"amt2"];
-                                            NSLog(@"success!!!recorddict %@",recorddict);
+                                          //  NSLog(@"success!!!recorddict %@",recorddict);
                                             
                                             
                                         }
@@ -779,7 +779,7 @@
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
     
-    NSLog(@"values in record dictionaries::%@",recorddict);
+   // NSLog(@"values in record dictionaries::%@",recorddict);
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&date=%@&insurance=%@&address1=%@&name=%@&address3=%@&patientsname=%@&address5=%@&medicalfee=%@&amount=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"date"],[recorddict objectForKey:@"insurancecompany"],[recorddict objectForKey:@"insurancecompany address"],[recorddict objectForKey:@"attorney name"],[recorddict objectForKey:@"attadd"],[recorddict objectForKey:@"patientname"],[recorddict objectForKey:@"paient add"],[recorddict objectForKey:@"amt1"],[recorddict objectForKey:@"amt2"],secondEntity,value2];
@@ -789,12 +789,12 @@
     
     NSURL *url = [NSURL URLWithString:url2];
     
-    NSLog(@"postvalue%@",post);
+   // NSLog(@"postvalue%@",post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSLog(@"postrequest %@",url);
+   // NSLog(@"postrequest %@",url);
     [request setURL:url];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
@@ -809,7 +809,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     

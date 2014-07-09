@@ -80,15 +80,15 @@
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     
-    HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
-    HUD.mode=MBProgressHUDModeDeterminate;
-    HUD.delegate = self;
-    HUD.labelText = @"Submitting";
-    [HUD show:YES];
+   
    
     if (buttonIndex==1)
     {
-       
+        HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
+        HUD.mode=MBProgressHUDModeIndeterminate;
+        HUD.delegate = self;
+        HUD.labelText = @"Submitting";
+        [HUD show:YES];
 
         UITextField *username = [alertView textFieldAtIndex:0];
         NSString *result=[self Getdata1:username.text];
@@ -182,6 +182,7 @@
             }
             else
             {
+               
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
                                                                description:@"Please enter valid patient name."
                                                                       type:TWMessageBarMessageTypeError

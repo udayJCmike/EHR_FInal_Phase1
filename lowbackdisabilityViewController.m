@@ -854,7 +854,7 @@
         lowbackdisability1ViewController *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-        NSLog(@"recorddict in low back first %@",recorddict);
+      //  NSLog(@"recorddict in low back first %@",recorddict);
     }
     
     

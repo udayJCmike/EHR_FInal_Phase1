@@ -128,7 +128,7 @@ int a;
     }
     if (a==1)
     {
-        NSLog(@"recorddict in Consent Perry %@",recorddict);
+      //  NSLog(@"recorddict in Consent Perry %@",recorddict);
     }
     else
     {

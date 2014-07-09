@@ -41,14 +41,14 @@
 }
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
-    //	NSLog(@"%@", date);
+    //	//NSLog(@"%@", date);
     
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     
-    //	NSLog(@"begin editing");
+    //	//NSLog(@"begin editing");
 }
 - (IBAction)next:(id)sender
 {
@@ -295,7 +295,7 @@
         [self performSegueWithIdentifier:@"hami6" sender:self];
     }
     
-    // NSLog(@"succecc%@",recorddict);
+    // //NSLog(@"succecc%@",recorddict);
 }
 
 
@@ -390,16 +390,16 @@
         
         hamil5ViewController*destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-        NSLog(@"recorddict in fifth %@",recorddict);
-        NSLog(@"recorddict count in fifth %d",[recorddict count]);
+        //NSLog(@"recorddict in fifth %@",recorddict);
+        //NSLog(@"recorddict count in fifth %d",[recorddict count]);
     }
     else if ([segue.identifier isEqualToString:@"more3"])
     {
         
         TestMoreViewController*destViewController = [segue destinationViewController];
         destViewController.moretestdict=moretestdict;
-        NSLog(@"moretest in third %@",moretestdict);
-        NSLog(@"moretest count in third %d",[moretestdict count]);
+        //NSLog(@"moretest in third %@",moretestdict);
+        //NSLog(@"moretest count in third %d",[moretestdict count]);
     }
     
     
@@ -706,7 +706,7 @@
         
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
             if (!completed && error) {
-                //NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                ////NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
             }
         };
         [printController presentFromBarButtonItem:barButton animated:YES completionHandler:completionHandler];

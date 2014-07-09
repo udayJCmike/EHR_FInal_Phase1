@@ -328,7 +328,7 @@ int changesize;
         }
     }
     @catch (NSException *e) {
-        NSLog(@"index not found");
+       // NSLog(@"index not found");
     }
     @finally {
         
@@ -999,7 +999,7 @@ int changesize;
                                                         }
                                                         [recorddict setValue:[NSNumber numberWithInt:i] forKey:@"numofcontent"];
                                                         
-                                                        NSLog(@"recordvalues %@",recorddict);
+                                                       // NSLog(@"recordvalues %@",recorddict);
                                                         
                                                     }
                                                     else
