@@ -136,7 +136,7 @@ NSMutableArray *symptomresult;
             else
             {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 break;
             }
         }
@@ -294,7 +294,7 @@ NSMutableArray *symptomresult;
                 next.hidden=NO;
                 reset.hidden=NO;
                 addmore.hidden=NO;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             else if (success1==0)
             {
@@ -302,7 +302,7 @@ NSMutableArray *symptomresult;
                 next.hidden=NO;
                 reset.hidden=NO;
                 addmore.hidden=NO;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             
         }
@@ -316,7 +316,7 @@ NSMutableArray *symptomresult;
         next.hidden=NO;
         reset.hidden=NO;
         addmore.hidden=NO;
-        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
     }
     
     
@@ -400,7 +400,7 @@ NSMutableArray *symptomresult;
             next.hidden=NO;
             reset.hidden=NO;
             addmore.hidden=NO;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else
@@ -568,7 +568,7 @@ NSMutableArray *symptomresult;
                 next.hidden=NO;
                 reset.hidden=NO;
                 addmore.hidden=NO;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             else if (success1==0)
             {
@@ -576,7 +576,7 @@ NSMutableArray *symptomresult;
                 next.hidden=NO;
                 reset.hidden=NO;
                 addmore.hidden=NO;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms shouldnot be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be same." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
             }
             
         }
