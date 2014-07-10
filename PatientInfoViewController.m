@@ -704,8 +704,8 @@
                 switch1.hidden=TRUE;
             }
             
-            [recorddict setValue:temp forKey:@"patientid"];
-            resultResponse1=[self HttpPostGetsymptomdetails:@"patient_id" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
+           
+           
             
             
             
@@ -719,7 +719,7 @@
     }
     @try {
         
-        
+         resultResponse1=[self HttpPostGetsymptomdetails:@"patient_id" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
         NSError *error1;
         SBJSON *json1 = [[SBJSON new] autorelease];
         //  //NSLog(@"response %@",resultResponse1);
