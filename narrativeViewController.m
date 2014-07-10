@@ -277,11 +277,11 @@
                     {
                         if((([temp12 length]>0)&&([du patname:temp12]==1))||([temp12 length]==0))
                         {
-                            if((([temp17 length]>0)&&([self validateDate:temp17]==1))||([temp17 length]==0))
+                            if((([temp17 length]>0)&&([du dateexpress:temp17]==1))||([temp17 length]==0))
                             {
-                                if((([temp19 length]>0)&&([self validateDate:temp19]==1))||([temp19 length]==0))
+                                if((([temp19 length]>0)&&([du dateexpress:temp19]==1))||([temp19 length]==0))
                                 {
-                                    if((([temp18 length]>0)&&([self validateDate:temp18]==1))||([temp18 length]==0))
+                                    if((([temp18 length]>0)&&([du dateexpress:temp18]==1))||([temp18 length]==0))
                                     {
                                         if((([temp2 length]>0)&&([du otherfields:temp2]==1))||([temp2 length]==0))
                                         {

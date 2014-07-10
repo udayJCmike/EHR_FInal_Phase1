@@ -101,7 +101,8 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     [super viewDidLoad];
     
     
-    //NSLog(@"thoracic %@",recorddict); du=[[databaseurl alloc]init];
+    //NSLog(@"thoracic %@",recorddict);
+    du=[[databaseurl alloc]init];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];

@@ -281,13 +281,13 @@
         
         if([du patname:temp1]==1)
         {
-            if([du date:temp2]==1)
+            if([du dateexpress:temp2]==1)
             {
-                if([du date:temp3]==1)
+                if([du dateexpress:temp3]==1)
                 {
                     if([du patname:temp4]==1)
                     {
-                        if([du date:temp5]==1)
+                        if([du dateexpress:temp5]==1)
                         {
                             [recorddict setValue:name.text forKey:@"Name"];
                             [recorddict setValue:borrow.text forKey:@"Date Borrowed"];

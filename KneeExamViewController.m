@@ -1577,7 +1577,8 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                                                                                                                                                         [recorddict setValue:right3.text forKey:@"right3"];
                                                                                                                                                         [recorddict setValue:right4.text forKey:@"right4"];
                                                                                                                                                         //NSLog(@"succc value %i",suc);
-                                                                                                                                                        //NSLog(@"recorddict in knee exam controller %@",recorddict);                                                                                                                                                                                                            suc=1;
+                                                                                                                                                        //NSLog(@"recorddict in knee exam controller %@",recorddict);
+                                                                                                                                                        suc=1;
                                                                                                                                                     }else{
                                                                                                                                                         suc=0;
                                                                                                                                                         

@@ -503,13 +503,13 @@
             if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
             {
                 
-                if((([temp8 length]>0)&&([self validateDate:temp8]==1))||([temp8 length]==0))
+                if((([temp8 length]>0)&&([du dateexpress:temp8]==1))||([temp8 length]==0))
                 {
-                    if((([temp9 length]>0)&&([du otherfields:temp9]==1))||([temp9 length]==0))
+                    if(([temp9 length]>0)||([temp9 length]==0))
                     {
-                        if((([temp10 length]>0)&&([self validateDate:temp10]==1))||([temp10 length]==0))
+                        if((([temp10 length]>0)&&([du dateexpress:temp10]==1))||([temp10 length]==0))
                         {
-                            if((([temp15 length]>0)&&([self validateNames1:temp15]==1))||([temp15 length]==0))
+                            if((([temp15 length]>0)&&([du otherfields:temp15]==1))||([temp15 length]==0))
                             {
                                 if((([temp11 length]>0)&&([du age:temp11]==1))||([temp11 length]==0))
                                 {
