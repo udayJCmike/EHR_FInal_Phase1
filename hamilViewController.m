@@ -915,11 +915,11 @@
     temp8=[other4.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp4=[[happen.text stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if((([temp1 length]>0)&&([self validateNames1:gradualH.text]==1))||([gradualH.text length]==0))
+    if((([temp1 length]>0)&&([du date:gradualH.text]==1))||([gradualH.text length]==0))
     {
-        if((([temp2 length]>0)&&([self validateNames1:gradualD.text ]==1))||([gradualD.text  length]==0))
+        if((([temp2 length]>0)&&([du date:gradualD.text ]==1))||([gradualD.text  length]==0))
         {
-            if((([temp3 length]>0)&&([self validateDate:temp3 ]==1))||([temp3 length]==0))
+            if((([temp3 length]>0)&&([du dateexpress:temp3 ]==1))||([temp3 length]==0))
             {
                 if((([temp4 length]>0)&&([du otherfields:happen.text ]==1))||([happen.text length]==0))
                 {

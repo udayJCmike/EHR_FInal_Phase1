@@ -9,12 +9,15 @@
 #import "Patient1ViewController.h"
 #import "Patient2ViewController.h"
 #import "QuadrupleVisualAnalogueScale.h"
+#import "databaseurl.h"
 
 @interface Patient1ViewController ()
 {
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    databaseurl *db;
+    
 }
 @end
 
@@ -120,6 +123,7 @@ NSMutableArray *symptomresult;
 - (IBAction)save:(id)sender
 {
     c=1;
+    db=[[databaseurl alloc]init];
     symptomdata=[[NSMutableArray alloc]init];
     for (UIScrollView *view in [self.scrollview subviews]) {
         if ([view isKindOfClass:[UITextView class]]) {
@@ -127,7 +131,7 @@ NSMutableArray *symptomresult;
             NSString *temp=[text1.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
             temp=[temp stringByReplacingOccurrencesOfString:@"\r" withString:@""];
             temp=[temp stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-            if ([temp length]>0)
+             if(([temp length]>0)&&([db patname:temp]==1))
             {
                 c=1;
                 [symptomdata addObject:temp];
@@ -135,9 +139,18 @@ NSMutableArray *symptomresult;
             }
             else
             {
+                if([temp length]>0)
+                {
                 c=0;
-                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptoms should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid symptom." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
                 break;
+                }
+                else
+                {
+                    c=0;
+                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Symptom should not be empty." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+                    break;
+                }
             }
         }
         

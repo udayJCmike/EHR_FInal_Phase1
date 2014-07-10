@@ -248,7 +248,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 {
                     if([patname.text length]==0||([du patname:texty4]==1))
                     {
-                        if([dofacc.text length]==0||([self validateDate:texty5]==1))
+                        if([dofacc.text length]==0||([du dateexpress:texty5]==1))
                         {
                             if([dearname.text length]==0||([du patname:texty6]==1))
                             {

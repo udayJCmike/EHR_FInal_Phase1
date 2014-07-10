@@ -1248,7 +1248,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                 {
                                     if([du year:otheryear.text]==1)
                                     {
-                                        if([self speedvalidate:speed.text]==1)
+                                        if([du date:speed.text]==1)
                                         {
                                             
                                                 if((([roadother.text length]>0)&&([du otherfields:roadother.text]==1))||([roadother.text length]==0))
@@ -1356,7 +1356,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         else
         {
             c=0;
-            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid claim no." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle description:@"Please enter valid claim number." type:TWMessageBarMessageTypeError statusBarStyle:UIStatusBarStyleLightContent callback:nil];
         }
     }
     else

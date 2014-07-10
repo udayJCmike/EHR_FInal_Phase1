@@ -179,7 +179,7 @@ int a;
                     {
                         if([du mobilenumber:insurancephone.text]==1)
                         {
-                            if([du otherfields:policy.text]==1)
+                            if([du formreg:policy.text]==1)
                             {
                                 if([du otherfields:group.text]==1)
                                 {

@@ -543,7 +543,7 @@
                                     {
                                         if([du mobilenumber:autoph.text]==1)
                                         {
-                                            if([du otherfields:autopolicy.text]==1)
+                                            if([du formreg:autopolicy.text]==1)
                                             {
                                                 if([du patname:helname.text]==1)
                                                 {

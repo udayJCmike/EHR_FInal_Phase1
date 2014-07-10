@@ -278,8 +278,13 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                             if([du date:[deductmet text]]==1)
                             {
                                 if([du date:[visits text]]==1){
-                                    if([du otherfields:[deductible text]]==1)
+                                    if((([manipulationpercent.text length]>0)&&([du percentage:manipulationpercent.text]==1))||([manipulationpercent.text length]==0))
+                                        
                                     {
+                                        if((([xraypercent.text length]>0)&&([du percentage:xraypercent.text]==1))||([xraypercent.text length]==0))
+                                        {
+                                            if([du otherfields:[deductible text]]==1)
+                                            {
                                         if([du percentage:[percentcovered text]]==1)
                                         {
                                             if([du email:[address text]]==1)
@@ -346,6 +351,28 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
                                                                                           callback:nil];
                                         
                                         
+                                    }
+                                    }
+                                    else
+                                    {
+                                        b=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Please enter valid X-ray covered percentage."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+                                        
+                                    }
+                                    }
+                                    else
+                                    {
+                                        b=0;
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Please enter valid manipulation covered percentage."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+
                                     }
                                 }
                                 else{

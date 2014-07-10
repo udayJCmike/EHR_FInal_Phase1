@@ -346,7 +346,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     {
                         if([du patname:texty5]==1)
                         {
-                            if([self validateDate:texty6]==1)
+                            if([du dateexpress:texty6]==1)
                             {
                                 if([du patname:texty7]==1)
                                 {

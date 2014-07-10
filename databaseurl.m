@@ -312,7 +312,7 @@ static databaseurl * appInstance;
 }
 -(BOOL)year:(NSString *)date
 {
-    NSString *dateFormat = @"[0-9]{1,4}";
+    NSString *dateFormat = @"[0-9]{4}";
     
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateFormat];
     return [countryTest1 evaluateWithObject:date];

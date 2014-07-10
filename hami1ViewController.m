@@ -601,7 +601,7 @@
     {
         if((([temp2 length]>0)&&([du otherfields:mo_ni_oth.text ]==1))||([mo_ni_oth.text  length]==0))
         {
-            if((([temp3 length]>0)&&([self validateDate:temp3 ]==1))||([temp3 length]==0))
+            if((([temp3 length]>0)&&([du dateexpress:temp3 ]==1))||([temp3 length]==0))
             {
                 if((([temp4 length]>0)&&([du otherfields:cond_aff_oth.text ]==1))||([cond_aff_oth.text length]==0))
                 {

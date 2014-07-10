@@ -135,7 +135,7 @@
                 {
                     if([self validateDate:temp4]==1)
                     {
-                        if([du time:temp5]==1)
+                        if([du formreg:temp5]==1)
                         {
                             if([self validateDate:temp6]==1)
                             {

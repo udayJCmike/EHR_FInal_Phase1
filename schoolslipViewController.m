@@ -248,8 +248,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty10=text10.text;
     
     
-    if([texty1 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"beexcused"];
+  /*  if([texty1 isEqualToString:@""]){
+        [recorddict setValue:@"" forKey:@"beexcused"];
         
         
     }
@@ -259,7 +259,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty2 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"beconfined"];
+        [recorddict setValue:@"" forKey:@"beconfined"];
         
         
     }
@@ -269,7 +269,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty3 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"lifting"];
+        [recorddict setValue:@"" forKey:@"lifting"];
         
         
     }
@@ -279,7 +279,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty4 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"pushing"];
+        [recorddict setValue:@"" forKey:@"pushing"];
         
         
     }
@@ -289,7 +289,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty5 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"drive"];
+        [recorddict setValue:@"" forKey:@"drive"];
         
         
     }
@@ -299,7 +299,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty6 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"sitt"];
+        [recorddict setValue:@"" forKey:@"sitt"];
         
         
     }
@@ -309,7 +309,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty7 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"stand"];
+        [recorddict setValue:@"" forKey:@"stand"];
         
         
     }
@@ -319,7 +319,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty8 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"bend"];
+        [recorddict setValue:@"" forKey:@"bend"];
         
         
     }
@@ -329,7 +329,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty9 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"entry"];
+        [recorddict setValue:@"" forKey:@"entry"];
         
         
     }
@@ -339,7 +339,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if([texty10 isEqualToString:@""]){
-        [recorddict setValue:@"null" forKey:@"light"];
+        [recorddict setValue:@"" forKey:@"light"];
         
         
     }
@@ -347,16 +347,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         [recorddict setValue:text10.text forKey:@"light"];
         
     }
+    */
     
     
-    [recorddict setValue:excused forKey:@"excused"];
-    [recorddict setValue:confined forKey:@"confined"];
-    [recorddict setValue:maximum forKey:@"maximum lifting"];
-    [recorddict setValue:lo forKey:@"low force"];
-    [recorddict setValue:sitting forKey:@"sitting"];
-    [recorddict setValue:standing forKey:@"standing"];
-    [recorddict setValue:retu forKey:@"return seg"];
-    a=1;
     temp1 =[date.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp2 =[name.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp3 =[from.text stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -373,31 +366,212 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
        //([temp7 length]!=0)
        )
     {
-        if([self validateDate:temp1]==1)
+        a=1;
+        if((([text1.text length]>0)&&([du otherfields:text1.text]==1))||([text1.text length]==0))
         {
-            if([du patname:temp2]==1)
+            if((([text2.text length]>0)&&([du otherfields:text2.text]==1))||([text2.text length]==0))
             {
-                if([self validateDate:temp3]==1)
+                if((([text3.text length]>0)&&([du otherfields:text3.text]==1))||([text3.text length]==0))
                 {
-                    if([self validateDate:temp4]==1)
+                    if((([text4.text length]>0)&&([du otherfields:text4.text]==1))||([text4.text length]==0))
                     {
-                        if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
+                        if((([text5.text length]>0)&&([du otherfields:text5.text]==1))||([text5.text length]==0))
                         {
-                        
-                            if([self validateDate:temp6]==1)
+                            if((([text6.text length]>0)&&([du otherfields:text6.text]==1))||([text6.text length]==0))
                             {
-                                if((([temp7 length]>0)&&([du otherfields:temp7]==1))||([temp7 length]==0))
+                                if((([text7.text length]>0)&&([du otherfields:text7.text]==1))||([text7.text length]==0))
                                 {
-                                    
-                                    [recorddict setValue:date.text forKey:@"Date"];
-                                    [recorddict setValue:name.text forKey:@"Name"];
-                                    [recorddict setValue:from.text forKey:@"Fromdate"];
-                                    [recorddict setValue:to.text forKey:@"Todate"];
-                                    [recorddict setValue:ret.text forKey:@"returntext"];
-                                    [recorddict setValue:ondate.text forKey:@"Ondate"];
-                                    [recorddict setValue:diagn.text forKey:@"Diagnosis"];
-                                    //                                    NSLog(@"Success!!! %@",recorddict);
-                                    //                                    NSLog(@"recorddict count %d",[recorddict count]);
+                                    if((([text8.text length]>0)&&([du otherfields:text8.text]==1))||([text8.text length]==0))
+                                    {
+                                        if((([text9.text length]>0)&&([du otherfields:text9.text]==1))||([text9.text length]==0))
+                                        {
+                                            if((([text10.text length]>0)&&([du otherfields:text10.text]==1))||([text10.text length]==0))
+                                            {
+                                                if([self validateDate:temp1]==1)
+                                                {
+                                                    if([du patname:temp2]==1)
+                                                    {
+                                                        if([self validateDate:temp3]==1)
+                                                        {
+                                                            if([self validateDate:temp4]==1)
+                                                            {
+                                                                if((([temp5 length]>0)&&([du otherfields:temp5]==1))||([temp5 length]==0))
+                                                                {
+                                                                    
+                                                                    if([self validateDate:temp6]==1)
+                                                                    {
+                                                                        if((([temp7 length]>0)&&([du otherfields:temp7]==1))||([temp7 length]==0))
+                                                                        {
+                                                                            a=1;
+                                                                            [recorddict setValue:excused forKey:@"excused"];
+                                                                            [recorddict setValue:confined forKey:@"confined"];
+                                                                            [recorddict setValue:maximum forKey:@"maximum lifting"];
+                                                                            [recorddict setValue:lo forKey:@"low force"];
+                                                                            [recorddict setValue:sitting forKey:@"sitting"];
+                                                                            [recorddict setValue:standing forKey:@"standing"];
+                                                                            [recorddict setValue:retu forKey:@"return seg"];
+                                                                            [recorddict setValue:text1.text forKey:@"beexcused"];
+                                                                            [recorddict setValue:text2.text forKey:@"beconfined"];
+                                                                            [recorddict setValue:text3.text forKey:@"lifting"];
+                                                                            [recorddict setValue:text4.text forKey:@"pushing"];
+                                                                            [recorddict setValue:text5.text forKey:@"drive"];
+                                                                            [recorddict setValue:text6.text forKey:@"sitt"];
+                                                                            [recorddict setValue:text7.text forKey:@"stand"];
+                                                                            [recorddict setValue:text8.text forKey:@"bend"];
+                                                                            [recorddict setValue:text9.text forKey:@"entry"];
+                                                                            [recorddict setValue:text10.text forKey:@"light"];
+                                                                            [recorddict setValue:date.text forKey:@"Date"];
+                                                                            [recorddict setValue:name.text forKey:@"Name"];
+                                                                            [recorddict setValue:from.text forKey:@"Fromdate"];
+                                                                            [recorddict setValue:to.text forKey:@"Todate"];
+                                                                            [recorddict setValue:ret.text forKey:@"returntext"];
+                                                                            [recorddict setValue:ondate.text forKey:@"Ondate"];
+                                                                            [recorddict setValue:diagn.text forKey:@"Diagnosis"];
+                                                                            //                                    NSLog(@"Success!!! %@",recorddict);
+                                                                            //                                    NSLog(@"recorddict count %d",[recorddict count]);
+                                                                            
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            a=0;
+                                                                            
+                                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                           description:@"Please enter valid diagnosis."
+                                                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                              callback:nil];
+                                                                            
+                                                                            
+                                                                        }
+                                                                        
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        a=0;
+                                                                        
+                                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                       description:@"Please enter valid date."
+                                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                          callback:nil];
+                                                                        
+                                                                        
+                                                                    }
+                                                                    
+                                                                }
+                                                                else
+                                                                {
+                                                                    a=0;
+                                                                    
+                                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                                   description:@"Please enter valid return."
+                                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                      callback:nil];
+                                                                    
+                                                                    
+                                                                    
+                                                                    
+                                                                }
+                                                                
+                                                            }
+                                                            else
+                                                            {
+                                                                a=0;
+                                                                
+                                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                               description:@"Please enter valid date."
+                                                                                                                      type:TWMessageBarMessageTypeError
+                                                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                                  callback:nil];
+                                                                
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        else
+                                                        {
+                                                            a=0;
+                                                            
+                                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                           description:@"Please enter valid date."
+                                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                              callback:nil];
+                                                            
+                                                            
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    else
+                                                    {
+                                                        a=0;
+                                                        
+                                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                       description:@"Please enter valid name."
+                                                                                                              type:TWMessageBarMessageTypeError
+                                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                          callback:nil];
+                                                        
+                                                        
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                else
+                                                {
+                                                    a=0;
+                                                    
+                                                    [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                                   description:@"Please enter valid date."
+                                                                                                          type:TWMessageBarMessageTypeError
+                                                                                                statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                      callback:nil];
+                                                    
+                                                    
+                                                    
+                                                    
+                                                }
+                                                
+                                            }
+                                            else
+                                            {
+                                                a=0;
+                                                
+                                                [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                               description:@"Please enter valid light recreation only field."
+                                                                                                      type:TWMessageBarMessageTypeError
+                                                                                            statusBarStyle:UIStatusBarStyleLightContent
+                                                                                                  callback:nil];
+                                                
+                                            }
+                                            
+                                        }
+                                        else
+                                        {
+                                            a=0;
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Please enter valid use caution while entering/exiting vehicles field."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        a=0;
+                                        
+                                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                       description:@"Please enter valid no repetitive bending field."
+                                                                                              type:TWMessageBarMessageTypeError
+                                                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                                                          callback:nil];
+                                        
+                                    }
                                     
                                 }
                                 else
@@ -405,25 +579,22 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Please enter valid diagnosis."
+                                                                                   description:@"Please enter valid standing excessive periods of time field."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
                                     
-                                    
                                 }
-                                
                             }
                             else
                             {
                                 a=0;
                                 
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Please enter valid date."
+                                                                               description:@"Please enter valid sitting excessive periods of time field."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
-                                
                                 
                             }
                             
@@ -433,13 +604,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             a=0;
                             
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Please enter valid return."
+                                                                           description:@"Please enter valid unable to drive long distance field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
-                            
-                            
-                            
                             
                         }
                         
@@ -449,11 +617,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Please enter valid date."
+                                                                       description:@"Please enter valid low force pushing/pulling field."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
-                        
                         
                     }
                     
@@ -463,12 +630,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Please enter valid date."
+                                                                   description:@"Please enter valid maximum lifting capability field."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
-                    
-                    
                     
                 }
                 
@@ -478,31 +643,25 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Please enter valid name."
+                                                               description:@"Please enter valid be confined to field."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
                 
-                
-                
             }
-            
         }
         else
         {
             a=0;
             
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Please enter valid date."
+                                                           description:@"Please enter valid be excused from field."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
-            
-            
-            
         }
-        
+ 
     }
     else
     {

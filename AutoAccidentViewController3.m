@@ -463,7 +463,7 @@ int a,b,c,d;
     c=1;
     if((([accidentother.text length]>0)&&([du otherfields:accidentother.text]==1))||([accidentother.text length]==0))
     {
-        if((([symptomshours.text length]>0)&&([du percentage:symptomshours.text]==1))||([symptomshours.text length]==0))
+        if((([symptomshours.text length]>0)&&([du date:symptomshours.text]==1))||([symptomshours.text length]==0))
         {
             if((([afteraccidentother.text length]>0)&&([du otherfields:afteraccidentother.text]==1))||([afteraccidentother.text length]==0))
             {
@@ -471,7 +471,7 @@ int a,b,c,d;
                 {
                     if((([hospitalcity.text length]>0)&&([du patname:hospitalcity.text]==1))||([hospitalcity.text length]==0))
                     {
-                        if((([hospitalstay.text length]>0)&&([du percentage:hospitalstay.text]==1))||([hospitalstay.text length]==0))
+                        if((([hospitalstay.text length]>0)&&([du date:hospitalstay.text]==1))||([hospitalstay.text length]==0))
                         {
                             if((([hospitalgoingother.text length]>0)&&([du otherfields:hospitalgoingother.text]==1))||([hospitalgoingother.text length]==0))
                             {

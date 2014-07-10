@@ -1239,9 +1239,9 @@ int tagnumber;
                 {
                     if([du comments:temp2]==1)
                     {
-                        if((([hazlist.text length]>0)&&([self validateNames:hazlist.text]==1))||([hazlist.text length]==0))
+                        if((([hazlist.text length]>0)&&([du otherfields:hazlist.text]==1))||([hazlist.text length]==0))
                         {
-                            if([du otherfields:temp3]==1)
+                            if([du patname:temp3]==1)
                             {
                                 if([du patname:temp4]==1)
                                 {

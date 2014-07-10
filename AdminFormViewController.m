@@ -401,10 +401,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         {
             if ([du mobilenumber:texty4])
             {
-                if([other.text length]==0||([du patname:texty1]==1))
+                if([other.text length]==0||([du otherfields:texty1]==1))
                 {
-                    if(([du patname:texty2]==1))
-                    {
+                    
                         if(([du otherfields:t1.text]==1))
                         {
                             if(([du otherfields:t2.text]==1))
@@ -415,6 +414,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     {
                                         if(([du otherfields:t5.text]==1))
                                         {
+                                            if(([du patname:texty2]==1))
+                                            {
                                             suc=1;
                                             
                                             recorddict=[[NSMutableDictionary alloc]init];
@@ -434,6 +435,23 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                             [recorddict setObject:t3.text forKey:@"requestdemandcheck10"];
                                             [recorddict setObject:t4.text forKey:@"requestdemandcheck11"];
                                             [recorddict setObject:t5.text forKey:@"requestdemandcheck12"];
+                                        }
+                                        else
+                                        {
+                                            suc=0;
+                                            
+                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                                                           description:@"Please enter valid clinic representative signature."
+                                                                                                  type:TWMessageBarMessageTypeError
+                                                                                        statusBarStyle:UIStatusBarStyleLightContent
+                                                                                              callback:nil];
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        }
 
                                         }
                                         else
@@ -529,23 +547,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                                //NSLog(@"Record dict in request demand form::%@",recorddict);
                         
                         
-                    }
-                    else
-                    {
-                        suc=0;
-                        
-                        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Please enter valid clinic representative signature."
-                                                                              type:TWMessageBarMessageTypeError
-                                                                    statusBarStyle:UIStatusBarStyleLightContent
-                                                                          callback:nil];
-                        
-                        
-                        
-                        
-                        
-                        
-                    }
+                    
                 }else
                 {
                     suc=0;

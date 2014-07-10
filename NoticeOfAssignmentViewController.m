@@ -740,9 +740,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                         {
                             if([reg.text length]==0||([du patname:texty6]==1))
                             {
-                                if([dofacc.text length]==0||([self validateDate:texty7]==1))
+                                if([dofacc.text length]==0||([du dateexpress:texty7]==1))
                                 {
-                                    if([todaydate.text length]==0||([self validateDate:texty8]==1))
+                                    if([todaydate.text length]==0||([du dateexpress:texty8]==1))
                                     {
                                         
                                         

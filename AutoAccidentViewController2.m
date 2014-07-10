@@ -619,9 +619,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             {
                 if((([patientbodyotherlabel.text length]>0)&&([du otherfields:patientbodyotherlabel.text]==1))||([patientbodyotherlabel.text length]==0))
                 {
-                    if((([unconsiousforlabel.text length]>0)&&([du percentage:unconsiousforlabel.text]==1))||([unconsiousforlabel.text length]==0))
+                    if((([unconsiousforlabel.text length]>0)&&([du date:unconsiousforlabel.text]==1))||([unconsiousforlabel.text length]==0))
                     {
-                        if((([propertydamagelabel.text length]>0)&&([du percentage:propertydamagelabel.text]==1))||([propertydamagelabel.text length]==0))
+                        if((([propertydamagelabel.text length]>0)&&([du date:propertydamagelabel.text]==1))||([propertydamagelabel.text length]==0))
                         {
                         if((([myheadhitlabel.text length]>0)&&([du otherfields:myheadhitlabel.text]==1))||([myheadhitlabel.text length]==0))
                         {

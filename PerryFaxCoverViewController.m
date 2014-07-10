@@ -803,9 +803,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                             {
                                 if([msg.text length]==0||([du address:texty7]==1))
                                 {
-                                    if([claim.text length]==0||([du time:texty8]==1))
+                                    if([claim.text length]==0||([du formreg:texty8]==1))
                                     {
-                                        if([doi.text length]==0||([self validateDate:texty9]==1))
+                                        if([doi.text length]==0||([du dateexpress:texty9]==1))
                                         {
                                             suc=1;
                                             recorddict=[[NSMutableDictionary alloc]init];

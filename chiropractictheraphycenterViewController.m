@@ -167,7 +167,7 @@
         {
             if([du ssn:ssn.text]==1)
             {
-                if([du time:claim.text]==1)
+                if([du formreg:claim.text]==1)
                 {
                     if([self validateDate:doi.text]==1)
                     {
