@@ -220,7 +220,7 @@ int a,b,c,d;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    //NSLog(@"data %@",data);
+   // NSLog(@"data %@",data);
     
     return data;
     
@@ -321,7 +321,7 @@ int a,b,c,d;
     }
     else
     {
-        _1=@"";
+        _1=@"null";
     }
     
     if(button2.currentImage!=img)
@@ -334,7 +334,7 @@ int a,b,c,d;
     
     else
     {
-        _2=@"";
+        _2=@"null";
     }
     if(button3.currentImage!=img)
     {
@@ -346,7 +346,7 @@ int a,b,c,d;
     }
     else
     {
-        _3=@"";
+        _3=@"null";
     }
     
     if(button4.currentImage!=img)
@@ -358,7 +358,7 @@ int a,b,c,d;
     }
     else
     {
-        _4=@"";
+        _4=@"null";
     }
     
     if(button5.currentImage!=img)
@@ -373,7 +373,7 @@ int a,b,c,d;
     
     else
     {
-        _5=@"";
+        _5=@"null";
     }
     if(button6.currentImage!=img)
     {
@@ -386,7 +386,7 @@ int a,b,c,d;
     }
     else
     {
-        _6=@"";
+        _6=@"null";
         
     }
     if(button7.currentImage!=img)
@@ -710,6 +710,7 @@ int a,b,c,d;
 }
 
 
+
 -(NSString *)HttpPostEntityFirst1:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     
@@ -746,7 +747,7 @@ int a,b,c,d;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //NSLog(@"data %@",data);
+    NSLog(@"data %@",data);
     
     return data;
     
@@ -870,7 +871,7 @@ int a,b,c,d;
     }
     if (symptomssegment.selectedSegmentIndex==1)
     {
-        _12=@"Hours after the Accident";
+        _12=@"hours after the Accident";
         symptomshours.hidden=NO;
         symptomshours.text=@"";
         //symptomsdays.text=@"";
@@ -888,7 +889,7 @@ int a,b,c,d;
     }
     if (symptomssegment.selectedSegmentIndex==3)
     {
-        _12=@"Days";
+        _12=@"days";
         symptomshours.hidden=NO;
         //symptomsdays.text=@"";
         symptomshours.text=@"";
@@ -1227,9 +1228,9 @@ int a,b,c,d;
         symptomshours.text=@"";
         
     }
-    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"Hours after the Accident"]){
+    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"hours after the Accident"]){
         [symptomssegment setSelectedSegmentIndex:1];
-        _12=@"Hours after the Accident";
+        _12=@"hours after the Accident";
         symptomshours.hidden=NO;
         symptomshours.text=[resultset objectForKey:@"symptom"];;
         
@@ -1242,9 +1243,9 @@ int a,b,c,d;
         
         
     }
-    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"Days"]){
+    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"days"]){
         [symptomssegment setSelectedSegmentIndex:3];
-        _12=@"Days";
+        _12=@"days";
         symptomshours.hidden=NO;
         //symptomsdays.text=@"";
         symptomshours.text=[resultset objectForKey:@"symptom"];;

@@ -93,7 +93,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     self.picVisible = NO;
     [super viewDidLoad];
     
-    texty11=@"Urgent";
+    texty11=@"URGENT";
     
     [check1 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"Todays's Date:"];
@@ -151,20 +151,20 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             to.text=temp1;
             fax.text=temp2;
             from.text=temp3;
-            if([temp4 isEqualToString:@"Urgent"])
+            if([temp4 isEqualToString:@"URGENT"])
             {
                 [self rad1:nil];
                 
             }
-            else  if([temp4 isEqualToString:@"For Review"])
+            else  if([temp4 isEqualToString:@"FOR REVIEW"])
             {
                 [self rad2:nil];
             }
-            else  if([temp4 isEqualToString:@"Please Comment"])
+            else  if([temp4 isEqualToString:@"PLEASE COMMENT"])
             {
                 [self rad3:nil];
             }
-            else  if([temp4 isEqualToString:@"Please Reply"])
+            else  if([temp4 isEqualToString:@"PLEASE REPLY"])
             {
                 [self rad4:nil];
             }
@@ -626,7 +626,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 - (IBAction)rad1:(id)sender {
     [check1 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
     
-    texty11=@"Urgent";
+    texty11=@"URGENT";
     
     [check2 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
     
@@ -639,7 +639,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)rad2:(id)sender {
     
-    texty11=@"For Review";
+    texty11=@"FOR REVIEW";
     
     [check1 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
     
@@ -652,7 +652,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)rad3:(id)sender {
     [check3 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
-    texty11=@"Please Comment";
+    texty11=@"PLEASE COMMENT";
     
     [check2 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
     [check1 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
@@ -662,7 +662,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 - (IBAction)rad4:(id)sender {
     [check4 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
     
-    texty11=@"Please Reply";
+    texty11=@"PLEASE REPLY";
     
     [check2 setImage:[UIImage imageNamed:@"radiobutton_off.png"] forState:UIControlStateNormal];
     

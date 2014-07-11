@@ -226,7 +226,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if (headpositionsegment.selectedSegmentIndex==5)
     {
-        _17=@"UnKnown";
+        _17=@"Unknown";
        
         headpositionotherlabel.hidden=YES;
     }
@@ -280,11 +280,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if (braceoptionsegment.selectedSegmentIndex==0)
     {
         
-        _22=@"Braced with Arms";
+        _22=@"Braced with arms";
     }
     if (braceoptionsegment.selectedSegmentIndex==1)
     {
-        _22=@"Braced with Legs";
+        _22=@"Braced with legs";
     }
 }
 -(IBAction)furtherinjuryswitchchange:(id)sender
@@ -317,7 +317,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if (patientbodysegment.selectedSegmentIndex==1)
     {
-        _24=@"Thrown";
+        _24=@"Thrown About";
         patientbodyotherlabel.text=@"";
         _25=@"null";
         patientbodyotherlabel.hidden=YES;
@@ -881,7 +881,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     handsonwheellabel.text=@"One";
     awareofcrashlabel.text=@"Aware";
     braceyourselflabel.text=@"Yes";
-    braceyourselfoptionlabel.text=@"Braced with Arms";
+    braceyourselfoptionlabel.text=@"Braced with arms";
     patientbodylabel.text=@"Jolted";
     damagecarlabel.text=@"Minimal";
     injuryexplainlabel.text=@"";
@@ -901,7 +901,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     _19=@"One";
     _20=@"Aware";
     _21=@"Yes";
-    _22=@"Braced with Arms";
+    _22=@"Braced with arms";
     _24=@"Jolted";
     _25=@"null";
     
@@ -998,7 +998,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     handsonwheellabel.text=@"One";
     awareofcrashlabel.text=@"Aware";
     braceyourselflabel.text=@"Yes";
-    braceyourselfoptionlabel.text=@"Braced with Arms";
+    braceyourselfoptionlabel.text=@"Braced with arms";
     patientbodylabel.text=@"Jolted";
     damagecarlabel.text=@"Minimal";
     injuryexplainlabel.text=@"";
@@ -1013,7 +1013,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     _19=@"One";
     _20=@"Aware";
     _21=@"Yes";
-    _22=@"Braced with Arms";
+    _22=@"Braced with arms";
     _24=@"Jolted";
     _25=@"null";
     _29=@"null";
@@ -1245,15 +1245,15 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         else{
         }
         
-        if([[resultset objectForKey:@"ifyes"]isEqualToString:@"Braced with Arms"]){
+        if([[resultset objectForKey:@"ifyes"]isEqualToString:@"Braced with arms"]){
             [braceoptionsegment setSelectedSegmentIndex:0];
-            _22=@"Braced with Arms";
+            _22=@"Braced with arms";
             
             
         }
-        else if([[resultset objectForKey:@"ifyes"]isEqualToString:@"Braced with Legs"]){
+        else if([[resultset objectForKey:@"ifyes"]isEqualToString:@"Braced with legs"]){
             [braceoptionsegment setSelectedSegmentIndex:1];
-            _22=@"Braced with Arms";
+            _22=@"Braced with legs";
             
         }
         else{
@@ -1290,9 +1290,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             patientbodyotherlabel.hidden=YES;
         }
         
-        else if([[resultset objectForKey:@"patient_body"]isEqualToString:@"Thrown"]){
+        else if([[resultset objectForKey:@"patient_body"]isEqualToString:@"Thrown About"]){
             [patientbodysegment setSelectedSegmentIndex:1];
-            _24=@"Thrown";
+            _24=@"Thrown About";
             _25=@"null";
             patientbodyotherlabel.text=@"";
             patientbodyotherlabel.hidden=YES;

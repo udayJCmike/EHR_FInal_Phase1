@@ -314,7 +314,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     
     if(check1.selected){
-        texty27=@"on";
+        texty27=@"faultinsurer";
         //  texty27=@"on";
         
     }
@@ -322,26 +322,26 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         texty27=@"null";
     }
     if(check2.selected){
-        texty28=@"on";
+        texty28=@"medpayinsurer";
         
     }
     else{
         texty28=@"null";
     }
     if(check3.selected){
-        texty29=@"on";
+        texty29=@"paidbenefits";
     }
     else{
         texty29=@"null";
     }
     if(check4.selected){
-        texty30=@"on";
+        texty30=@"bankrupt";
     }
     else{
         texty30=@"null";
     }
     if(check5.selected){
-        texty31=@"on";
+        texty31=@"treatment";
     }
     else{
         texty31=@"null";
@@ -349,7 +349,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     if(check6.selected){
         other.hidden=NO;
         
-        texty32=@"Other";
+        texty32=@"other";
         text32other=[other text];
     }
     else{
@@ -358,7 +358,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     if(check7.selected){
-        texty33=@"on";
+        texty33=@"pleasesend";
     }
     else{
         texty33=@"null";
@@ -698,7 +698,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             toaddress.text=temp13;
             tofax.text=temp14;
             clinicrepsign.text=temp12;
-            if ([temp isEqualToString:@"on"])
+            if ([temp isEqualToString:@"faultinsurer"])
             {
                 [check1 setSelected:YES];
                 [check1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -708,7 +708,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check1 setSelected:NO];
                 [check1 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp1 isEqualToString:@"on"])
+            if([temp1 isEqualToString:@"medpayinsurer"])
             {
                 [check2 setSelected:YES];
                 [check2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -719,7 +719,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check2 setSelected:NO];
                 [check2 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp2 isEqualToString:@"on"])
+            if([temp2 isEqualToString:@"paidbenefits"])
             {
                 [check3 setSelected:YES];
                 [check3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -729,7 +729,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check3 setSelected:NO];
                 [check3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp3 isEqualToString:@"on"])
+            if([temp3 isEqualToString:@"bankrupt"])
             {
                 [check4 setSelected:YES];
                 [check4 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -739,7 +739,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check4 setSelected:NO];
                 [check4 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp4 isEqualToString:@"on"])
+            if([temp4 isEqualToString:@"treatment"])
             {
                 [check5 setSelected:YES];
                 [check5 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -749,7 +749,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check5 setSelected:NO];
                 [check5 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp5 isEqualToString:@"Other"])
+            if([temp5 isEqualToString:@"other"])
                 
             {
                 other.hidden=NO;
@@ -764,7 +764,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [check6 setSelected:NO];
                 [check6 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             }
-            if([temp15 isEqualToString:@"on"])
+            if([temp15 isEqualToString:@"pleasesend"])
             {
                 [check7 setSelected:YES];
                 [check7 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];

@@ -186,7 +186,7 @@
         worselabel.text=[NSString stringWithFormat:@"%@",worselabel.text];
         
         
-        if ([[resultset objectForKey:@"joboptional"]isEqualToString:@"on"])
+        if ([[resultset objectForKey:@"joboptional"]isEqualToString:@"I do not work"])
         {
             workmodbut.selected=YES;
             [workmodbut setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -734,7 +734,7 @@
                     [recorddict setValue:score.text forKey:@"score"];
                     
                     if (workmodbut.selected) {
-                        [recorddict setValue:@"on" forKey:@"dontwork"];
+                        [recorddict setValue:@"I do not work" forKey:@"dontwork"];
                         [recorddict setValue:@"null" forKey:@"seg1"];
                         [recorddict setValue:@"null" forKey:@"seg2"];
                         [recorddict setValue:@"null" forKey:@"seg3"];

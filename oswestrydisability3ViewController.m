@@ -240,7 +240,7 @@
         cancel2.hidden=NO;
         
         sport.text=[resultset objectForKey:@"sport"];
-        if ([[resultset objectForKey:@"sportoptional"]isEqualToString:@"on"])
+        if ([[resultset objectForKey:@"sportoptional"]isEqualToString:@"I do not play a sport or an instrument"])
         {
             dontplay.selected=YES;
             [dontplay setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -758,7 +758,7 @@
         [recorddict setValue:sport.text forKey:@"sport"];
         
         if (dontplay.selected) {
-            [recorddict setValue:@"on" forKey:@"dontplay"];
+            [recorddict setValue:@"I do not play a sport or an instrument" forKey:@"dontplay"];
             [recorddict setValue:@"null" forKey:@"segsport1"];
             [recorddict setValue:@"null" forKey:@"segsport2"];
             [recorddict setValue:@"null" forKey:@"segsport3"];

@@ -106,11 +106,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if(seg1.selectedSegmentIndex==0)
     {
-        excused=@"WORK";
+        excused=@"work";
     }
     else if (seg1.selectedSegmentIndex==1)
     {
-        excused=@"SCHOOL";
+        excused=@"school";
     }
     else if (seg1.selectedSegmentIndex==2)
     {
@@ -121,33 +121,33 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if(seg2.selectedSegmentIndex==0)
     {
-        confined=@"LIGHT DUTY";
+        confined=@"lightduty";
     }
     else if (seg2.selectedSegmentIndex==1)
     {
-        confined=@"MODIFIED DUTY";
+        confined=@"modifiedduty";
     }
 }
 - (IBAction)segment3:(id)sender
 {
     if(seg3.selectedSegmentIndex==0)
     {
-        maximum=@"10 lbs";
+        maximum=@"10lbs";
     }
     else if (seg3.selectedSegmentIndex==1)
     {
-        maximum=@"20 lbs";
+        maximum=@"20lbs";
     }
     else if (seg3.selectedSegmentIndex==2)
     {
-        maximum=@"30 lbs";
+        maximum=@"30lbs";
     }if(seg3.selectedSegmentIndex==3)
     {
-        maximum=@"40 lbs";
+        maximum=@"40lbs";
     }
     else if (seg3.selectedSegmentIndex==4)
     {
-        maximum=@"50 lbs";
+        maximum=@"50lbs";
     }
     
 }
@@ -155,66 +155,66 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if(seg4.selectedSegmentIndex==0)
     {
-        lo=@"10 lbs";
+        lo=@"10lbs";
     }
     else if (seg4.selectedSegmentIndex==1)
     {
-        lo=@"20 lbs";
+        lo=@"20lbs";
     }
     else if (seg4.selectedSegmentIndex==2)
     {
-        lo=@"30 lbs";
+        lo=@"30lbs";
     }if(seg4.selectedSegmentIndex==3)
     {
-        lo=@"40 lbs";
+        lo=@"40lbs";
     }
     else if (seg4.selectedSegmentIndex==4)
     {
-        lo=@"50 lbs";
+        lo=@"50lbs";
     }
 }
 - (IBAction)segment5:(id)sender
 {
     if(seg5.selectedSegmentIndex==0)
     {
-        sitting=@"1 hrs";
+        sitting=@"1hrs";
     }
     else if (seg5.selectedSegmentIndex==1)
     {
-        sitting=@"2 hrs";
+        sitting=@"2hrs";
     }
     else if (seg5.selectedSegmentIndex==2)
     {
-        sitting=@"3 hrs";
+        sitting=@"3hrs";
     }if(seg5.selectedSegmentIndex==3)
     {
-        sitting=@"4 hrs";
+        sitting=@"4hrs";
     }
     else if (seg5.selectedSegmentIndex==4)
     {
-        sitting=@"5 hrs";
+        sitting=@"5hrs";
     }
 }
 - (IBAction)segment6:(id)sender
 {
     if(seg6.selectedSegmentIndex==0)
     {
-        standing=@"1 hrs";
+        standing=@"1hrs";
     }
     else if (seg6.selectedSegmentIndex==1)
     {
-        standing=@"2 hrs";
+        standing=@"2hrs";
     }
     else if (seg6.selectedSegmentIndex==2)
     {
-        standing=@"3 hrs";
+        standing=@"3hrs";
     }if(seg6.selectedSegmentIndex==3)
     {
-        standing=@"4 hrs";
+        standing=@"4hrs";
     }
     else if (seg6.selectedSegmentIndex==4)
     {
-        standing=@"5 hrs";
+        standing=@"5hrs";
     }
 }
 - (IBAction)segment7:(id)sender
@@ -1399,13 +1399,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     diagn.text=temp34;
     
     
-    if([temp13 isEqualToString:@"WORK"]){
+    if([temp13 isEqualToString:@"work"]){
         [seg1 setSelectedSegmentIndex:0];
-        excused=@"WORK";
+        excused=@"work";
     }
-    else if([temp13 isEqualToString:@"SCHOOL"]){
+    else if([temp13 isEqualToString:@"school"]){
         [seg1 setSelectedSegmentIndex:1];
-        excused=@"SCHOOL";
+        excused=@"school";
         
     }
     else if([temp13 isEqualToString:@"P.E"]){
@@ -1414,117 +1414,117 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     
     
-    if([temp15 isEqualToString:@"LIGHT DUTY"]){
+    if([temp15 isEqualToString:@"lightduty"]){
         [seg2 setSelectedSegmentIndex:0];
-        confined=@"LIGHT DUTY";
+        confined=@"lightduty";
     }
-    else if([temp15 isEqualToString:@"MODIFIED DUTY"]){
+    else if([temp15 isEqualToString:@"modifiedduty"]){
         [seg2 setSelectedSegmentIndex:1];
-        confined=@"MODIFIED DUTY";
+        confined=@"modifiedduty";
         
     }
     
     
     
-    if([temp17 isEqualToString:@"10 lbs"]){
+    if([temp17 isEqualToString:@"10lbs"]){
         [seg3 setSelectedSegmentIndex:0];
-        maximum=@"10 lbs";
+        maximum=@"10lbs";
     }
-    else if([temp17 isEqualToString:@"20 lbs"]){
+    else if([temp17 isEqualToString:@"20lbs"]){
         [seg3 setSelectedSegmentIndex:1];
-        maximum=@"20 lbs";
+        maximum=@"20lbs";
         
     }
-    else if([temp17 isEqualToString:@"30 lbs"]){
+    else if([temp17 isEqualToString:@"30lbs"]){
         [seg3 setSelectedSegmentIndex:2];
-        maximum=@"30 lbs";
+        maximum=@"30lbs";
         
     }
-    else if([temp17 isEqualToString:@"40 lbs"]){
+    else if([temp17 isEqualToString:@"40lbs"]){
         [seg3 setSelectedSegmentIndex:3];
-        maximum=@"40 lbs";
+        maximum=@"40lbs";
         
     }
-    else if([temp17 isEqualToString:@"50 lbs"]){
+    else if([temp17 isEqualToString:@"50lbs"]){
         [seg3 setSelectedSegmentIndex:4];
-        maximum=@"50 lbs";
+        maximum=@"50lbs";
         
     }
     
     
-    if([temp19 isEqualToString:@"10 lbs"]){
+    if([temp19 isEqualToString:@"10lbs"]){
         [seg4 setSelectedSegmentIndex:0];
-        lo=@"10 lbs";
+        lo=@"10lbs";
     }
-    else if([temp19 isEqualToString:@"20 lbs"]){
+    else if([temp19 isEqualToString:@"20lbs"]){
         [seg4 setSelectedSegmentIndex:1];
-        lo=@"20 lbs";
+        lo=@"20lbs";
         
     }
-    else if([temp19 isEqualToString:@"30 lbs"]){
+    else if([temp19 isEqualToString:@"30lbs"]){
         [seg4 setSelectedSegmentIndex:2];
-        lo=@"30 lbs";
+        lo=@"30lbs";
         
     }
-    else if([temp19 isEqualToString:@"40 lbs"]){
+    else if([temp19 isEqualToString:@"40lbs"]){
         [seg4 setSelectedSegmentIndex:3];
-        lo=@"40 lbs";
+        lo=@"40lbs";
         
     }
-    else if([temp19 isEqualToString:@"50 lbs"]){
+    else if([temp19 isEqualToString:@"50lbs"]){
         [seg4 setSelectedSegmentIndex:4];
-        lo=@"50 lbs";
+        lo=@"50lbs";
         
     }
     
     
-    if([temp22 isEqualToString:@"1 hrs"]){
+    if([temp22 isEqualToString:@"1hrs"]){
         [seg5 setSelectedSegmentIndex:0];
-        sitting=@"1 hrs";
+        sitting=@"1hrs";
     }
-    else if([temp22 isEqualToString:@"2 hrs"]){
+    else if([temp22 isEqualToString:@"2hrs"]){
         [seg5 setSelectedSegmentIndex:1];
-        sitting=@"2 hrs";
+        sitting=@"2hrs";
         
     }
-    else if([temp22 isEqualToString:@"3 hrs"]){
+    else if([temp22 isEqualToString:@"3hrs"]){
         [seg5 setSelectedSegmentIndex:2];
-        sitting=@"3 hrs";
+        sitting=@"3hrs";
         
     }
-    else if([temp22 isEqualToString:@"4 hrs"]){
+    else if([temp22 isEqualToString:@"4hrs"]){
         [seg5 setSelectedSegmentIndex:3];
-        sitting=@"4 hrs";
+        sitting=@"4hrs";
         
     }
-    else if([temp22 isEqualToString:@"5 hrs"]){
+    else if([temp22 isEqualToString:@"5hrs"]){
         [seg5 setSelectedSegmentIndex:4];
-        sitting=@"5 hrs";
+        sitting=@"5hrs";
         
     }
     
-    if([temp24 isEqualToString:@"1 hrs"]){
+    if([temp24 isEqualToString:@"1hrs"]){
         [seg6 setSelectedSegmentIndex:0];
-        standing=@"1 hrs";
+        standing=@"1hrs";
     }
-    else if([temp24 isEqualToString:@"2 hrs"]){
+    else if([temp24 isEqualToString:@"2hrs"]){
         [seg6 setSelectedSegmentIndex:1];
-        standing=@"2 hrs";
+        standing=@"2hrs";
         
     }
-    else if([temp24 isEqualToString:@"3 hrs"]){
+    else if([temp24 isEqualToString:@"3hrs"]){
         [seg6 setSelectedSegmentIndex:2];
-        standing=@"3 hrs";
+        standing=@"3hrs";
         
     }
-    else if([temp24 isEqualToString:@"4 hrs"]){
+    else if([temp24 isEqualToString:@"4hrs"]){
         [seg6 setSelectedSegmentIndex:3];
-        standing=@"4 hrs";
+        standing=@"4hrs";
         
     }
-    else if([temp24 isEqualToString:@"5 hrs"]){
+    else if([temp24 isEqualToString:@"5hrs"]){
         [seg6 setSelectedSegmentIndex:4];
-        standing=@"5 hrs";
+        standing=@"5hrs";
         
     }
     

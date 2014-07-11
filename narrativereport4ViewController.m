@@ -177,7 +177,7 @@
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        headval=@"Neckpain";
+        headval=@"Neck pain";
     }
     if ([sender selectedSegmentIndex]==2)
     {
@@ -205,11 +205,11 @@
     }
     if ([sender selectedSegmentIndex]==8)
     {
-        headval=@"L-R Foot Pain";
+        headval=@"L-R foot Pain";
     }
     if ([sender selectedSegmentIndex]==9)
     {
-        headval=@"L-R Gluteal Pain";
+        headval=@"L-R gluteal Pain";
     }
     text9.text=headval;
     
@@ -221,19 +221,19 @@
 - (IBAction)s2:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s2l=@"work";
+        s2l=@"Work";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s2l=@"sleep";
+        s2l=@"Sleep";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s2l=@"housework";
+        s2l=@"Housework";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s2l=@"recreation";
+        s2l=@"Recreation";
     }
     if ([sender selectedSegmentIndex]==4)
     {
@@ -244,10 +244,10 @@
 }
 - (IBAction)wasnotaction:(id)sender {
     if (wasnot.selectedSegmentIndex==0) {
-        wasnotlabel=@"was";
+        wasnotlabel=@"Was";
     }
     if (wasnot.selectedSegmentIndex==1) {
-        wasnotlabel=@"was not";
+        wasnotlabel=@"Was not";
     }
 }
 
@@ -344,18 +344,18 @@
 }
 - (IBAction)seg7:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        s7l=@"were";
+        s7l=@"Were";
     }
     if ([sender selectedSegmentIndex]==1) {
-        s7l=@"were no";
+        s7l=@"Were no";
     }
 }
 - (IBAction)seg8:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        s8l=@"was";
+        s8l=@"Was";
     }
     if ([sender selectedSegmentIndex]==1) {
-        s8l=@"was not";
+        s8l=@"Was not";
     }
 }
 - (IBAction)seg9:(id)sender {
@@ -363,15 +363,15 @@
         s9l=@"Smoker";
     }
     if ([sender selectedSegmentIndex]==1) {
-        s9l=@"Recreation drug user";
+        s9l=@"Recreational drug user";
     }
 }
 - (IBAction)seg10:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        s10l=@"Excercises on a regular basis";
+        s10l=@"Exercises on a Regular Basis";
     }
     if ([sender selectedSegmentIndex]==1) {
-        s10l=@"Drinks alcohol regularly";
+        s10l=@"Drinks Alcohol regularly";
     }
 }
 - (IBAction)genderr:(id)sender
@@ -400,7 +400,7 @@
         nourishedlabel=@"Normal";
     }
     if (nourishedseg.selectedSegmentIndex==2) {
-        nourishedlabel=@"Well nourished";
+        nourishedlabel=@"Well-nourished";
     }
     
 }
@@ -752,18 +752,18 @@
 }
 
 - (IBAction)reset:(id)sender {
-    wasnotlabel=@"was";
+    wasnotlabel=@"Was";
     s1l=@"Activity";
-    s2l=@"work";
-    wasnotlabel=@"was";
+    s2l=@"Work";
+    wasnotlabel=@"Was";
     s3l=@"Vicelike";
     s4l=@"Intermittant";
     s5l=@"Mild";
     s6l=@"Worse in Mornings";
-    s7l=@"were";
-    s8l=@"was";
+    s7l=@"Were";
+    s8l=@"Was";
     s9l=@"Smoker";
-    s10l=@"Excercises on a regular basis";
+    s10l=@"Exercises on a Regular Basis";
     genderlabel=@"Male";
     whitelabel=@"White";
     nourishedlabel=@"Undernourished";
@@ -851,19 +851,19 @@
     headval=@"Headache";
     
     
-    wasnotlabel=@"was";
+    wasnotlabel=@"Was";
     
     s1l=@"Activity";
-    s2l=@"work";
-    wasnotlabel=@"was";
+    s2l=@"Work";
+    wasnotlabel=@"Was";
     s3l=@"Vicelike";
     s4l=@"Intermittant";
     s5l=@"Mild";
     s6l=@"Worse in Mornings";
-    s7l=@"were";
-    s8l=@"was";
+    s7l=@"Were";
+    s8l=@"Was";
     s9l=@"Smoker";
-    s10l=@"Excercises on a regular basis";
+    s10l=@"Exercises on a Regular Basis";
     genderlabel=@"Male";
     whitelabel=@"White";
     nourishedlabel=@"Undernourished";
@@ -876,7 +876,7 @@
     hypo.hidden=YES;
     hypo.delegate = self;
     hypo.dataSource = self;
-    hypolabel.text=@"hypolordosis";
+    hypolabel.text=@"Hypolordosis";
     hypoarray=[[NSArray alloc]initWithObjects:@"Hypolordosis",@"Hyperlordosis",@"Hypokyphosis",@"Hyperkyposis",@"Cervical Tilting",@"L/R",@"Cervical Rotation L-R",@"Superior L-R scapula",@"L-R Scapular Winging",@"L-R rib hump",@"Superior L-R illaic crest", nil];
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"Past History"];
     [attributeString addAttribute:NSUnderlineStyleAttributeName
@@ -943,11 +943,11 @@
         nourishedlabel=@"Normal";
         
     }
-    if ([[mutearray objectForKey:@"weight1"]isEqualToString:@"Well nourished"])
+    if ([[mutearray objectForKey:@"weight1"]isEqualToString:@"Well-nourished"])
     {
         [nourishedseg setSelectedSegmentIndex:2];
         
-        nourishedlabel=@"Well nourished";
+        nourishedlabel=@"Well-nourished";
     }
     
     
@@ -1114,31 +1114,41 @@
         text8.text=[resultset objectForKey:@"clinicdate"];
         text9.text=[resultset objectForKey:@"gender19"];
         
+        gen1.text=[resultset objectForKey:@"gender12"];
+        gen2.text=[resultset objectForKey:@"gender14"];
+        gen6.text=[resultset objectForKey:@"gender22"];
+        gen7.text=[resultset objectForKey:@"gender26"];
+        gen8.text=[resultset objectForKey:@"gender34"];
+        his5.text=[resultset objectForKey:@"gender21"];
+        his7.text=[resultset objectForKey:@"gender23"];
+        his8.text=[resultset objectForKey:@"gender27"];
+        his9.text=[resultset objectForKey:@"gender29"];
+        
         text10.text=[resultset objectForKey:@"vehicleaccident"];
         age.text=[resultset objectForKey:@"age"];
         heightval.text=[resultset objectForKey:@"age1"];
         lb.text=[resultset objectForKey:@"lb"];
         alleviate.text=[resultset objectForKey:@"allieviated"];
-        hypolabel.text=[resultset objectForKey:@"gender53"];
-        if ([[resultset objectForKey:@"gender13"]isEqualToString:@"were"]) {
+        hypolabel.text=[resultset objectForKey:@"gender39"];
+        if ([[resultset objectForKey:@"gender13"]isEqualToString:@"Were"]) {
             [seg7 setSelectedSegmentIndex:0];
             
-            s7l=@"were";
+            s7l=@"Were";
             
         }
-        else if ([[resultset objectForKey:@"gender13"]isEqualToString:@"were no"]) {
+        else if ([[resultset objectForKey:@"gender13"]isEqualToString:@"Were no"]) {
             [seg7 setSelectedSegmentIndex:1];
-            s7l=@"were no";
+            s7l=@"Were no";
             
         }
-        if ([[resultset objectForKey:@"gender15"]isEqualToString:@"was"]) {
+        if ([[resultset objectForKey:@"gender15"]isEqualToString:@"Was"]) {
             [seg8 setSelectedSegmentIndex:0];
-            s8l=@"was";
+            s8l=@"Was";
             
         }
-        else if ([[resultset objectForKey:@"gender15"]isEqualToString:@"was not"]) {
+        else if ([[resultset objectForKey:@"gender15"]isEqualToString:@"Was not"]) {
             [seg8 setSelectedSegmentIndex:1];
-            s8l=@"was not";
+            s8l=@"Was not";
         }
         if ([[resultset objectForKey:@"gender16"]isEqualToString:@"Smoker"]) {
             [seg9 setSelectedSegmentIndex:0];
@@ -1146,24 +1156,24 @@
             
             
         }
-        else if ([[resultset objectForKey:@"gender16"]isEqualToString:@"Recreation drug user"])
+        else if ([[resultset objectForKey:@"gender16"]isEqualToString:@"Recreational drug user"])
         {
             [seg9 setSelectedSegmentIndex:1];
             
-            s9l=@"Recreation drug user";
+            s9l=@"Recreational drug user";
         }
-        if ([[resultset objectForKey:@"gender17"]isEqualToString:@"Excercises on a regular basis"]) {
+        if ([[resultset objectForKey:@"gender17"]isEqualToString:@"Exercises on a Regular Basis"]) {
             [seg10 setSelectedSegmentIndex:0];
-            s10l=@"Excercises on a regular basis";
+            s10l=@"Exercises on a Regular Basis";
             
             
         }
-        else if ([[resultset objectForKey:@"gender17"]isEqualToString:@"Drinks alcohol regularly"])
+        else if ([[resultset objectForKey:@"gender17"]isEqualToString:@"Drinks Alcohol regularly"])
         {
             [seg10 setSelectedSegmentIndex:1];
             
             
-            s10l=@"Drinks alcohol regularly";
+            s10l=@"Drinks Alcohol regularly";
         }
         if ([[resultset objectForKey:@"gender20"]isEqualToString:@"Activity"]) {
             [s1  setSelectedSegmentIndex:0];
@@ -1305,14 +1315,14 @@
             [s3 setSelectedSegmentIndex:11];
             s3l=@"Cramping";
         }
-        if ([[resultset objectForKey:@"gender28"]isEqualToString:@"was"]) {
+        if ([[resultset objectForKey:@"gender28"]isEqualToString:@"Was"]) {
             [wasnot setSelectedSegmentIndex:0];
-            wasnotlabel=@"was";
+            wasnotlabel=@"Was";
             
         }
-        else if ([[resultset objectForKey:@"gender28"]isEqualToString:@"was not"]) {
+        else if ([[resultset objectForKey:@"gender28"]isEqualToString:@"Was not"]) {
             [wasnot setSelectedSegmentIndex:1];
-            wasnotlabel=@"was not";
+            wasnotlabel=@"Was not";
         }
         if ([[resultset objectForKey:@"gender25"]isEqualToString:@"Worse in Mornings"])
         {
@@ -1324,28 +1334,28 @@
             [seg6 setSelectedSegmentIndex:1];
             s6l=@"Evenings";
         }
-        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"work"])
+        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"Work"])
         {
             [s2 setSelectedSegmentIndex:0];
-            s2l=@"work";
+            s2l=@"Work";
             
         }
-        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"sleep"])
+        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"Sleep"])
         {
             [s2 setSelectedSegmentIndex:1];
-            s2l=@"sleep";
+            s2l=@"Sleep";
             
         }
-        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"housework"])
+        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"Housework"])
         {
             [s2 setSelectedSegmentIndex:2];
-            s2l=@"housework";
+            s2l=@"Housework";
             
         }
-        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"recreation"])
+        if ([[resultset objectForKey:@"gender30"]isEqualToString:@"Recreation"])
         {
             [s2 setSelectedSegmentIndex:3];
-            s2l=@"recreation";
+            s2l=@"Recreation";
             
         }
         if ([[resultset objectForKey:@"gender30"]isEqualToString:@"Other"])
@@ -1389,11 +1399,11 @@
             nourishedlabel=@"Normal";
             
         }
-        if ([[resultset objectForKey:@"gender33"]isEqualToString:@"Well nourished"])
+        if ([[resultset objectForKey:@"gender33"]isEqualToString:@"Well-nourished"])
         {
             [nourishedseg setSelectedSegmentIndex:2];
             
-            nourishedlabel=@"Well nourished";
+            nourishedlabel=@"Well-nourished";
         }
         if ([[resultset objectForKey:@"gendernew4"]isEqualToString:@"Fair"])
         {
@@ -1489,10 +1499,10 @@
             headval=@"Headache";
             
         }
-        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"Neckpain"])
+        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"Neck pain"])
         {
             [headacheseg setSelectedSegmentIndex:1];
-            headval=@"Neckpain";
+            headval=@"Neck pain";
             
         }
         if ([[resultset objectForKey:@"gender19"]isEqualToString:@"Mid Back Pain"])
@@ -1528,15 +1538,15 @@
             headval=@"L-R Leg Pain";
             
         }
-        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"L-R Foot Pain"])
+        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"L-R foot Pain"])
         {
             [headacheseg setSelectedSegmentIndex:8];
-            headval=@"L-R Foot Pain";
+            headval=@"L-R foot Pain";
         }
-        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"L-R Gluteal Pain"])
+        if ([[resultset objectForKey:@"gender19"]isEqualToString:@"L-R gluteal Pain"])
         {
             [headacheseg setSelectedSegmentIndex:9];
-            headval=@"L-R Gluteal Pain";
+            headval=@"L-R gluteal Pain";
         }
         text9.text=headval;
         

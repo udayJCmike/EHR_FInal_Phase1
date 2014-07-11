@@ -802,10 +802,10 @@
         range.text=[resultset objectForKey:@"rangeofmotion"];
         flexionpain.text=[resultset objectForKey:@"painres1"];
         extensionpain.text=[resultset objectForKey:@"painres2"];
-        rightrotationpain.text=[resultset objectForKey:@"painres3"];
-        leftrotationpain.text=[resultset objectForKey:@"painres4"];
-        rightlateralpain.text=[resultset objectForKey:@"painres5"];
-        leftlateralpain.text=[resultset objectForKey:@"painres6"];
+        rightrotationpain.text=[resultset objectForKey:@"painres5"];
+        leftrotationpain.text=[resultset objectForKey:@"painres6"];
+        rightlateralpain.text=[resultset objectForKey:@"painres3"];
+        leftlateralpain.text=[resultset objectForKey:@"painres4"];
         flexionton.text=[resultset objectForKey:@"tonicity1"];
         extensionton.text=[resultset objectForKey:@"tonicity2"];
         rightlateralton.text=[resultset objectForKey:@"tonicity3"];
@@ -814,10 +814,10 @@
         leftrotationton.text=[resultset objectForKey:@"tonicity6"];
         flexpain.text=[resultset objectForKey:@"painres7"];
         exetpain.text=[resultset objectForKey:@"painres8"];
-        rightrotpain.text=[resultset objectForKey:@"painres9"];
-        leftrotpain.text=[resultset objectForKey:@"painres10"];
-        rightlatpain.text=[resultset objectForKey:@"painres11"];
-        leftlatpain.text=[resultset objectForKey:@"painres12"];
+        rightrotpain.text=[resultset objectForKey:@"painres11"];
+        leftrotpain.text=[resultset objectForKey:@"painres12"];
+        rightlatpain.text=[resultset objectForKey:@"painres9"];
+        leftlatpain.text=[resultset objectForKey:@"painres10"];
         flexton.text=[resultset objectForKey:@"tonicity7"];
         exetton.text=[resultset objectForKey:@"tonicity8"];
         rightlatton.text=[resultset objectForKey:@"tonicity9"];
@@ -853,13 +853,13 @@
             [lrtrapseg setSelectedSegmentIndex:0];
             lrtrapezius=@"L-R Trapezius";
         }
-        if ([[resultset objectForKey:@"gendernew6"]isEqualToString:@"L-R Strnocleidomastoid"]) {
+        if ([[resultset objectForKey:@"gendernew6"]isEqualToString:@"L-R Sternocleidomastoid"]) {
             [lrtrapseg setSelectedSegmentIndex:1];
-            lrtrapezius=@"L-R Strnocleidomastoid";
+            lrtrapezius=@"L-R Sternocleidomastoid";
         }
-        if ([[resultset objectForKey:@"gendernew6"]isEqualToString:@"L-R quadratuslumborum"]) {
+        if ([[resultset objectForKey:@"gendernew6"]isEqualToString:@"L-R quadratus lumborum"]) {
             [lrtrapseg setSelectedSegmentIndex:2];
-            lrtrapezius=@"L-R quadratuslumborum";
+            lrtrapezius=@"L-R quadratus lumborum";
         }
         if ([[resultset objectForKey:@"gendernew6"]isEqualToString:@"L-R Hamstring"]) {
             [lrtrapseg setSelectedSegmentIndex:3];
@@ -953,10 +953,10 @@
         lrtrapezius=@"L-R Trapezius";
     }
     if (lrtrapseg.selectedSegmentIndex==1) {
-        lrtrapezius=@"L-R Strnocleidomastoid";
+        lrtrapezius=@"L-R Sternocleidomastoid";
     }
     if (lrtrapseg.selectedSegmentIndex==2) {
-        lrtrapezius=@"L-R quadratuslumborum";
+        lrtrapezius=@"L-R quadratus lumborum";
     }
     if (lrtrapseg.selectedSegmentIndex==3) {
         lrtrapezius=@"L-R Hamstring";

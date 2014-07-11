@@ -119,11 +119,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if (estimatesegment.selectedSegmentIndex==0)
     {
-        _1=@"your Insurance Company";
+        _1=@"Your Insurance Company";
     }
     if (estimatesegment.selectedSegmentIndex==1)
     {
-        _1=@"Other Driver's Insurance Company";
+        _1=@"Other Drivers Insurance Company";
     }
     if (estimatesegment.selectedSegmentIndex==2)
     {
@@ -151,7 +151,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        _5=@"UnKnown";
+        _5=@"Unknown";
     }
 }
 -(IBAction)wereoyuthechange:(id)sender
@@ -162,15 +162,15 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        _2=@"Front Seat";
+        _2=@"Front Seat Passenger";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        _2=@"Back Seat";
+        _2=@"Back Seat Passenger";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        _2=@"On the Job at the time of accident";
+        _2=@"On the job at the time of accident";
     }
     
 }
@@ -178,27 +178,27 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     if ([sender selectedSegmentIndex]==0)
     {
-        _3=@"RightFront";
+        _3=@"Right Front";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        _3=@"LeftFront";
+        _3=@"Left Front";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        _3=@"RightRear";
+        _3=@"Right Rear";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        _3=@"LeftRear";
+        _3=@"Left Rear";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        _3=@"RightSide";
+        _3=@"Right Side";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        _3=@"LeftSide";
+        _3=@"Left Side";
     }
     if ([sender selectedSegmentIndex]==6)
     {
@@ -219,7 +219,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        _4=@"Steady rate of Speed";
+        _4=@"Steady Rate of Speed";
     }
     
 }
@@ -261,7 +261,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     else if ([sender selectedSegmentIndex]==5)
     {
-        _6=@"Others";
+        _6=@"Other";
         roadother.hidden=NO;
         _40=roadother.text;
         
@@ -386,10 +386,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     footonbrakelabel.text=@"Yes";
     vehiclemovinglabel.text=@"Yes";
     roadother.hidden=YES;
-    _1=@"your Insurance Company";
+    _1=@"Your Insurance Company";
     _5=@"Daylight";
     _2=@"Driver";
-    _3=@"RightFront";
+    _3=@"Right Front";
     _4=@"Slowing Down";
     _6=@"Dry";
     _7=@"Up";
@@ -620,9 +620,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-        else if ([temp4 isEqualToString:@"Other Driver's Insurance Company"]) {
+        else if ([temp4 isEqualToString:@"Other Drivers Insurance Company"]) {
             [estimatesegment setSelectedSegmentIndex:1];
-            _1=@"Other Driver's Insurance Company";
+            _1=@"Other Drivers Insurance Company";
             
         }
         else if ([temp4 isEqualToString:@"Body Shop"])
@@ -651,21 +651,21 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-        else if ([temp6 isEqualToString:@"Front Seat"]) {
+        else if ([temp6 isEqualToString:@"Front Seat Passenger"]) {
             [wereyouthesegment setSelectedSegmentIndex:1];
-            _2=@"Front Seat";
+            _2=@"Front Seat Passenger";
             
         }
-        else if ([temp6 isEqualToString:@"Back Seat"])
+        else if ([temp6 isEqualToString:@"Back Seat Passenger"])
         {
             [wereyouthesegment setSelectedSegmentIndex:2];
-            _2=@"Back Seat";
+            _2=@"Back Seat Passenger";
             
         }
-        else if ([temp6 isEqualToString:@"On the Job at the time of accident"])
+        else if ([temp6 isEqualToString:@"On the job at the time of accident"])
         {
             [wereyouthesegment setSelectedSegmentIndex:2];
-            _2=@"On the Job at the time of accident";
+            _2=@"On the job at the time of accident";
             
         }
         else {
@@ -679,7 +679,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     
     if ([temp11 length]>0)
     {
-        if ([temp11 isEqualToString:@"RightFront"])
+        if ([temp11 isEqualToString:@"Right Front"])
         {
             [vehiclehitsegment setSelectedSegmentIndex:0];
             
@@ -688,31 +688,31 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-        else if ([temp11 isEqualToString:@"LeftFront"]) {
+        else if ([temp11 isEqualToString:@"Left Front"]) {
             [vehiclehitsegment setSelectedSegmentIndex:1];
             _3=@"LeftFront";
             
         }
-        else if ([temp11 isEqualToString:@"RightRear"])
+        else if ([temp11 isEqualToString:@"Right Rear"])
         {
             [vehiclehitsegment setSelectedSegmentIndex:2];
             _3=@"RightRear";
             
         }
-        else if ([temp11 isEqualToString:@"LeftRear"])
+        else if ([temp11 isEqualToString:@"Left Rear"])
         {
             [vehiclehitsegment setSelectedSegmentIndex:3];
             _3=@"LeftRear";
             
         }
         
-        else if ([temp11 isEqualToString:@"RightSide"])
+        else if ([temp11 isEqualToString:@"Right Side"])
         {
             [vehiclehitsegment setSelectedSegmentIndex:4];
             _3=@"LeftRear";
             
         }
-        else if ([temp11 isEqualToString:@"LeftSide"])
+        else if ([temp11 isEqualToString:@"Left Side"])
         {
             [vehiclehitsegment setSelectedSegmentIndex:5];
             _3=@"RightRear";
@@ -775,10 +775,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             _4=@"Gaining Speed";
             
         }
-        else if ([temp18 isEqualToString:@"Steady rate of Speed"])
+        else if ([temp18 isEqualToString:@"Steady Rate of Speed"])
         {
             [wasscarsegment setSelectedSegmentIndex:2];
-            _4=@"Steady rate of Speed";
+            _4=@"Steady Rate of Speed";
             
         }
         else {
@@ -819,10 +819,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             _5=@"Dark";
             
         }
-        else if ([temp20 isEqualToString:@"UnKnown"])
+        else if ([temp20 isEqualToString:@"Unknown"])
         {
             [timeofdaysegment1 setSelectedSegmentIndex:4];
-            _5=@"UnKnown";
+            _5=@"Unknown";
             
         }
         else {
@@ -882,10 +882,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             roadother.text=@"";
             _40=@"";
         }
-        else if ([temp21 isEqualToString:@"Others"])
+        else if ([temp21 isEqualToString:@"Other"])
         {
             [roadconditionsegment setSelectedSegmentIndex:5];
-            _6=@"Others";
+            _6=@"Other";
             //NSLog(@"othr conditon::%@",[resultset objectForKey:@"conditions"]);
             roadother.text=temp22;
             _40=roadother.text;
@@ -1409,7 +1409,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     carstoppedlabel.text=@"Yes";
     footonbrakelabel.text=@"Yes";
     vehiclemovinglabel.text=@"Yes";
-    estimatelabel.text=@"your Insurance Company";
+    estimatelabel.text=@"Your Insurance Company";
     timeofdaylabel1.text=@"Daylight";
     wereyouthelabel.text=@"Driver";
     vehiclehitlabel.text=@"RightFront";

@@ -151,7 +151,7 @@
     jobinjuryyeslabel.text=[NSString stringWithFormat:@"If \"Yes,\" explain(include dates):"];
     liftinorout.text=@"Yes";
     pickuporlift.text=@"Yes";
-    doyou.text=@"Sit a desk";
+    doyou.text=@"Sit at desk";
     typeoflighting.text=@"Fluorescent";
     liftfrom.text=@"Ground";
     labworkingatmaching.text=@"Sit";
@@ -249,7 +249,7 @@
 -(IBAction)segselected1:(id)sender{
     if(segdoyou.selectedSegmentIndex==0)
     {  doyouother.hidden=YES;
-        doyou.text=@"Sit a desk";
+        doyou.text=@"Sit at desk";
     }
     else if (segdoyou.selectedSegmentIndex==1)
     {
@@ -279,7 +279,7 @@
     else if (segdoyou.selectedSegmentIndex==6)
     {
         doyouother.hidden=YES;
-        doyou.text=@"Drive";
+        doyou.text=@"Drive a company vehicle";
     }
     else if (segdoyou.selectedSegmentIndex==7)
     {
@@ -759,11 +759,11 @@
     
     if ([temp3 length]>0)
     {
-        if ([temp3 isEqualToString:@"Sit a desk"])
+        if ([temp3 isEqualToString:@"Sit at desk"])
         {
             [segdoyou setSelectedSegmentIndex:0];
             doyouother.hidden=YES;
-            doyou.text=@"Sit a desk";
+            doyou.text=@"Sit at desk";
             
             
         }
@@ -802,10 +802,10 @@
             doyou.text=@"Carry";
             
         }
-        else if ([temp3  isEqualToString:@"Drive"]) {
+        else if ([temp3  isEqualToString:@"Drive a company vehicle"]) {
             [segdoyou setSelectedSegmentIndex:6];
             doyouother.hidden=YES;
-            doyou.text=@"Drive";
+            doyou.text=@"Drive a company vehicle";
             
         }
         else if ([temp3  isEqualToString:@"Load"]) {

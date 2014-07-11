@@ -95,7 +95,7 @@
         [self performSegueWithIdentifier:@"wristhand" sender:self];
     }
     else if (painseg.selectedSegmentIndex==1) {
-        segval=@"LowBack";
+        segval=@"Low Back";
         painname.hidden=YES;
         [self performSegueWithIdentifier:@"lowback" sender:self];
     }
@@ -128,7 +128,7 @@
         
         [self performSegueWithIdentifier:@"wristhand" sender:self];
     }
-    else if ([segval isEqualToString:@"LowBack"]) {
+    else if ([segval isEqualToString:@"Low Back"]) {
         
         [self performSegueWithIdentifier:@"lowback" sender:self];
     }
@@ -353,9 +353,9 @@
                 edit.hidden=NO;
                 
             }
-            else if ([temp3 isEqualToString:@"LowBack"]) {
+            else if ([temp3 isEqualToString:@"Low Back"]) {
                 [painseg setSelectedSegmentIndex:1];
-                segval=@"LowBack";
+                segval=@"Low Back";
                 painname.hidden=YES;
                 edit.hidden=NO;
             }

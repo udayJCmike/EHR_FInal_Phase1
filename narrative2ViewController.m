@@ -166,7 +166,7 @@
 - (IBAction)s3:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s3l=@"Within Normal Limits";
+        s3l=@"Within normal limits";
     }
     if ([sender selectedSegmentIndex]==1)
     {
@@ -178,15 +178,15 @@
 - (IBAction)s4:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s4l=@"equal and intact and without incident";
+        s4l=@"Equal and intact without incident";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s4l=@"hyporeflexic";
+        s4l=@"Hypo-reflexic";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s4l=@"hyperreflexic";
+        s4l=@"Hyper-reflexic";
     }
     
     
@@ -206,11 +206,11 @@
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s5l=@"sacroilliac";
+        s5l=@"Sacroilliac Spine";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        s5l=@"other";
+        s5l=@"Other";
     }
     
     
@@ -219,7 +219,7 @@
 - (IBAction)s6:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s6l=@"two";
+        s6l=@"Two";
     }
     if ([sender selectedSegmentIndex]==1)
     {
@@ -227,19 +227,19 @@
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s6l=@"four";
+        s6l=@"Four";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s6l=@"five";
+        s6l=@"Five";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        s6l=@"six";
+        s6l=@"Six";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        s6l=@"seven";
+        s6l=@"Seven";
     }
     
 }
@@ -258,17 +258,17 @@
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s7l=@"si";
+        s7l=@"SI";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        s7l=@"other";
+        s7l=@"Other";
     }
 }
 - (IBAction)s8:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s8l=@"two";
+        s8l=@"Two";
     }
     if ([sender selectedSegmentIndex]==1)
     {
@@ -276,19 +276,19 @@
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s8l=@"four";
+        s8l=@"Four";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s8l=@"five";
+        s8l=@"Five";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        s8l=@"six";
+        s8l=@"Six";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        s8l=@"seven";
+        s8l=@"Seven";
     }
     
     
@@ -308,11 +308,11 @@
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s9l=@"si";
+        s9l=@"SI";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        s9l=@"other";
+        s9l=@"Other";
     }
     
     
@@ -324,11 +324,11 @@
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s10l=@"dislocation of gross osteologis";
+        s10l=@"Dislocation or gross osteopathology";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s10l=@"positive for fracture";
+        s10l=@"Positive for fracture of the";
     }
     
 }
@@ -350,11 +350,11 @@
 - (IBAction)s12:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s12l=@"hyperlordosis";
+        s12l=@"Hyperlordosis";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s12l=@"hypolordosis";
+        s12l=@"Hypolordosis";
     }
     
 }
@@ -365,38 +365,38 @@
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s13l=@"present at the";
+        s13l=@"Present at the";
     }
     
 }
 - (IBAction)s14:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s14l=@"anterior";
+        s14l=@"Anterior";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s14l=@"thoracic";
+        s14l=@"Thoracic";
     }
 }
 - (IBAction)s15:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s15l=@"mild";
+        s15l=@"Mild";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s15l=@"moderate";
+        s15l=@"Moderate";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        s15l=@"severe";
+        s15l=@"Severe";
     }
 }
 - (IBAction)s16:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s16l=@"dextro";
+        s16l=@"Dextro";
     }
     if ([sender selectedSegmentIndex]==1)
     {
@@ -407,11 +407,11 @@
 - (IBAction)s17:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        s17l=@"scoliosis";
+        s17l=@"Scoliosis";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        s17l=@"towering";
+        s17l=@"Towering";
     }
 }
 - (IBAction)s18:(id)sender {
@@ -876,21 +876,21 @@
     
     s1l=@"Cervical";
     s2l=@"Cervical";
-    s3l=@"Within Normal Limit";
-    s4l=@"equal and intact and without incident";
+    s3l=@"Within normal limits";
+    s4l=@"Equal and intact without incident";
     s5l=@"Cervical";
-    s6l=@"two";
+    s6l=@"Two";
     s7l=@"Cervical";
-    s8l=@"two";
+    s8l=@"Two";
     s9l=@"Cervical";
     s10l=@"Negative for recent fracture";
     s11l=@"Cervical";
-    s12l=@"hyperlordosis";
+    s12l=@"Hyperlordosis";
     s13l=@"Not present";
-    s14l=@"anterior";
-    s15l=@"mild";
-    s16l=@"dextro";
-    s17l=@"scoliosis";
+    s14l=@"Anterior";
+    s15l=@"Mild";
+    s16l=@"Dextro";
+    s17l=@"Scoliosis";
     s19l=@"Cervical";
     s18ll=@"Cervical";
     rs1l=@"null";
@@ -935,17 +935,17 @@
     [s2 setSelectedSegmentIndex:0];
     s2l=@"Cervical";
     [s3 setSelectedSegmentIndex:0];
-    s3l=@"Within Normal Limits";
+    s3l=@"Within normal limits";
     [s4 setSelectedSegmentIndex:0];
-    s4l=@"equal and intact and without incident";
+    s4l=@"Equal and intact without incident";
     [s5 setSelectedSegmentIndex:0];
     s5l=@"Cervical";
     [s6 setSelectedSegmentIndex:0];
-    s6l=@"two";
+    s6l=@"Two";
     [s7 setSelectedSegmentIndex:0];
     s7l=@"Cervical";
     [s8 setSelectedSegmentIndex:0];
-    s8l=@"two";
+    s8l=@"Two";
     [s9 setSelectedSegmentIndex:0];
     s9l=@"Cervical";
     [s10 setSelectedSegmentIndex:0];
@@ -953,17 +953,17 @@
     [s11 setSelectedSegmentIndex:0];
     s11l=@"Cervical";
     [s12 setSelectedSegmentIndex:0];
-    s12l=@"hyperlordosis";
+    s12l=@"Hyperlordosis";
     [s13 setSelectedSegmentIndex:0];
     s13l=@"Not present";
     [s14 setSelectedSegmentIndex:0];
-    s14l=@"anterior";
+    s14l=@"Anterior";
     [s15 setSelectedSegmentIndex:0];
-    s15l=@"mild";
+    s15l=@"Mild";
     [s16 setSelectedSegmentIndex:0];
-    s16l=@"dextro";
+    s16l=@"Dextro";
     [s17 setSelectedSegmentIndex:0];
-    s17l=@"scoliosis";
+    s17l=@"Scoliosis";
     [s18 setSelectedSegmentIndex:0];
     s19l=@"Cervical";
     [s18another setSelectedSegmentIndex:0];
@@ -1044,10 +1044,10 @@
             [s2 setSelectedSegmentIndex:2];
             s2l=@"Lumbar";
         }
-        if ( [[resultset objectForKey:@"gender44"]isEqualToString:@"Within Normal Limits"])
+        if ( [[resultset objectForKey:@"gender44"]isEqualToString:@"Within normal limits"])
         {
             [s3 setSelectedSegmentIndex:0];
-            s3l=@"Within Normal Limits";
+            s3l=@"Within normal limits";
         }
         if ( [[resultset objectForKey:@"gender44"]isEqualToString:@"Not Within Normal Limits"])
         {
@@ -1055,20 +1055,20 @@
             s3l=@"Not Within Normal Limits" ;
         }
         
-        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"equal and intact and without incident"])
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"Equal and intact without incident"])
         {
             [s4 setSelectedSegmentIndex:0];
-            s4l=@"equal and intact and without incident";
+            s4l=@"Equal and intact without incident";
         }
-        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"hyporeflexic"])
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"Hypo-reflexic"])
         {
             [s4 setSelectedSegmentIndex:1];
-            s4l=@"hyporeflexic";
+            s4l=@"Hypo-reflexic";
         }
-        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"hyperreflexic"])
+        if ( [[resultset objectForKey:@"gender45"]isEqualToString:@"Hyper-reflexic"])
         {
             [s4 setSelectedSegmentIndex:2];
-            s4l=@"hyperreflexic";
+            s4l=@"Hyper-reflexic";
         }
         if ([[resultset objectForKey:@"gender46"]isEqualToString:@"Cervical"])
         {
@@ -1085,45 +1085,45 @@
             [s5 setSelectedSegmentIndex:2];
             s5l=@"Lumbar";
         }
-        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"sacroilliac"])
+        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"Sacroilliac Spine"])
         {
             [s5 setSelectedSegmentIndex:3];
-            s5l=@"sacroilliac";
+            s5l=@"Sacroilliac Spine";
         }
-        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"other"])
+        if ( [[resultset objectForKey:@"gender46"]isEqualToString:@"Other"])
         {
             [s5 setSelectedSegmentIndex:4];
-            s5l=@"other";
+            s5l=@"Other";
         }
-        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"two"])
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Two"])
         {
             [s6 setSelectedSegmentIndex:0];
-            s6l=@"two";
+            s6l=@"Two";
         }
         if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Three"])
         {
             [s6 setSelectedSegmentIndex:1];
             s6l=@"Three";
         }
-        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"four"])
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Four"])
         {
             [s6 setSelectedSegmentIndex:2];
-            s6l=@"four";
+            s6l=@"Four";
         }
-        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"five"])
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Five"])
         {
             [s6 setSelectedSegmentIndex:3];
-            s6l=@"five";
+            s6l=@"Five";
         }
-        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"six"])
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Six"])
         {
             [s6 setSelectedSegmentIndex:4];
-            s6l=@"six";
+            s6l=@"Six";
         }
-        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"seven"])
+        if ( [[resultset objectForKey:@"gender47"]isEqualToString:@"Seven"])
         {
             [s6 setSelectedSegmentIndex:5];
-            s6l=@"seven";
+            s6l=@"Seven";
         }
         if ([[resultset objectForKey:@"gender48"]isEqualToString:@"Cervical"])
         {
@@ -1140,45 +1140,45 @@
             [s7 setSelectedSegmentIndex:2];
             s7l=@"Lumbar";
         }
-        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"si"])
+        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"SI"])
         {
             [s7 setSelectedSegmentIndex:3];
-            s7l=@"si";
+            s7l=@"SI";
         }
-        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"other"])
+        if ( [[resultset objectForKey:@"gender48"]isEqualToString:@"Other"])
         {
             [s7 setSelectedSegmentIndex:4];
-            s7l=@"other";
+            s7l=@"Other";
         }
-        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"two"])
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Two"])
         {
             [s8 setSelectedSegmentIndex:0];
-            s8l=@"two";
+            s8l=@"Two";
         }
         if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Three"])
         {
             [s8 setSelectedSegmentIndex:1];
             s8l=@"Three";
         }
-        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"four"])
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Four"])
         {
             [s8 setSelectedSegmentIndex:2];
-            s8l=@"four";
+            s8l=@"Four";
         }
-        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"five"])
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Five"])
         {
             [s8 setSelectedSegmentIndex:3];
-            s8l=@"five";
+            s8l=@"Five";
         }
-        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"six"])
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Six"])
         {
             [s8 setSelectedSegmentIndex:4];
-            s8l=@"six";
+            s8l=@"Six";
         }
-        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"seven"])
+        if ( [[resultset objectForKey:@"gender49"]isEqualToString:@"Seven"])
         {
             [s8 setSelectedSegmentIndex:5];
-            s8l=@"seven";
+            s8l=@"Seven";
         }
         if ([[resultset objectForKey:@"gender50"]isEqualToString:@"Cervical"])
         {
@@ -1195,30 +1195,30 @@
             [s9 setSelectedSegmentIndex:2];
             s9l=@"Lumbar";
         }
-        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"si"])
+        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"SI"])
         {
             [s9 setSelectedSegmentIndex:3];
-            s9l=@"si";
+            s9l=@"SI";
         }
-        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"other"])
+        if ( [[resultset objectForKey:@"gender50"]isEqualToString:@"Other"])
         {
             [s9 setSelectedSegmentIndex:4];
-            s9l=@"other";
+            s9l=@"Other";
         }
         if ( [[resultset objectForKey:@"gender51"]isEqualToString:@"Negative for recent fracture"])
         {
             [s10 setSelectedSegmentIndex:0];
             s10l=@"Negative for recent fracture";
         }
-        if( [[resultset objectForKey:@"gender51"]isEqualToString:@"dislocation of gross osteologis"])
+        if( [[resultset objectForKey:@"gender51"]isEqualToString:@"Dislocation or gross osteopathology"])
         {
             [s10 setSelectedSegmentIndex:1];
-            s10l=@"dislocation of gross osteologis";
+            s10l=@"Dislocation or gross osteopathology";
         }
-        if ( [[resultset objectForKey:@"gender51"]isEqualToString:@"positive for fracture"])
+        if ( [[resultset objectForKey:@"gender51"]isEqualToString:@"Positive for fracture of the"])
         {
             [s10 setSelectedSegmentIndex:2];
-            s10l=@"positive for fracture";
+            s10l=@"Positive for fracture of the";
         }
         
         if ([[resultset objectForKey:@"gender52"]isEqualToString:@"Cervical"])
@@ -1236,70 +1236,70 @@
             [s11 setSelectedSegmentIndex:2];
             s11l=@"Lumbar";
         }
-        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"hyperlordosis"])
+        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"Hyperlordosis"])
         {
             [s12 setSelectedSegmentIndex:0];
-            s12l=@"hyperlordosis";
+            s12l=@"Hyperlordosis";
         }
-        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"hypolordosis"])
+        if ( [[resultset objectForKey:@"gender53"]isEqualToString:@"Hypolordosis"])
         {
             [s12 setSelectedSegmentIndex:1];
-            s12l=@"hypolordosis";
+            s12l=@"Hypolordosis";
         }
         if ( [[resultset objectForKey:@"gender54"]isEqualToString:@"Not present"])
         {
             [s13 setSelectedSegmentIndex:0];
             s13l=@"Not present";
         }
-        if ( [[resultset objectForKey:@"gender54"]isEqualToString:@"present at the"])
+        if ( [[resultset objectForKey:@"gender54"]isEqualToString:@"Present at the"])
         {
             [s13 setSelectedSegmentIndex:1];
-            s13l=@"present at the";
+            s13l=@"Present at the";
         }
-        if ( [[resultset objectForKey:@"gender55"]isEqualToString:@"anterior"])
+        if ( [[resultset objectForKey:@"gender55"]isEqualToString:@"Anterior"])
         {
             [s14 setSelectedSegmentIndex:0];
-            s14l=@"anterior";
+            s14l=@"Anterior";
         }
-        if ([[resultset objectForKey:@"gender55"]isEqualToString:@"thoracic"] )
+        if ([[resultset objectForKey:@"gender55"]isEqualToString:@"Thoracic"] )
         {
             [s14 setSelectedSegmentIndex:1];
-            s14l=@"thoracic";
+            s14l=@"Thoracic";
         }
-        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"mild"])
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"Mild"])
         {
             [s15 setSelectedSegmentIndex:0];
-            s15l=@"mild";
+            s15l=@"Mild";
         }
-        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"moderate"])
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"Moderate"])
         {
             [s15 setSelectedSegmentIndex:1];
-            s15l=@"moderate";
+            s15l=@"Moderate";
         }
-        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"severe"])
+        if ( [[resultset objectForKey:@"gender56"]isEqualToString:@"Severe"])
         {
             [s15 setSelectedSegmentIndex:2];
-            s15l=@"severe";
+            s15l=@"Severe";
         }
-        if ( [[resultset objectForKey:@"gender57"]isEqualToString:@"dextro"])
+        if ( [[resultset objectForKey:@"gender57"]isEqualToString:@"Dextro"])
         {
             [s16 setSelectedSegmentIndex:0];
-            s16l=@"dextro";
+            s16l=@"Dextro";
         }
         if ( [[resultset objectForKey:@"gender57"]isEqualToString:@"levo"])
         {
             [s16 setSelectedSegmentIndex:1];
             s16l=@"levo";
         }
-        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"scoliosis"])
+        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"Scoliosis"])
         {
             [s17 setSelectedSegmentIndex:0];
-            s17l=@"scoliosis";
+            s17l=@"Scoliosis";
         }
-        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"towering"])
+        if ( [[resultset objectForKey:@"gender58"]isEqualToString:@"Towering"])
         {
             [s17 setSelectedSegmentIndex:1];
-            s17l=@"towering";
+            s17l=@"Towering";
         }
         if ([[resultset objectForKey:@"gender59"]isEqualToString:@"Cervical"])
         {

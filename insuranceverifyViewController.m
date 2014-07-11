@@ -221,21 +221,21 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     
     
     if(checkbut1.selected){
-        [recorddict setValue:@"CM" forKey:@"CM"];
+        [recorddict setValue:@"cm" forKey:@"CM"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"CM"];
     }
     
     if(checkbut2.selected){
-        [recorddict setValue:@"PT" forKey:@"PT"];
+        [recorddict setValue:@"pt" forKey:@"PT"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"PT"];
     }
     
     if(checkbut3.selected){
-        [recorddict setValue:@"OV" forKey:@"OV"];
+        [recorddict setValue:@"ov" forKey:@"OV"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"OV"];
@@ -1119,7 +1119,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     }
     deductible.text=temp17;
     percentcovered.text=temp18;
-    if([temp19 isEqualToString:@"CM"]){
+    if([temp19 isEqualToString:@"cm"]){
         [checkbut1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
     }
     else{
@@ -1128,7 +1128,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     
     
     
-    if([temp20 isEqualToString:@"PT"]){
+    if([temp20 isEqualToString:@"pt"]){
         [checkbut2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
     }
     else{
@@ -1136,7 +1136,7 @@ NSString *temp,*temp1,*temp2,*temp3,*temp4,*temp5,*temp6,*temp7,*temp8,*temp9,*t
     }
     
     
-    if([temp21 isEqualToString:@"OV"]){
+    if([temp21 isEqualToString:@"ov"]){
         [checkbut3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
     }
     else{

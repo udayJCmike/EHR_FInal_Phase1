@@ -1085,15 +1085,25 @@
             his5.text=@"her";
             his6.text=@"her";
         }
+        he1.text=[resultset objectForKey:@"gender62"];
+        he2.text=[resultset objectForKey:@"gender67"];
+        he3.text=[resultset objectForKey:@"gender74"];
+        his1.text=[resultset objectForKey:@"gender64"];
+        his2.text=[resultset objectForKey:@"gender68"];
+        his3.text=[resultset objectForKey:@"gender69"];
+        his4.text=[resultset objectForKey:@"gender71"];
+        his5.text=[resultset objectForKey:@"gender72"];
+        his6.text=[resultset objectForKey:@"gender73"];
+        
         mr1.text=[NSString stringWithFormat:@"%@%@",mr,@"."];;
         mr2.text=[NSString stringWithFormat:@"%@%@",mr,@"."];;
         mr3.text=[NSString stringWithFormat:@"%@%@",mr,@"."];;
-        if ([[resultset objectForKey:@"gender64"]isEqualToString:@"Good at this time"])
+        if ([[resultset objectForKey:@"gender65"]isEqualToString:@"Good at this time"])
         {
             [goodseg setSelectedSegmentIndex:0];
             good=@"Good at this time";
         }
-        if ([[resultset objectForKey:@"gender64"]isEqualToString:@"Poor due to"] )
+        if ([[resultset objectForKey:@"gender65"]isEqualToString:@"Poor due to"] )
         {
             [goodseg setSelectedSegmentIndex:1];
             good=@"Poor due to";

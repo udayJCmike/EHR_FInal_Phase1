@@ -872,16 +872,18 @@
             text3.text=temp15;
             text4.text=temp16;
             text5.text=temp17;
-            gen1.text=temp6;
-            gen2.text=temp6;
-            gen3.text=temp6;
-            gen4.text=temp6;
-            gen5.text=temp6;
-            his.text=temp10;
-            his1.text=temp10;
-            his2.text=temp10;
-            his3.text=temp10;
-            his4.text=temp10;
+            gen1.text=[arrayList1 objectForKey:@"gender1"];
+            gen8.text=[arrayList1 objectForKey:@"gender2"];
+             gen2.text=[arrayList1 objectForKey:@"gender2"];
+            gen3.text=[arrayList1 objectForKey:@"gender3"];
+            gen4.text=[arrayList1 objectForKey:@"gender5"];
+            gen5.text=[arrayList1 objectForKey:@"gender7"];
+            
+            his.text=[arrayList1 objectForKey:@"gender4"];
+            his1.text=[arrayList1 objectForKey:@"gendernew"];
+            his2.text=[arrayList1 objectForKey:@"gender6"];
+            his3.text=[arrayList1 objectForKey:@"gender8"];
+            his4.text=[arrayList1 objectForKey:@"gender10"];
             if ([temp6 isEqualToString:@"He"]) {
                 [gend setSelectedSegmentIndex:0];
                 gender=@"He";
@@ -906,6 +908,31 @@
             index1.text=[NSString stringWithFormat:@"%@%@",indexresult,@"."];
             index3.text=[NSString stringWithFormat:@"%@%@",indexresult,@"."];
             index4.text=[NSString stringWithFormat:@"%@%@",indexresult,@"."];
+             [resultset setValue:[arrayList1 objectForKey:@"gender20"] forKey:@"gender20"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender59"] forKey:@"gender59"];
+             [resultset setValue:[arrayList1 objectForKey:@"gender12"] forKey:@"gender12"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender14"] forKey:@"gender14"];
+            
+            [resultset setValue:[arrayList1 objectForKey:@"gender21"] forKey:@"gender21"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender22"] forKey:@"gender22"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender23"] forKey:@"gender23"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender26"] forKey:@"gender26"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender27"] forKey:@"gender27"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender29"] forKey:@"gender29"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender34"] forKey:@"gender34"];
+            
+            [resultset setValue:[arrayList1 objectForKey:@"gender62"] forKey:@"gender62"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender67"] forKey:@"gender67"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender74"] forKey:@"gender74"];
+            
+            
+           
+            [resultset setValue:[arrayList1 objectForKey:@"gender64"] forKey:@"gender64"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender68"] forKey:@"gender68"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender1"] forKey:@"gender69"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender71"] forKey:@"gender71"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender72"] forKey:@"gender72"];
+            [resultset setValue:[arrayList1 objectForKey:@"gender73"] forKey:@"gender73"];
             
             
             [resultset setValue:temp18 forKey:@"priordate"];
