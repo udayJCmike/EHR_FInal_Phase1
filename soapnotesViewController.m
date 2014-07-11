@@ -77,8 +77,8 @@
     val2.hidden=YES;
     val1.text=@"No Pain";
     val2.text=@"No Pain";
-    seg1val=@"Proximal";
-    seg2val=@"Proximal";
+    seg1val=@"proximal";
+    seg2val=@"proximal";
     NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     name.text=username;
     
@@ -198,21 +198,21 @@
             temp34 =[arrayList1 objectForKey:@"leftanklepain"];
             temp35 =[arrayList1 objectForKey:@"rightfootpain"];
             temp36 =[arrayList1 objectForKey:@"leftfootpain"];
-            if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"Proximal"] ) {
+            if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"proximal"] ) {
                 [seg1 setSelectedSegmentIndex:0];
-                seg1val=@"Proximal";
+                seg1val=@"proximal";
             }
-            else if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"Distal Portion"] ) {
+            else if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"distal"] ) {
                 [seg1 setSelectedSegmentIndex:1];
-                seg1val=@"Distal Portion";
+                seg1val=@"distal";
             }
-            if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"Proximal"] ) {
+            if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"proximal"] ) {
                 [seg2 setSelectedSegmentIndex:0];
-                seg2val=@"Proximal";
+                seg2val=@"proximal";
             }
-            else if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"Distal Portion"] ) {
+            else if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"distal"] ) {
                 [seg2 setSelectedSegmentIndex:1];
-                seg2val=@"Distal Portion";
+                seg2val=@"distal";
             }
             if ([temp19 isEqualToString:@"Severe Pain"])
             {
@@ -259,11 +259,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b1"];
             }
-            if ([temp3 isEqualToString:@"Neck Pain"]) {
+            if ([temp3 isEqualToString:@"Neck pain"]) {
                 but2.selected=YES;
                 [but2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"Neck Pain" forKey:@"b2"];
+                [recorddict setValue:@"Neck pain" forKey:@"b2"];
             }
             else
             {
@@ -955,8 +955,8 @@
     [painscale2 setValue:0 animated:YES];
     val1.text=@"No Pain";
     val2.text=@"No Pain";
-    seg1val=@"Proximal";
-    seg2val=@"Proximal";
+    seg1val=@"proximal";
+    seg2val=@"proximal";
     seg1.hidden=YES;
     seg2.hidden=YES;
     painscale1.hidden=YES;
@@ -984,7 +984,7 @@
         [recorddict setValue:@"null" forKey:@"b1"];
     }
     if (but2.selected) {
-        [recorddict setValue:@"Neck Pain" forKey:@"b2"];
+        [recorddict setValue:@"Neck pain" forKey:@"b2"];
     }
     else
     {
@@ -1215,18 +1215,18 @@
 
 - (IBAction)seg1act:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        seg1val=@"Proximal";
+        seg1val=@"proximal";
     }
     if ([sender selectedSegmentIndex]==1) {
-        seg1val=@"Distal Portion";
+        seg1val=@"distal";
     }
 }
 - (IBAction)seg2act:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        seg2val=@"Proximal";
+        seg2val=@"proximal";
     }
     if ([sender selectedSegmentIndex]==1) {
-        seg2val=@"Distal Portion";
+        seg2val=@"distal";
     }
 }
 - (void)viewWillDisappear:(BOOL)animated

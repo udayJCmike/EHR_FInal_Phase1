@@ -173,10 +173,10 @@ int changesize;
         }
     }
     diagnosisresult=[[NSMutableArray alloc]init];
-    a1=[[NSArray alloc]initWithObjects:@"2",@"3",@"4", @"5", @"6", @"7", @"8",@"9",@"10", @"11",@"Re-exam",@"one spot x-ray",@"2 to 7 C/S X-Rays",@"2 to 6 T/S X-Rays",@"2-6 L/S X-Rays",@"2 Chest X-Rays",@"ExtremitiesX-Rays",@"SCSM 1-2 region",@"SCSM 3-4 regions",@"5 regions",@"extraspinal 1 or more regions",@"MR",@"Home Exercises",@"SCSM",@" EMS",@"MASS",@" Ice",@"Heat",@"NMR",@"TP",@" US",@" Iontophoresis",@"Traction",@" MRI",@"LAB",@"2nd Opinion",@"Rehab",@"Stretch exer",@"Off Work",@"Back To Work",@"Strength excer",@"Lifestyle modifications",@"Re Eval.in ", nil];
-    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short leg Right Temp.Change",@"Short leg Left Temp.Change",@" Atrophy",@" Decr Strength", nil];
+    a1=[[NSArray alloc]initWithObjects:@"2",@"3",@"4", @"5", @"6", @"7", @"8",@"9",@"10", @"11",@"Re-exam",@"one spot x-ray",@"2 to 7 C/S X-Rays",@"2 to 6 T/S X-Rays",@"2-6 L/S X-Rays",@"2 Chest X-Rays",@"ExtremitiesX-Rays",@"SCSM 1-2 region",@"SCSM 3-4 regions",@"5 regions",@"extraspinal 1 or more regions",@"MR",@"Home Exercises",@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@" US",@" Lontophoresis",@"Traction",@" MRI",@"LAB",@"2nd Opinion",@"Rehab",@"Stretch exer",@"Off Work",@"Back To Work",@"Strength excer",@"Lifestyle modifications",@"Re Eval.in ", nil];
+    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short leg Right Temp.Change",@"Short leg Left Temp.Change",@" Atrophy",@"Decr Strength", nil];
     a3=[[NSArray alloc]initWithObjects: @"Not Improved",@"Progressing Slow",@"Exacerbation of C.C.",@"Flare-ups",@"Mildly imp.",@"Moderatly imp.",@"Plateu",@"Pre Injury Status", nil];
-    a4=[[NSArray alloc]initWithObjects:@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@"US",@"Iontophoresis",@"Traction",@"Nutrition",@"Off Work",@"Light Duty",@"ROM",@"Back To Work",@"Strength excer",@" ROF",@"Re Exam",@"Refer to",@"Release from care", nil];
+    a4=[[NSArray alloc]initWithObjects:@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@"US",@"Lontophoresis",@"Traction",@"Nutrition",@"Off Work",@"Light Duty",@"ROM",@"Back To Work",@"Strength excer",@" ROF",@"Re Exam",@"Refer to",@"Release from care", nil];
     x=492;y=175;
     [scrollview setScrollEnabled:YES];
     changesize=1200;

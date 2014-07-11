@@ -307,10 +307,11 @@
         }
     }
     
-    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short leg Right Temp.Change",@"Short leg Left Temp.Change",@" Atrophy",@" Decr Strength", nil];
+    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short leg Right Temp.Change",@"Short leg Left Temp.Change",@" Atrophy",@"Decr Strength", nil];
     a3=[[NSArray alloc]initWithObjects: @"Not Improved",@"Progressing Slow",@"Exacerbation of C.C.",@"Flare-ups",@"Mildly imp.",@"Moderatly imp.",@"Plateu",@"Pre Injury Status", nil];
-    a4=[[NSArray alloc]initWithObjects:@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@"US",@"Iontophoresis",@"Traction",@"Nutrition",@"Off Work",@"Light Duty",@"ROM",@"Back To Work",@"Strength excer",@" ROF",@"Re Exam",@"Refer to",@"Release from care", nil];
-	// Do any additional setup after loading the view.
+    a4=[[NSArray alloc]initWithObjects:@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@"US",@"Lontophoresis",@"Traction",@"Nutrition",@"Off Work",@"Light Duty",@"ROM",@"Back To Work",@"Strength excer",@" ROF",@"Re Exam",@"Refer to",@"Release from care", nil];
+    
+    // Do any additional setup after loading the view.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
