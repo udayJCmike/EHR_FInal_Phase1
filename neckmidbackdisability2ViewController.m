@@ -446,7 +446,7 @@
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&date=%@&painintensity=%@&work=%@&personal=%@&driving=%@&lifting=%@&sleeping=%@&reading=%@&recreation=%@&headache=%@&concentration=%@&score=%@&status=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"total"],[recorddict objectForKey:@"status"],secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&date=%@&painintensity=%@&work=%@&personal=%@&driving=%@&lifting=%@&sleeping=%@&reading=%@&recreation=%@&headache=%@&concentration=%@&score=%@&status=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"total"],[recorddict objectForKey:@"status"],secondEntity,value2];
     
     //   NSLog(@"POST:%@",post);
     
@@ -484,7 +484,7 @@
     
     NSString *url2=[NSString stringWithFormat:@"%@%@",urltemp,url1];
     
-    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&date=%@&painintensity=%@&work=%@&personal=%@&driving=%@&lifting=%@&sleeping=%@&reading=%@&recreation=%@&headache=%@&concentration=%@&score=%@&status=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"total"],[recorddict objectForKey:@"status"],secondEntity,value2];
+    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&date=%@&painintensity=%@&work=%@&personal=%@&driving=%@&lifting=%@&sleeping=%@&reading=%@&recreation=%@&headache=%@&concentration=%@&score=%@&status=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"total"],[recorddict objectForKey:@"status"],secondEntity,value2];
     
     NSURL *url = [NSURL URLWithString:url2];
     

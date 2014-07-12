@@ -186,7 +186,7 @@
         worselabel.text=[NSString stringWithFormat:@"%@",worselabel.text];
         
         
-        if ([[resultset objectForKey:@"joboptional"]isEqualToString:@"I do not work"])
+        if ([[resultset objectForKey:@"joboptional"]isEqualToString:@"I do not work(You may skip this section.)"])
         {
             workmodbut.selected=YES;
             [workmodbut setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -232,32 +232,32 @@
             
             
         }
-        if ([[resultset objectForKey:@"work"]isEqualToString:@"1"])
+        if ([[resultset objectForKey:@"traveling"]isEqualToString:@"1"])
         {
             seg1val=@"1";
             [seg1 setSelectedSegmentIndex:0];
             
         }
-        else if ([[resultset objectForKey:@"work"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"2"])
         {
             seg1val=@"2";
             [seg1 setSelectedSegmentIndex:1];
             
             
         }
-        else if ([[resultset objectForKey:@"work"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"3"])
         {
             seg1val=@"3";
             [seg1 setSelectedSegmentIndex:2];
             
         }
-        else if ([[resultset objectForKey:@"work"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"4"])
         {
             seg1val=@"4";
             [seg1 setSelectedSegmentIndex:3];
             
         }
-        else if ([[resultset objectForKey:@"work"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"5"])
         {
             seg1val=@"5";
             [seg1 setSelectedSegmentIndex:4];
@@ -734,7 +734,7 @@
                     [recorddict setValue:score.text forKey:@"score"];
                     
                     if (workmodbut.selected) {
-                        [recorddict setValue:@"I do not work" forKey:@"dontwork"];
+                        [recorddict setValue:@"I do not work(You may skip this section.)" forKey:@"dontwork"];
                         [recorddict setValue:@"null" forKey:@"seg1"];
                         [recorddict setValue:@"null" forKey:@"seg2"];
                         [recorddict setValue:@"null" forKey:@"seg3"];

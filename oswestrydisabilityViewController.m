@@ -106,7 +106,7 @@
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    NSLog(@"response %@",resultResponse);
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
     NSArray *items1App=[itemsApp objectForKey:@"Oswestryuser List"];
@@ -123,8 +123,9 @@
         {
             NSDictionary *arrayList1=[(NSDictionary*)anUpdate1 objectForKey:@"serviceresponse"];
             
-            //        NSLog(@"arraylist count %d",[arrayList1 count]);
+                 // NSLog(@"arraylist count %d",[arrayList1 count]);
             temp=[arrayList1 objectForKey:@"oswestryno"];
+            
             temp3 =[arrayList1 objectForKey:@"painintensity"];
             temp4 =[arrayList1 objectForKey:@"standing"];
             temp6=[arrayList1 objectForKey:@"personal"];
@@ -137,6 +138,8 @@
             temp12=[arrayList1 objectForKey:@"sitting"];
             
             temp13=[arrayList1 objectForKey:@"traveling"];
+            
+            
             temp14=[arrayList1 objectForKey:@"comments"];
             
             temp15=[arrayList1 objectForKey:@"name"];
@@ -161,9 +164,9 @@
             
             [self setdatas];//set database values
             
-            [resultset setObject:temp8  forKey:@"lifting"];
+            [resultset setObject:temp4  forKey:@"standing"];
+            [resultset setObject:temp7  forKey:@"sleeping"];
             [resultset setObject:temp9  forKey:@"life"];
-            [resultset setObject:temp10  forKey:@"walking"];
             [resultset setObject:temp11  forKey:@"social"];
             [resultset setObject:temp12  forKey:@"sitting"];
             
@@ -234,88 +237,88 @@
         }
         
     }
-    if ([temp4 length]>0)
+    if ([temp6 length]>0)
     {
-        if ([temp4 isEqualToString:@"0"])
+        if ([temp6 isEqualToString:@"0"])
         {
             [self first2:nil];
         }
-        else if ([temp4 isEqualToString:@"1"])
+        else if ([temp6 isEqualToString:@"1"])
         {
             [self second2:nil];
         }
-        else if ([temp4 isEqualToString:@"2"])
+        else if ([temp6 isEqualToString:@"2"])
         {
             [self third2:nil];
             
         }
-        else if ([temp4 isEqualToString:@"3"])
+        else if ([temp6 isEqualToString:@"3"])
         {
             [self fourth2:nil];
         }
-        else if ([temp4 isEqualToString:@"4"])
+        else if ([temp6 isEqualToString:@"4"])
         {
             [self fifth2:nil];
         }
-        else if ([temp4 isEqualToString:@"5"])
+        else if ([temp6 isEqualToString:@"5"])
         {
             [self sixth2:nil];
         }
         
     }
-    if ([temp6 length]>0)
+    if ([temp8 length]>0)
     {
-        if ([temp6 isEqualToString:@"0"])
+        if ([temp8 isEqualToString:@"0"])
         {
             [self first3:nil];
         }
-        else if ([temp6 isEqualToString:@"1"])
+        else if ([temp8 isEqualToString:@"1"])
         {
             [self second3:nil];
         }
-        else if ([temp6 isEqualToString:@"2"])
+        else if ([temp8 isEqualToString:@"2"])
         {
             [self third3:nil];
             
         }
-        else if ([temp6 isEqualToString:@"3"])
+        else if ([temp8 isEqualToString:@"3"])
         {
             [self fourth3:nil];
         }
-        else if ([temp6 isEqualToString:@"4"])
+        else if ([temp8 isEqualToString:@"4"])
         {
             [self fifth3:nil];
         }
-        else if ([temp6 isEqualToString:@"5"])
+        else if ([temp8 isEqualToString:@"5"])
         {
             [self sixth3:nil];
         }
         
     }
-    if ([temp7 length]>0)
+    if ([temp10 length]>0)
     {
-        if ([temp7 isEqualToString:@"0"])
+        if ([temp10 isEqualToString:@"0"])
         {
             [self first4:nil];
         }
-        else if ([temp7 isEqualToString:@"1"])
+        else if ([temp10 isEqualToString:@"1"])
         {
             [self second4:nil];
         }
-        else if ([temp7 isEqualToString:@"2"])
+        else if ([temp10 isEqualToString:@"2"])
         {
             [self third4:nil];
             
         }
-        else if ([temp7 isEqualToString:@"3"])
+        else if ([temp10 isEqualToString:@"3"])
         {
             [self fourth4:nil];
         }
-        else if ([temp7 isEqualToString:@"4"])
+        else if ([temp10 isEqualToString:@"4"])
         {
             [self fifth4:nil];
         }
-        else if ([temp7 isEqualToString:@"5"])
+        else if ([temp10 isEqualToString:@"5"])
         {
             [self sixth4:nil];
         }

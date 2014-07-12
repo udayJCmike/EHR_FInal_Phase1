@@ -413,7 +413,7 @@
     spouseemp.hidden=NO;
     spousename.hidden=NO;
     spouseph.hidden=NO;
-    resLabel.text=@"Full time";
+    resLabel.text=@"Full Time";
     areyoulabel=@"Student";
     seg.text=@"Male";
     marital.text=@"Single";
