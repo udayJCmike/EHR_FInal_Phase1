@@ -12,10 +12,12 @@
 #import "databaseurl.h"
 #import "SBJSON.h"
 #import "PatientInfoViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface SampleViewController ()
 {
     NSArray *recipes;
     NSArray *searchResults;
+    ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -27,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     typesearchvalue=@"Last Name";
     staff=[[NSMutableDictionary alloc]init];
     
@@ -57,12 +59,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([from isEqualToString:@"doctor"]) {
-        [staff setValue:@"0" forKey:@"buttondisplay"];
+         appDelegate.search_from=@"doctor";
     }
     else if ([from isEqualToString:@"admin"]) {
-        [staff setValue:@"1" forKey:@"buttondisplay"];
+         appDelegate.search_from=@"admin";
     }
-    [staff setValue:@"1" forKey:@"search"];
+   
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         //[self performSegueWithIdentifier: @"showRecipeDetail" sender: self];
@@ -72,7 +74,7 @@
         [[NSUserDefaults standardUserDefaults]setValue:recipe.username forKey:@"username"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
-        
+       
     }
     else
     {
@@ -81,7 +83,10 @@
         [[NSUserDefaults standardUserDefaults]setValue:recipe.username forKey:@"username"];
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
-    [self performSegueWithIdentifier:@"topatient" sender:self];
+    UIStoryboard *welcome=[UIStoryboard storyboardWithName:@"Patient_interface" bundle:nil];
+    UIViewController *initialvc=[welcome instantiateViewControllerWithIdentifier:@"PatientInfoViewController"];
+    
+    [self.navigationController pushViewController:initialvc animated:YES];
     
 }
 

@@ -37,8 +37,6 @@
 		0D06FF2D18CDDEA300FAAB67 /* hamil2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06FF2A18CDDEA300FAAB67 /* hamil2ViewController.m */; };
 		0D06FF2E18CDDEA300FAAB67 /* hamilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D06FF2C18CDDEA300FAAB67 /* hamilViewController.m */; };
 		0D075161195994CB00EEA6BA /* bgbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07515C195994CB00EEA6BA /* bgbutton.png */; };
-		0D075162195994CB00EEA6BA /* loginadmin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07515D195994CB00EEA6BA /* loginadmin.png */; };
-		0D075163195994CB00EEA6BA /* logindoctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07515E195994CB00EEA6BA /* logindoctor.png */; };
 		0D075164195994CB00EEA6BA /* signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D07515F195994CB00EEA6BA /* signout.png */; };
 		0D075165195994CB00EEA6BA /* snap.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 0D075160195994CB00EEA6BA /* snap.PNG */; };
 		0D1554281811612300BDAAB9 /* insuranceverifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1554271811612300BDAAB9 /* insuranceverifyViewController.m */; };
@@ -177,7 +175,7 @@
 		0DCD15E017FD4F5200748DD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DCD15DE17FD4F5200748DD7 /* InfoPlist.strings */; };
 		0DCD15E217FD4F5200748DD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD15E117FD4F5200748DD7 /* main.m */; };
 		0DCD15E617FD4F5200748DD7 /* ViewAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD15E517FD4F5200748DD7 /* ViewAppAppDelegate.m */; };
-		0DCD15E917FD4F5200748DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCD15E717FD4F5200748DD7 /* Main.storyboard */; };
+		0DCD15E917FD4F5200748DD7 /* Patient_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCD15E717FD4F5200748DD7 /* Patient_interface.storyboard */; };
 		0DCD15EC17FD4F5200748DD7 /* ViewAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD15EB17FD4F5200748DD7 /* ViewAppViewController.m */; };
 		0DCD15EE17FD4F5200748DD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DCD15ED17FD4F5200748DD7 /* Images.xcassets */; };
 		0DCD15F517FD4F5200748DD7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD15F417FD4F5200748DD7 /* XCTest.framework */; };
@@ -189,6 +187,9 @@
 		0DE6A568181952BA00A09BA7 /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6A567181952BA00A09BA7 /* alert.png */; };
 		0DE6A58B181BA25B00A09BA7 /* doctorportalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6A58A181BA25B00A09BA7 /* doctorportalViewController.m */; };
 		0DE6A58E181BA26C00A09BA7 /* adminportalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6A58D181BA26C00A09BA7 /* adminportalViewController.m */; };
+		8405CE43197E65160041691F /* Doctor_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE42197E65150041691F /* Doctor_interface.storyboard */; };
+		8405CE45197E69110041691F /* Admin_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE44197E69110041691F /* Admin_interface.storyboard */; };
+		8405CE47197E6A180041691F /* Login_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE46197E6A180041691F /* Login_interface.storyboard */; };
 		84121C091958266C00A8D856 /* doctorwelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C081958266C00A8D856 /* doctorwelViewController.m */; };
 		84121C13195826A200A8D856 /* TestMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C0C195826A100A8D856 /* TestMoreViewController.m */; };
 		84121C14195826A200A8D856 /* TestMoreViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C0E195826A100A8D856 /* TestMoreViewController1.m */; };
@@ -218,12 +219,14 @@
 		848F0EF6195AB865003B6427 /* numb.png in Resources */ = {isa = PBXBuildFile; fileRef = 848F0EEE195AB865003B6427 /* numb.png */; };
 		848F0EF7195AB865003B6427 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 848F0EEF195AB865003B6427 /* pin.png */; };
 		848F0EF8195AB865003B6427 /* stabbing.png in Resources */ = {isa = PBXBuildFile; fileRef = 848F0EF0195AB865003B6427 /* stabbing.png */; };
-		848F0EFA195ABA03003B6427 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 848F0EF9195ABA03003B6427 /* login.png */; };
 		8490392F194C11A00017263C /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490392E194C11A00017263C /* SampleViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84903934194C11AE0017263C /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 84903931194C11AE0017263C /* Recipe.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84903935194C11AE0017263C /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84903933194C11AE0017263C /* RecipeTableCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84903937194C11B50017263C /* patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 84903936194C11B50017263C /* patient.png */; };
 		8490FAB91967CD3B0083CE98 /* athterisk-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8490FAB81967CD3B0083CE98 /* athterisk-red.png */; };
+		8492D158197F846500E1101A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 8492D155197F846500E1101A /* login.png */; };
+		8492D159197F846500E1101A /* loginadmin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8492D156197F846500E1101A /* loginadmin.png */; };
+		8492D15A197F846500E1101A /* logindoctor.png in Resources */ = {isa = PBXBuildFile; fileRef = 8492D157197F846500E1101A /* logindoctor.png */; };
 		8496B2B319225C5F00D4428A /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B219225C5F00D4428A /* SBJSON.m */; };
 		8496B2BA19225C7300D4428A /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B519225C7300D4428A /* SBJsonBase.m */; };
 		8496B2BB19225C7300D4428A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B2B719225C7300D4428A /* SBJsonParser.m */; };
@@ -301,8 +304,6 @@
 		0D06FF2B18CDDEA300FAAB67 /* hamilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hamilViewController.h; sourceTree = "<group>"; };
 		0D06FF2C18CDDEA300FAAB67 /* hamilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hamilViewController.m; sourceTree = "<group>"; };
 		0D07515C195994CB00EEA6BA /* bgbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbutton.png; sourceTree = "<group>"; };
-		0D07515D195994CB00EEA6BA /* loginadmin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginadmin.png; sourceTree = "<group>"; };
-		0D07515E195994CB00EEA6BA /* logindoctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logindoctor.png; sourceTree = "<group>"; };
 		0D07515F195994CB00EEA6BA /* signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signout.png; sourceTree = "<group>"; };
 		0D075160195994CB00EEA6BA /* snap.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snap.PNG; sourceTree = "<group>"; };
 		0D1554261811611C00BDAAB9 /* insuranceverifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = insuranceverifyViewController.h; sourceTree = "<group>"; };
@@ -549,7 +550,7 @@
 		0DCD15E317FD4F5200748DD7 /* EHR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EHR-Prefix.pch"; sourceTree = "<group>"; };
 		0DCD15E417FD4F5200748DD7 /* ViewAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAppAppDelegate.h; sourceTree = "<group>"; };
 		0DCD15E517FD4F5200748DD7 /* ViewAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAppAppDelegate.m; sourceTree = "<group>"; };
-		0DCD15E817FD4F5200748DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0DCD15E817FD4F5200748DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Patient_interface.storyboard; sourceTree = "<group>"; };
 		0DCD15EA17FD4F5200748DD7 /* ViewAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAppViewController.h; sourceTree = "<group>"; };
 		0DCD15EB17FD4F5200748DD7 /* ViewAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAppViewController.m; sourceTree = "<group>"; };
 		0DCD15ED17FD4F5200748DD7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -564,6 +565,9 @@
 		0DE6A58A181BA25B00A09BA7 /* doctorportalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorportalViewController.m; sourceTree = "<group>"; };
 		0DE6A58C181BA26C00A09BA7 /* adminportalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adminportalViewController.h; sourceTree = "<group>"; };
 		0DE6A58D181BA26C00A09BA7 /* adminportalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adminportalViewController.m; sourceTree = "<group>"; };
+		8405CE42197E65150041691F /* Doctor_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Doctor_interface.storyboard; sourceTree = "<group>"; };
+		8405CE44197E69110041691F /* Admin_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin_interface.storyboard; sourceTree = "<group>"; };
+		8405CE46197E6A180041691F /* Login_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login_interface.storyboard; sourceTree = "<group>"; };
 		84121C071958266C00A8D856 /* doctorwelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorwelViewController.h; sourceTree = "<group>"; };
 		84121C081958266C00A8D856 /* doctorwelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorwelViewController.m; sourceTree = "<group>"; };
 		84121C0B195826A100A8D856 /* TestMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMoreViewController.h; sourceTree = "<group>"; };
@@ -614,7 +618,6 @@
 		848F0EEE195AB865003B6427 /* numb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numb.png; sourceTree = "<group>"; };
 		848F0EEF195AB865003B6427 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		848F0EF0195AB865003B6427 /* stabbing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stabbing.png; sourceTree = "<group>"; };
-		848F0EF9195ABA03003B6427 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		8490392D194C11A00017263C /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
 		8490392E194C11A00017263C /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
 		84903930194C11AE0017263C /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
@@ -623,6 +626,9 @@
 		84903933194C11AE0017263C /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
 		84903936194C11B50017263C /* patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient.png; sourceTree = "<group>"; };
 		8490FAB81967CD3B0083CE98 /* athterisk-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "athterisk-red.png"; sourceTree = "<group>"; };
+		8492D155197F846500E1101A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		8492D156197F846500E1101A /* loginadmin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginadmin.png; sourceTree = "<group>"; };
+		8492D157197F846500E1101A /* logindoctor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logindoctor.png; sourceTree = "<group>"; };
 		8496B2B119225C5F00D4428A /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		8496B2B219225C5F00D4428A /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
 		8496B2B419225C7300D4428A /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
@@ -674,14 +680,14 @@
 		00B8E80419413E3500D95F9E /* EHR button images */ = {
 			isa = PBXGroup;
 			children = (
+				8492D155197F846500E1101A /* login.png */,
+				8492D156197F846500E1101A /* loginadmin.png */,
+				8492D157197F846500E1101A /* logindoctor.png */,
 				00B8E80519413E3500D95F9E /* cancelbutton.png */,
 				00B8E80619413E3500D95F9E /* deletebutton.png */,
 				00B8E80719413E3500D95F9E /* nextbutton.png */,
 				0D07515C195994CB00EEA6BA /* bgbutton.png */,
-				0D07515D195994CB00EEA6BA /* loginadmin.png */,
-				0D07515E195994CB00EEA6BA /* logindoctor.png */,
 				0D07515F195994CB00EEA6BA /* signout.png */,
-				848F0EF9195ABA03003B6427 /* login.png */,
 				0D075160195994CB00EEA6BA /* snap.PNG */,
 				00B8E80819413E3500D95F9E /* registerbutton.png */,
 				00B8E80919413E3500D95F9E /* resetbutton.png */,
@@ -1383,6 +1389,9 @@
 		0DCD15C917FD4F5200748DD7 = {
 			isa = PBXGroup;
 			children = (
+				8405CE46197E6A180041691F /* Login_interface.storyboard */,
+				8405CE44197E69110041691F /* Admin_interface.storyboard */,
+				8405CE42197E65150041691F /* Doctor_interface.storyboard */,
 				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				848F0EDE195A9C17003B6427 /* Quadruple Visual Analogue Scale */,
 				848F0ED4195A9B85003B6427 /* Auto Accident */,
@@ -1497,7 +1506,7 @@
 				8412DF50194C4924009753D3 /* blue-teal-gradient.jpg */,
 				0DA5775F182BE74D0043A9B3 /* sidebarViewController.m */,
 				0DCD15E517FD4F5200748DD7 /* ViewAppAppDelegate.m */,
-				0DCD15E717FD4F5200748DD7 /* Main.storyboard */,
+				0DCD15E717FD4F5200748DD7 /* Patient_interface.storyboard */,
 				004459CA196B368200ED44F2 /* print.png */,
 				0DCD15EA17FD4F5200748DD7 /* ViewAppViewController.h */,
 				0DCD15EB17FD4F5200748DD7 /* ViewAppViewController.m */,
@@ -1806,17 +1815,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D075162195994CB00EEA6BA /* loginadmin.png in Resources */,
-				0D075163195994CB00EEA6BA /* logindoctor.png in Resources */,
 				0DE6A566181952A200A09BA7 /* alert@2x.png in Resources */,
 				0DC11B0018003E1D00195C56 /* Default-Portrait~ipadx2x.png in Resources */,
 				0D5C0EEE18D0689300556BF2 /* right_arrow@2x.png in Resources */,
-				848F0EFA195ABA03003B6427 /* login.png in Resources */,
+				8492D159197F846500E1101A /* loginadmin.png in Resources */,
 				848F0EF6195AB865003B6427 /* numb.png in Resources */,
 				0D2EAB6B1803D359004F5859 /* unselect.png in Resources */,
 				84987A551953F5F500CB4136 /* icon-info@2x.png in Resources */,
 				0D5C0EEC18D0689300556BF2 /* left_arrow@2x.png in Resources */,
 				848F0EF8195AB865003B6427 /* stabbing.png in Resources */,
+				8405CE45197E69110041691F /* Admin_interface.storyboard in Resources */,
 				8490FAB91967CD3B0083CE98 /* athterisk-red.png in Resources */,
 				0DCD15EE17FD4F5200748DD7 /* Images.xcassets in Resources */,
 				84987A531953F5F500CB4136 /* icon-error@2x.png in Resources */,
@@ -1833,8 +1841,10 @@
 				00B8E80F19413E3500D95F9E /* nextbutton.png in Resources */,
 				84987A571953F5F500CB4136 /* icon-success@2x.png in Resources */,
 				0D2EAB8518041FC1004F5859 /* redTextBox.png in Resources */,
+				8492D15A197F846500E1101A /* logindoctor.png in Resources */,
 				84987A561953F5F500CB4136 /* icon-success.png in Resources */,
 				848F0EF7195AB865003B6427 /* pin.png in Resources */,
+				8405CE43197E65160041691F /* Doctor_interface.storyboard in Resources */,
 				0D075161195994CB00EEA6BA /* bgbutton.png in Resources */,
 				0DCD15E017FD4F5200748DD7 /* InfoPlist.strings in Resources */,
 				848F0EF2195AB865003B6427 /* bodyback.png in Resources */,
@@ -1850,6 +1860,7 @@
 				0DA2497C180E6F3100C9A9C6 /* checkBoxMarked.png in Resources */,
 				004459CB196B368200ED44F2 /* print.png in Resources */,
 				0D075164195994CB00EEA6BA /* signout.png in Resources */,
+				8405CE47197E6A180041691F /* Login_interface.storyboard in Resources */,
 				0D6799991818EE8B00BDC1FC /* BG.png in Resources */,
 				0D5C0EED18D0689300556BF2 /* right_arrow.png in Resources */,
 				0D2EAB9C18051F21004F5859 /* alert-red-button@2x.png in Resources */,
@@ -1867,9 +1878,10 @@
 				0D2EAB5B18033A77004F5859 /* Select.png in Resources */,
 				0D8C472018C7608D00142E77 /* radio_button_on.png in Resources */,
 				0D8C472118C7608D00142E77 /* radiobutton_off.png in Resources */,
+				8492D158197F846500E1101A /* login.png in Resources */,
 				00B8E81319413E3500D95F9E /* signinbutton.png in Resources */,
 				0DA2497B180E6F3100C9A9C6 /* checkBox@2x.png in Resources */,
-				0DCD15E917FD4F5200748DD7 /* Main.storyboard in Resources */,
+				0DCD15E917FD4F5200748DD7 /* Patient_interface.storyboard in Resources */,
 				0DC11AFF18003E1D00195C56 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2076,12 +2088,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		0DCD15E717FD4F5200748DD7 /* Main.storyboard */ = {
+		0DCD15E717FD4F5200748DD7 /* Patient_interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0DCD15E817FD4F5200748DD7 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Patient_interface.storyboard;
 			sourceTree = "<group>";
 		};
 		0DCD15FD17FD4F5200748DD7 /* InfoPlist.strings */ = {

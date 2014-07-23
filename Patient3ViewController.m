@@ -15,6 +15,7 @@
 #import "JSON.h"
 #import "staffautocheckViewController.h"
 #import "SampleViewController.h"
+#import "ViewAppAppDelegate.h"
 
 @interface Patient3ViewController ()
 
@@ -22,7 +23,7 @@
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
-
+    ViewAppAppDelegate *appDelegate;
     databaseurl *du;
 }
 @end
@@ -143,6 +144,7 @@ int tagnumber;
 }
 - (void)viewDidLoad
 {
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     otherdis.hidden=YES;
     tagnumber = 0;
     buttonx3.selected =YES;
@@ -213,11 +215,10 @@ int tagnumber;
         
         
         @try {
-            if ([staff count]>0)
-            {
+            NSString *res=appDelegate.search_from;
                 
                 
-                if ([[staff valueForKey:@"buttondisplay"]isEqualToString:@"0"]) {
+                if ([res isEqualToString:@"doctor"]) {
                     update.hidden=YES;
                     reset2.hidden=NO;
                     cancel2.hidden=NO;
@@ -226,7 +227,7 @@ int tagnumber;
                     reset1.hidden=YES;
                     cancel1.hidden=YES;
                 }
-                else  if ([[resultset valueForKey:@"buttondisplay"]isEqualToString:@"1"]) {
+                else  if ([res isEqualToString:@"admin"]) {
                     update.hidden=NO;
                     reset2.hidden=NO;
                     cancel2.hidden=NO;
@@ -235,7 +236,7 @@ int tagnumber;
                     reset1.hidden=YES;
                     cancel1.hidden=YES;
                 }
-            }
+           
             
         }
         
@@ -848,7 +849,9 @@ int tagnumber;
 
 -(IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+//    NSLog(@"re %@",res);
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -1349,7 +1352,10 @@ int tagnumber;
 
 -(void)decisionfornavigate
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    NSString *res1=appDelegate.search_from;
+    NSLog(@"re %@",res);
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -1361,7 +1367,7 @@ int tagnumber;
             }
         }
     }
-    else if ([[staff objectForKey:@"search"]isEqualToString:@"1"]) {
+    else if( ([res1 isEqualToString:@"doctor"])||([res1 isEqualToString:@"admin"]) ) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)

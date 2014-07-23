@@ -12,25 +12,20 @@
 NSString * const kAppDelegateDemoStyleSheetImageIconError = @"icon-error.png";
 NSString * const kAppDelegateDemoStyleSheetImageIconSuccess = @"icon-success.png";
 NSString * const kAppDelegateDemoStyleSheetImageIconInfo = @"icon-info.png";
+UIStoryboard *storyBoard;
 @interface TWAppDelegateDemoStyleSheet : NSObject <TWMessageBarStyleSheet>
 
 + (TWAppDelegateDemoStyleSheet *)styleSheet;
 
 @end
 @implementation ViewAppAppDelegate
-
+@synthesize staff;
+@synthesize search_from;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    //    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-    //                                [UIFont fontWithName:@"Eraser" size:12], UITextAttributeFont,
-    //                                [UIColor grayColor], UITextAttributeTextColor, nil];
-    //    [[UISegmentedControl appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    //
-    //    NSDictionary *highlightedAttributes = [NSDictionary
-    //                                           dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
-    //    [[UISegmentedControl appearance] setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
-    
+    storyBoard = [UIStoryboard storyboardWithName:@"Login_interface" bundle:nil];
+    UIViewController *initViewController = [storyBoard instantiateInitialViewController];
+    [self.window setRootViewController:initViewController];
     return YES;
 }
 

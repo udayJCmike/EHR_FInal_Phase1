@@ -38,6 +38,7 @@
 }
 - (IBAction)logout:(id)sender
 {
+     self.tabBarController.tabBar.hidden=NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -45,6 +46,9 @@
 {
     
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden=YES;
+    
+    
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     temp=@"";
     

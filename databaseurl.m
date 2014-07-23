@@ -24,8 +24,8 @@ static databaseurl * appInstance;
 }
 -(NSString*)DBurl
 {
-  // NSString * link=@"http://192.168.1.106:8888/Ehrservicefiles/Service/";
-    NSString * link=@"http://medsmonit.com/ehr/Service/";
+ NSString * link=@"http://192.168.1.106:8888/Ehrservicefiles/Service/";
+ //   NSString * link=@"http://medsmonit.com/ehr/Service/";
     return link;
     
 }

@@ -10,7 +10,8 @@
 @class doctorportalViewController;
 
 @interface ViewAppAppDelegate : UIResponder <UIApplicationDelegate>
-
+@property (strong, nonatomic)NSString *staff;
+@property (strong, nonatomic)NSString *search_from;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

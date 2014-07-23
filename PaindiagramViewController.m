@@ -13,12 +13,14 @@
 #import "databaseurl.h"
 #import "staffautocheckViewController.h"
 #import "WelcomeViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface PaindiagramViewController ()
 {
     databaseurl *du;
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+        ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -139,6 +141,7 @@ int suc;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+     appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
     [self.navigationItem setRightBarButtonItem:barButton animated:NO];
@@ -1122,8 +1125,8 @@ int suc;
 }
 -(IBAction)cancel:(id)sender
 {
-    
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)

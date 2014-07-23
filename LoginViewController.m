@@ -90,7 +90,7 @@
                 a=1;
                 [[NSUserDefaults standardUserDefaults]setObject:username.text forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
-                // [self performSegueWithIdentifier:@"welcome" sender:self];
+                // [self navigate_storyboard];
             }
             else
             {
@@ -177,7 +177,14 @@
     }
     
 }
-
+-(void)navigate_storyboard
+{
+   
+    UIStoryboard *welcome=[UIStoryboard storyboardWithName:@"Patient_interface" bundle:nil];
+    UIViewController *initialvc=[welcome instantiateInitialViewController];
+   //  UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:initialvc];
+    [self.navigationController pushViewController:initialvc animated:YES];
+}
 -(void)insertdata
 {
     
@@ -213,7 +220,7 @@
                                                                       type:TWMessageBarMessageTypeInfo
                                                             statusBarStyle:YES
                                                                   callback:nil];
-                [self performSegueWithIdentifier:@"welcome" sender:self];
+                [self navigate_storyboard];
                 
                 
                 

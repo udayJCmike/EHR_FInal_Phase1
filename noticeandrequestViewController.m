@@ -12,12 +12,14 @@
 #import "databaseurl.h"
 #import "JSON.h"
 #import "staffautocheckViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface noticeandrequestViewController ()
 {
     databaseurl *du;
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -360,8 +362,8 @@ int a;
 
 - (IBAction)cancel:(id)sender
 {
-    
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -408,6 +410,7 @@ int a;
 
 - (void)viewDidLoad
 {
+    appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     selectforms=[[NSMutableArray alloc]init];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     patientname.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];

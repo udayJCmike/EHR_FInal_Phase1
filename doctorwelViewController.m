@@ -61,6 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.tabBarController.tabBar.hidden=YES;
     resultset=[[NSMutableArray alloc]init];
     UIButton *home = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *homeImage = [UIImage imageNamed:@" "]  ;
@@ -159,6 +160,7 @@
     
 }
 - (IBAction)signout:(id)sender {
+     self.tabBarController.tabBar.hidden=NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)accesspatient:(id)sender

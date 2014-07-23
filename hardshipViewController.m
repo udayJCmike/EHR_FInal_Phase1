@@ -13,7 +13,9 @@
 #import "MBProgressHUD.h"
 #import "databaseurl.h"
 #import "JSON.h"
+#import "ViewAppAppDelegate.h"
 #import "staffautocheckViewController.h"
+
 @interface hardshipViewController ()
 
 {
@@ -21,6 +23,7 @@
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    ViewAppAppDelegate* appDelegate;
 }
 @end
 
@@ -209,7 +212,8 @@ int a;
 }
 -(IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -418,6 +422,9 @@ int a;
 {
     
     [super viewDidLoad];
+    
+   appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
     [self.navigationItem setRightBarButtonItem:barButton animated:NO];

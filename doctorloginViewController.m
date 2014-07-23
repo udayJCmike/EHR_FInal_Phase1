@@ -32,7 +32,14 @@
 {
     return [self initWithStyleSheet:nil];
 }
-
+-(void)navigate_storyboard
+{
+    
+    UIStoryboard *welcome=[UIStoryboard storyboardWithName:@"Doctor_interface" bundle:nil];
+    UIViewController *initialvc=[welcome instantiateInitialViewController];
+  
+    [self.navigationController pushViewController:initialvc animated:YES];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -94,7 +101,7 @@
                 a=1;
                 [[NSUserDefaults standardUserDefaults]setObject:username.text forKey:@"doctorname"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
-                //  [self performSegueWithIdentifier:@"welcome" sender:self];
+                //  [self navigate_storyboard];
             }
             else
             {
@@ -224,7 +231,7 @@
                                                                       type:TWMessageBarMessageTypeInfo
                                                             statusBarStyle:YES
                                                                   callback:nil];
-                [self performSegueWithIdentifier:@"welcome" sender:self];
+                [self navigate_storyboard];
                 
                 
                 

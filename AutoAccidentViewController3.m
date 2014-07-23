@@ -12,6 +12,7 @@
 #import "databaseurl.h"
 #import "JSON.h"
 #import "staffautocheckViewController.h"
+#import "ViewAppAppDelegate.h"
 
 
 @interface AutoAccidentViewController3 ()
@@ -20,6 +21,7 @@
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -1065,6 +1067,7 @@ int a,b,c,d;
 }
 - (void)viewDidLoad
 {
+    appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;
@@ -1166,7 +1169,8 @@ int a,b,c,d;
 
 -(IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    if ([ res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)

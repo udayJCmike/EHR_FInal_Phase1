@@ -32,7 +32,14 @@
 {
     return [self initWithStyleSheet:nil];
 }
-
+-(void)navigate_storyboard
+{
+    
+    UIStoryboard *welcome=[UIStoryboard storyboardWithName:@"Admin_interface" bundle:nil];
+    UIViewController *initialvc=[welcome instantiateInitialViewController];
+    //  UINavigationController *navigationController=[[UINavigationController alloc]initWithRootViewController:initialvc];
+    [self.navigationController pushViewController:initialvc animated:YES];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -97,7 +104,7 @@
             a=1;
             [[NSUserDefaults standardUserDefaults]setObject:username.text forKey:@"adminname"];
             [[NSUserDefaults standardUserDefaults]synchronize];
-           // [self performSegueWithIdentifier:@"welcometoadmin" sender:self];
+           // [self navigate_storyboard];
         }
         else
         {
@@ -223,7 +230,7 @@
                                                                       type:TWMessageBarMessageTypeInfo
                                                             statusBarStyle:YES
                                                                   callback:nil];
-                [self performSegueWithIdentifier:@"welcometoadmin" sender:self];
+                [self navigate_storyboard];
                 
                 
                 

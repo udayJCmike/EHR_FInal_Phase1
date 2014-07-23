@@ -29,6 +29,7 @@
 #import "ROMRAViewController.h"
 #import "aobViewController.h"
 #import "noticeandrequestViewController.h"
+#import "ViewAppAppDelegate.h"
 
 @interface staffautocheckViewController ()
 {
@@ -36,6 +37,7 @@
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    
 }
 
 @end
@@ -1143,66 +1145,76 @@ int y;
     
     
 }
+-(void)move_to_viewcontroller:(NSString*)vcname
+{
+    UIStoryboard *welcome=[UIStoryboard storyboardWithName:@"Patient_interface" bundle:nil];
+    UIViewController *initialvc=[welcome instantiateViewControllerWithIdentifier:vcname];
+    
+    [self.navigationController pushViewController:initialvc animated:YES];
+}
 -(void)navigate:(id)sender
 {
-    [recorddict setObject:@"1" forKey:@"staff"];
+    ViewAppAppDelegate* appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
+appDelegate.staff=@"1";
     NSString *name=[sender titleForState:UIControlStateNormal];
     ////NSLog(@"selected button name %@",name);
     if ([name isEqualToString:@"Confidential Patient Information"]) {
-        [self performSegueWithIdentifier:@"stafftopatient" sender:self];
+        [self move_to_viewcontroller:@"PatientInfoViewController"];
     }
     if ([name isEqualToString:@"Auto Accident"]) {
-        [self performSegueWithIdentifier:@"stafftoautoacc" sender:self];
+     [self move_to_viewcontroller:@"AutoAccidentViewController1"];
         
     }
     if ([name isEqualToString:@"Work Accident"]) {
-        [self performSegueWithIdentifier:@"stafftoworkacc" sender:self];
+       [self move_to_viewcontroller:@"WorkaccidentViewController"];
         
     }
     if ([name isEqualToString:@"Insurance Waiver"]) {
-        [self performSegueWithIdentifier:@"stafftowaiver" sender:self];
+      [self move_to_viewcontroller:@"noticeandrequestViewController"];
         
     }
     if ([name isEqualToString:@"Health Insurance Information"]) {
-        [self performSegueWithIdentifier:@"stafftohealth" sender:self];
+        [self move_to_viewcontroller:@"healthinsuranceverificationViewController"];
         
     }
     if ([name isEqualToString:@"Authorization And Consent To Treat"]) {
-        [self performSegueWithIdentifier:@"stafftotreat" sender:self];
+        [self move_to_viewcontroller:@"authorizeandconsenttreatViewController"];
         
     }
     if ([name isEqualToString:@"Consent to Treat Minor"]) {
-        [self performSegueWithIdentifier:@"stafftominor" sender:self];
+   [self move_to_viewcontroller:@"treatminorViewController"];
         
     }
     if ([name isEqualToString:@"Hardship Agreement"]) {
-        [self performSegueWithIdentifier:@"stafftohardship" sender:self];
+        
+        [self move_to_viewcontroller:@"hardshipViewController"];
+       
         
     }
     if ([name isEqualToString:@"Screening Disclosure"]) {
-        [self performSegueWithIdentifier:@"stafftoscreen" sender:self];
+    [self move_to_viewcontroller:@"screendisclosureViewController"];
         
     }
     if ([name isEqualToString:@"Release Of Records"]) {
-        [self performSegueWithIdentifier:@"stafftorelease" sender:self];
+      [self move_to_viewcontroller:@"ROMRAViewController"];
         
     }
     if ([name isEqualToString:@"Assignment Of Benefits"]) {
-        [self performSegueWithIdentifier:@"stafftoaob" sender:self];
+     [self move_to_viewcontroller:@"aobViewController"];
         
     }
     if ([name isEqualToString:@"Hip And Knee Questionnaire"]) {
-        [self performSegueWithIdentifier:@"stafftohip" sender:self];
+     [self move_to_viewcontroller:@"HipKneeViewController"];
         
     }
     if ([name isEqualToString:@"Foot And Ankle Questionnaire"]) {
-        [self performSegueWithIdentifier:@"stafftoknee" sender:self];
+      [self move_to_viewcontroller:@"FootAnkleViewController"];
     }
     if ([name isEqualToString:@"Hippa Privacy"]) {
-        [self performSegueWithIdentifier:@"stafftohippa" sender:self];
+    [self move_to_viewcontroller:@"HippaViewController"];
     }
     if ([name isEqualToString:@"Pain Diagram"]) {
-        [self performSegueWithIdentifier:@"stafftopain" sender:self];
+      [self move_to_viewcontroller:@"PaindiagramViewController"];
         
     }
 }
