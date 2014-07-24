@@ -14,7 +14,7 @@
 #import "JSON.h"
 #import "narrativereport4ViewController.h"
 
-
+#import "ViewAppAppDelegate.h"
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
 

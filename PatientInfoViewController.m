@@ -14,6 +14,7 @@
 #import "Reachability.h"
 #import "staffautocheckViewController.h"
 #import "SampleViewController.h"
+#import "ViewAppAppDelegate.h"
 
 @interface PatientInfoViewController ()
 {
