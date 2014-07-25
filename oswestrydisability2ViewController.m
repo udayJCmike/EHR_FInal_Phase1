@@ -153,12 +153,14 @@
         score.text=[resultset objectForKey:@"scores"];
         workmodtv.text=[resultset objectForKey:@"job"];
         
-        if ([rightlabel.text isEqualToString:@"Severe Pain"])
+        if (([rightlabel.text isEqualToString:@"Severe Pain"])|| ([rightlabel.text isEqualToString:@"10"]))
         {
+            rightlabel.text=@"Severe Pain";
             [rightslider setValue:10 animated:YES];
         }
-        else if ([rightlabel.text isEqualToString:@"No Pain"])
+        else if (([rightlabel.text isEqualToString:@"No Pain"])|| ([rightlabel.text isEqualToString:@"0"]))
         {
+            rightlabel.text=@"No Pain";
             [rightslider setValue:0 animated:YES];
         }
         else
@@ -170,12 +172,14 @@
         
         
         
-        if ([worselabel.text isEqualToString:@"Severe Pain"])
+        if (([worselabel.text isEqualToString:@"Severe Pain"])|| ([worselabel.text isEqualToString:@"10"]))
         {
+            worselabel.text=@"Severe Pain";
             [worseslider setValue:10 animated:YES];
         }
-        else if ([worselabel.text isEqualToString:@"No Pain"])
+        else if (([worselabel.text isEqualToString:@"No Pain"])|| ([worselabel.text isEqualToString:@"0"]))
         {
+             worselabel.text=@"No Pain";
             [worseslider setValue:0 animated:YES];
         }
         else
@@ -232,32 +236,32 @@
             
             
         }
-        if ([[resultset objectForKey:@"traveling"]isEqualToString:@"1"])
+        if ([[resultset objectForKey:@"work"]isEqualToString:@"1"])
         {
             seg1val=@"1";
             [seg1 setSelectedSegmentIndex:0];
             
         }
-        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"2"])
         {
             seg1val=@"2";
             [seg1 setSelectedSegmentIndex:1];
             
             
         }
-        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"3"])
         {
             seg1val=@"3";
             [seg1 setSelectedSegmentIndex:2];
             
         }
-        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"4"])
         {
             seg1val=@"4";
             [seg1 setSelectedSegmentIndex:3];
             
         }
-        else if ([[resultset objectForKey:@"traveling"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"5"])
         {
             seg1val=@"5";
             [seg1 setSelectedSegmentIndex:4];
@@ -728,8 +732,36 @@
                     [recorddict setValue:val10 forKey:@"sec10"];
                     [recorddict setValue:name.text forKey:@"patientname"];
                     [recorddict setValue:date.text forKey:@"date"];
-                    [recorddict setValue:worselabel.text forKey:@"painlevel1"];
-                    [recorddict setValue:rightlabel.text forKey:@"painlevel"];
+                        if ([worselabel.text isEqualToString:@"Severe Pain"])
+                            
+                        {
+                            [recorddict setValue:@"10" forKey:@"painlevel1"];
+                            
+                        }
+                        else if ([worselabel.text isEqualToString:@"No Pain"])
+                        {
+                            [recorddict setValue:@"0" forKey:@"painlevel1"];
+                        }
+                        else
+                        {
+                            [recorddict setValue:worselabel.text forKey:@"painlevel1"];
+                        }
+                        if ([rightlabel.text isEqualToString:@"Severe Pain"])
+                            
+                        {
+                            [recorddict setValue:@"10" forKey:@"painlevel"];
+                            
+                        }
+                        else if ([rightlabel.text isEqualToString:@"No Pain"])
+                        {
+                            [recorddict setValue:@"0" forKey:@"painlevel"];
+                        }
+                        else
+                        {
+                            [recorddict setValue:rightlabel.text forKey:@"painlevel"];
+                        }
+
+                    
                     
                     [recorddict setValue:score.text forKey:@"score"];
                     

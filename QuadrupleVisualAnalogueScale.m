@@ -95,7 +95,7 @@
         [self performSegueWithIdentifier:@"wristhand" sender:self];
     }
     else if (painseg.selectedSegmentIndex==1) {
-        segval=@"Low Back";
+        segval=@"LowBack";
         painname.hidden=YES;
         [self performSegueWithIdentifier:@"lowback" sender:self];
     }
@@ -128,7 +128,7 @@
         
         [self performSegueWithIdentifier:@"wristhand" sender:self];
     }
-    else if ([segval isEqualToString:@"Low Back"]) {
+    else if ([segval isEqualToString:@"LowBack"]) {
         
         [self performSegueWithIdentifier:@"lowback" sender:self];
     }
@@ -297,48 +297,59 @@
             scale4.text=temp8;
             
             
-            if ([scale1.text isEqualToString:@"Severe Pain"])
+            if (([scale1.text isEqualToString:@"Severe Pain"])|| ([scale1.text isEqualToString:@"10"]))
             {
+                 scale1.text=@"Severe Pain";
                 [slider1 setValue:10 animated:YES];
             }
-            else if ([scale1.text isEqualToString:@"No Pain"])
+            else if (([scale1.text isEqualToString:@"No Pain"])|| ([scale1.text isEqualToString:@"0"]))
             {
+                scale1.text=@"No Pain";
                 [slider1 setValue:0 animated:YES];
             }
             else
             {
                 [slider1 setValue:[scale1.text floatValue] animated:YES];
             }
-            if ([scale2.text isEqualToString:@"Severe Pain"])
+            if (([scale2.text isEqualToString:@"Severe Pain"])|| ([scale2.text isEqualToString:@"10"]))
+
             {
+                 scale2.text=@"Severe Pain";
                 [slider2 setValue:10 animated:YES];
             }
-            else if ([scale2.text isEqualToString:@"No Pain"])
+            else if (([scale2.text isEqualToString:@"No Pain"])|| ([scale2.text isEqualToString:@"0"]))
             {
+                scale2.text=@"No Pain";
                 [slider2 setValue:0 animated:YES];
             }
             else
             {
                 [slider2 setValue:[scale2.text floatValue] animated:YES];
             }
-            if ([scale3.text isEqualToString:@"Severe Pain"])
+            if (([scale3.text isEqualToString:@"Severe Pain"])|| ([scale3.text isEqualToString:@"10"]))
+
             {
+                 scale3.text=@"Severe Pain";
                 [slider3 setValue:10 animated:YES];
             }
-            else if ([scale3.text isEqualToString:@"No Pain"])
+             else if (([scale3.text isEqualToString:@"No Pain"])|| ([scale3.text isEqualToString:@"0"]))
             {
+                scale3.text=@"No Pain";
                 [slider3 setValue:0 animated:YES];
             }
             else
             {
                 [slider3 setValue:[scale3.text floatValue] animated:YES];
             }
-            if ([scale4.text isEqualToString:@"Severe Pain"])
+            if (([scale4.text isEqualToString:@"Severe Pain"])|| ([scale4.text isEqualToString:@"10"]))
+
             {
+                 scale4.text=@"Severe Pain";
                 [slider4 setValue:10 animated:YES];
             }
-            else if ([scale4.text isEqualToString:@"No Pain"])
+            else if (([scale4.text isEqualToString:@"No Pain"])|| ([scale4.text isEqualToString:@"0"]))
             {
+                scale4.text=@"No Pain";
                 [slider4 setValue:0 animated:YES];
             }
             else
@@ -353,9 +364,9 @@
                 edit.hidden=NO;
                 
             }
-            else if ([temp3 isEqualToString:@"Low Back"]) {
+            else if ([temp3 isEqualToString:@"LowBack"]) {
                 [painseg setSelectedSegmentIndex:1];
-                segval=@"Low Back";
+                segval=@"LowBack";
                 painname.hidden=YES;
                 edit.hidden=NO;
             }
@@ -540,10 +551,57 @@
             [recorddict setValue:date.text forKey:@"date"];
             [recorddict setValue:segval forKey:@"segval1"];
             [recorddict setValue:painname.text forKey:@"othertext"];
-            [recorddict setValue:scale1.text forKey:@"scale1"];
-            [recorddict setValue:scale2.text forKey:@"scale2"];
-            [recorddict setValue:scale3.text forKey:@"scale3"];
-            [recorddict setValue:scale4.text forKey:@"scale4"];
+                         if ([scale1.text isEqualToString:@"No Pain"]) {
+                               [recorddict setValue:@"0" forKey:@"scale1"];
+                         }
+                         else if  ([scale1.text isEqualToString:@"Severe Pain"])
+                         {
+                             [recorddict setValue:@"10" forKey:@"scale1"];
+                             
+                         }
+                         else
+                         {
+                              [recorddict setValue:scale1.text forKey:@"scale1"];
+                         }
+                         if ([scale2.text isEqualToString:@"No Pain"]) {
+                             [recorddict setValue:@"0" forKey:@"scale2"];
+                         }
+                         else if  ([scale2.text isEqualToString:@"Severe Pain"])
+                         {
+                             [recorddict setValue:@"10" forKey:@"scale2"];
+                             
+                         }
+                         else
+                         {
+                             [recorddict setValue:scale2.text forKey:@"scale2"];
+                         }
+                         if ([scale3.text isEqualToString:@"No Pain"]) {
+                             [recorddict setValue:@"0" forKey:@"scale3"];
+                         }
+                         else if  ([scale3.text isEqualToString:@"Severe Pain"])
+                         {
+                             [recorddict setValue:@"10" forKey:@"scale3"];
+                             
+                         }
+                         else
+                         {
+                             [recorddict setValue:scale3.text forKey:@"scale3"];
+                         }
+                         if ([scale4.text isEqualToString:@"No Pain"]) {
+                             [recorddict setValue:@"0" forKey:@"scale4"];
+                         }
+                         else if  ([scale4.text isEqualToString:@"Severe Pain"])
+                         {
+                             [recorddict setValue:@"10" forKey:@"scale4"];
+                             
+                         }
+                         else
+                         {
+                             [recorddict setValue:scale4.text forKey:@"scale4"];
+                         }
+
+         
+           
             [recorddict setValue:percentage.text forKey:@"worst"];
                      }
                      else

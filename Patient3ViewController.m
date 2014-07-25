@@ -25,6 +25,7 @@
     UIButton *button;
     ViewAppAppDelegate *appDelegate;
     databaseurl *du;
+    NSString *checkboxval;
 }
 @end
 
@@ -84,9 +85,7 @@ int tagnumber;
         }
     }
     
-    buttonx3.selected =YES;
-    [buttonx3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-    [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
+  checkboxval=@"null";
     otherdis.hidden=YES;
     hazlist.text=@"";
     [switch1 setOn:YES animated:YES];
@@ -152,8 +151,7 @@ int tagnumber;
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     
     
-    [buttonx3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-    [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
+    checkboxval=@"null";
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     temp=[[NSMutableDictionary alloc]init];
@@ -532,11 +530,11 @@ int tagnumber;
             [button20 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             [recorddict setObject:@"null" forKey:@"b20"];
         }
-        if([[resultset objectForKey:@"Liver"] isEqualToString:@"Liver Disease"])
+        if([[resultset objectForKey:@"Liver"] isEqualToString:@"Liver"])
         {
             button21.selected =YES;
             [button21 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setObject:@"Liver Disease" forKey:@"b21"];
+            [recorddict setObject:@"Liver" forKey:@"b21"];
             
         }
         else
@@ -545,11 +543,11 @@ int tagnumber;
             [button21 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             [recorddict setObject:@"null" forKey:@"b21"];
         }
-        if([[resultset objectForKey:@"Kidney"] isEqualToString:@"Kidney Disease"])
+        if([[resultset objectForKey:@"Kidney"] isEqualToString:@"Kidney"])
         {
             button22.selected =YES;
             [button22 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setObject:@"Kidney Disease" forKey:@"b22"];
+            [recorddict setObject:@"Kidney" forKey:@"b22"];
             
         }
         else
@@ -558,11 +556,11 @@ int tagnumber;
             [button22 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             [recorddict setObject:@"null" forKey:@"b22"];
         }
-        if([[resultset objectForKey:@"Thyroid"] isEqualToString:@"Thyroid Disease"])
+        if([[resultset objectForKey:@"Thyroid"] isEqualToString:@"Thyroid"])
         {
             button23.selected =YES;
             [button23 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setObject:@"Thyroid Disease" forKey:@"b23"];
+            [recorddict setObject:@"Thyroid" forKey:@"b23"];
             
         }
         else
@@ -623,11 +621,11 @@ int tagnumber;
             [recorddict setObject:@"null" forKey:@"b27"];
         }
         
-        if([[resultset objectForKey:@"Heart"] isEqualToString:@"Heart trouble"])
+        if([[resultset objectForKey:@"Heart"] isEqualToString:@"Heart Trouble"])
         {
             button28.selected =YES;
             [button28 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setObject:@"Heart trouble" forKey:@"b28"];
+            [recorddict setObject:@"Heart Trouble" forKey:@"b28"];
         }
         else
         {
@@ -688,11 +686,11 @@ int tagnumber;
             [button32 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
             [recorddict setObject:@"null" forKey:@"b32"];
         }
-        if([[resultset objectForKey:@"Tuberculosis"] isEqualToString:@"Tuberculosis"])
+        if([[resultset objectForKey:@"Tuberculosis"] isEqualToString:@"Tuber Culosis"])
         {
             button33.selected =YES;
             [button33 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setObject:@"Tuberculosis" forKey:@"b33"];
+            [recorddict setObject:@"Tuber Culosis" forKey:@"b33"];
         }
         else
         {
@@ -900,9 +898,11 @@ int tagnumber;
 -(IBAction)checkboxSelected:(UIButton*)sender {
     sender.selected = !sender.selected;
     if(sender.selected){
+        
         [sender setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
     }
     else{
+       
         [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     }
     if(button35.selected)
@@ -918,6 +918,7 @@ int tagnumber;
 -(IBAction)submit:(id)sender{
     recorddict=[[NSMutableDictionary alloc]init];
     [recorddict addEntriesFromDictionary:temp];
+    
     
     c=0;
     
@@ -1062,21 +1063,21 @@ int tagnumber;
         [recorddict setObject:@"null" forKey:@"b20"];
     if(button21.selected)
     {
-        [recorddict setObject:@"Liver Disease" forKey:@"b21"];
+        [recorddict setObject:@"Liver" forKey:@"b21"];
         
     }
     else
         [recorddict setObject:@"null" forKey:@"b21"];
     if(button22.selected)
     {
-        [recorddict setObject:@"Kidney Disease" forKey:@"b22"];
+        [recorddict setObject:@"Kidney" forKey:@"b22"];
         
     }
     else
         [recorddict setObject:@"null" forKey:@"b22"];
     if(button23.selected)
     {
-        [recorddict setObject:@"Thyroid Disease" forKey:@"b23"];
+        [recorddict setObject:@"Thyroid" forKey:@"b23"];
         
     }
     else
@@ -1111,7 +1112,7 @@ int tagnumber;
     
     if(button28.selected)
     {
-        [recorddict setObject:@"Heart trouble" forKey:@"b28"];
+        [recorddict setObject:@"Heart Trouble" forKey:@"b28"];
     }
     else
         [recorddict setObject:@"null" forKey:@"b28"];
@@ -1144,7 +1145,7 @@ int tagnumber;
         [recorddict setObject:@"null" forKey:@"b32"];
     if(button33.selected)
     {
-        [recorddict setObject:@"Tuberculosis" forKey:@"b33"];
+        [recorddict setObject:@"Tuber Culosis" forKey:@"b33"];
     }
     else
         [recorddict setObject:@"null" forKey:@"b33"];
@@ -1171,44 +1172,59 @@ int tagnumber;
     }
     if(buttonx1.selected)
     {
-        
+         checkboxval=@"Drink Regularly";
         [recorddict setObject:@"Drink Regularly" forKey:@"b36"];
         
     }
     else
+    {
+         checkboxval=@"null";
         [recorddict setObject:@"null" forKey:@"b36"];
+    }
     if(buttonx2.selected)
     {
-        
+          checkboxval=@"Eat a Poor Diet";
         [recorddict setObject:@"Eat a Poor Diet" forKey:@"b37"];
         
     }
     else
+    {
+         checkboxval=@"null";
         [recorddict setObject:@"null" forKey:@"b37"];
+    }
     if(buttonx3.selected)
     {
-        
+          checkboxval=@"Exercise Regularly";
         [recorddict setObject:@"Exercise Regularly" forKey:@"b38"];
         
     }
     else
+    {
+         checkboxval=@"null";
         [recorddict setObject:@"null" forKey:@"b38"];
+    }
     if(buttonx4.selected)
     {
-        
+          checkboxval=@"Smoke";
         [recorddict setObject:@"Smoke" forKey:@"b39"];
         
     }
     else
+    {
+         checkboxval=@"null";
         [recorddict setObject:@"null" forKey:@"b39"];
+    }
     if(buttonx5.selected)
     {
-        
+         checkboxval=@"Take Recreational Drugs";
         [recorddict setObject:@"Take Recreational Drugs" forKey:@"b40"];
         
     }
     else
+    {
+         checkboxval=@"null";
         [recorddict setObject:@"null" forKey:@"b40"];
+    }
     
     
     
@@ -1231,7 +1247,7 @@ int tagnumber;
     temp4 =dr.text;
     
     
-    if(([surg.text length]!=0)&&([medhad.text length]!=0)&&([date.text length]!=0)&&([patsign.text length]!=0)&&([dr.text length]!=0))
+    if(([surg.text length]!=0)&&([medhad.text length]!=0)&&([date.text length]!=0)&&([patsign.text length]!=0)&&([dr.text length]!=0)&&(![checkboxval isEqualToString:@"null"]))
     {
         c=1;
         if((([otherdis.text length]>0)&&([du otherfields:otherdis.text]==1))||([otherdis.text length]==0))

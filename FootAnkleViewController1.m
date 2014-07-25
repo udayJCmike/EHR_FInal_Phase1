@@ -66,20 +66,10 @@
     printView.hidden = YES;
     self.picVisible = NO;
     
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-//                                   initWithTarget:self
-//                                   action:@selector(dismissKeyboard)];
-//    
-//    [self.view addGestureRecognizer:tap];
-//    [self.navigationController.view addGestureRecognizer:tap];
-    
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
-//-(void)dismissKeyboard
-//{
-//    printView.hidden = YES;
-//}
+
 -(void)displaydata
 {
     if ([resultset count]>0)
@@ -120,7 +110,7 @@
             //no value was selected for this question
         }
         
-        if([[resultset objectForKey:@"trouble"]isEqualToString: @"Not at all difficult"])
+        if([[resultset objectForKey:@"trouble"]isEqualToString: @"No trouble at all"])
         {
             [self radii1:nil]; //calling ibaction method for setting radiiio button as selected one
         }
@@ -510,7 +500,7 @@
 - (IBAction)radii1:(id)sender {
     
     
-    texty2=@"Not at all difficult";
+    texty2=@"No trouble at all";
     
     [radii1 setImage:[UIImage imageNamed:@"radio_button_on.png"] forState:UIControlStateNormal];
     

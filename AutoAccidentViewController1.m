@@ -162,11 +162,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        _2=@"Front Seat Passenger";
+        _2=@"Front seat Passenger";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        _2=@"Back Seat Passenger";
+        _2=@"Back seat Passenger";
     }
     if ([sender selectedSegmentIndex]==3)
     {
@@ -651,20 +651,20 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-        else if ([temp6 isEqualToString:@"Front Seat Passenger"]) {
+        else if ([temp6 isEqualToString:@"Front seat Passenger"]) {
             [wereyouthesegment setSelectedSegmentIndex:1];
-            _2=@"Front Seat Passenger";
+            _2=@"Front seat Passenger";
             
         }
-        else if ([temp6 isEqualToString:@"Back Seat Passenger"])
+        else if ([temp6 isEqualToString:@"Back seat Passenger"])
         {
             [wereyouthesegment setSelectedSegmentIndex:2];
-            _2=@"Back Seat Passenger";
+            _2=@"Back seat Passenger";
             
         }
         else if ([temp6 isEqualToString:@"On the job at the time of accident"])
         {
-            [wereyouthesegment setSelectedSegmentIndex:2];
+            [wereyouthesegment setSelectedSegmentIndex:3];
             _2=@"On the job at the time of accident";
             
         }
@@ -1238,13 +1238,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 {
                 if([du otherfields:mymake.text]==1)
                 {
-                    if([du otherfields:mymodel.text]==1)
+                    if([du date:mymodel.text]==1)
                     {
                         if([du year:myyear.text]==1)
                         {
                             if([du otherfields:othermake.text]==1)
                             {
-                                if([du otherfields:othermodel.text]==1)
+                                if([du date:othermodel.text]==1)
                                 {
                                     if([du year:otheryear.text]==1)
                                     {

@@ -375,20 +375,10 @@
     printView.hidden = YES;
     self.picVisible = NO;
     
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-//                                   initWithTarget:self
-//                                   action:@selector(dismissKeyboard)];
-//    
-//    [self.view addGestureRecognizer:tap];
-//    [self.navigationController.view addGestureRecognizer:tap];
-    
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
-//-(void)dismissKeyboard
-//{
-//    printView.hidden = YES;
-//}
+
 - (IBAction)reset:(id)sender
 {
     texty18=@"null";

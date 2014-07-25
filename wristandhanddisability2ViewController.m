@@ -207,7 +207,21 @@
     exe=(float)result/50;
     [recorddict setValue:[NSString stringWithFormat:@"%f",exe] forKey:@"painratio"];
     [recorddict setValue:[NSString stringWithFormat:@"%d",result] forKey:@"total"];
-    [recorddict setValue:painscalelab.text forKey:@"painscale"];
+    if ([painscalelab.text isEqualToString:@"Severe Pain"])
+        
+    {
+        [recorddict setValue:@"10" forKey:@"painscale"];
+       
+    }
+    else if ([painscalelab.text isEqualToString:@"No Pain"])
+    {
+        [recorddict setValue:@"0" forKey:@"painscale"];
+    }
+    else
+    {
+        [recorddict setValue:painscalelab.text forKey:@"painscale"];
+    }
+   
     if (suc==1) {
         
         UIButton *buton=(UIButton*)sender;
@@ -295,12 +309,15 @@
         //[painscale setValue:[painscalelab.text floatValue] animated:YES];
         
         
-        if ([painscalelab.text isEqualToString:@"Severe Pain"])
+        if (([painscalelab.text isEqualToString:@"Severe Pain"])|| ([painscalelab.text isEqualToString:@"10"]))
+            
         {
+            painscalelab.text=@"Severe Pain";
             [painscale setValue:10 animated:YES];
         }
-        else if ([painscalelab.text isEqualToString:@"No Pain"])
+        else if (([painscalelab.text isEqualToString:@"No Pain"])|| ([painscalelab.text isEqualToString:@"0"]))
         {
+            painscalelab.text=@"No Pain";
             [painscale setValue:0 animated:YES];
         }
         else

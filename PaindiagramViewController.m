@@ -92,7 +92,7 @@ int suc;
 
 
 -(void)dismissKeyboard {
-//    printView.hidden = YES;
+
     [name resignFirstResponder];
     [number resignFirstResponder];
     [date resignFirstResponder];

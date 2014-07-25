@@ -82,130 +82,130 @@
     if ([resultset count]>0)
     {
         
-        if ([[resultset objectForKey:@"lifting"]isEqualToString:@"0"])
+        if ([[resultset objectForKey:@"headache"]isEqualToString:@"0"])
         {
             [self first:nil];
         }
-        else if ([[resultset objectForKey:@"lifting"]isEqualToString:@"1"])
+        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"1"])
         {
             [self second:nil];
         }
-        else if ([[resultset objectForKey:@"lifting"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"2"])
         {
             [self third:nil];
             
         }
-        else if ([[resultset objectForKey:@"lifting"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"3"])
         {
             [self fourth:nil];
         }
-        else if ([[resultset objectForKey:@"lifting"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"4"])
         {
             [self fifth:nil];
         }
-        else if ([[resultset objectForKey:@"lifting"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"5"])
         {
             [self sixth:nil];
         }
         
-        if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"0"])
+        if ([[resultset objectForKey:@"work"]isEqualToString:@"0"])
         {
             [self first2:nil];
         }
-        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"1"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"1"])
         {
             [self second2:nil];
         }
-        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"2"])
         {
             [self third2:nil];
             
         }
-        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"3"])
         {
             [self fourth2:nil];
         }
-        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"4"])
         {
             [self fifth2:nil];
         }
-        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"work"]isEqualToString:@"5"])
         {
             [self sixth2:nil];
         }
         
-        if ([[resultset objectForKey:@"reading"]isEqualToString:@"0"])
+        if ([[resultset objectForKey:@"driving"]isEqualToString:@"0"])
         {
             [self first3:nil];
         }
-        else if ([[resultset objectForKey:@"reading"]isEqualToString:@"1"])
+        else if ([[resultset objectForKey:@"driving"]isEqualToString:@"1"])
         {
             [self second3:nil];
         }
-        else if ([[resultset objectForKey:@"reading"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"driving"]isEqualToString:@"2"])
         {
             [self third3:nil];
             
         }
-        else if ([[resultset objectForKey:@"reading"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"driving"]isEqualToString:@"3"])
         {
             [self fourth3:nil];
         }
-        else if ([[resultset objectForKey:@"reading"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"driving"]isEqualToString:@"4"])
         {
             [self fifth3:nil];
         }
-        else if ([[resultset objectForKey:@"reading"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"driving"]isEqualToString:@"5"])
         {
             [self sixth3:nil];
         }
-        if ([[resultset objectForKey:@"recreation"]isEqualToString:@"0"])
+        if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"0"])
         {
             [self first4:nil];
         }
-        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"1"])
+        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"1"])
         {
             [self second4:nil];
         }
-        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"2"])
         {
             [self third4:nil];
             
         }
-        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"3"])
         {
             [self fourth4:nil];
         }
-        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"4"])
         {
             [self fifth4:nil];
         }
-        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"sleeping"]isEqualToString:@"5"])
         {
             [self sixth4:nil];
         }
-        if ([[resultset objectForKey:@"headache"]isEqualToString:@"0"])
+        if ([[resultset objectForKey:@"recreation"]isEqualToString:@"0"])
         {
             [self first5:nil];
         }
-        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"1"])
+        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"1"])
         {
             [self second5:nil];
         }
-        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"2"])
+        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"2"])
         {
             [self third5:nil];
             
         }
-        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"3"])
+        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"3"])
         {
             [self fourth5:nil];
         }
-        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"4"])
+        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"4"])
         {
             [self fifth5:nil];
         }
-        else if ([[resultset objectForKey:@"headache"]isEqualToString:@"5"])
+        else if ([[resultset objectForKey:@"recreation"]isEqualToString:@"5"])
         {
             [self sixth5:nil];
         }

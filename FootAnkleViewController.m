@@ -75,20 +75,10 @@
     printView.hidden = YES;
     self.picVisible = NO;
     
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-//                                   initWithTarget:self
-//                                   action:@selector(dismissKeyboard)];
-//    
-//    [self.view addGestureRecognizer:tap];
-//    [self.navigationController.view addGestureRecognizer:tap];
-    
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
-//-(void)dismissKeyboard
-//{
-//    printView.hidden = YES;
-//}
+
 -(NSString *)HttpPostGetdetails:(NSString*)firstEntity ForValue1:(NSString*)value1 EntitySecond:(NSString*)secondEntity ForValue2:(NSString*)value2
 {
     

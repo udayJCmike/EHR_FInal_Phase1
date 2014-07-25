@@ -73,7 +73,7 @@
 }
 
 -(void)dismissKeyboard {
-     printView.hidden = YES;
+     
     [datey resignFirstResponder];
     [ssn resignFirstResponder];
     [birthdate resignFirstResponder];
@@ -118,9 +118,10 @@
 }
 - (void)viewDidLoad
 {
+     [super viewDidLoad];
      appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
-    [super viewDidLoad];
+   
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
     [self.navigationItem setRightBarButtonItem:barButton animated:NO];
@@ -144,7 +145,7 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    [self.navigationController.view addGestureRecognizer:tap];
+
     
 	
     texty2=@"null";
@@ -290,7 +291,7 @@
 {
     NSString *countryFormat1 = @"[0-9]{1,2}+[/]+[0-9]{1,2}+[/]+[0-9]{4}";
     
-    [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+  
     NSPredicate *countryTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", countryFormat1];
     return [countryTest1 evaluateWithObject:country1];
     
@@ -299,7 +300,7 @@
 {
     NSString *mobileFormat1 =  @"[0-9_-]{1,5}?";
     
-    [(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+   
     NSPredicate *mobileTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", mobileFormat1];
     return [mobileTest1 evaluateWithObject:number];
     

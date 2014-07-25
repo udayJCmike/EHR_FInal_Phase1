@@ -162,13 +162,13 @@
             temp1 =[arrayList1 objectForKey:@"name"];
             temp2 =[arrayList1 objectForKey:@"date"];
             temp3 =[arrayList1 objectForKey:@"painintensity"];
-            temp4 =[arrayList1 objectForKey:@"work"];
-            temp6=[arrayList1 objectForKey:@"personal"];
-            temp7=[arrayList1 objectForKey:@"driving"];
+            temp4 =[arrayList1 objectForKey:@"personal"];
+            temp6=[arrayList1 objectForKey:@"lifting"];
+            temp7=[arrayList1 objectForKey:@"reading"];
             
-            temp8=[arrayList1 objectForKey:@"lifting"];
+            temp8=[arrayList1 objectForKey:@"work"];
             temp9=[arrayList1 objectForKey:@"sleeping"];
-            temp10=[arrayList1 objectForKey:@"reading"];
+            temp10=[arrayList1 objectForKey:@"driving"];
             temp11=[arrayList1 objectForKey:@"recreation"];
             temp12=[arrayList1 objectForKey:@"headache"];
             
@@ -179,9 +179,9 @@
             
             [self setdatas];//set database values
             
-            [resultset setObject:temp8  forKey:@"lifting"];
+            [resultset setObject:temp8  forKey:@"work"];
             [resultset setObject:temp9  forKey:@"sleeping"];
-            [resultset setObject:temp10  forKey:@"reading"];
+            [resultset setObject:temp10  forKey:@"driving"];
             [resultset setObject:temp11  forKey:@"recreation"];
             [resultset setObject:temp12  forKey:@"headache"];
             [resultset setObject:temp13  forKey:@"concentration"];

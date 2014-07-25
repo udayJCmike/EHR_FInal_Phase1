@@ -126,11 +126,7 @@
     }
     else if (seg.selectedSegmentIndex==2)
     {
-        segtype.text=@"Mobile";
-        other.hidden=YES;
-    }
-    else if (seg.selectedSegmentIndex==3)
-    {
+       
         segtype.text=@"Other";
         other.hidden=NO;
     }
@@ -289,16 +285,10 @@
             other.hidden=YES;
             edit.hidden=YES;
         }
-        else if ([[resultset objectForKey:@"Type_Of_Accident"]isEqualToString:@"Mobile"])
-        {
-            [seg setSelectedSegmentIndex:2];
-            segtype.text=@"Mobile";
-            other.hidden=YES;
-            edit.hidden=YES;
-        }
+        
         else if ([[resultset objectForKey:@"Type_Of_Accident"]isEqualToString:@"Other"])
         {
-            [seg setSelectedSegmentIndex:3];
+            [seg setSelectedSegmentIndex:2];
             segtype.text=@"Other";
             other.hidden=NO;
             edit.hidden=YES;
@@ -357,15 +347,15 @@
             [switch5 setOn:NO animated:YES];
             
         }
-        if ([[resultset objectForKey:@"retain"] isEqualToString:@"Yes"]) {
-            reslabel6.text = @"Yes";
+        if ([[resultset objectForKey:@"retain"] isEqualToString:@"R"]) {
+            reslabel6.text = @"R";
             [switch6 setOn:YES animated:YES];
             
             
         }
-        else if ([[resultset objectForKey:@"retain"] isEqualToString:@"No"])
+        else if ([[resultset objectForKey:@"retain"] isEqualToString:@"L"])
         {
-            reslabel6.text = @"No";
+            reslabel6.text = @"L";
             [switch6 setOn:NO animated:YES];
             
         }

@@ -873,7 +873,7 @@ int a,b,c,d;
     }
     if (symptomssegment.selectedSegmentIndex==1)
     {
-        _12=@"hours after the Accident";
+        _12=@"hours after the accident";
         symptomshours.hidden=NO;
         symptomshours.text=@"";
         //symptomsdays.text=@"";
@@ -882,7 +882,7 @@ int a,b,c,d;
     }
     if (symptomssegment.selectedSegmentIndex==2)
     {
-        _12=@"The next day";
+        _12=@"The Next day";
         symptomshours.hidden=YES;
         symptomshours.text=@"";
         // symptomsdays.text=@"";
@@ -1232,16 +1232,16 @@ int a,b,c,d;
         symptomshours.text=@"";
         
     }
-    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"hours after the Accident"]){
+    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"hours after the accident"]){
         [symptomssegment setSelectedSegmentIndex:1];
-        _12=@"hours after the Accident";
+        _12=@"hours after the accident";
         symptomshours.hidden=NO;
         symptomshours.text=[resultset objectForKey:@"symptom"];;
         
     }
-    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"The next day"]){
+    else if([[resultset objectForKey:@"first_symptom"]isEqualToString:@"The Next day"]){
         [symptomssegment setSelectedSegmentIndex:2];
-        _12=@"The next day";
+        _12=@"The Next day";
         symptomshours.hidden=YES;
         symptomshours.text=@"";
         

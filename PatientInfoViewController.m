@@ -135,6 +135,8 @@
         seg.text=@"Male";
     else if (seggender.selectedSegmentIndex==1)
         seg.text=@"Female";
+    else if (seggender.selectedSegmentIndex==2)
+        seg.text=@"Transgender";
 }
 
 -(IBAction)segmaritalselected:(id)sender
@@ -414,7 +416,7 @@
     spouseemp.hidden=NO;
     spousename.hidden=NO;
     spouseph.hidden=NO;
-    resLabel.text=@"Full Time";
+    resLabel.text=@"FullTime";
     areyoulabel=@"Student";
     seg.text=@"Male";
     marital.text=@"Single";
@@ -592,12 +594,12 @@
             spouseph.text=temp26;
             relativename.text=temp27;
             relativeph.text=temp28;
-            if ([temp15 isEqualToString:@"Full Time"]) {
+            if ([temp15 isEqualToString:@"FullTime"]) {
                 resLabel.text = @"Full Time";
                 [switch1 setOn:YES animated:YES];
                 
             }
-            else if ([temp15 isEqualToString:@"Part Time"])
+            else if ([temp15 isEqualToString:@"PartTime"])
             {
                 resLabel.text = @"Part Time";
                 [switch1 setOn:NO animated:YES];
@@ -623,10 +625,30 @@
                 seg.text=@"Female";
                 
             }
+            else  if ([temp12 isEqualToString:@"Transgender"])
+            {
+                [seggender setSelectedSegmentIndex:2];
+                seg.text=@"Transgender";
+                
+            }
             if ([temp13 isEqualToString:@"Single"])
             {
                 [segmarital setSelectedSegmentIndex:0];
                 marital.text=@"Single";
+                sl1.hidden=YES;
+                sl2.hidden=YES;
+                sl3.hidden=YES;
+                spouseemp.hidden=YES;
+                spousename.hidden=YES;
+                spouseph.hidden=YES;
+                
+                
+                
+            }
+            else  if ([temp13 isEqualToString:@"Married"])
+            {
+                [segmarital setSelectedSegmentIndex:1];
+                marital.text=@"Married";
                 sl1.hidden=NO;
                 sl2.hidden=NO;
                 sl3.hidden=NO;
@@ -635,28 +657,16 @@
                 spouseph.hidden=NO;
                 
             }
-            else  if ([temp13 isEqualToString:@"Married"])
-            {
-                [segmarital setSelectedSegmentIndex:1];
-                marital.text=@"Married";
-                sl1.hidden=YES;
-                sl2.hidden=YES;
-                sl3.hidden=YES;
-                spouseemp.hidden=YES;
-                spousename.hidden=YES;
-                spouseph.hidden=YES;
-                
-            }
             if ([temp13 isEqualToString:@"Divorced"])
             {
                 [segmarital setSelectedSegmentIndex:2];
                 marital.text=@"Divorced";
-                sl1.hidden=YES;
-                sl2.hidden=YES;
-                sl3.hidden=YES;
-                spouseemp.hidden=YES;
-                spousename.hidden=YES;
-                spouseph.hidden=YES;
+                sl1.hidden=NO;
+                sl2.hidden=NO;
+                sl3.hidden=NO;
+                spouseemp.hidden=NO;
+                spousename.hidden=NO;
+                spouseph.hidden=NO;
             }
             
             
@@ -1041,7 +1051,8 @@
                                                                         [recorddict setValue:pager.text forKey:@"pager"];
                                                                         [recorddict setValue:fromd.text forKey:@"DateOfBirth"];
                                                                         [recorddict setValue:areyoulabel forKey:@"areyoulabel"];
-                                                                        [recorddict setValue:resLabel.text forKey:@"Student"];
+                                                                        
+                                                                        [recorddict setValue:[resLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""] forKey:@"Student"];
                                                                         [recorddict setValue:resLabel2.text forKey:@"hadchiropractic"];
                                                                         [recorddict setValue:seg.text forKey:@"sex"];
                                                                         [recorddict setValue:marital.text forKey:@"Maritalstatus"];
@@ -1431,7 +1442,7 @@
     student.hidden=FALSE;
     resLabel.hidden=FALSE;
     switch1.hidden=FALSE;
-    resLabel.text=@"Full time";
+    resLabel.text=@"FullTime";
     areyoulabel=@"Student";
     seg.text=@"Male";
     marital.text=@"Single";

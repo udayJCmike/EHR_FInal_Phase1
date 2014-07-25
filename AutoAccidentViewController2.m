@@ -423,7 +423,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     if (damagecarsegment.selectedSegmentIndex==3)
     {
-        _30=@"Totalled";
+        _30=@"Totaled";
     }
     
     
@@ -1404,9 +1404,9 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
             
             
         }
-        else if([[resultset objectForKey:@"damage"]isEqualToString:@"Totalled"]){
+        else if([[resultset objectForKey:@"damage"]isEqualToString:@"Totaled"]){
             [damagecarsegment setSelectedSegmentIndex:3];
-            _30=@"Totalled";
+            _30=@"Totaled";
             
         }
         

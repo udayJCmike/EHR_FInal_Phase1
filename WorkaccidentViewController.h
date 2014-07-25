@@ -40,7 +40,7 @@
     IBOutlet UILabel*labworkingatmaching;
     IBOutlet UILabel*pickuporlift;
     IBOutlet UITextField*howmuch;
-    IBOutlet UILabel*howoften;
+    IBOutlet UITextField*howoften;
     IBOutlet UITextField*fromwhere;
     IBOutlet UILabel*howmuchlabel;
     IBOutlet UILabel*howoftenlabel;
@@ -80,14 +80,14 @@
 @property(nonatomic,retain)UILabel*howmuchlabel;
 @property(nonatomic,retain)UITextField *howmuch;
 @property(nonatomic,retain)UILabel*howoftenlabel;;
-@property(nonatomic,retain)UILabel *howoften;
+@property(nonatomic,retain)IBOutlet UITextField *howoften;
 @property(nonatomic,retain)UILabel*fromwherelabel;
 @property(nonatomic,retain)UITextField *fromwhere;
 @property(nonatomic,retain)UISegmentedControl*workingatmac;
 @property(nonatomic,retain)UISegmentedControl*segliftfrom;
 @property(nonatomic,retain)UISegmentedControl*segdoyou;
 @property(nonatomic,retain)UISegmentedControl*segtypeoflifting;
-@property(nonatomic,retain)UISegmentedControl*howoftensegment;
+
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (id) sender;
 - (IBAction) toggleEnabledTextForSwitch2onSomeLabel: (id) sender;
 - (IBAction) toggleEnabledTextForSwitch3onSomeLabel: (id) sender;

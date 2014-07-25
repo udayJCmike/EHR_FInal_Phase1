@@ -459,11 +459,11 @@
         {
             //no matches found
         }
-        if ([temp10 isEqualToString:@"Severe Pain"])
+        if (([temp10 isEqualToString:@"Severe Pain"])|| ([temp10 isEqualToString:@"100"]))
         {
             [painscale setValue:100 animated:YES];
         }
-        else if ([temp19 isEqualToString:@"No Pain"])
+        else if (([temp10 isEqualToString:@"No Pain"])|| ([temp10 isEqualToString:@"0"]))
         {
             [painscale setValue:0 animated:YES];
         }
@@ -741,7 +741,20 @@
     [recorddict setValue:sleep forKey:@"sleeping"];
     [recorddict setValue:incap forKey:@"incapability"];
     [recorddict setValue:deg forKey:@"degree"];
-    [recorddict setValue:scaleres.text forKey:@"painscalevalues"];
+    if ([scaleres.text isEqualToString:@"Severe Pain"]) {
+        //scaleres.text=@"100";
+        [recorddict setValue:@"100" forKey:@"painscalevalues"];
+    }
+    else if ([scaleres.text isEqualToString:@"No Pain"])
+    {
+        //scaleres.text=@"0";
+        [recorddict setValue:@"0" forKey:@"painscalevalues"];
+    }
+    else
+    {
+       [recorddict setValue:scaleres.text forKey:@"painscalevalues"];
+    }
+   
     
     if( ([temp1 length]!=0)&&
        //([temp2 length]!=0)&&

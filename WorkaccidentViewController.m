@@ -23,6 +23,7 @@
 @end
 
 @implementation WorkaccidentViewController
+@synthesize howoften;
 @synthesize staff;
 @synthesize switch1;
 @synthesize switch2;
@@ -39,7 +40,7 @@
 @synthesize jobinjuryyeslabel;
 @synthesize howmuch;
 @synthesize howmuchlabel;
-@synthesize howoften;
+
 @synthesize howoftenlabel;
 @synthesize fromwhere;
 @synthesize fromwherelabel;
@@ -47,7 +48,7 @@
 @synthesize workingatmac;
 @synthesize segliftfrom;
 @synthesize segtypeoflifting;
-@synthesize howoftensegment;
+
 @synthesize resultset;
 
 - (id)initWithStyleSheet:(NSObject<TWMessageBarStyleSheet> *)stylesheet
@@ -155,7 +156,7 @@
     typeoflighting.text=@"Fluorescent";
     liftfrom.text=@"Ground";
     labworkingatmaching.text=@"Sit";
-    howoften.text=@"Seldom";
+    
     recorddict=[[NSMutableDictionary alloc]init];
     resultset=[[NSMutableDictionary alloc]init];
     [self Getdata];
@@ -226,7 +227,7 @@
     {
         pickuporlift.text = @"Yes";
         howmuch.hidden=NO;
-        howoftensegment.hidden=NO;
+        howoften.hidden=NO;
         fromwhere.hidden=NO;
         howmuchlabel.hidden=NO;
         howoftenlabel.hidden=NO;
@@ -237,7 +238,7 @@
 	else
     {
         pickuporlift.text = @"No";
-        howoftensegment.hidden=YES;
+        howoften.hidden=YES;
         howmuch.hidden=YES;
         fromwhere.hidden=YES;
         howmuchlabel.hidden=YES;
@@ -348,25 +349,7 @@
     }
 }
 
--(IBAction)segselected5:(id)sender
-{
-    if(howoftensegment.selectedSegmentIndex==0)
-    {
-        howoften.text=@"Seldom";
-    }
-    else if(howoftensegment.selectedSegmentIndex==1)
-    {
-        howoften.text=@"Sometimes";
-    }
-    else if(howoftensegment.selectedSegmentIndex==2)
-    {
-        howoften.text=@"Often";
-    }
-    else if(howoftensegment.selectedSegmentIndex==3)
-    {
-        howoften.text=@"Regularly";
-    }
-}
+
 
 -(IBAction)saveandcontinue:(id)sender
 {
@@ -601,7 +584,7 @@
     typeother.hidden = YES;
     [segliftfrom setSelectedSegmentIndex:0];
     [workingatmac setSelectedSegmentIndex:0];
-    [howoftensegment setSelectedSegmentIndex:0];
+    
     [switch1 setOn:YES animated:YES];
     [self toggleEnabledTextForSwitch1onSomeLabel: Nil];
     [switch2 setOn:YES animated:YES];
@@ -908,36 +891,14 @@
         
         pickuporlift.text = @"Yes";
         howmuch.hidden=NO;
-        howoftensegment.hidden=NO;
+        howoften.hidden=NO;
         fromwhere.hidden=NO;
         howmuchlabel.hidden=NO;
         howoftenlabel.hidden=NO;
         fromwherelabel.hidden=NO;
         howmuch.text=temp16;
         fromwhere.text=temp18;
-        if ([temp17 length]>0)
-        {
-            if([temp17 isEqualToString:@"Seldom"])
-            {
-                [howoftensegment setSelectedSegmentIndex:0];
-                howoften.text=@"Seldom";
-            }
-            else if([temp17 isEqualToString:@"Sometimes"])
-            {
-                [howoftensegment setSelectedSegmentIndex:1];
-                howoften.text=@"Sometimes";
-            }
-            else if([temp17 isEqualToString:@"Often"])
-            {
-                [howoftensegment setSelectedSegmentIndex:2];
-                howoften.text=@"Often";
-            }
-            else if([temp17 isEqualToString:@"Regularly"])
-            {
-                [howoftensegment setSelectedSegmentIndex:3];
-                howoften.text=@"Regularly";
-            }
-        }
+        howoften.text=temp17;
         
         
     }
@@ -945,7 +906,7 @@
     {
         [switch4 setOn:NO animated:YES];
         pickuporlift.text = @"No";
-        howoftensegment.hidden=YES;
+        howoften.hidden=YES;
         howmuch.hidden=YES;
         fromwhere.hidden=YES;
         howmuchlabel.hidden=YES;
