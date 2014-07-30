@@ -1,8 +1,8 @@
 # Built application files
 *.apk
 *.ap_
-*.EHR/.DS_Store
-
+*.DS_Store
+AdminFormViewController.m
 # Files for the Dalvik VM
 *.dex
 
