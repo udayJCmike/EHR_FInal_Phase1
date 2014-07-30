@@ -1,7 +1,7 @@
 # Built application files
 *.apk
 *.ap_
-*EHR/.DS_Store
+*.EHR/.DS_Store
 
 # Files for the Dalvik VM
 *.dex
