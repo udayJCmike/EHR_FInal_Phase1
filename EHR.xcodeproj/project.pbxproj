@@ -188,7 +188,6 @@
 		0DE6A58B181BA25B00A09BA7 /* doctorportalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6A58A181BA25B00A09BA7 /* doctorportalViewController.m */; };
 		0DE6A58E181BA26C00A09BA7 /* adminportalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6A58D181BA26C00A09BA7 /* adminportalViewController.m */; };
 		8405CE43197E65160041691F /* Doctor_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE42197E65150041691F /* Doctor_interface.storyboard */; };
-		8405CE45197E69110041691F /* Admin_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE44197E69110041691F /* Admin_interface.storyboard */; };
 		8405CE47197E6A180041691F /* Login_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405CE46197E6A180041691F /* Login_interface.storyboard */; };
 		84121C091958266C00A8D856 /* doctorwelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C081958266C00A8D856 /* doctorwelViewController.m */; };
 		84121C13195826A200A8D856 /* TestMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C0C195826A100A8D856 /* TestMoreViewController.m */; };
@@ -199,6 +198,7 @@
 		84121C1E19582C9400A8D856 /* soapnotes2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C1A19582C9400A8D856 /* soapnotes2ViewController.m */; };
 		84121C1F19582C9400A8D856 /* soapnotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84121C1C19582C9400A8D856 /* soapnotesViewController.m */; };
 		8412DF51194C4924009753D3 /* blue-teal-gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8412DF50194C4924009753D3 /* blue-teal-gradient.jpg */; };
+		8413BFC619A36676001FEF3C /* Admin_interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8413BFC519A36676001FEF3C /* Admin_interface.storyboard */; };
 		8484AB39192779D700EF27B6 /* narrativereport4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8484AB38192779D600EF27B6 /* narrativereport4ViewController.m */; };
 		848775E61922584900F20D6A /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 848775E31922584900F20D6A /* NSObject+SBJSON.m */; };
 		848775E71922584900F20D6A /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 848775E51922584900F20D6A /* NSString+SBJSON.m */; };
@@ -566,7 +566,6 @@
 		0DE6A58C181BA26C00A09BA7 /* adminportalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adminportalViewController.h; sourceTree = "<group>"; };
 		0DE6A58D181BA26C00A09BA7 /* adminportalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adminportalViewController.m; sourceTree = "<group>"; };
 		8405CE42197E65150041691F /* Doctor_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Doctor_interface.storyboard; sourceTree = "<group>"; };
-		8405CE44197E69110041691F /* Admin_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin_interface.storyboard; sourceTree = "<group>"; };
 		8405CE46197E6A180041691F /* Login_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login_interface.storyboard; sourceTree = "<group>"; };
 		84121C071958266C00A8D856 /* doctorwelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doctorwelViewController.h; sourceTree = "<group>"; };
 		84121C081958266C00A8D856 /* doctorwelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doctorwelViewController.m; sourceTree = "<group>"; };
@@ -585,6 +584,7 @@
 		84121C1B19582C9400A8D856 /* soapnotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapnotesViewController.h; sourceTree = "<group>"; };
 		84121C1C19582C9400A8D856 /* soapnotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soapnotesViewController.m; sourceTree = "<group>"; };
 		8412DF50194C4924009753D3 /* blue-teal-gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-teal-gradient.jpg"; sourceTree = "<group>"; };
+		8413BFC519A36676001FEF3C /* Admin_interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin_interface.storyboard; sourceTree = "<group>"; };
 		8484AB37192779D600EF27B6 /* narrativereport4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = narrativereport4ViewController.h; sourceTree = "<group>"; };
 		8484AB38192779D600EF27B6 /* narrativereport4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = narrativereport4ViewController.m; sourceTree = "<group>"; };
 		848775E11922578700F20D6A /* JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1389,8 +1389,8 @@
 		0DCD15C917FD4F5200748DD7 = {
 			isa = PBXGroup;
 			children = (
+				8413BFC519A36676001FEF3C /* Admin_interface.storyboard */,
 				8405CE46197E6A180041691F /* Login_interface.storyboard */,
-				8405CE44197E69110041691F /* Admin_interface.storyboard */,
 				8405CE42197E65150041691F /* Doctor_interface.storyboard */,
 				0D82347918BF834F002CFE54 /* Perry cover letter to insurance */,
 				848F0EDE195A9C17003B6427 /* Quadruple Visual Analogue Scale */,
@@ -1821,10 +1821,10 @@
 				8492D159197F846500E1101A /* loginadmin.png in Resources */,
 				848F0EF6195AB865003B6427 /* numb.png in Resources */,
 				0D2EAB6B1803D359004F5859 /* unselect.png in Resources */,
+				8413BFC619A36676001FEF3C /* Admin_interface.storyboard in Resources */,
 				84987A551953F5F500CB4136 /* icon-info@2x.png in Resources */,
 				0D5C0EEC18D0689300556BF2 /* left_arrow@2x.png in Resources */,
 				848F0EF8195AB865003B6427 /* stabbing.png in Resources */,
-				8405CE45197E69110041691F /* Admin_interface.storyboard in Resources */,
 				8490FAB91967CD3B0083CE98 /* athterisk-red.png in Resources */,
 				0DCD15EE17FD4F5200748DD7 /* Images.xcassets in Resources */,
 				84987A531953F5F500CB4136 /* icon-error@2x.png in Resources */,

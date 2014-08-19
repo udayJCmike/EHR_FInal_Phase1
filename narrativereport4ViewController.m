@@ -162,9 +162,13 @@
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        s1l=@"Lifting";
+        s1l=@"Walking";
     }
     if ([sender selectedSegmentIndex]==4)
+    {
+        s1l=@"Lifting";
+    }
+    if ([sender selectedSegmentIndex]==5)
     {
         s1l=@"Other";
     }
@@ -482,135 +486,120 @@
     temp14=[lb.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     temp15=[alleviate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-//    
-//    if(([temp2 length]!=0)&&
-//       ([temp3 length]!=0)&&
-//       ([temp8 length]!=0)&&
-//       ([temp9 length]!=0)&&
-//       ([temp10 length]!=0)&&
-//       ([temp11 length]!=0)&&
-//       ([temp12 length]!=0)&&
-//       ([temp14 length]!=0)&&
-//       ([temp15 length]!=0))
-//        
-//        
-//    {
+    //
+    //    if(([temp2 length]!=0)&&
+    //       ([temp3 length]!=0)&&
+    //       ([temp8 length]!=0)&&
+    //       ([temp9 length]!=0)&&
+    //       ([temp10 length]!=0)&&
+    //       ([temp11 length]!=0)&&
+    //       ([temp12 length]!=0)&&
+    //       ([temp14 length]!=0)&&
+    //       ([temp15 length]!=0))
+    //
+    //
+    //    {
     
-        
-        
-        if((([temp2 length]>0)&&([du otherfields:temp2]==1))||([temp2 length]==0))
+    
+    
+    if((([temp2 length]>0)&&([du otherfields:temp2]==1))||([temp2 length]==0))
+    {
+        if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
         {
-            if((([temp3 length]>0)&&([du otherfields:temp3 ]==1))||([temp3 length]==0))
+            
+            if((([temp8 length]>0)&&([du dateexpress:temp8]==1))||([temp8 length]==0))
             {
-                
-                if((([temp8 length]>0)&&([du dateexpress:temp8]==1))||([temp8 length]==0))
+                if(([temp9 length]>0)||([temp9 length]==0))
                 {
-                    if(([temp9 length]>0)||([temp9 length]==0))
+                    if((([temp10 length]>0)&&([du dateexpress:temp10]==1))||([temp10 length]==0))
                     {
-                        if((([temp10 length]>0)&&([du dateexpress:temp10]==1))||([temp10 length]==0))
+                        if((([temp15 length]>0)&&([du otherfields:temp15]==1))||([temp15 length]==0))
                         {
-                            if((([temp15 length]>0)&&([du otherfields:temp15]==1))||([temp15 length]==0))
+                            if((([temp11 length]>0)&&([du age:temp11]==1))||([temp11 length]==0))
                             {
-                                if((([temp11 length]>0)&&([du age:temp11]==1))||([temp11 length]==0))
+                                if((([temp12 length]>0)&&([du percentage:temp12]==1))||([temp12 length]==0))
                                 {
-                                    if((([temp12 length]>0)&&([du percentage:temp12]==1))||([temp12 length]==0))
+                                    if((([temp14 length]>0)&&([du percentage:temp14]==1))||([temp14 length]==0))
                                     {
-                                        if((([temp14 length]>0)&&([du percentage:temp14]==1))||([temp14 length]==0))
-                                        {
-                                            
-                                            
-                                            
-                                            
-                                            a=1;
-                                            
-                                            [recorddict setValue:alleviate.text forKey:@"alleviate"];
-                                            
-                                            [recorddict setValue:text8.text forKey:@"text14"];
-                                            [recorddict setValue:text9.text forKey:@"text13"];
-                                            [recorddict setValue:text10.text forKey:@"text15"];
-                                            [recorddict setValue:patname1.text forKey:@"patientname1"];
-                                            [recorddict setValue:patname4.text forKey:@"patientname4"];
-                                            [recorddict setValue:textf1.text forKey:@"textf1"];
-                                            [recorddict setValue:textf2.text forKey:@"textf2"];
-                                            [recorddict setValue:age.text forKey:@"age"];
-                                            [recorddict setValue:heightval.text forKey:@"height"];
-                                            [recorddict setValue:lb.text forKey:@"lb"];
-                                            
-                                            [recorddict setValue:s1l forKey:@"s1l"];
-                                            [recorddict setValue:s2l forKey:@"s2l"];
-                                            [recorddict setValue:s3l forKey:@"s3l"];
-                                            [recorddict setValue:s4l forKey:@"s4l"];
-                                            [recorddict setValue:s5l forKey:@"s5l"];
-                                            [recorddict setValue:s6l forKey:@"s6l"];
-                                            [recorddict setObject:s7l forKey:@"s7l"];
-                                            [recorddict setObject:s8l forKey:@"s8l"];
-                                            [recorddict setObject:s9l forKey:@"s9l"];
-                                            [recorddict setObject:s10l forKey:@"s10l"];
-                                            
-                                            
-                                            [recorddict setValue:whitelabel forKey:@"s11l"];
-                                            [recorddict setValue:genderlabel forKey:@"s12l"];
-                                            [recorddict setValue:nourishedlabel                                                                                                                                    forKey:@"s13l"];
-                                            [recorddict setValue:fairlabel forKey:@"s14l"];
-                                            [recorddict setValue:normallabel forKey:@"s15l"];
-                                            [recorddict setValue:poorlabel forKey:@"s16l"];
-                                            [recorddict setValue:pathollabel forKey:@"s17l"];
-                                            [recorddict setValue:cervicanotherlabel forKey:@"s18l"];
-                                            [recorddict setValue:hypolabel.text forKey:@"s19l"];
-                                            
-                                            [recorddict setValue:indexresult forKey:@"index"];
-                                            [recorddict setValue:wasnotlabel forKey:@"wasnotlabel"];
-                                            //                                                                                    [recorddict setValue:index1.text forKey:@"index1"];
-                                            [recorddict setValue:gen1.text  forKey:@"genderval"];
-                                            
-                                            
-                                          //  //NSLog(@"success!!!recorddict %@",recorddict);
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        }
                                         
-                                        else
-                                        {
-                                            a=0;
-                                            [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                           description:@"Please enter valid weight."
-                                                                                                  type:TWMessageBarMessageTypeError
-                                                                                        statusBarStyle:UIStatusBarStyleLightContent
-                                                                                              callback:nil];
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        }
+                                        
+                                        
+                                        
+                                        a=1;
+                                        
+                                        [recorddict setValue:alleviate.text forKey:@"alleviate"];
+                                        
+                                        [recorddict setValue:text8.text forKey:@"text14"];
+                                        [recorddict setValue:text9.text forKey:@"text13"];
+                                        [recorddict setValue:text10.text forKey:@"text15"];
+                                        [recorddict setValue:patname1.text forKey:@"patientname1"];
+                                        [recorddict setValue:patname4.text forKey:@"patientname4"];
+                                        [recorddict setValue:textf1.text forKey:@"textf1"];
+                                        [recorddict setValue:textf2.text forKey:@"textf2"];
+                                        [recorddict setValue:age.text forKey:@"age"];
+                                        [recorddict setValue:heightval.text forKey:@"height"];
+                                        [recorddict setValue:lb.text forKey:@"lb"];
+                                        
+                                        [recorddict setValue:s1l forKey:@"s1l"];
+                                        [recorddict setValue:s2l forKey:@"s2l"];
+                                        [recorddict setValue:s3l forKey:@"s3l"];
+                                        [recorddict setValue:s4l forKey:@"s4l"];
+                                        [recorddict setValue:s5l forKey:@"s5l"];
+                                        [recorddict setValue:s6l forKey:@"s6l"];
+                                        [recorddict setObject:s7l forKey:@"s7l"];
+                                        [recorddict setObject:s8l forKey:@"s8l"];
+                                        [recorddict setObject:s9l forKey:@"s9l"];
+                                        [recorddict setObject:s10l forKey:@"s10l"];
+                                        
+                                        
+                                        [recorddict setValue:whitelabel forKey:@"s11l"];
+                                        [recorddict setValue:genderlabel forKey:@"s12l"];
+                                        [recorddict setValue:nourishedlabel                                                                                                                                    forKey:@"s13l"];
+                                        [recorddict setValue:fairlabel forKey:@"s14l"];
+                                        [recorddict setValue:normallabel forKey:@"s15l"];
+                                        [recorddict setValue:poorlabel forKey:@"s16l"];
+                                        [recorddict setValue:pathollabel forKey:@"s17l"];
+                                        [recorddict setValue:cervicanotherlabel forKey:@"s18l"];
+                                        [recorddict setValue:hypolabel.text forKey:@"s19l"];
+                                        
+                                        [recorddict setValue:indexresult forKey:@"index"];
+                                        [recorddict setValue:wasnotlabel forKey:@"wasnotlabel"];
+                                        //                                                                                    [recorddict setValue:index1.text forKey:@"index1"];
+                                        [recorddict setValue:gen1.text  forKey:@"genderval"];
+                                        
+                                        
+                                        //  //NSLog(@"success!!!recorddict %@",recorddict);
+                                        
+                                        
+                                        
+                                        
+                                        
                                         
                                     }
                                     
                                     else
                                     {
                                         a=0;
-                                        
                                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                       description:@"Please enter valid height."
+                                                                                       description:@"Please enter valid weight."
                                                                                               type:TWMessageBarMessageTypeError
                                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                                           callback:nil];
                                         
                                         
                                         
+                                        
+                                        
                                     }
                                     
                                 }
+                                
                                 else
                                 {
                                     a=0;
                                     
                                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                                   description:@"Please enter valid age."
+                                                                                   description:@"Please enter valid height."
                                                                                           type:TWMessageBarMessageTypeError
                                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                                       callback:nil];
@@ -620,50 +609,49 @@
                                 }
                                 
                             }
-                            
-                            
                             else
                             {
                                 a=0;
                                 
-                                
                                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                               description:@"Please enter valid alleviated field."
+                                                                               description:@"Please enter valid age."
                                                                                       type:TWMessageBarMessageTypeError
                                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                                   callback:nil];
                                 
                                 
                                 
-                                
                             }
+                            
                         }
+                        
                         
                         else
                         {
                             a=0;
                             
+                            
                             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                           description:@"Please enter valid accident date."
+                                                                           description:@"Please enter valid alleviated field."
                                                                                   type:TWMessageBarMessageTypeError
                                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                                               callback:nil];
                             
                             
                             
+                            
                         }
-                        
                     }
+                    
                     else
                     {
                         a=0;
                         
                         [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                       description:@"Please enter valid complaints."
+                                                                       description:@"Please enter valid accident date."
                                                                               type:TWMessageBarMessageTypeError
                                                                     statusBarStyle:UIStatusBarStyleLightContent
                                                                           callback:nil];
-                        
                         
                         
                         
@@ -675,7 +663,7 @@
                     a=0;
                     
                     [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                                   description:@"Please enter valid date."
+                                                                   description:@"Please enter valid complaints."
                                                                           type:TWMessageBarMessageTypeError
                                                                 statusBarStyle:UIStatusBarStyleLightContent
                                                                       callback:nil];
@@ -685,14 +673,13 @@
                     
                 }
                 
-                
             }
             else
             {
                 a=0;
                 
                 [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                               description:@"Please enter valid revealed data."
+                                                               description:@"Please enter valid date."
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
@@ -700,45 +687,62 @@
                 
                 
                 
-                
             }
+            
             
         }
         else
         {
             a=0;
             
-            
             [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-                                                           description:@"Please enter valid occured in field."
+                                                           description:@"Please enter valid revealed data."
                                                                   type:TWMessageBarMessageTypeError
                                                         statusBarStyle:UIStatusBarStyleLightContent
                                                               callback:nil];
             
             
             
+            
+            
         }
         
+    }
+    else
+    {
+        a=0;
         
-//    }
-//    
-//    
-//    
-//    else
-//    {
-//        a=0;
-//        
-//        
-//        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
-//                                                       description:@"Required field should not be empty."
-//                                                              type:TWMessageBarMessageTypeError
-//                                                    statusBarStyle:UIStatusBarStyleLightContent
-//                                                          callback:nil];
-//        
-//        
-//        
-//        
-//    }
+        
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+                                                       description:@"Please enter valid occured in field."
+                                                              type:TWMessageBarMessageTypeError
+                                                    statusBarStyle:UIStatusBarStyleLightContent
+                                                          callback:nil];
+        
+        
+        
+    }
+    
+    
+    //    }
+    //
+    //
+    //
+    //    else
+    //    {
+    //        a=0;
+    //
+    //
+    //        [[TWMessageBarManager sharedInstance] showMessageWithTitle:kStringMessageBarErrorTitle
+    //                                                       description:@"Required field should not be empty."
+    //                                                              type:TWMessageBarMessageTypeError
+    //                                                    statusBarStyle:UIStatusBarStyleLightContent
+    //                                                          callback:nil];
+    //
+    //
+    //
+    //
+    //    }
     if (a==1)
     {
         [self performSegueWithIdentifier:@"narr11" sender:self];
@@ -826,7 +830,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     [super viewDidLoad];
     for (UIView *v in [self.view subviews])
     {
@@ -1099,7 +1103,7 @@
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
         destViewController.mutearray=mutearray;
-       // //NSLog(@"recorddict in narrative first page %@",recorddict);
+        // //NSLog(@"recorddict in narrative first page %@",recorddict);
     }
     
     
@@ -1194,14 +1198,20 @@
             
             
         }
-        else if ([[resultset objectForKey:@"gender20"]isEqualToString:@"Lifting"]) {
+        else if ([[resultset objectForKey:@"gender20"]isEqualToString:@"Walking"]) {
             [s1 setSelectedSegmentIndex:3];
+            s1l=@"Walking";
+            
+            
+        }
+        else if ([[resultset objectForKey:@"gender20"]isEqualToString:@"Lifting"]) {
+            [s1 setSelectedSegmentIndex:4];
             s1l=@"Lifting";
             
             
         }
         else if ([[resultset objectForKey:@"gender20"]isEqualToString:@"Other"]) {
-            [s1 setSelectedSegmentIndex:4];
+            [s1 setSelectedSegmentIndex:5];
             s1l=@"Other";
             
         }
