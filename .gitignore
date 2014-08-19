@@ -17,4 +17,6 @@ xcuserdata
 *.moved-aside
 *.xccheckout
 .DS_Store
+EHR.xcodeproj/project.xcworkspace/xcshareddata/EHR.xccheckout
+EHR.xcodeproj/project.xcworkspace/xcuserdata/admin.xcuserdatad/UserInterfaceState.xcuserstate
 
