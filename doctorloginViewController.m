@@ -7,12 +7,14 @@
 //
 
 #import "doctorloginViewController.h"
-
+#import "ViewAppAppDelegate.h"
 #import "databaseurl.h"
 #import "StringConstants.h"
 #import "TWMessageBarManager.h"
 @interface doctorloginViewController ()
-
+{
+    ViewAppAppDelegate *appDelegate;
+}
 @end
 
 @implementation doctorloginViewController
@@ -61,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -129,7 +132,8 @@
     
     if (a==1)
     {
-        
+        appDelegate.search_from=@"";
+        appDelegate.staff=@"";
         HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
         HUD.mode=MBProgressHUDModeIndeterminate;
         HUD.delegate = self;

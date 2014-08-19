@@ -13,12 +13,14 @@
 #import "databaseurl.h"
 #import "JSON.h"
 #import "staffautocheckViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface AutoAccidentViewController1 ()
 {
     databaseurl *du;
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    ViewAppAppDelegate *appDelegate;
 }
 
 @end
@@ -350,6 +352,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
+    appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     roadother.hidden=YES
     ;
@@ -1371,7 +1374,8 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    if ([ res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)

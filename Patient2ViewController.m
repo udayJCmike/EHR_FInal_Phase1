@@ -12,12 +12,14 @@
 #import "UITextField+AKNumericFormatter.h"
 #import "staffautocheckViewController.h"
 #import "SampleViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface Patient2ViewController ()
 {
     databaseurl *du;
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+     ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -134,7 +136,10 @@
 
 -(IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    NSString *res1=appDelegate.search_from;
+    //    NSLog(@"re %@",res);
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -146,7 +151,7 @@
             }
         }
     }
-    else if ([[staff objectForKey:@"search"]isEqualToString:@"1"]) {
+    else if ([res1 isEqualToString:@"doctor"]||[res1 isEqualToString:@"admin"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -179,6 +184,7 @@
 
 - (void)viewDidLoad
 {
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     datePicker.hidden=YES;
       self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];

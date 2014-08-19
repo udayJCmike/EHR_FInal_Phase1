@@ -9,13 +9,14 @@
 #import "AutoAccidentViewController2.h"
 #import "AutoAccidentViewController3.h"
 #import "staffautocheckViewController.h"
-
+#import "ViewAppAppDelegate.h"
 @interface AutoAccidentViewController2 ()
 {
     databaseurl *du;
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+    ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -946,6 +947,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 - (void)viewDidLoad
 {
+    appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;
@@ -1491,24 +1493,27 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 -(IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    
         
-        
-        for(UIViewController *controller in self.navigationController.viewControllers)
-        {
-            if ([controller isKindOfClass:[staffautocheckViewController class]])
+        NSString *res=appDelegate.staff;
+        if ([ res isEqualToString:@"1"]) {
+            
+            
+            for(UIViewController *controller in self.navigationController.viewControllers)
             {
-                [self.navigationController popToViewController:controller animated:YES];
-                break;
+                if ([controller isKindOfClass:[staffautocheckViewController class]])
+                {
+                    [self.navigationController popToViewController:controller animated:YES];
+                    break;
+                }
             }
         }
-    }
-    else
-        
-    {
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
-        
-    }
+        else
+            
+        {
+            [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+            
+        }
     
 }
 - (void)viewWillDisappear:(BOOL)animated

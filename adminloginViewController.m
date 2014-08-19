@@ -7,11 +7,14 @@
 
 
 #import "adminloginViewController.h"
-
+#import "ViewAppAppDelegate.h"
 #import "databaseurl.h"
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
 @interface adminloginViewController ()
+{
+    ViewAppAppDelegate *appDelegate;
+}
 
 @end
 
@@ -61,7 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
+ appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -130,7 +133,8 @@
    
     if (a==1)
     {
-        
+        appDelegate.search_from=@"";
+        appDelegate.staff=@"";
         HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
         HUD.mode=MBProgressHUDModeIndeterminate;
         HUD.delegate = self;

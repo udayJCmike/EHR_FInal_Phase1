@@ -5,13 +5,15 @@
 //  Created by DeemSysInc on 04/10/13.
 //  Copyright (c) 2013 DeemSysInc. All rights reserved.
 
-
+#import "ViewAppAppDelegate.h"
 #import "LoginViewController.h"
 #import "databaseurl.h"
 #import "TWMessageBarManager.h"
 #import "StringConstants.h"
 @interface LoginViewController ()
-
+{
+    ViewAppAppDelegate *appDelegate;
+}
 @end
 
 @implementation LoginViewController
@@ -53,6 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -68,6 +71,7 @@
     
 }
 - (IBAction)signin:(id)sender {
+    
     [self dismissKeyboard];
     a=1;
     if (([username.text length]==0)&&([password.text length]==0))
@@ -115,7 +119,8 @@
     
     if (a==1)
     {
-        
+        appDelegate.search_from=@"";
+        appDelegate.staff=@"";
         HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
         HUD.mode=MBProgressHUDModeIndeterminate;
         HUD.delegate = self;

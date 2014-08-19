@@ -13,11 +13,13 @@
 #import "databaseurl.h"
 #import "JSON.h"
 #import "staffautocheckViewController.h"
+#import "ViewAppAppDelegate.h"
 @interface HipKneeViewController ()
 {
     UIView *printView;
     UIBarButtonItem *barButton;
     UIButton *button;
+     ViewAppAppDelegate *appDelegate;
 }
 @end
 
@@ -30,6 +32,7 @@
 
 - (void)viewDidLoad
 {
+        appDelegate = (ViewAppAppDelegate*)[[UIApplication sharedApplication] delegate];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
        [super viewDidLoad];
     texty1=@"null";
@@ -728,7 +731,9 @@
 -(IBAction)cancel:(id)sender
 {
     
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    
+    NSString *res=appDelegate.staff;
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)

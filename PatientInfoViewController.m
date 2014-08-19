@@ -16,6 +16,7 @@
 #import "SampleViewController.h"
 #import "ViewAppAppDelegate.h"
 
+
 @interface PatientInfoViewController ()
 {
     databaseurl *du;
@@ -23,6 +24,7 @@
         UIView *printView;
         UIBarButtonItem *barButton;
         UIButton *button;
+     ViewAppAppDelegate *appDelegate;
     
 }
 @end
@@ -364,6 +366,7 @@
 
 - (void)viewDidLoad
 {
+    appDelegate=(ViewAppAppDelegate*)[[UIApplication sharedApplication]delegate];
      self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
   
@@ -1273,7 +1276,10 @@
 
 - (IBAction)cancel:(id)sender
 {
-    if ([[staff objectForKey:@"staff"]isEqualToString:@"1"]) {
+    NSString *res=appDelegate.staff;
+    NSString *res1=appDelegate.search_from;
+      NSLog(@"re %@",res1);
+    if ([res isEqualToString:@"1"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -1285,7 +1291,7 @@
             }
         }
     }
-    else if ([[staff objectForKey:@"search"]isEqualToString:@"1"]) {
+    else if ([res1 isEqualToString:@"doctor"]||[res1 isEqualToString:@"admin"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
@@ -1303,6 +1309,7 @@
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
         
     }
+
     
 }
 

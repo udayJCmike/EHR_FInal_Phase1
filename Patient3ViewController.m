@@ -848,6 +848,7 @@ int tagnumber;
 -(IBAction)cancel:(id)sender
 {
     NSString *res=appDelegate.staff;
+    NSString *res1=appDelegate.search_from;
 //    NSLog(@"re %@",res);
     if ([res isEqualToString:@"1"]) {
         
@@ -861,7 +862,7 @@ int tagnumber;
             }
         }
     }
-    else if ([[staff objectForKey:@"search"]isEqualToString:@"1"]) {
+    else if ([res1 isEqualToString:@"doctor"]||[res1 isEqualToString:@"admin"]) {
         
         
         for(UIViewController *controller in self.navigationController.viewControllers)
