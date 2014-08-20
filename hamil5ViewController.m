@@ -265,7 +265,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     }
     if (b21.selected)
     {
-        [recorddict setValue:@"Right" forKey:@"phalright"];
+        [recorddict setValue:@"Right" forKey:@"phallright"];
     }
     else
     {
@@ -356,7 +356,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     }
     if (b44.selected)
     {
-        [recorddict setValue:@"Left" forKey:@"an_tinleft"];
+        [recorddict setValue:@"anktinell" forKey:@"an_tinleft"];
     }
     else
     {
@@ -423,8 +423,8 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     [recorddict setValue:seg10 forKey:@"valvarusleft"];
     [recorddict setValue:seg11 forKey:@"apleysright"];
     [recorddict setValue:seg12 forKey:@"apleysleft"];
-    [recorddict setValue:seg11 forKey:@"drawer2right"];
-    [recorddict setValue:seg12 forKey:@"drawer2left"];
+    [recorddict setValue:seg13 forKey:@"drawer2right"];
+    [recorddict setValue:seg14 forKey:@"drawer2left"];
     
     //NSLog(@"count in record dict:%d",[recorddict count]);
     HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
@@ -461,8 +461,8 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     seg6=@"MCL";
     seg7=@"ACL";
     seg8=@"ACL";
-    seg9=@"MCL";
-    seg10=@"MCL";
+    seg9=@"mcl";
+    seg10=@"mcl";
     seg11=@"MM";
     seg12=@"MM";
     seg13=@"ACL";
@@ -484,7 +484,7 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
@@ -584,8 +584,8 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     seg6=@"MCL";
     seg7=@"ACL";
     seg8=@"ACL";
-    seg9=@"MCL";
-    seg10=@"MCL";
+    seg9=@"mcl";
+    seg10=@"mcl";
     seg11=@"MM";
     seg12=@"MM";
     seg13=@"ACL";
@@ -709,19 +709,19 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
 }
 - (IBAction)allenleft:(id)sender {
     if(allenleft.selectedSegmentIndex==0){
-        seg4=@"slow radial refill";
+        seg4=@"slowradial";
     }
     else if(allenleft.selectedSegmentIndex==1){
-        seg4=@"slow ulnar refill";
+        seg4=@"slowulnar";
     }
 }
 
 - (IBAction)alenright:(id)sender {
     if(allenright.selectedSegmentIndex==0){
-        seg3=@"slow radial refill";
+        seg3=@"slowradial";
     }
     else if(allenright.selectedSegmentIndex==1){
-        seg3=@"slow ulnar refill";
+        seg3=@"slowulnar";
     }
 }
 
@@ -760,12 +760,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(drawer1right.selectedSegmentIndex==0){
         
         
-        seg7=@"ACL";
+        seg7=@"acl";
     }
     else if(drawer1right.selectedSegmentIndex==1){
         
         
-        seg7=@"PCL";
+        seg7=@"pcl";
     }
 }
 
@@ -773,12 +773,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(drawaer1left.selectedSegmentIndex==0){
         
         
-        seg8=@"ACL";
+        seg8=@"acl";
     }
     else if(drawaer1left.selectedSegmentIndex==1){
         
         
-        seg8=@"PCL";
+        seg8=@"pcl";
     }
 }
 
@@ -786,12 +786,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(valvarright.selectedSegmentIndex==0){
         
         
-        seg9=@"MCL";
+        seg9=@"mcl";
     }
     else if(valvarright.selectedSegmentIndex==1){
         
         
-        seg9=@"LCL";
+        seg9=@"lcl";
     }
     
     
@@ -801,12 +801,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(valvarleft.selectedSegmentIndex==0){
         
         
-        seg10=@"MCL";
+        seg10=@"mcl";
     }
     else if(valvarleft.selectedSegmentIndex==1){
         
         
-        seg10=@"LCL";
+        seg10=@"lcl";
     }
 }
 
@@ -816,23 +816,23 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(apleysright.selectedSegmentIndex==0){
         
         
-        seg11=@"MM";
+        seg11=@"mm";
     }
     else if(apleysright.selectedSegmentIndex==1){
         
         
-        seg11=@"LM";
+        seg11=@"lm";
     }
     
     else if(apleysright.selectedSegmentIndex==2){
         
         
-        seg11=@"MCL";
+        seg11=@"mcl";
     }
     else if(apleysright.selectedSegmentIndex==3){
         
         
-        seg11=@"LCL";
+        seg11=@"lcl";
     }
     
 }
@@ -842,23 +842,23 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(apleysleft.selectedSegmentIndex==0){
         
         
-        seg12=@"MM";
+        seg12=@"mm";
     }
     else if(apleysleft.selectedSegmentIndex==1){
         
         
-        seg12=@"LM";
+        seg12=@"lm";
     }
     
     else if(apleysleft.selectedSegmentIndex==2){
         
         
-        seg12=@"MCL";
+        seg12=@"mcl";
     }
     else if(apleysleft.selectedSegmentIndex==3){
         
         
-        seg12=@"LCL";
+        seg12=@"lcl";
     }
 }
 
@@ -866,12 +866,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(drawer2right.selectedSegmentIndex==0){
         
         
-        seg13=@"ACL";
+        seg13=@"acl";
     }
     else if(drawer2right.selectedSegmentIndex==1){
         
         
-        seg13=@"PCL";
+        seg13=@"pcl";
     }
 }
 
@@ -879,12 +879,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(drawer2left.selectedSegmentIndex==0){
         
         
-        seg14=@"ACL";
+        seg14=@"acl";
     }
     else if(drawer2left.selectedSegmentIndex==1){
         
         
-        seg14=@"PCL";
+        seg14=@"pcl";
     }
 }
 
@@ -892,12 +892,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(valgright.selectedSegmentIndex==0){
         
         
-        seg5=@"MCL";
+        seg5=@"mcl";
     }
     else if(valgright.selectedSegmentIndex==1){
         
         
-        seg5=@"LCL";
+        seg5=@"lcl";
     }
 }
 
@@ -905,12 +905,12 @@ NSString *seg1,*seg2,*seg3,*seg4,*seg5,*seg5,*seg6,*seg7,*seg8,*seg9,*seg10,*seg
     if(valgleft.selectedSegmentIndex==0){
         
         
-        seg6=@"MCL";
+        seg6=@"mcl";
     }
     else if(valgleft.selectedSegmentIndex==1){
         
         
-        seg6=@"LCL";
+        seg6=@"lcl";
     }
 }
 -(NSString*)submitvalues

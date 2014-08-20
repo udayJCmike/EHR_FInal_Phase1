@@ -335,7 +335,7 @@
     }
     if (b18.selected)
     {
-        [recorddict setValue:@"other" forKey:@"other1"];
+        [recorddict setValue:@"Other" forKey:@"other1"];
     }
     else
     {
@@ -544,8 +544,8 @@
                                                                                             [recorddict setValue:physician_sign.text forKey:@"Physician Signature"];
                                                                                             [recorddict setValue:patient_status forKey:@"Patient Status"];
                                                                                             [recorddict setValue:assessment.text forKey:@"assessment"];
-                                                                                          //  NSLog(@"success!!!recorddict %@",recorddict);
-                                                                                          //  NSLog(@"size of recordict:%d",[recorddict count]);
+                                                                                            //  NSLog(@"success!!!recorddict %@",recorddict);
+                                                                                            //  NSLog(@"size of recordict:%d",[recorddict count]);
                                                                                         }
                                                                                         
                                                                                         
@@ -1181,7 +1181,7 @@
     
     
     
-    //       NSLog(@"POST:%@",post);
+    //    NSLog(@"POST in Update :%@",post);
     
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -1204,7 +1204,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -1357,7 +1357,7 @@
     
     
     NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&pname=%@&date=%@&muscle=%@&swelling=%@&dominanthand=%@&allsoft=%@&biceps=%@&triceps=%@&common=%@&pronator=%@&anconeus=%@&commonextensors=%@&othernotes=%@&functionalrangeofmotion=%@&orthopedic=%@&flexionl=%@&flexionr=%@&mcll=%@&mclr=%@&extensionl=%@&extensionr=%@&lcll=%@&lclr=%@&pronationl=%@&pronationr=%@&varusl=%@&varusr=%@&suppinationl=%@&suppinationr=%@&mcl1l=%@&mcl1r=%@&tinnelsl=%@&tinnelsr=%@&ulttl=%@&ulttr=%@&neurologicaltest=%@&c5l=%@&c5r=%@&c51l=%@&c51r=%@&c53l=%@&c53r=%@&c6l=%@&c6r=%@&c61l=%@&c61r=%@&c63l=%@&c63r=%@&c7l=%@&c7r=%@&c71l=%@&c71r=%@&c73l=%@&c73r=%@&c8l=%@&c8r=%@&c81l=%@&c81r=%@&t1l=%@&t1r=%@&t11l=%@&t11r=%@&overheadactivities=%@&lifting=%@&otherfunctional=%@&break_text3=%@&assessment=%@&patientstatus=%@&diagnosis1=%@&diagnosis2=%@&diagnosis3=%@&diagnosis4=%@&diagnosis5=%@&diagnosis6=%@&times=%@&week=%@&spinal=%@&chiropractic=%@&physical=%@&orthotics=%@&modalities=%@&supplementation=%@&hep=%@&radiographic=%@&mri=%@&ctscan=%@&nerve=%@&emg=%@&outside=%@&dc=%@&otheraddress=%@&break_text4=%@&sign=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"Patientname"],[recorddict objectForKey:@"Date"],[recorddict objectForKey:@"Muscle Symmetry"],[recorddict objectForKey:@"Swelling/Discoloration"],[recorddict objectForKey:@"Dominant hand"],[recorddict objectForKey:@"palpation un"],[recorddict objectForKey:@"Biceps brachii"],[recorddict objectForKey:@"Triceps brachii"],[recorddict objectForKey:@"Common flexors"],[recorddict objectForKey:@"Pronator_teres"],[recorddict objectForKey:@"Anconeus"],[recorddict objectForKey:@"Common extensors"],[recorddict objectForKey:@"Other/Notes"],[recorddict objectForKey:@"functional un"],[recorddict objectForKey:@"orthopedic un"],[recorddict objectForKey:@"Flexion Left"],[recorddict objectForKey:@"Flexion Right"],[recorddict objectForKey:@"Golfer's Elbow Left"],[recorddict objectForKey:@"GOlfer's Elbow Right"],[recorddict objectForKey:@"extension left"],[recorddict objectForKey:@"extension right"],[recorddict objectForKey:@"Tennis Elbow Left"],[recorddict objectForKey:@"Tennis Elbow Right"],[recorddict objectForKey:@"Pronation Left"],[recorddict objectForKey:@"Pronation Right"],[recorddict objectForKey:@"Varus Stress Left"],[recorddict objectForKey:@"Varus Stress Right"],[recorddict objectForKey:@"Supination Left"],[recorddict objectForKey:@"Supination Right"],[recorddict objectForKey:@"Valgus Stress Left"],[recorddict objectForKey:@"Valgus Stress Right"],[recorddict objectForKey:@"Tinnels Left"],[recorddict objectForKey:@"Tinnels Right"],[recorddict objectForKey:@"ULTT Left"],[recorddict objectForKey:@"ULTT Right"],[recorddict objectForKey:@"neuro un"],[recorddict objectForKey:@"Sensory c5 Left"],[recorddict objectForKey:@"Sensory c5 Right"],[recorddict objectForKey:@"Motor C5 Left"],[recorddict objectForKey:@"Motor C5 Right"],[recorddict objectForKey:@"Reflexess c5 Left"],[recorddict objectForKey:@"Reflexess c5 Right"],[recorddict objectForKey:@"Sensory c6 Left"],[recorddict objectForKey:@"Sensory c6 Right"],[recorddict objectForKey:@"Motor C6 Left"],[recorddict objectForKey:@"Motor C6 Right"],[recorddict objectForKey:@"Reflexess c6 Left"],[recorddict objectForKey:@"Reflexess c6 Right"],[recorddict objectForKey:@"Sensory c7 Left"],[recorddict objectForKey:@"Sensory c7 Right"],[recorddict objectForKey:@"Motor C7 Left"],[recorddict objectForKey:@"Motor C7 Right"],[recorddict objectForKey:@"Reflexess c7 Left"],[recorddict objectForKey:@"Reflexess c7 Right"],[recorddict objectForKey:@"Sensory c8 Left"],[recorddict objectForKey:@"Sensory c8 Right"],[recorddict objectForKey:@"Motor C8 Left"],[recorddict objectForKey:@"Motor C8 Right"],[recorddict objectForKey:@"Sensory t1 Left"],[recorddict objectForKey:@"Sensory t1 Right"],[recorddict objectForKey:@"Motor T1 Left"],[recorddict objectForKey:@"Motor T1 Right"],[recorddict objectForKey:@"Overhead"],[recorddict objectForKey:@"lift"],[recorddict objectForKey:@"other"],[recorddict objectForKey:@"functional other"],[recorddict objectForKey:@"assessment"],[recorddict objectForKey:@"Patient Status"],[recorddict objectForKey:@"DIAGNOSIS 1"],[recorddict objectForKey:@"DIAGNOSIS 2"],[recorddict objectForKey:@"DIAGNOSIS 3"],[recorddict objectForKey:@"DIAGNOSIS 4"],[recorddict objectForKey:@"DIAGNOSIS 5"],[recorddict objectForKey:@"DIAGNOSIS 6"],[recorddict objectForKey:@"Plan 1"],[recorddict objectForKey:@"Plan 2"],[recorddict objectForKey:@"spinal"],[recorddict objectForKey:@"chiro"],[recorddict objectForKey:@"physical"],[recorddict objectForKey:@"orthotics"],[recorddict objectForKey:@"modal"],[recorddict objectForKey:@"supplement"],[recorddict objectForKey:@"hep"],[recorddict objectForKey:@"radio"],[recorddict objectForKey:@"mri"],[recorddict objectForKey:@"ct scan"],[recorddict objectForKey:@"nerve"],[recorddict objectForKey:@"emg"],[recorddict objectForKey:@"outside"],[recorddict objectForKey:@"d/c"],[recorddict objectForKey:@"other1"],[recorddict objectForKey:@"plan other"],[recorddict objectForKey:@"Physician Signature"],secondEntity,value2];
-    // NSLog(@"POST:%@",post);
+    //     NSLog(@"POST in Save:%@",post);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -1401,7 +1401,7 @@
     return self;
 }
 -(void)dismissKeyboard{
-      printView.hidden = YES;
+    printView.hidden = YES;
     [moc5L resignFirstResponder];
     [moc5R resignFirstResponder];
     [moc6L resignFirstResponder];
@@ -1459,7 +1459,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -1488,12 +1488,12 @@
         save.hidden=YES;
         cancel1.hidden=YES;
         reset1.hidden=YES;
-        moc5L.text=[resultset objectForKey:@"c53l"];
-        moc5R.text=[resultset objectForKey:@"c53r"];
-        moc6L.text=[resultset objectForKey:@"c63l"];
-        moc6R.text=[resultset objectForKey:@"c63r"];
-        moc7L.text=[resultset objectForKey:@"c73l"];
-        moc7R.text=[resultset objectForKey:@"c73r"];
+        moc5L.text=[resultset objectForKey:@"c51l"];
+        moc5R.text=[resultset objectForKey:@"c51r"];
+        moc6L.text=[resultset objectForKey:@"c61l"];
+        moc6R.text=[resultset objectForKey:@"c61r"];
+        moc7L.text=[resultset objectForKey:@"c71l"];
+        moc7R.text=[resultset objectForKey:@"c71r"];
         moc8L.text=[resultset objectForKey:@"c81l"];
         moc8R.text=[resultset objectForKey:@"c81r"];
         mot1L.text=[resultset objectForKey:@"t11l"];
@@ -1779,11 +1779,11 @@
             
         }
         
-        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"other"]) {
+        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"Other"]) {
             b18.selected=YES;
             [b18 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             planother.hidden=NO;
-            [recorddict setValue:@"other" forKey:@"other1"];
+            [recorddict setValue:@"Other" forKey:@"other1"];
             [recorddict setValue:planother.text  forKey:@"plan other"];
             
             

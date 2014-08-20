@@ -75,10 +75,10 @@
     
     val1.hidden=YES;
     val2.hidden=YES;
-    val1.text=@"No Pain";
-    val2.text=@"No Pain";
-    seg1val=@"proximal";
-    seg2val=@"proximal";
+    val1.text=@"1";
+    val2.text=@"1";
+    seg1val=@"Proximal";
+    seg2val=@"Proximal";
     NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     name.text=username;
     
@@ -198,51 +198,58 @@
             temp34 =[arrayList1 objectForKey:@"leftanklepain"];
             temp35 =[arrayList1 objectForKey:@"rightfootpain"];
             temp36 =[arrayList1 objectForKey:@"leftfootpain"];
-            if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"proximal"] ) {
+            if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"Proximal"] ) {
                 [seg1 setSelectedSegmentIndex:0];
-                seg1val=@"proximal";
+                seg1val=@"Proximal";
             }
-            else if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"distal"] ) {
+            else if ([[arrayList1 objectForKey:@"rightproxi"]isEqualToString:@"Distal Portion"] ) {
                 [seg1 setSelectedSegmentIndex:1];
-                seg1val=@"distal";
+                seg1val=@"Distal Portion";
             }
-            if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"proximal"] ) {
+            if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"Proximal"] ) {
                 [seg2 setSelectedSegmentIndex:0];
-                seg2val=@"proximal";
+                seg2val=@"Proximal";
             }
-            else if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"distal"] ) {
+            else if ([[arrayList1 objectForKey:@"leftproxi"]isEqualToString:@"Distal Portion"] ) {
                 [seg2 setSelectedSegmentIndex:1];
-                seg2val=@"distal";
+                seg2val=@"Distal Portion";
             }
-            if ([temp19 isEqualToString:@"Severe Pain"])
+            if (([temp19 isEqualToString:@"Severe Pain"])|| ([temp19 isEqualToString:@"10"]))
+               
             {
+                 val1.text=@"Severe Pain";
                 [painscale1 setValue:10 animated:YES];
             }
-            else if ([temp19 isEqualToString:@"No Pain"])
+            else if (([temp19 isEqualToString:@"No Pain"])||([temp19 isEqualToString:@"0"]))
             {
+                  val1.text=@"No Pain";
                 [painscale1 setValue:0 animated:YES];
             }
             else
             {
+                 val1.text=[NSString stringWithFormat:@"%@",temp19];
                 [painscale1 setValue:[temp19 floatValue] animated:YES];
             }
             
-            val1.text=[NSString stringWithFormat:@"%@",temp19];
+           
             
-            if ([temp21 isEqualToString:@"Severe Pain"])
+            if (([temp21 isEqualToString:@"Severe Pain"])|| ([temp21 isEqualToString:@"10"]))
             {
+                 val2.text=@"Severe Pain";
                 [painscale2 setValue:10 animated:YES];
             }
-            else if ([temp21 isEqualToString:@"No Pain"])
+            else if (([temp21 isEqualToString:@"No Pain"])|| ([temp21 isEqualToString:@"0"]))
             {
+                  val2.text=@"No Pain";
                 [painscale2 setValue:0 animated:YES];
             }
             else
             {
+                val2.text=[NSString stringWithFormat:@"%@",temp21];
                 [painscale2 setValue:[temp21 floatValue] animated:YES];
             }
             
-            val2.text=[NSString stringWithFormat:@"%@",temp21];
+            
             
             
             
@@ -259,11 +266,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b1"];
             }
-            if ([temp3 isEqualToString:@"Neck pain"]) {
+            if ([temp3 isEqualToString:@"Neck Pain"]) {
                 but2.selected=YES;
                 [but2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"Neck pain" forKey:@"b2"];
+                [recorddict setValue:@"Neck Pain" forKey:@"b2"];
             }
             else
             {
@@ -368,11 +375,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b9"];
             }
-            if ([temp13 isEqualToString:@"Right Wrist pain"]) {
+            if ([temp13 isEqualToString:@"Right Wrist Pain"]) {
                 but10.selected=YES;
                 [but10 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"Right Wrist pain" forKey:@"b10"];
+                [recorddict setValue:@"Right Wrist Pain" forKey:@"b10"];
             }
             else
             {
@@ -528,11 +535,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b21"];
             }
-            if ([temp27 isEqualToString:@"Right Gluteal Pain"]) {
+            if ([temp27 isEqualToString:@"Right Gluteul Pain"]) {
                 but22.selected=YES;
                 [but22 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"Right Gluteal Pain" forKey:@"b22"];
+                [recorddict setValue:@"Right Gluteul Pain" forKey:@"b22"];
             }
             else
             {
@@ -541,11 +548,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b22"];
             }
-            if ([temp28 isEqualToString:@"Left Gluteal Pain"]) {
+            if ([temp28 isEqualToString:@"Left Gluteul Pain"]) {
                 but23.selected=YES;
                 [but23 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"Left Gluteal Pain" forKey:@"b23"];
+                [recorddict setValue:@"Left Gluteul Pain" forKey:@"b23"];
             }
             else
             {
@@ -632,11 +639,11 @@
                 [self checkboxSelected:nil];
                 [recorddict setValue:@"null" forKey:@"b29"];
             }
-            if ([temp35 isEqualToString:@"right Foot Pain"]) {
+            if ([temp35 isEqualToString:@"Right Foot Pain"]) {
                 but30.selected=YES;
                 [but30 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [self checkboxSelected:nil];
-                [recorddict setValue:@"right Foot Pain" forKey:@"b30"];
+                [recorddict setValue:@"Right Foot Pain" forKey:@"b30"];
             }
             else
             {
@@ -951,12 +958,12 @@
     [but31 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [seg1 setSelectedSegmentIndex:0];
     [seg2 setSelectedSegmentIndex:0];
-    [painscale1 setValue:0 animated:YES];
-    [painscale2 setValue:0 animated:YES];
-    val1.text=@"No Pain";
-    val2.text=@"No Pain";
-    seg1val=@"proximal";
-    seg2val=@"proximal";
+    [painscale1 setValue:1 animated:YES];
+    [painscale2 setValue:1 animated:YES];
+    val1.text=@"1";
+    val2.text=@"1";
+    seg1val=@"Proximal";
+    seg2val=@"Proximal";
     seg1.hidden=YES;
     seg2.hidden=YES;
     painscale1.hidden=YES;
@@ -973,8 +980,34 @@
     [recorddict setValue:name.text forKey:@"pname"];
     [recorddict setValue:seg1val forKey:@"segval1"];
     [recorddict setValue:seg2val forKey:@"segval2"];
-    [recorddict setValue:val1.text forKey:@"val1"];
-    [recorddict setValue:val2.text forKey:@"val2"];
+    
+    if ([val1.text isEqualToString:@"No Pain"])
+    {
+        [recorddict setValue:@"0" forKey:@"val1"];
+    }
+    else if  ([val1.text isEqualToString:@"Severe Pain"])
+    {
+        [recorddict setValue:@"10" forKey:@"val1"];
+        
+    }
+    else
+    {
+        [recorddict setValue:val1.text forKey:@"val1"];
+    }
+    if ([val2.text isEqualToString:@"No Pain"])
+    {
+        [recorddict setValue:@"0" forKey:@"val2"];
+    }
+    else if  ([val2.text isEqualToString:@"Severe Pain"])
+    {
+        [recorddict setValue:@"10" forKey:@"val2"];
+        
+    }
+    else
+    {
+        [recorddict setValue:val2.text forKey:@"val2"];
+    }
+   
     
     if (but1.selected) {
         [recorddict setValue:@"Headache" forKey:@"b1"];
@@ -984,7 +1017,7 @@
         [recorddict setValue:@"null" forKey:@"b1"];
     }
     if (but2.selected) {
-        [recorddict setValue:@"Neck pain" forKey:@"b2"];
+        [recorddict setValue:@"Neck Pain" forKey:@"b2"];
     }
     else
     {
@@ -1040,7 +1073,7 @@
         [recorddict setValue:@"null" forKey:@"b9"];
     }
     if (but10.selected) {
-        [recorddict setValue:@"Right Wrist pain" forKey:@"b10"];
+        [recorddict setValue:@"Right Wrist Pain" forKey:@"b10"];
     }
     else
     {
@@ -1124,14 +1157,14 @@
         [recorddict setValue:@"null" forKey:@"b21"];
     }
     if (but22.selected) {
-        [recorddict setValue:@"Right Gluteal Pain" forKey:@"b22"];
+        [recorddict setValue:@"Right Gluteul Pain" forKey:@"b22"];
     }
     else
     {
         [recorddict setValue:@"null" forKey:@"b22"];
     }
     if (but23.selected) {
-        [recorddict setValue:@"Left Gluteal Pain" forKey:@"b23"];
+        [recorddict setValue:@"Left Gluteul Pain" forKey:@"b23"];
     }
     else
     {
@@ -1180,7 +1213,7 @@
         [recorddict setValue:@"null" forKey:@"b29"];
     }
     if (but30.selected) {
-        [recorddict setValue:@"right Foot Pain" forKey:@"b30"];
+        [recorddict setValue:@"Right Foot Pain" forKey:@"b30"];
     }
     else
     {
@@ -1215,18 +1248,18 @@
 
 - (IBAction)seg1act:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        seg1val=@"proximal";
+        seg1val=@"Proximal";
     }
     if ([sender selectedSegmentIndex]==1) {
-        seg1val=@"distal";
+        seg1val=@"Distal Portion";
     }
 }
 - (IBAction)seg2act:(id)sender {
     if ([sender selectedSegmentIndex]==0) {
-        seg2val=@"proximal";
+        seg2val=@"Proximal";
     }
     if ([sender selectedSegmentIndex]==1) {
-        seg2val=@"distal";
+        seg2val=@"Distal Portion";
     }
 }
 - (void)viewWillDisappear:(BOOL)animated

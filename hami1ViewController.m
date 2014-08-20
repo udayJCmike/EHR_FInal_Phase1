@@ -169,7 +169,7 @@
     if (b5.selected)
     {
         
-        [recorddict setValue:@"Radiates to" forKey:@"radiate"];
+        [recorddict setValue:@"Radiates" forKey:@"radiate"];
         
     }
     else
@@ -229,7 +229,7 @@
     if (b12.selected)
     {
         
-        [recorddict setValue:@"other" forKey:@"morning other"];
+        [recorddict setValue:@"Other" forKey:@"morning other"];
         
         
     }
@@ -298,7 +298,7 @@
     if (b20.selected)
     {
         
-        [recorddict setValue:@"other" forKey:@"condition affected other"];
+        [recorddict setValue:@"Other" forKey:@"condition affected other"];
         
     }
     else
@@ -341,7 +341,7 @@
     }
     if (b25.selected)
     {
-        [recorddict setValue:@"At pre-injury status" forKey:@"AT pre"];
+        [recorddict setValue:@" At Pre-injury Status" forKey:@"AT pre"];
     }
     else
     {
@@ -430,7 +430,7 @@
     }
     if (b36.selected)
     {
-        [recorddict setValue:@"Strenthening" forKey:@"treat_strength"];
+        [recorddict setValue:@"Strengthening" forKey:@"treat_strength"];
     }
     else
     {
@@ -550,7 +550,7 @@
     }
     if (moderately.selected)
     {
-        [recorddict setValue:@"Moderately" forKey:@"moderately"];
+        [recorddict setValue:@"Moderatly" forKey:@"moderately"];
     }
     else
     {
@@ -722,7 +722,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {

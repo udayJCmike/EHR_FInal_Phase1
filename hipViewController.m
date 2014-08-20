@@ -450,7 +450,7 @@
                 
             }
             
-            if([texty11 isEqualToString:@"Right"]){
+            if([texty11 isEqualToString:@"right"]){
                 palright.selected=true;
                 right.hidden=NO;
                 [palright setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
@@ -523,10 +523,10 @@
                 leftlabel=@"1";
                 
             }
-            else  if([texty9 isEqualToString:@"Other"])
+            else  if([texty9 isEqualToString:@"other"])
             {
                 left.selectedSegmentIndex=8;
-                leftlabel=@"Other";
+                leftlabel=@"other";
                 leftother.hidden=NO;
                 
             }
@@ -581,10 +581,10 @@
                 rightlabel=@"1";
                 
             }
-            else  if([texty12 isEqualToString:@"Other"])
+            else  if([texty12 isEqualToString:@"other"])
             {
                 right.selectedSegmentIndex=8;
-                rightlabel=@"Other";
+                rightlabel=@"other";
                 rightother.hidden=NO;
                 
             }
@@ -592,28 +592,28 @@
             
             
             
-            if([texty6 isEqualToString:@"Excellent"])
+            if([texty6 isEqualToString:@"excellent"])
             {
                 ao.selectedSegmentIndex=0;
-                aolabel=@"Excellent";
+                aolabel=@"excellent";
                 
             }
-            else if([texty6 isEqualToString:@"Good"])
+            else if([texty6 isEqualToString:@"good"])
             {
                 ao.selectedSegmentIndex=1;
-                aolabel=@"Good";
+                aolabel=@"good";
                 
             }
-            else if([texty6 isEqualToString:@"Fair"])
+            else if([texty6 isEqualToString:@"fair"])
             {
                 ao.selectedSegmentIndex=2;
-                aolabel=@"Fair";
+                aolabel=@"fair";
                 
             }
-            else  if([texty6 isEqualToString:@"Severe"])
+            else  if([texty6 isEqualToString:@"severe"])
             {
                 ao.selectedSegmentIndex=3;
-                aolabel=@"Severe";
+                aolabel=@"severe";
                 
             }
             
@@ -624,22 +624,22 @@
             
             
             
-            if([texty5 isEqualToString:@"None"])
+            if([texty5 isEqualToString:@"none"])
             {
                 pelvic.selectedSegmentIndex=0;
-                pelviclabel=@"None";
+                pelviclabel=@"none";
                 
             }
-            else if([texty5 isEqualToString:@"Crest Right"])
+            else if([texty5 isEqualToString:@"superior illiac crest right"])
             {
                 pelvic.selectedSegmentIndex=1;
-                pelviclabel=@"Crest Right";
+                pelviclabel=@"superior illiac crest right";
                 
             }
-            else if([texty5 isEqualToString:@"Crest Left"])
+            else if([texty5 isEqualToString:@"superior iliac crest left"])
             {
                 pelvic.selectedSegmentIndex=2;
-                pelviclabel=@"Crest Left";
+                pelviclabel=@"superior illiac crest left";
                 
             }
             
@@ -650,47 +650,47 @@
             
             
             
-            if([texty4 isEqualToString:@"Normal"])
+            if([texty4 isEqualToString:@"normal"])
             {
                 gait.selectedSegmentIndex=0;
-                gaitlabel=@"Normal";
+                gaitlabel=@"normal";
                 
             }
-            else if([texty4 isEqualToString:@"Antalogic"])
+            else if([texty4 isEqualToString:@"antalogic"])
             {
                 gait.selectedSegmentIndex=1;
-                gaitlabel=@"Antalogic";
+                gaitlabel=@"antalogic";
                 
             }
-            else if([texty4 isEqualToString:@"Shuffling"])
+            else if([texty4 isEqualToString:@"shuffling"])
             {
                 gait.selectedSegmentIndex=2;
-                gaitlabel=@"Shuffling";
+                gaitlabel=@"shuffling";
                 
             }
-            else  if([texty4 isEqualToString:@"Limp"])
+            else  if([texty4 isEqualToString:@"limp"])
             {
                 gait.selectedSegmentIndex=3;
-                gaitlabel=@"Limp";
+                gaitlabel=@"limp";
                 
             }
-            else  if([texty4 isEqualToString:@"Stagger"])
+            else  if([texty4 isEqualToString:@"stagger"])
             {
                 gait.selectedSegmentIndex=4;
-                gaitlabel=@"Stagger";
+                gaitlabel=@"stagger";
                 
             }
-            else  if([texty4 isEqualToString:@"Cane assisted"])
+            else  if([texty4 isEqualToString:@"cane assisted"])
             {
                 gait.selectedSegmentIndex=5;
-                gaitlabel=@"Cane assisted";
+                gaitlabel=@"cane assisted";
                 
             }
             
-            else  if([texty4 isEqualToString:@"Wheelchair"])
+            else  if([texty4 isEqualToString:@"wheelchair"])
             {
                 gait.selectedSegmentIndex=6;
-                gaitlabel=@"Wheelchair";
+                gaitlabel=@"wheelchair";
                 
             }
             
@@ -767,7 +767,6 @@
     if(palpation.selected)
     {
         palpationlabel=@"All Soft Tissue Unremarkable";
-        
     }
     else
         palpationlabel=@"null";
@@ -793,7 +792,6 @@
         neurologicallabel=@"null";
     if (palleft.selected) {
         [recorddict setValue:@"Left" forKey:@"palleft"];
-        
     }
     else
     {
@@ -801,8 +799,7 @@
         [recorddict setValue:@"null" forKey:@"palleft"];
     }
     if (palright.selected) {
-        [recorddict setValue:@"Right" forKey:@"palright"];
-        
+        [recorddict setValue:@"right" forKey:@"palright"];
     }
     else
     {
@@ -810,8 +807,8 @@
         [recorddict setValue:@"null" forKey:@"palright"];
     }
     
-    [recorddict setValue:@"" forKey:@"palpationleftother"];
-    [recorddict setValue:@"" forKey:@"palpationrightother"];
+    //    [recorddict setValue:@"" forKey:@"palpationleftother"];
+    //    [recorddict setValue:@"" forKey:@"palpationrightother"];
     if(([temp1 length]!=0)&&([date.text length]!=0))
     {
         a=0;
@@ -1897,15 +1894,15 @@
 {
     if ([sender selectedSegmentIndex]==0)
     {
-        pelviclabel=@"None                                                                                                                                                                                                                                                                                                                                             ";
+        pelviclabel=@"none                                                                                                                                                                                                                                                                                                                                             ";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        pelviclabel=@"Crest Right";
+        pelviclabel=@"superior illiac crest right";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        pelviclabel=@"Crest Left";
+        pelviclabel=@"superior illiac crest left";
     }
     
 }
@@ -1913,19 +1910,19 @@
 - (IBAction)ao:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        aolabel=@"Excellent";
+        aolabel=@"excellent";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        aolabel=@"Good";
+        aolabel=@"good";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        aolabel=@"Fair";
+        aolabel=@"fair";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        aolabel=@"Severe";
+        aolabel=@"severe";
     }
     
 }
@@ -1933,31 +1930,31 @@
 - (IBAction)gait:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        gaitlabel=@"Normal";
+        gaitlabel=@"normal";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        gaitlabel=@"Antalogic";
+        gaitlabel=@"antalogic";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        gaitlabel=@"Shuffling";
+        gaitlabel=@"shuffling";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        gaitlabel=@"Limp";
+        gaitlabel=@"limp";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        gaitlabel=@"Stagger";
+        gaitlabel=@"stagger";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        gaitlabel=@"Cane assisted";
+        gaitlabel=@"cane assisted";
     }
     if ([sender selectedSegmentIndex]==6)
     {
-        gaitlabel=@"Wheelchair";
+        gaitlabel=@"wheelchair";
     }
     
     
@@ -2000,7 +1997,7 @@
     }
     if ([sender selectedSegmentIndex]==8)
     {
-        leftlabel=@"Other";
+        leftlabel=@"other";
         leftother.hidden=NO;
     }
     else
@@ -2048,7 +2045,7 @@
     }
     if ([sender selectedSegmentIndex]==8)
     {
-        rightlabel=@"Other";
+        rightlabel=@"other";
         rightother.hidden=NO;
         
     }
@@ -2260,11 +2257,11 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
     
-    pelviclabel=@"None";
-    aolabel=@"Excellent";
-    gaitlabel=@"Normal";
+    
+    pelviclabel=@"none";
+    aolabel=@"excellent";
+    gaitlabel=@"normal";
     leftlabel=@"1/8";
     rightlabel=@"1/8";
     for (UIView *v in [self.view subviews]) {
@@ -2338,7 +2335,7 @@
     [ms1right resignFirstResponder];
     [l5left resignFirstResponder];
     [l5right resignFirstResponder];
-       printView.hidden = YES;
+    printView.hidden = YES;
 }
 - (void)didReceiveMemoryWarning
 {

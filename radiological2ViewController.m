@@ -106,25 +106,21 @@
 - (IBAction)views:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        viewl=@"A-P lower";
+        viewl=@"A-P";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        viewl=@"L lateral";
+        viewl=@"RPO";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        viewl=@"RPO";
+        viewl=@"LPO";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        viewl=@"LPO";
+        viewl=@"RLF";
     }
     if ([sender selectedSegmentIndex]==4)
-    {
-        viewl=@"RlF";
-    }
-    if ([sender selectedSegmentIndex]==5)
     {
         viewl=@"LLF";
     }
@@ -144,15 +140,15 @@
 - (IBAction)oster:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        ostersegl=@"Mild";
+        ostersegl=@"mild";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        ostersegl=@"Moderate";
+        ostersegl=@"moderate";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        ostersegl=@"Severe";
+        ostersegl=@"severe";
     }
     
 }
@@ -252,7 +248,7 @@
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        gradesegl=@"VI";
+        gradesegl=@"IV";
     }
     
     
@@ -357,7 +353,7 @@
     if(neg.selected)
     {
         
-        [recorddict setValue:@"Negative for recent fracture, dislocation or gross Osteopathology"forKey:@"L_negative for recent"];
+        [recorddict setValue:@"Negative for recent fracture"forKey:@"L_negative for recent"];
     }
     else
     {
@@ -368,7 +364,7 @@
     {
         
         
-        [recorddict setValue:@"  Decreased LLF" forKey:@"L_decllf1"];
+        [recorddict setValue:@"Decreased LLF" forKey:@"L_decllf1"];
     }
     else
     {
@@ -380,7 +376,7 @@
     {
         
         
-        [recorddict setValue:@" Decreased RLF" forKey:@"L_decrlf1"];
+        [recorddict setValue:@"Decreased RLF" forKey:@"L_decrlf1"];
     }
     else
     {
@@ -404,7 +400,7 @@
     {
         
         
-        [recorddict  setValue:@" Break in Georges line at" forKey:@"L_break1"];
+        [recorddict  setValue:@"Break Georges at" forKey:@"L_break1"];
     }
     else
     {
@@ -426,7 +422,7 @@
     {
         
         
-        [recorddict setValue:@" Normalkyphosis" forKey:@"L_normalkypho1"];
+        [recorddict setValue:@"Normal kyphosis" forKey:@"L_normalkypho1"];
     }
     else
     {
@@ -460,7 +456,7 @@
     if(fact.selected)
     {
         
-        [recorddict setValue:@" Facet tropism" forKey:@"L_fact1"];
+        [recorddict setValue:@"Facet tropism" forKey:@"L_fact1"];
     }
     else
     {
@@ -471,7 +467,7 @@
     {
         
         
-        [recorddict setValue:@"Degenerative joint disease at" forKey:@"L_degen1"];
+        [recorddict setValue:@"Degenerative joint disease at:" forKey:@"L_degen1"];
     }
     else
     {
@@ -483,7 +479,7 @@
     {
         
         
-        [recorddict  setValue:@"mild" forKey:@"L_mild1"];
+        [recorddict  setValue:@"Mild" forKey:@"L_mild1"];
     }
     else
     {
@@ -494,7 +490,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"L_moderate1"];
+        [recorddict  setValue:@"Moderate" forKey:@"L_moderate1"];
     }
     else
     {
@@ -505,7 +501,7 @@
     if(severe.selected)
     {
         
-        [recorddict setValue:@"severe" forKey:@"L_severe1"];
+        [recorddict setValue:@"Severe" forKey:@"L_severe1"];
     }
     else
     {
@@ -527,7 +523,7 @@
     {
         
         
-        [recorddict  setValue:@"  Anterior vertebral body osteophytes at"forKey:@"L_anterior11"];
+        [recorddict  setValue:@"Anterior osteophytes at"forKey:@"L_anterior11"];
     }
     else
     {
@@ -538,7 +534,7 @@
     {
         
         
-        [recorddict  setValue:@" Subchondral sclerosis of" forKey:@"L_sub11"];
+        [recorddict  setValue:@"Subchondral sclerosis of" forKey:@"L_sub11"];
     }
     else
     {
@@ -549,31 +545,31 @@
     if(sch.selected)
     {
         
-        [recorddict setValue:@" Schmorl's nodes at"
-                      forKey:@"L-sch11"];
+        [recorddict setValue:@"Schmorls nodes at:"
+                      forKey:@"L_sch11"];
     }
     else
     {
         
         [recorddict  setValue:@"null" forKey:@"L_sch11"];
     }
-    if(grade.selected)
-    {
-        
-        
-        [recorddict setValue:@"grade" forKey:@"L_grade1"];
-    }
-    else
-    {
-        
-        [recorddict  setValue:@"null" forKey:@"L_grade1"];
-        
-    }
+    //    if(grade.selected)
+    //    {
+    //
+    //
+    //        [recorddict setValue:@"grade" forKey:@"L_grade1"];
+    //    }
+    //    else
+    //    {
+    //
+    //        [recorddict  setValue:@"null" forKey:@"L_grade1"];
+    //
+    //    }
     if(oster.selected)
     {
         
         
-        [recorddict  setValue:@" Osteoporosis" forKey:@"L_osterporo11"];
+        [recorddict  setValue:@"Osteoporosis" forKey:@"L_osterporo11"];
     }
     else
     {
@@ -584,7 +580,7 @@
     {
         
         
-        [recorddict  setValue:@"other" forKey:@"L_other111"];
+        [recorddict  setValue:@"Other" forKey:@"L_other111"];
     }
     else
     {
@@ -595,7 +591,7 @@
     if(spon.selected)
     {
         
-        [recorddict setValue:@" Spondylolisthesis of" forKey:@"L_spon1"];
+        [recorddict setValue:@"Spondylolisthesis of" forKey:@"L_spon1"];
     }
     else
     {
@@ -606,7 +602,7 @@
     {
         
         
-        [recorddict setValue:@"mi1d" forKey:@"L_mild11"];
+        [recorddict setValue:@"Mild" forKey:@"L_mild11"];
     }
     else
     {
@@ -618,7 +614,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"L_moderate11"];
+        [recorddict  setValue:@"Moderate" forKey:@"L_moderate11"];
     }
     else
     {
@@ -629,12 +625,12 @@
     {
         
         
-        [recorddict  setValue:@"severe" forKey:@"Lsevere11"];
+        [recorddict  setValue:@"Severe" forKey:@"Lsevere11"];
     }
     else
     {
         
-        [recorddict  setValue:@"null" forKey:@"L_severe11"];
+        [recorddict  setValue:@"null" forKey:@"Lsevere11"];
         
     }
     
@@ -642,7 +638,7 @@
     {
         
         
-        [recorddict setValue:@"Apex at" forKey:@"L_apex11"];
+        [recorddict setValue:@"Apex at:" forKey:@"L_apex11"];
     }
     else
     {
@@ -654,7 +650,7 @@
     {
         
         
-        [recorddict  setValue:@" Soft tissue edema of" forKey:@"L_soft11"];
+        [recorddict  setValue:@"Soft tissue edema of" forKey:@"L_soft11"];
     }
     else
     {
@@ -665,7 +661,7 @@
     {
         
         
-        [recorddict  setValue:@"other" forKey:@"L_other11"];
+        [recorddict  setValue:@"Other" forKey:@"L_other11"];
     }
     else
     {
@@ -964,14 +960,14 @@
         sponseg.hidden=YES;
         
     }
-    if(grade.selected)
-    {
-        gradeseg. hidden=NO;
-    }
-    else{
-        gradeseg.hidden=YES;
-        
-    }
+    //    if(grade.selected)
+    //    {
+    //        gradeseg. hidden=NO;
+    //    }
+    //    else{
+    //        gradeseg.hidden=YES;
+    //
+    //    }
     if(deg.selected)
     {
         degseg. hidden=NO;
@@ -1111,10 +1107,10 @@
     narrowtext.text=@"";
     anteriortext.text=@"";
     subtext.text=@"";
-    viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    viewl=@"A-P";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     degsegl=@"C-2/3";
     foraminalsegl=@"C-2/3";
     ostersegl=@"mild";
@@ -1172,7 +1168,7 @@
     subtext .hidden=YES;
     schtext .hidden=YES;
     sponseg.hidden=YES;
-    gradeseg.hidden=YES;
+    //    gradeseg.hidden=YES;
     other1text.hidden=YES;
     grade.hidden=YES;
     osterseg.hidden=YES;
@@ -1226,16 +1222,16 @@
     subtext .hidden=YES;
     schtext .hidden=YES;
     sponseg.hidden=YES;
-    gradeseg.hidden=YES;
+    //    gradeseg.hidden=YES;
     other1text.hidden=YES;
     osterseg.hidden=YES;
     apextext .hidden=YES;
     softtext .hidden=YES;
     othertext .hidden=YES;
-    viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    viewl=@"A-P";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     degsegl=@"C-2/3";
     foraminalsegl=@"C-2/3";
     ostersegl=@"mild";
@@ -1262,7 +1258,11 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
     
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
@@ -1271,6 +1271,18 @@
         }
     }
     
+}
+-(void)dismissKeyboard
+{
+    [bretext resignFirstResponder];
+    [other1text resignFirstResponder];
+    [schtext resignFirstResponder];
+    [apextext resignFirstResponder];
+    [softtext resignFirstResponder];
+    [othertext resignFirstResponder];
+    [narrowtext resignFirstResponder];
+    [anteriortext resignFirstResponder];
+    [subtext resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

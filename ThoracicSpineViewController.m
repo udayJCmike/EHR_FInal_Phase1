@@ -293,7 +293,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         texty47=@"null";
     }
     if(check22.selected){
-        texty48=@"TriggerPoint";
+        texty48=@"Trigger Points";
     }
     else{
         texty48=@"null";
@@ -311,13 +311,13 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         texty50=@"null";
     }
     if(check25.selected){
-        texty51=@"Fixations";
+        texty51=@"Fixation";
     }
     else{
         texty51=@"null";
     }
     if(check26.selected){
-        texty52=@"No Fixations";
+        texty52=@"No Fixation";
     }
     else{
         texty52=@"null";
@@ -395,25 +395,25 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         texty64=@"null";
     }
     if(check41.selected){
-        textya=@"Normal";
+        textya=@"on";
     }
     else{
         textya=@"null";
     }
     if(check42.selected){
-        textyb=@"Normal";
+        textyb=@"on";
     }
     else{
         textyb=@"null";
     }
     if(check43.selected){
-        textyc=@"Normal";
+        textyc=@"on";
     }
     else{
         textyc=@"null";
     }
     if(check44.selected){
-        textyd=@"Normal";
+        textyd=@"on";
     }
     else{
         textyd=@"null";
@@ -437,7 +437,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     //    }
     
     
-    if([chest.text length]==0||([du otherfields:texty1]==1))
+    if([chest.text length]==0||([du formreg:texty1]==1))
     {
         if([_2.text length]==0||([du date:texty2]==1))
         {
@@ -1089,7 +1089,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 -(void)dismissKeyboard {
     [smoker resignFirstResponder];
-      printView.hidden = YES;
+    printView.hidden = YES;
     [_2 resignFirstResponder];
     [_3 resignFirstResponder];
     [_4 resignFirstResponder];
@@ -1152,7 +1152,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     texty17=@"Positive Beevors";
     texty27=@"null";

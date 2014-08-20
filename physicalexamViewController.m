@@ -67,9 +67,9 @@ int suc;
 NSMutableArray *pulse;
 NSMutableArray *temp;
 NSMutableArray *height1;
-float count=0,count1=0;
-float heightint=5.0;
-float tempinit=95.0;
+float count,count1;
+float heightint;
+float tempinit;
 NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9,*texty10,*texty11,*texty12,*texty13,*texty14,*texty15,*texty16,*texty17,*texty18,*texty19,*texty20;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -138,7 +138,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty14=@"UN";
     texty15=@"Antalgic";
     texty16=@"Normal";
-    texty17=@"Normal";
+    texty17=@"";
     texty18=@"Good";
     texty19=@"Present";
     texty20=@"Normal";
@@ -176,6 +176,10 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 {
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     [super viewDidLoad];
+    count=0,
+    count1=0;
+    heightint=5.0;
+    tempinit=95.0;
     // Adding BarButton With Action Symbol
     barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(performAction:)];
     [self.navigationItem setRightBarButtonItem:barButton animated:NO];
@@ -193,7 +197,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     du=[[databaseurl alloc]init];
     
     for (UIView *v in [self.view subviews]) {
@@ -208,7 +212,6 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty14=@"UN";
     texty15=@"Antalgic";
     texty16=@"Normal";
-    texty17=@"Normal";
     texty18=@"Good";
     texty19=@"Present";
     texty20=@"Normal";
@@ -398,7 +401,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 -(void)dismissKeyboard {
     [physiciansign resignFirstResponder];
-      printView.hidden = YES;
+    printView.hidden = YES;
     [patid resignFirstResponder];
     [patname resignFirstResponder];
     
@@ -419,7 +422,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     }
     else if(head.selectedSegmentIndex==1)
     {
-        texty16=@"AbNormal";
+        texty16=@"Abnormal";
     }
 }
 
@@ -554,6 +557,17 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     return [userTest1 evaluateWithObject:user];
     
 }
+-(BOOL)validateBP:(NSString *)user
+
+{
+    NSString *userFormat1 =@"[0-9/.]+";
+    // NSString *userFormat1 =@"[0-5]+";
+    
+    //[(UITextField*)[self.view viewWithTag:101] resignFirstResponder];
+    NSPredicate *userTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", userFormat1];
+    return [userTest1 evaluateWithObject:user];
+    
+}
 - (void)textFieldDatePicker:(TextFieldDatePicker *)textFieldDatePicker didSelectDate:(NSDate *)date
 {
     //	NSLog(@"%@", date);
@@ -594,7 +608,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty10=[bp.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     texty12=[abnormalfind.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    texty13=[visceral.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    texty17=[visceral.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     if([physiciansign.text length]!=0&&[patname.text length]!=0&&[patid.text length]!=0&&[bp.text length]!=0&&[date.text length]!=0&&[abnormalfind.text length]!=0&&[visceral.text length]!=0){
         if([du otherfields:physiciansign.text]==1)
@@ -605,7 +619,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 {
                     if([self validateDate:date.text]==1)
                     {
-                        if([self validateNumber:bp.text]==1)
+                        if([self validateBP:bp.text]==1)
                         {
                             
                             if([du otherfields:visceral.text]==1)
@@ -632,11 +646,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                                     [recorddict setValue:texty14 forKey:@"weight1"];
                                     [recorddict setValue:texty15 forKey:@"gait"];
                                     [recorddict setValue:texty16 forKey:@"head"];
-                                    [recorddict setValue:texty17 forKey:@"visceralpatho"];
+                                    [recorddict setValue:visceral.text forKey:@"visceralpatho"];
                                     [recorddict setValue:texty18 forKey:@"posture"];
                                     [recorddict setValue:texty19 forKey:@"romber"];
                                     [recorddict setValue:texty20 forKey:@"cnexam"];
-                                  //  NSLog(@"Record dict Value in Physical Exam:%@",recorddict);
+                                    //  NSLog(@"Record dict Value in Physical Exam:%@",recorddict);
                                     suc=1;
                                     
                                 }

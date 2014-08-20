@@ -79,7 +79,7 @@
     }
     if (b3.selected)
     {
-        [recorddict setValue:@"Pain When Bending towards Throatic Lession" forKey:@"shep_pain1"];
+        [recorddict setValue:@"Pain When Bending towards Throatic Leison" forKey:@"shep_pain1"];
     }
     else
     {
@@ -87,7 +87,7 @@
     }
     if (b4.selected)
     {
-        [recorddict setValue:@"Pain When Bending away from Throatic Lession" forKey:@"shep_pain2"];
+        [recorddict setValue:@"Pain When Bending away from Throatic Leison" forKey:@"shep_pain2"];
     }
     else
     {
@@ -135,7 +135,7 @@
     }
     
     
-    [recorddict setValue:painlevel.text forKey:@"Thoracic painlevel"];
+    [recorddict setValue:[NSString stringWithFormat:@"%d",(int)roundf(slider1.value)] forKey:@"Thoracic painlevel"];
     
     if(a==1)
     {
@@ -179,7 +179,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
             UITextField *textfield=(UITextField*)v;

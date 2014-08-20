@@ -87,7 +87,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty8=@"0";
     texty9=@"0";
     texty10=@"0";
-    texty11=@"Right";
+    texty11=@"R";
     
     texty13=@"0";
     texty14=@"0";
@@ -171,7 +171,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     texty1=@"0";
     texty2=@"0";
     texty3=@"0";
@@ -182,7 +182,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     texty8=@"0";
     texty9=@"0";
     texty10=@"0";
-    texty11=@"Right";
+    texty11=@"R";
     
     texty13=@"0";
     texty14=@"0";
@@ -259,7 +259,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 }
 -(void)dismissKeyboard {
     [textbox resignFirstResponder];
-      printView.hidden = YES;
+    printView.hidden = YES;
 }
 
 - (IBAction)save:(id)sender {
@@ -340,37 +340,37 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
         texty38=@"null";
     }
     if(check13.selected){
-        texty40=@"Normal";
+        texty40=@"on";
     }
     else{
         texty40=@"null";
     }
     if(check14.selected){
-        texty41=@"Normal";
+        texty41=@"on";
     }
     else{
         texty41=@"null";
     }
     if(check15.selected){
-        texty42=@"Normal";
+        texty42=@"on";
     }
     else{
         texty42=@"null";
     }
     if(check16.selected){
-        texty43=@"Normal";
+        texty43=@"on";
     }
     else{
         texty43=@"null";
     }
     if(check17.selected){
-        texty44=@"Normal";
+        texty44=@"on";
     }
     else{
         texty44=@"null";
     }
     if(check18.selected){
-        texty45=@"Normal";
+        texty45=@"on";
     }
     else{
         texty45=@"null";

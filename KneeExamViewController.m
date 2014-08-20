@@ -71,7 +71,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     return self;
 }
 -(void)dismissKeyboard {
-       printView.hidden = YES;
+    printView.hidden = YES;
     [datefield resignFirstResponder];
     [patname resignFirstResponder];
     [check1text resignFirstResponder];
@@ -160,7 +160,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     seg8=@"null";
     anqpicker.hidden=YES;
     recorddict=[[NSMutableDictionary alloc]init];
@@ -493,7 +493,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
                 segnew1=@"Superior Illiac crest right";
             }
             else if ([temp4 isEqualToString:@"Superior Illiac crest left"] ) {
-                [segmentnew1 setSelectedSegmentIndex:1];
+                [segmentnew1 setSelectedSegmentIndex:2];
                 segnew1=@"Superior Illiac crest left";
             }
             
@@ -1154,10 +1154,7 @@ NSString *check1,*check2,*check3,*checky4,*check5,*check6;
         
         gaitlabel.text=[gaitarray objectAtIndex:row];
     
-    
-    else
-        
-        pickerView.hidden=YES;
+    pickerView.hidden=YES;
     
 }
 

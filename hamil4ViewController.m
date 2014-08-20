@@ -134,7 +134,7 @@
     
     
     
-    [recorddict setValue:painlevel.text forKey:@"painlevellumbar"];
+    [recorddict setValue:[NSString stringWithFormat:@"%d", (int)roundf(slider1.value)] forKey:@"painlevellumbar"];
     
     [recorddict setValue:segg3 forKey:@"WLRr"];
     
@@ -336,7 +336,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
 	// Do any additional setup after loading the view.
     for (UIView *v in [self.view subviews]) {
         if ([v isKindOfClass:[UITextField class]]) {
@@ -622,14 +622,13 @@
     }
     if(slrr.selectedSegmentIndex==2){
         segg1=@"70";
-        
     }
     
 }
 
 - (IBAction)seg5:(id)sender {
     if(allisr.selectedSegmentIndex==0){
-        segg5=@"long tibia";
+        segg5=@"ltibia";
         
     }
     if(allisr.selectedSegmentIndex==1){
@@ -642,7 +641,7 @@
 
 - (IBAction)seg6:(id)sender {
     if(allisl.selectedSegmentIndex==0){
-        segg6=@"long tibia";
+        segg6=@"ltibia";
         
     }
     if(allisl.selectedSegmentIndex==1){

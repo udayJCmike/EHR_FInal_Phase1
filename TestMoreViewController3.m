@@ -79,7 +79,7 @@ int a;
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,18 +97,18 @@ int a;
     }
 }
 -(IBAction)next:(id)sender{
-   // recorddict=[[NSMutableDictionary alloc]init];
-
+    // recorddict=[[NSMutableDictionary alloc]init];
+    
     if(button1.selected){
         
-        [recorddict setValue:@"Homans' Sign" forKey:@"homans"];
+        [recorddict setValue:@"homans" forKey:@"homans"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"homans"];
     }
     if(button2.selected){
         
-        [recorddict setValue:@"Anterior Drawer Test" forKey:@"anteriorh"];
+        [recorddict setValue:@"anteriorh" forKey:@"anteriorh"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"anteriorh"];
@@ -116,7 +116,7 @@ int a;
     
     if(button3.selected){
         
-        [recorddict setValue:@"Talar Tilt Test (Inversion)" forKey:@"talarinversion"];
+        [recorddict setValue:@"talarinversion" forKey:@"talarinversion"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"talarinversion"];
@@ -124,7 +124,7 @@ int a;
     
     if(button4.selected){
         
-        [recorddict setValue:@"Talar Tilt Test (Eversion)" forKey:@"talareversion"];
+        [recorddict setValue:@"talareversion" forKey:@"talareversion"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"talareversion"];
@@ -132,7 +132,7 @@ int a;
     
     if(button5.selected){
         
-        [recorddict setValue:@"Thompson Test" forKey:@"thompson"];
+        [recorddict setValue:@"thompson" forKey:@"thompson"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"thompson"];
@@ -140,7 +140,7 @@ int a;
     
     if(button6.selected){
         
-        [recorddict setValue:@"Tap or Percussion Test" forKey:@"tap"];
+        [recorddict setValue:@"tap" forKey:@"tap"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"tap"];
@@ -148,7 +148,7 @@ int a;
     
     if(button7.selected){
         
-        [recorddict setValue:@"Feiss Line 30" forKey:@"feiss"];
+        [recorddict setValue:@"feiss" forKey:@"feiss"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"feiss"];
@@ -156,7 +156,7 @@ int a;
     
     if(button8.selected){
         
-        [recorddict setValue:@"Interdigital Neuroma Test" forKey:@"interdigital"];
+        [recorddict setValue:@"interdigital" forKey:@"interdigital"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"interdigital"];
@@ -164,29 +164,29 @@ int a;
     
     if(button9.selected){
         
-        [recorddict setValue:@"Compression Test" forKey:@"compressiontest"];
+        [recorddict setValue:@"compressiontest" forKey:@"compressiontest"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"compressiontest"];
     }
     if(button10.selected){
         
-        [recorddict setValue:@"Long Bone Compression Test" forKey:@"longbone"];
+        [recorddict setValue:@"longbone" forKey:@"longbone"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"longbone"];
     }
-
+    
     if(button11.selected){
         
-        [recorddict setValue:@"Swing Test" forKey:@"swingtest"];
+        [recorddict setValue:@"swingtest" forKey:@"swingtest"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"swingtest"];
     }
     if(button12.selected){
         
-        [recorddict setValue:@"Kleiger's Test" forKey:@"kleiger"];
+        [recorddict setValue:@"kleiger" forKey:@"kleiger"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"kleiger"];
@@ -194,14 +194,14 @@ int a;
     
     if(button13.selected){
         
-        [recorddict setValue:@"Tinel's Sign" forKey:@"tinelsignk"];
+        [recorddict setValue:@"tinelsignk" forKey:@"tinelsignk"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"tinelsignk"];
     }
     a=1;
     
-  //  [self performSegueWithIdentifier:@"moretest3" sender:self];
+    //  [self performSegueWithIdentifier:@"moretest3" sender:self];
     //NSLog(@"recoed dict in final:::%@",recorddict);
     //NSLog(@"size of record dict in final:::%d",[recorddict count]);
     HUD = [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
@@ -302,7 +302,7 @@ int a;
                                                             statusBarStyle:UIStatusBarStyleDefault
                                                                   callback:nil];
                 
-               
+                
                 classfname=[moretestdict objectForKey:@"fromclass"];
                 if([classfname isEqualToString:@"hamil2ViewController"])
                 {
@@ -356,7 +356,7 @@ int a;
                     
                     
                 }
-              //  [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                //  [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
                 
                 
             }
@@ -371,9 +371,9 @@ int a;
                                                                       type:TWMessageBarMessageTypeError
                                                             statusBarStyle:UIStatusBarStyleLightContent
                                                                   callback:nil];
-
                 
-               
+                
+                
                 
                 classfname=[moretestdict objectForKey:@"fromclass"];
                 if([classfname isEqualToString:@"hamil2ViewController"])
@@ -456,7 +456,7 @@ int a;
     NSString *post1=[[NSString alloc] initWithFormat:@"apparentleg=%@&ely=%@&tripod=%@&femoral=%@&patella=%@&patellarp=%@&ballotable=%@&sweep=%@&quadriceps=%@&medial=%@&bounce=%@&patellar=%@&renne=%@&noble=%@&hughston=%@&godfrey=%@&posteriorg=%@&reverse=%@&anteriorlt=%@&anteriordt=%@&slocuminternal=%@&slocumexternal=%@&pivot=%@&jerk=%@&posteriordt=%@&hughstonposteromedial=%@&hughstonposterolateral=%@&posteriorlt=%@&externalrotation=%@&valgusstt=%@&varusstt=%@&mcmurray=%@&apleyct=%@&steinmann=%@&rectus=%@&homans=%@&anteriorh=%@&talarinversion=%@&talareversion=%@&thompson=%@&tap=%@&feiss=%@&interdigital=%@&compressiontest=%@&longbone=%@&swingtest=%@&kleiger=%@&tinelsignk=%@&%@=%@",[recorddict objectForKey:@"apparentleg"],[recorddict objectForKey:@"ely"],[recorddict objectForKey:@"tripod"],[recorddict objectForKey:@"femoral"],[recorddict objectForKey:@"patella"],[recorddict objectForKey:@"patellarp"],[recorddict objectForKey:@"ballotable"],[recorddict objectForKey:@"sweep"],[recorddict objectForKey:@"quadriceps"],[recorddict objectForKey:@"medial"],[recorddict objectForKey:@"bounce"],[recorddict objectForKey:@"patellar"],[recorddict objectForKey:@"renne"],[recorddict objectForKey:@"noble"],[recorddict objectForKey:@"hughston"],[recorddict objectForKey:@"godfrey"],[recorddict objectForKey:@"posteriorg"],[recorddict objectForKey:@"reverse"],[recorddict objectForKey:@"anteriorlt"],[recorddict objectForKey:@"anteriordt"],[recorddict objectForKey:@"slocuminternal"],[recorddict objectForKey:@"slocumexternal"],[recorddict objectForKey:@"pivot"],[recorddict objectForKey:@"jerk"],[recorddict objectForKey:@"posteriordt"],[recorddict objectForKey:@"hughstonposteromedial"],[recorddict objectForKey:@"hughstonposterolateral"],[recorddict objectForKey:@"posteriorlt"],[recorddict objectForKey:@"externalrotation"],[recorddict objectForKey:@"valgusstt"],[recorddict objectForKey:@"varusstt"],[recorddict objectForKey:@"mcmurray"],[recorddict objectForKey:@"apleyct"],[recorddict objectForKey:@"steinmann"],[recorddict objectForKey:@"rectus"],[recorddict objectForKey:@"homans"],[recorddict objectForKey:@"anteriorh"],[recorddict objectForKey:@"talarinversion"],[recorddict objectForKey:@"talareversion"],[recorddict objectForKey:@"thompson"],[recorddict objectForKey:@"tap"],[recorddict objectForKey:@"feiss"],[recorddict objectForKey:@"interdigital"],[recorddict objectForKey:@"compressiontest"],[recorddict objectForKey:@"longbone"],[recorddict objectForKey:@"swingtest"],[recorddict objectForKey:@"kleiger"],[recorddict objectForKey:@"tinelsignk"],secondEntity,value2];
     
     NSString *str = [NSString stringWithFormat: @"%@%@", post, post1];
-   // //NSLog(@"POST:%@",str);
+    // //NSLog(@"POST:%@",str);
     //[recorddict objectForKey:@"ml4left"],[recorddict objectForKey:@"Physician signature"]
     NSURL *url = [NSURL URLWithString:url2];
     
@@ -479,7 +479,7 @@ int a;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // //NSLog(@"data %@",data);
+    // //NSLog(@"data %@",data);
     
     return data;
     
@@ -540,9 +540,9 @@ int a;
         
         
     }
-
-  // [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
-  //  [self.navigationController popViewControllerAnimated:YES];
+    
+    // [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+    //  [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)reset:(id)sender {
     button1.selected=NO;

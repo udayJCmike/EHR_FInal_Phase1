@@ -277,7 +277,7 @@
     }
 }
 -(void)dismissKeyboard{
-      printView.hidden = YES;
+    printView.hidden = YES;
     [patientname resignFirstResponder];
     [muscle resignFirstResponder];
     [swelling resignFirstResponder];
@@ -348,7 +348,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -382,7 +382,7 @@
     NSDictionary *arrayList1;
     //     To check whether its having data or not
     //   NSLog(@"items1app %d",[items1App count]);
-   // NSLog(@"items1app %@",items1App);
+    // NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -446,6 +446,12 @@
             temp17=[arrayList1 objectForKey:@"c7r"];
             temp18=[arrayList1 objectForKey:@"c71l"];
             
+            [resultset setValue:[arrayList1 objectForKey:@"c51l"] forKey:@"c51l"];
+            [resultset setValue:[arrayList1 objectForKey:@"c51r"] forKey:@"c51r"];
+            [resultset setValue:[arrayList1 objectForKey:@"c61l"] forKey:@"c61l"];
+            [resultset setValue:[arrayList1 objectForKey:@"c61r"] forKey:@"c61r"];
+            [resultset setValue:[arrayList1 objectForKey:@"c71l"] forKey:@"c71l"];
+            [resultset setValue:[arrayList1 objectForKey:@"c71r"] forKey:@"c71r"];
             [resultset setValue:[arrayList1 objectForKey:@"c53l"] forKey:@"c53l"];
             [resultset setValue:[arrayList1 objectForKey:@"c53r"] forKey:@"c53r"];
             [resultset setValue:[arrayList1 objectForKey:@"c63l"] forKey:@"c63l"];
@@ -527,12 +533,12 @@
             SC8R.text =[resultset objectForKey:@"c8r"];
             ST1L.text=[resultset objectForKey:@"t1l"];
             ST1R.text =[resultset objectForKey:@"t1r"];
-            RC5L.text =temp44;
-            RC5R.text =temp45;
-            RC6L.text =temp50;
-            RC6R.text =temp51;
-            RC7L.text =temp18;
-            RC7R.text =[resultset objectForKey:@"c71r"];
+            RC5L.text =temp46;
+            RC5R.text =temp47;
+            RC6L.text =temp52;
+            RC6R.text =temp53;
+            RC7L.text =[resultset objectForKey:@"c73l"];
+            RC7R.text =[resultset objectForKey:@"c73r"];
             
             if ([temp7 isEqualToString:@"All Soft Tissue Unremarkable"]) {
                 palpation.selected=YES;
@@ -710,7 +716,7 @@
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     

@@ -18945,19 +18945,19 @@ PHYSICIAN SIGNATURE:</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" CERVICAL SPINE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tvt-hR-V14">
-                                <rect key="frame" x="313" y="192" width="142" height="21"/>
+                                <rect key="frame" x="313" y="186" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Views:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GQK-am-UyR">
-                                <rect key="frame" x="27" y="213" width="55" height="21"/>
+                                <rect key="frame" x="27" y="235" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="csv-gy-hkf">
-                                <rect key="frame" x="50" y="242" width="545" height="29"/>
+                                <rect key="frame" x="91" y="232" width="545" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="A-P lower"/>
@@ -18975,7 +18975,7 @@ PHYSICIAN SIGNATURE:</string>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YLp-aA-Mpl">
-                                <rect key="frame" x="27" y="288" width="47" height="34"/>
+                                <rect key="frame" x="27" y="272" width="47" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" " image="checkBox.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -18985,13 +18985,13 @@ PHYSICIAN SIGNATURE:</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Negative for recent fracture, dislocation or gross osteopathology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="to4-ud-3DW">
-                                <rect key="frame" x="61" y="295" width="502" height="21"/>
+                                <rect key="frame" x="61" y="279" width="502" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BnB-Ke-W78">
-                                <rect key="frame" x="26" y="330" width="47" height="34"/>
+                                <rect key="frame" x="26" y="311" width="47" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title=" " image="checkBox.png">
@@ -19001,20 +19001,20 @@ PHYSICIAN SIGNATURE:</string>
                                     <action selector="checkboxselected:" destination="eVs-xi-MLL" eventType="touchUpInside" id="S6h-Yl-W8o"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Positive for" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g4J-oO-4Ps">
-                                <rect key="frame" x="60" y="337" width="91" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Positive for recent fracture, dislocation or gross osteopathology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g4J-oO-4Ps">
+                                <rect key="frame" x="60" y="318" width="495" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="NfU-b9-QSX">
-                                <rect key="frame" x="34" y="366" width="175" height="30"/>
+                                <rect key="frame" x="549" y="314" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xdg-Qj-BHc">
-                                <rect key="frame" x="253" y="326" width="47" height="34"/>
+                                <rect key="frame" x="26" y="364" width="47" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title=" " image="checkBox.png">
@@ -19025,19 +19025,19 @@ PHYSICIAN SIGNATURE:</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Break in georges line at" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1d8-mF-hNC">
-                                <rect key="frame" x="287" y="333" width="188" height="21"/>
+                                <rect key="frame" x="60" y="371" width="188" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="iPb-hx-PBO">
-                                <rect key="frame" x="261" y="362" width="214" height="30"/>
+                                <rect key="frame" x="261" y="366" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VlC-2e-TxW">
-                                <rect key="frame" x="526" y="324" width="47" height="34"/>
+                                <rect key="frame" x="526" y="366" width="47" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title=" " image="checkBox.png">
@@ -19048,7 +19048,7 @@ PHYSICIAN SIGNATURE:</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ADI more than 3mm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xoz-Lj-gWp">
-                                <rect key="frame" x="559" y="332" width="159" height="21"/>
+                                <rect key="frame" x="559" y="374" width="159" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -19719,18 +19719,16 @@ PHYSICIAN SIGNATURE:</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="gav-So-1oR">
-                                <rect key="frame" x="25" y="125" width="713" height="29"/>
+                                <rect key="frame" x="60" y="125" width="616" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="A-P lower"/>
-                                    <segment title=" APOM"/>
-                                    <segment title="L lateral"/>
-                                    <segment title="RLF" width="50"/>
+                                    <segment title="A-P"/>
+                                    <segment title="RLF"/>
                                     <segment title="LLF"/>
-                                    <segment title="RPO" width="50"/>
+                                    <segment title="RPO"/>
                                     <segment title="LPO"/>
-                                    <segment title=" P-A CHEST"/>
-                                    <segment title=" Lateral Chest"/>
+                                    <segment title="P-A Chest"/>
+                                    <segment title="Lateral Chest"/>
                                 </segments>
                                 <connections>
                                     <action selector="views:" destination="dC7-TY-6rE" eventType="valueChanged" id="NKS-Fd-KIc"/>
@@ -20318,7 +20316,7 @@ PHYSICIAN SIGNATURE:</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cZf-y7-nai">
-                                <rect key="frame" x="269" y="326" width="47" height="34"/>
+                                <rect key="frame" x="115" y="361" width="47" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title=" " image="checkBox.png">
@@ -20328,8 +20326,8 @@ PHYSICIAN SIGNATURE:</string>
                                     <action selector="checkboxselected:" destination="haL-yi-rjB" eventType="touchUpInside" id="qEW-rT-7yP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Positive for" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZD9-gl-iRT">
-                                <rect key="frame" x="303" y="333" width="96" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Positive for recent fracture, dislocation or gross osteopathology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZD9-gl-iRT">
+                                <rect key="frame" x="149" y="368" width="491" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -20364,6 +20362,12 @@ PHYSICIAN SIGNATURE:</string>
                                     <action selector="reset:" destination="haL-yi-rjB" eventType="touchUpInside" id="gU9-YD-gJw"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ZwG-Sc-nmQ">
+                                <rect key="frame" x="149" y="403" width="188" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -20373,6 +20377,7 @@ PHYSICIAN SIGNATURE:</string>
                         <outlet property="cancel" destination="DyC-OH-Ltg" id="GRZ-5C-ZxJ"/>
                         <outlet property="nor" destination="BzU-xi-rgy" id="zi4-xi-puO"/>
                         <outlet property="pos" destination="cZf-y7-nai" id="10v-eO-bSR"/>
+                        <outlet property="postiveText" destination="ZwG-Sc-nmQ" id="wB3-PZ-hD5"/>
                         <outlet property="reset" destination="vxE-FD-sga" id="vVG-Xj-VMf"/>
                         <outlet property="viewtext" destination="545-TX-GXY" id="HzF-Ki-ejL"/>
                     </connections>
@@ -20404,12 +20409,11 @@ PHYSICIAN SIGNATURE:</string>
                                 <rect key="frame" x="128" y="129" width="360" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="A-P lower"/>
-                                    <segment title=" L lateral"/>
-                                    <segment title=" RPO"/>
-                                    <segment title=" LPO"/>
-                                    <segment title=" RLF"/>
-                                    <segment title="LLF"/>
+                                    <segment title="A-P"/>
+                                    <segment title="RPO"/>
+                                    <segment title="LPO"/>
+                                    <segment title="RLF"/>
+                                    <segment title=" LLF"/>
                                 </segments>
                                 <connections>
                                     <action selector="views:" destination="SHy-sd-ipx" eventType="valueChanged" id="DCO-oX-B1h"/>

@@ -38,6 +38,7 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)reset:(id)sender;
 @property (retain, nonatomic) IBOutlet UITextField *viewtext;
+@property (retain, nonatomic) IBOutlet UITextField *postiveText;
 @property (retain, nonatomic)NSMutableDictionary *recorddict;
 @property (retain, nonatomic) IBOutlet UIButton *nor;
 @property (retain, nonatomic) IBOutlet UIButton *pos;

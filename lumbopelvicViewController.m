@@ -551,7 +551,7 @@
     }
     if(NEURO.selected)
     {
-        [recorddict setValue:@"Unremarkable" forKey:@"neuro un"];
+        [recorddict setValue:@"Neurological Testing Unremarkable" forKey:@"neuro un"];
         
     }
     else
@@ -564,14 +564,14 @@
     }
     else{
         [recorddict setValue:@"null" forKey:@"leftsegment"];
-        lefoth.text=@"null";
+        lefoth.text=@"";
     }
     
     if( rightbut.selected){
         [recorddict setValue:@"Right" forKey:@"rightsegment"];
     }
     else{
-        rigoth.text=@"null";
+        rigoth.text=@"";
         [recorddict setValue:@"null" forKey:@"rightsegment"];
     }
     if([lefoth.text isEqualToString:@""]){
@@ -1528,7 +1528,7 @@
 
 -(void)dismissKeyboard
 {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [patientname resignFirstResponder];
     [date resignFirstResponder];
     [othernotes resignFirstResponder];
@@ -1584,9 +1584,6 @@
 
 - (void)viewDidLoad
 {
-    
-    left=@"null";
-    right=@"null";
     Piriforms=@"null";
     GluteusMaximus=@"null";
     lliopsoas=@"null";
@@ -1597,6 +1594,8 @@
     Hamstrings=@"null";
     Obliques=@"null";
     AO=@"Excellent";
+    left=@"1/8";
+    right=@"1/8";
     [super viewDidLoad];
     lefoth.hidden=YES;
     rigoth.hidden=YES;
@@ -1619,7 +1618,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     [gait setBackgroundColor:([UIColor whiteColor])];
     [pelvic setBackgroundColor:([UIColor whiteColor])];
     selectgait=@"Normal";
@@ -1658,7 +1657,7 @@
     NSDictionary *arrayList1;
     //     To check whether its having data or not
     //   NSLog(@"items1app %d",[items1App count]);
-   // NSLog(@"items1app %@",items1App);
+    // NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -1834,13 +1833,13 @@
             positive_adam.text =temp58;
             L1L.text=[resultset objectForKey:@"l1l"];
             L1R.text=[resultset objectForKey:@"l1r"];
-            L2L.text=[resultset objectForKey:@"l2r"];
+            L2L.text=[resultset objectForKey:@"l2l"];
             L2R.text=[resultset objectForKey:@"l2r"];
-            L3L .text=[resultset objectForKey:@"l3r"];
+            L3L .text=[resultset objectForKey:@"l3l"];
             L3RR.text=[resultset objectForKey:@"l3r"];
-            L4L.text=[resultset objectForKey:@"l4r"];
+            L4L.text=[resultset objectForKey:@"l4l"];
             L4R.text=[resultset objectForKey:@"l4r"];
-            L5L.text=[resultset objectForKey:@"l5r"];
+            L5L.text=[resultset objectForKey:@"l5l"];
             L5R.text=[resultset objectForKey:@"l5r"];
             SIL.text=[resultset objectForKey:@"sl"];
             SIR.text=[resultset objectForKey:@"sr"];
@@ -2009,7 +2008,7 @@
                 [recorddict setValue:@"null" forKey:@"orthopedic un"];
             }
             
-            if ([temp59 isEqualToString:@"Unremarkable"]) {
+            if ([temp59 isEqualToString:@"Neurological Testing Unremarkable"]) {
                 NEURO.selected=YES;
                 [NEURO setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
                 [recorddict setValue:@"Unremarkable" forKey:@"neuro un"];
@@ -2298,11 +2297,11 @@
     }
     else if (pelvicseg.selectedSegmentIndex==1)
     {
-        selectpelvic=@"Superior illiac Crest right";
+        selectpelvic=@"Crest Right";
     }
     else if (pelvicseg.selectedSegmentIndex==2)
     {
-        selectpelvic=@"Superior illiac Crest left";
+        selectpelvic=@"Crest Left";
     }
 }
 
@@ -2461,6 +2460,10 @@
     
     selectgait=@"Normal";
     SIR.text=@"";
+    left=@"1/8";
+    right=@"1/8";
+    [rightseg setSelectedSegmentIndex:0];
+    [leftseg setSelectedSegmentIndex:0];
     
 }
 - (IBAction)cancel:(id)sender {

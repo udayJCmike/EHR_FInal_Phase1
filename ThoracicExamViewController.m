@@ -97,7 +97,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -306,11 +306,11 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
                 [checky3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
                 check3 = @"null";
             }
-            if ([[resultset objectForKey:@"orthopedic"] isEqualToString:@"Circumferential Measures are Unremarkable"])
+            if ([[resultset objectForKey:@"orthopedic"] isEqualToString:@"Unremarkable"])
             {
                 checky4.selected = YES;
                 [checky4 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                check4 = @"Circumferential Measures are Unremarkable";
+                check4 = @"Unremarkable";
             }
             else
             {
@@ -555,7 +555,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
 
 
 -(void)dismissKeyboard {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [datefield resignFirstResponder];
     [patname resignFirstResponder];
     [text2 resignFirstResponder];
@@ -1653,7 +1653,7 @@ NSString *texty1,*texty2,*texty3,*texty4,*texty5,*texty6,*texty7,*texty8,*texty9
     else
         check3=@"null";
     if(checky4.selected){
-        check4=@"Circumferential Measures are Unremarkable";
+        check4=@"Unremarkable";
     }
     else
         check4=@"null";

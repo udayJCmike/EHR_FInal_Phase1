@@ -96,7 +96,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     temp=[[NSMutableDictionary alloc]init];
     temp=recorddict;
@@ -286,14 +286,14 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
             
             check1.selected=NO;
             [check1 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"null" forKey:@"checkstring1"];
+            checkstring1=@"null";
             
             
         }else{
             
             check1.selected=YES;
             [check1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Neurological Testing Unremarkable" forKey:@"checkstring1"];
+            checkstring1=@"Neurological Testing Unremarkable";
         }
         
         
@@ -302,46 +302,46 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
             
             check2.selected=NO;
             [check2 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"null" forKey:@"checkstring2"];
+            checkstring2=@"null";
             
             
         }else{
             
             check2.selected=YES;
             [check2 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Walking" forKey:@"checkstring2"];
+            checkstring2=@"Walking";
         }
         if([[resultset objectForKey:@"standing"] isEqualToString:@"null"]){
             check3.selected=NO;
             [check3 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"null" forKey:@"checkstring3"];
+            checkstring3=@"null";
         }else{
             check3.selected=YES;
             [check3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Standing" forKey:@"checkstring3"];
+            checkstring3=@"Standing";
         }
         if([[resultset objectForKey:@"stairs"] isEqualToString:@"null"]){
             check4.selected=NO;
             [check4 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"null" forKey:@"checkstring4"];
+            checkstring4=@"null";
             
         }else{
             check4.selected=YES;
             [check4 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Stairs" forKey:@"checkstring4"];
+            checkstring4=@"Stairs";
         }
         if([[resultset objectForKey:@"otherfunctional"] isEqualToString:@"null"]){
             check5.selected=NO;
             other1.hidden=YES;
             other1.text=@"";
             [check5 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"null" forKey:@"checkstring5"];
+            checkstring5=@"null";
             
         }else{
             check5.selected=YES;
             other1.hidden=NO;
             [check5 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Other" forKey:@"checkstring5"];
+            checkstring5=@"Other";
         }
         if([[resultset objectForKey:@"break_text3"] isEqualToString:@"null"]){
             other1.text=@"";
@@ -488,7 +488,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4,*segva,*checkst
     //	//NSLog(@"begin editing");
 }
 -(void)dismissKeyboard {
-       printView.hidden = YES;
+    printView.hidden = YES;
     [sensleft resignFirstResponder];
     [sensright resignFirstResponder];
     [motorleft resignFirstResponder];

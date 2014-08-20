@@ -108,7 +108,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     update.hidden=YES;
     deletefunc.hidden=YES;
     submit.hidden=NO;
@@ -319,10 +319,10 @@
             [recorddict setValue:@"null" forKey:@"chiro"];
             
         }
-        if ([[resultset objectForKey:@"physical"] isEqualToString:@"Physical Theraphy"]) {
+        if ([[resultset objectForKey:@"physical"] isEqualToString:@"Physical Therapy"]) {
             p3.selected=YES;
             [p3 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Physical Theraphy" forKey:@"phy"];
+            [recorddict setValue:@"Physical Therapy" forKey:@"phy"];
             
         }
         else
@@ -501,7 +501,7 @@
 }
 -(void)dismissKeyboard
 {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [plan1 resignFirstResponder];
     [plan2 resignFirstResponder];
     [fdother resignFirstResponder];
@@ -819,7 +819,7 @@
         [recorddict setValue:@"null" forKey:@"chiro"];
     }
     if (p3.selected) {
-        [recorddict setValue:@"Physical Theraphy" forKey:@"phy"];
+        [recorddict setValue:@"Physical Therapy" forKey:@"phy"];
     }
     else
     {
@@ -1769,7 +1769,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     

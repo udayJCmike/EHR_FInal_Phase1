@@ -58,7 +58,7 @@ int a;
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,18 +76,18 @@ int a;
     }
 }
 -(IBAction)next:(id)sender{
- //recorddict=[[NSMutableDictionary alloc]init];
+    //recorddict=[[NSMutableDictionary alloc]init];
     
     if(button1.selected){
         
-        [recorddict setValue:@"Hip Scouring or Quadrant Test" forKey:@"hipscouring"];
+        [recorddict setValue:@"hipscouring" forKey:@"hipscouring"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"hipscouring"];
     }
     if(button2.selected){
         
-        [recorddict setValue:@"Nélaton's Line" forKey:@"nelaton"];
+        [recorddict setValue:@"nelaton" forKey:@"nelaton"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"nelaton"];
@@ -95,7 +95,7 @@ int a;
     
     if(button3.selected){
         
-        [recorddict setValue:@"Craig's Test" forKey:@"craig"];
+        [recorddict setValue:@"craig" forKey:@"craig"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"craig"];
@@ -103,7 +103,7 @@ int a;
     
     if(button4.selected){
         
-        [recorddict setValue:@"90-90 Straight Leg Raise Test" forKey:@"straightc"];
+        [recorddict setValue:@"straightc" forKey:@"straightc"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"straightc"];
@@ -111,7 +111,7 @@ int a;
     
     if(button5.selected){
         
-        [recorddict setValue:@"Patrick or FABER Test" forKey:@"fabertest"];
+        [recorddict setValue:@"fabertest" forKey:@"fabertest"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"fabertest"];
@@ -119,7 +119,7 @@ int a;
     
     if(button6.selected){
         
-        [recorddict setValue:@"Trendelenburg's Test" forKey:@"trendelenburgf"];
+        [recorddict setValue:@"trendelenburgf" forKey:@"trendelenburgf"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"trendelenburgf"];
@@ -127,7 +127,7 @@ int a;
     
     if(button7.selected){
         
-        [recorddict setValue:@"Ober's Test" forKey:@"ober"];
+        [recorddict setValue:@"ober" forKey:@"ober"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"ober"];
@@ -135,7 +135,7 @@ int a;
     
     if(button8.selected){
         
-        [recorddict setValue:@"Piriformis Test" forKey:@"piriformis"];
+        [recorddict setValue:@"piriformis" forKey:@"piriformis"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"piriformis"];
@@ -143,29 +143,29 @@ int a;
     
     if(button9.selected){
         
-        [recorddict setValue:@"Thomas Test" forKey:@"thomasp"];
+        [recorddict setValue:@"thomasp" forKey:@"thomasp"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"thomasp"];
     }
     if(button10.selected){
         
-        [recorddict setValue:@"True Leg-Length Discrepancy Test" forKey:@"trueleg"];
+        [recorddict setValue:@"trueleg" forKey:@"trueleg"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"trueleg"];
     }
-
+    
     if(button11.selected){
         
-        [recorddict setValue:@"Apparent Leg-Length Discrepancy Test" forKey:@"apparentleg"];
+        [recorddict setValue:@"apparentleg" forKey:@"apparentleg"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"apparentleg"];
     }
     if(button12.selected){
         
-        [recorddict setValue:@"Ely's Test" forKey:@"ely"];
+        [recorddict setValue:@"ely" forKey:@"ely"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"ely"];
@@ -173,7 +173,7 @@ int a;
     
     if(button13.selected){
         
-        [recorddict setValue:@"Tripod Test" forKey:@"tripod"];
+        [recorddict setValue:@"tripod" forKey:@"tripod"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"tripod"];
@@ -181,7 +181,7 @@ int a;
     
     if(button14.selected){
         
-        [recorddict setValue:@"Femoral Nerve Traction Test" forKey:@"femoral"];
+        [recorddict setValue:@"femoral" forKey:@"femoral"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"femoral"];
@@ -189,7 +189,7 @@ int a;
     
     if(button15.selected){
         
-        [recorddict setValue:@" Patella Tendon/Patella Ligament Length Test" forKey:@"patella"];
+        [recorddict setValue:@"patella" forKey:@"patella"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"patella"];
@@ -197,7 +197,7 @@ int a;
     
     if(button16.selected){
         
-        [recorddict setValue:@"Patellar Apprehension Test" forKey:@"patellarp"];
+        [recorddict setValue:@"patellarp" forKey:@"patellarp"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"patellarp"];
@@ -205,7 +205,7 @@ int a;
     
     if(button17.selected){
         
-        [recorddict setValue:@"Ballotable Patella or Patella Tap Test" forKey:@"ballotable"];
+        [recorddict setValue:@"ballotable" forKey:@"ballotable"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"ballotable"];
@@ -213,7 +213,7 @@ int a;
     
     if(button18.selected){
         
-        [recorddict setValue:@"Sweep Test" forKey:@"sweep"];
+        [recorddict setValue:@"sweep" forKey:@"sweep"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"sweep"];
@@ -221,28 +221,28 @@ int a;
     
     if(button19.selected){
         
-        [recorddict setValue:@"Quadriceps or Q-Angle Test" forKey:@"quadriceps"];
+        [recorddict setValue:@"quadriceps" forKey:@"quadriceps"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"quadriceps"];
     }
     if(button20.selected){
         
-        [recorddict setValue:@"Medial-Lateral Grind Test" forKey:@"medial"];
+        [recorddict setValue:@"medial" forKey:@"medial"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"medial"];
     }
     if(button21.selected){
         
-        [recorddict setValue:@"Bounce Home Test" forKey:@"bounce"];
+        [recorddict setValue:@"bounce" forKey:@"bounce"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"bounce"];
     }
     if(button22.selected){
         
-        [recorddict setValue:@"Patellar Grind Test (Clarke's Sign)" forKey:@"patellar"];
+        [recorddict setValue:@"patellar" forKey:@"patellar"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"patellar"];
@@ -250,7 +250,7 @@ int a;
     
     if(button23.selected){
         
-        [recorddict setValue:@"Renne Test" forKey:@"renne"];
+        [recorddict setValue:@"renne" forKey:@"renne"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"renne"];
@@ -258,7 +258,7 @@ int a;
     
     if(button24.selected){
         
-        [recorddict setValue:@"Noble Test" forKey:@"noble"];
+        [recorddict setValue:@"noble" forKey:@"noble"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"noble"];
@@ -266,7 +266,7 @@ int a;
     
     if(button25.selected){
         
-        [recorddict setValue:@"Hughston's Plica Test" forKey:@"hughston"];
+        [recorddict setValue:@"hughston" forKey:@"hughston"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"hughston"];
@@ -274,7 +274,7 @@ int a;
     
     if(button26.selected){
         
-        [recorddict setValue:@"Godfrey 90/90 Test" forKey:@"godfrey"];
+        [recorddict setValue:@"godfrey" forKey:@"godfrey"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"godfrey"];
@@ -282,7 +282,7 @@ int a;
     
     if(button27.selected){
         
-        [recorddict setValue:@"Posterior Sag Test (Gravity Drawer Test)" forKey:@"posteriorg"];
+        [recorddict setValue:@"posteriorg" forKey:@"posteriorg"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"posteriorg"];
@@ -290,7 +290,7 @@ int a;
     
     if(button28.selected){
         
-        [recorddict setValue:@"Reverse Pivot Shift (Jakob Test)" forKey:@"reverse"];
+        [recorddict setValue:@"reverse" forKey:@"reverse"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"reverse"];
@@ -298,28 +298,28 @@ int a;
     
     if(button29.selected){
         
-        [recorddict setValue:@"Anterior Lachman's Test" forKey:@"anteriorlt"];
+        [recorddict setValue:@"anteriorlt" forKey:@"anteriorlt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"anteriorlt"];
     }
     if(button30.selected){
         
-        [recorddict setValue:@"Anterior Drawer Test" forKey:@"anteriordt"];
+        [recorddict setValue:@"anteriordt" forKey:@"anteriordt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"anteriordt"];
     }
     if(button31.selected){
         
-        [recorddict setValue:@"Slocum Test With Internal Tibial Rotation" forKey:@"slocuminternal"];
+        [recorddict setValue:@"slocuminternal" forKey:@"slocuminternal"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"slocuminternal"];
     }
     if(button32.selected){
         
-        [recorddict setValue:@"Slocum Test With External Tibial Rotation" forKey:@"slocumexternal"];
+        [recorddict setValue:@"slocumexternal" forKey:@"slocumexternal"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"slocumexternal"];
@@ -327,7 +327,7 @@ int a;
     
     if(button33.selected){
         
-        [recorddict setValue:@"Pivot Shift Test" forKey:@"pivot"];
+        [recorddict setValue:@"pivot" forKey:@"pivot"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"pivot"];
@@ -335,7 +335,7 @@ int a;
     
     if(button34.selected){
         
-        [recorddict setValue:@"Jerk Test" forKey:@"jerk"];
+        [recorddict setValue:@"jerk" forKey:@"jerk"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"jerk"];
@@ -343,7 +343,7 @@ int a;
     
     if(button35.selected){
         
-        [recorddict setValue:@"Posterior Drawer Test" forKey:@"posteriordt"];
+        [recorddict setValue:@"posteriordt" forKey:@"posteriordt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"posteriordt"];
@@ -351,7 +351,7 @@ int a;
     
     if(button36.selected){
         
-        [recorddict setValue:@"Hughston Posteromedial Drawer Test" forKey:@"hughstonposteromedial"];
+        [recorddict setValue:@"hughstonposteromedial" forKey:@"hughstonposteromedial"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"hughstonposteromedial"];
@@ -359,7 +359,7 @@ int a;
     
     if(button37.selected){
         
-        [recorddict setValue:@"Hughston Posterolateral Drawer Test" forKey:@"hughstonposterolateral"];
+        [recorddict setValue:@"hughstonposterolateral" forKey:@"hughstonposterolateral"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"hughstonposterolateral"];
@@ -367,7 +367,7 @@ int a;
     
     if(button38.selected){
         
-        [recorddict setValue:@"Posterior Lachman's Test 27" forKey:@"posteriorlt"];
+        [recorddict setValue:@"posteriorlt" forKey:@"posteriorlt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"posteriorlt"];
@@ -375,28 +375,28 @@ int a;
     
     if(button39.selected){
         
-        [recorddict setValue:@"External Rotation Recurvatum Test" forKey:@"externalrotation"];
+        [recorddict setValue:@"externalrotation" forKey:@"externalrotation"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"externalrotation"];
     }
     if(button40.selected){
         
-        [recorddict setValue:@"Valgus Stress Test" forKey:@"valgusstt"];
+        [recorddict setValue:@"valgusstt" forKey:@"valgusstt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"valgusstt"];
     }
     if(button41.selected){
         
-        [recorddict setValue:@"Varus Stress Test" forKey:@"varusstt"];
+        [recorddict setValue:@"varusstt" forKey:@"varusstt"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"varusstt"];
     }
     if(button42.selected){
         
-        [recorddict setValue:@"McMurray Test" forKey:@"mcmurray"];
+        [recorddict setValue:@"mcmurray" forKey:@"mcmurray"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"mcmurray"];
@@ -404,7 +404,7 @@ int a;
     
     if(button43.selected){
         
-        [recorddict setValue:@"Apley Compression Test" forKey:@"apleyct"];
+        [recorddict setValue:@"apleyct" forKey:@"apleyct"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"apleyct"];
@@ -412,7 +412,7 @@ int a;
     
     if(button44.selected){
         
-        [recorddict setValue:@"Steinmann's Tenderness Displacement Test" forKey:@"steinmann"];
+        [recorddict setValue:@"steinmann" forKey:@"steinmann"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"steinmann"];
@@ -420,15 +420,15 @@ int a;
     
     if(button45.selected){
         
-        [recorddict setValue:@"Rectus Femoris Contracture Test" forKey:@"rectus"];
+        [recorddict setValue:@"rectus" forKey:@"rectus"];
     }
     else{
         [recorddict setValue:@"null" forKey:@"rectus"];
     }
     
-
-
-
+    
+    
+    
     a=1;
     
     [self performSegueWithIdentifier:@"moretest3" sender:self];
@@ -467,7 +467,7 @@ int a;
         
         TestMoreViewController3 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
-         destViewController.moretestdict=moretestdict;
+        destViewController.moretestdict=moretestdict;
         //NSLog(@"recorddict in third %@",recorddict);
         //NSLog(@"size of recorddict:%d",[recorddict count]);
     }
@@ -533,7 +533,7 @@ int a;
         
         
     }
-
+    
     // [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 }
 - (IBAction)reset:(id)sender {
@@ -629,7 +629,7 @@ int a;
     [button43 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [button44 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
     [button45 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-   
+    
     
 }
 - (void)viewWillDisappear:(BOOL)animated

@@ -147,7 +147,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     }
     if (b7.selected)
     {
-        [recorddict setValue:@"Right" forKey:@"Shoulderright"];
+        [recorddict setValue:@"Right" forKey:@"Shoulderight"];
     }
     else
     {
@@ -221,7 +221,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     }
     if (b18.selected)
     {
-        [recorddict setValue:@"Relief" forKey:@"relief"];
+        [recorddict setValue:@"Right" forKey:@"relief"];
     }
     else
     {
@@ -229,7 +229,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     }
     if (b19.selected)
     {
-        [recorddict setValue:@"No relief" forKey:@"noreli"];
+        [recorddict setValue:@"Left" forKey:@"noreli"];
     }
     else
     {
@@ -313,7 +313,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     {
         if((([temp3 length]>0)&&([du  otherfields:left.text ]==1))||([left.text length]==0))
         {
-            [recorddict setValue:painlevel.text forKey:@"cervical_Painlevel"];
+            [recorddict setValue:[NSString stringWithFormat:@"%d",(int)roundf(slider1.value)] forKey:@"cervical_Painlevel"];
             [recorddict setValue:right.text forKey:@"Right text"];
             [recorddict setValue:left.text forKey:@"Left text"];
             [recorddict setValue:leftsegm forKey:@"Odonoleft"];
@@ -404,7 +404,7 @@ NSString *leftsegm,*rightsegm,*painscale;
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     du=[[databaseurl alloc]init];
     CGRect frame=CGRectMake(0.0,0.0, 200.0,10.0);
     //slider1=[[UISlider alloc]initWithFrame:frame];
@@ -531,21 +531,21 @@ NSString *leftsegm,*rightsegm,*painscale;
 }
 - (IBAction)leftsef:(id)sender {
     if(leftseg.selectedSegmentIndex==0){
-        leftsegm=@"pain on active ROM";
+        leftsegm=@"activerom";
         
     }
     else if(leftseg.selectedSegmentIndex==1){
-        leftsegm=@"pain on passive ROM";
+        leftsegm=@"passiverom";
     }
 }
 
 - (IBAction)rightseg:(id)sender {
     if(rightseg.selectedSegmentIndex==0){
-        rightsegm=@"pain on active ROM";
+        rightsegm=@"activerom";
         
     }
     else if(rightseg.selectedSegmentIndex==1){
-        rightsegm=@"pain on passive ROM";
+        rightsegm=@"passiverom";
     }
 }
 
@@ -636,16 +636,16 @@ NSString *leftsegm,*rightsegm,*painscale;
     
     UISlider *MYslider = (UISlider *)sender;
     int val = (int)roundf(MYslider.value);
-    painlevel.text = [NSString stringWithFormat:@"%d", val];
+    
     
     //int val=(int)slider1.value ;
     
     if (val==10) {
-        painlevel.text=@"Severe Pain";
+        painlevel.text=@"Severe pain";
     }
     else if(val==0)
     {
-        painlevel.text=@"No Pain";
+        painlevel.text=@"No pain";
     }
     else
     {

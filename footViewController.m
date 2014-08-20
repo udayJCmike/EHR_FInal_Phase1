@@ -458,7 +458,7 @@
                                                                                                                                                                                                                                     [recorddict setValue:ml1left.text forKey:@"ml1left"];
                                                                                                                                                                                                                                     [recorddict setValue:ml1right.text forKey:@"ml1right"];
                                                                                                                                                                                                                                     [recorddict setValue:ml2left.text forKey:@"ml2left"];
-                                                                                                                                                                                                                                    [recorddict setValue:ml3left.text forKey:@"ml2right"];
+                                                                                                                                                                                                                                    [recorddict setValue:ml2right.text forKey:@"ml2right"];
                                                                                                                                                                                                                                     [recorddict setValue:ml3right.text forKey:@"ml3left"];
                                                                                                                                                                                                                                     [recorddict setValue:ml3right.text forKey:@"ml3right"];
                                                                                                                                                                                                                                     [recorddict setValue:ml4left.text forKey:@"ml4left"];
@@ -1382,31 +1382,31 @@
 - (IBAction)gait:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        gaitlabel=@"Normal";
+        gaitlabel=@"normal";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        gaitlabel=@"Antalogic";
+        gaitlabel=@"antalogic";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        gaitlabel=@"Shuffling";
+        gaitlabel=@"shuffling";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        gaitlabel=@"Limp";
+        gaitlabel=@"limp";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        gaitlabel=@"Stagger";
+        gaitlabel=@"stagger";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        gaitlabel=@"Cane assisted";
+        gaitlabel=@"cane assisted";
     }
     if ([sender selectedSegmentIndex]==6)
     {
-        gaitlabel=@"Wheelchair";
+        gaitlabel=@"wheelchair";
     }
     
     
@@ -1420,19 +1420,19 @@
 - (IBAction)ao:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        aolabel=@"Excellent";
+        aolabel=@"excellent";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        aolabel=@"Good";
+        aolabel=@"good";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        aolabel=@"Fair";
+        aolabel=@"fair";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        aolabel=@"Severe";
+        aolabel=@"severe";
     }
     
     
@@ -1548,8 +1548,8 @@
 
 - (IBAction)reset:(id)sender
 {
-    gaitlabel=@"Normal";
-    aolabel=@"Excellent";
+    gaitlabel=@"normal";
+    aolabel=@"excellent";
     pronationlabel=@"null";
     supinationlabel=@"null";
     forefootlabel=@"null";
@@ -1638,8 +1638,8 @@
     [super viewDidLoad];
     recorddict=[[NSMutableDictionary alloc]init];
     resultset=[[NSMutableDictionary alloc]init];
-    gaitlabel=@"Normal";
-    aolabel=@"Excellent";
+    gaitlabel=@"normal";
+    aolabel=@"excellent";
     pronationlabel=@"null";
     supinationlabel=@"null";
     forefootlabel=@"null";
@@ -1662,7 +1662,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     varuslabel=@"null";
     valguslabel=@"null";
     forefootvalguslabel=@"null";
@@ -1993,50 +1993,50 @@
                 forefootvalguslabel=@"null";
             }
             
-            if ([temp6 isEqualToString:@"Excellent"] ) {
+            if ([temp6 isEqualToString:@"excellent"] ) {
                 [ao setSelectedSegmentIndex:0];
-                aolabel=@"Excellent";
+                aolabel=@"excellent";
             }
-            else if ([temp6 isEqualToString:@"Good"] ) {
+            else if ([temp6 isEqualToString:@"good"] ) {
                 [ao setSelectedSegmentIndex:1];
-                aolabel=@"Good";
+                aolabel=@"good";
             }
-            else if ([temp6 isEqualToString:@"Fair"] ) {
+            else if ([temp6 isEqualToString:@"fair"] ) {
                 [ao setSelectedSegmentIndex:2];
-                aolabel=@"Fair";
+                aolabel=@"fair";
             }
-            else if ([temp6 isEqualToString:@"Severe"] ) {
+            else if ([temp6 isEqualToString:@"severe"] ) {
                 [ao setSelectedSegmentIndex:3];
-                aolabel=@"Severe";
+                aolabel=@"severe";
             }
             
-            if ([temp3 isEqualToString:@"Normal"] ) {
+            if ([temp3 isEqualToString:@"normal"] ) {
                 [gait setSelectedSegmentIndex:0];
-                gaitlabel=@"Excellent";
+                gaitlabel=@"normal";
             }
-            else if ([temp3 isEqualToString:@"Antalogic"] ) {
+            else if ([temp3 isEqualToString:@"antalogic"] ) {
                 [gait setSelectedSegmentIndex:1];
-                gaitlabel=@"Good";
+                gaitlabel=@"antalogic";
             }
-            else if ([temp3 isEqualToString:@"Shuffling"] ) {
+            else if ([temp3 isEqualToString:@"shuffling"] ) {
                 [gait setSelectedSegmentIndex:2];
-                gaitlabel=@"Fair";
+                gaitlabel=@"shuffling";
             }
-            else if ([temp3 isEqualToString:@"Limp"] ) {
+            else if ([temp3 isEqualToString:@"limp"] ) {
                 [gait setSelectedSegmentIndex:3];
-                gaitlabel=@"Good";
+                gaitlabel=@"limp";
             }
-            else if ([temp3 isEqualToString:@"Stagger"] ) {
+            else if ([temp3 isEqualToString:@"stagger"] ) {
                 [gait setSelectedSegmentIndex:4];
-                gaitlabel=@"Fair";
+                gaitlabel=@"stagger";
             }
-            else if ([temp3 isEqualToString:@"Cane assisted"] ) {
+            else if ([temp3 isEqualToString:@"cane assisted"] ) {
                 [gait setSelectedSegmentIndex:5];
-                gaitlabel=@"Good";
+                gaitlabel=@"cane assisted";
             }
-            else if ([temp3 isEqualToString:@"Wheelchair"] ) {
+            else if ([temp3 isEqualToString:@"wheelchair"] ) {
                 [gait setSelectedSegmentIndex:6];
-                gaitlabel=@"Fair";
+                gaitlabel=@"wheelchair";
             }
             
             
@@ -2082,7 +2082,7 @@
 
 -(void)dismissKeyboard
 {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [patientname resignFirstResponder];
     [flexionleft resignFirstResponder];
     [flexionright resignFirstResponder];

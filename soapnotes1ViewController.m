@@ -162,7 +162,7 @@ int changesize;
     l8.text=@"Fixations";
     l9.text=@"Not Improved";
     l10.text=@"SCSM";
-    painval.text=@"No Pain";
+    painval.text=@"1";
     other.hidden=YES;
     inc=1;
     for (UIScrollView *v in [self.scrollview subviews])
@@ -174,7 +174,7 @@ int changesize;
     }
     diagnosisresult=[[NSMutableArray alloc]init];
     a1=[[NSArray alloc]initWithObjects:@"2",@"3",@"4", @"5", @"6", @"7", @"8",@"9",@"10", @"11",@"Re-exam",@"one spot x-ray",@"2 to 7 C/S X-Rays",@"2 to 6 T/S X-Rays",@"2-6 L/S X-Rays",@"2 Chest X-Rays",@"ExtremitiesX-Rays",@"SCSM 1-2 region",@"SCSM 3-4 regions",@"5 regions",@"extraspinal 1 or more regions",@"MR",@"Home Exercises",@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@" US",@" Lontophoresis",@"Traction",@" MRI",@"LAB",@"2nd Opinion",@"Rehab",@"Stretch exer",@"Off Work",@"Back To Work",@"Strength excer",@"Lifestyle modifications",@"Re Eval.in ", nil];
-    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short leg Right Temp.Change",@"Short leg Left Temp.Change",@" Atrophy",@"Decr Strength", nil];
+    a2=[[NSArray alloc]initWithObjects:@"Fixations",@"Tenderness to palpation",@"Spasm",@"Trigger pts.",@" Hypertonicity",@"Edema",@"Decreased ROM",@"Short Leg Right Temp.Change",@"Short Leg Left Temp.Change",@" Atrophy",@"Decr Strength", nil];
     a3=[[NSArray alloc]initWithObjects: @"Not Improved",@"Progressing Slow",@"Exacerbation of C.C.",@"Flare-ups",@"Mildly imp.",@"Moderatly imp.",@"Plateu",@"Pre Injury Status", nil];
     a4=[[NSArray alloc]initWithObjects:@"SCSM",@"EMS",@"MASS",@"Ice",@"Heat",@"NMR",@"TP",@"US",@"Lontophoresis",@"Traction",@"Nutrition",@"Off Work",@"Light Duty",@"ROM",@"Back To Work",@"Strength excer",@" ROF",@"Re Exam",@"Refer to",@"Release from care", nil];
     x=492;y=175;
@@ -206,20 +206,22 @@ int changesize;
     if ([resultset count]>0)
     {
         NSString *temp21=[resultset objectForKey:@"painscale"];
-        if ([temp21 isEqualToString:@"Severe Pain"])
+        if ([temp21 isEqualToString:@"10"])
         {
             [painscale setValue:10 animated:YES];
+            painval.text = @"Severe Pain";
         }
-        else if ([temp21 isEqualToString:@"No Pain"])
+        else if ([temp21 isEqualToString:@"0"])
         {
             [painscale setValue:0 animated:YES];
+            painval.text = @"No Pain";
         }
         else
         {
             [painscale setValue:[temp21 floatValue] animated:YES];
+            painval.text=[NSString stringWithFormat:@"%@",[resultset objectForKey:@"painscale"]];
         }
         
-        painval.text=[NSString stringWithFormat:@"%@",[resultset objectForKey:@"painscale"]];
         
         t1.text=[resultset objectForKey:@"date1"];
         t2.text=[resultset objectForKey:@"improved"];
@@ -328,7 +330,7 @@ int changesize;
         }
     }
     @catch (NSException *e) {
-       // NSLog(@"index not found");
+        // NSLog(@"index not found");
     }
     @finally {
         
@@ -948,7 +950,7 @@ int changesize;
                                                         [recorddict setValue:t12.text forKey:@"t12"];
                                                         [recorddict setValue:other.text forKey:@"other"];
                                                         [recorddict setValue:d1.text forKey:@"d1"];
-                                                        [recorddict setValue:painval.text forKey:@"painval"];
+                                                        [recorddict setValue:[NSString stringWithFormat:@"%d",(int)painscale.value] forKey:@"painval"];
                                                         [recorddict setValue:l1.text forKey:@"pick1"];
                                                         [recorddict setValue:l2.text forKey:@"pick2"];
                                                         [recorddict setValue:l3.text forKey:@"pick3"];
@@ -999,7 +1001,7 @@ int changesize;
                                                         }
                                                         [recorddict setValue:[NSNumber numberWithInt:i] forKey:@"numofcontent"];
                                                         
-                                                       // NSLog(@"recordvalues %@",recorddict);
+                                                        // NSLog(@"recordvalues %@",recorddict);
                                                         
                                                     }
                                                     else

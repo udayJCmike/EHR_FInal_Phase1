@@ -361,7 +361,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t2=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg2.selectedSegmentIndex==1)
     {
         t2=@"Normal";
     }
@@ -371,7 +371,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t3=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg3.selectedSegmentIndex==1)
     {
         t3=@"Normal";
     }
@@ -381,7 +381,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t4=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg4.selectedSegmentIndex==1)
     {
         t4=@"Normal";
     }

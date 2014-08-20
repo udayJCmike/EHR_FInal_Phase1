@@ -107,39 +107,31 @@
 - (IBAction)views:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        viewl=@"A-P lower";
+        viewl=@"A-P";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        viewl=@"Apom";
+        viewl=@"rlf";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        viewl=@"L lateral";
+        viewl=@"llf";
     }
     if ([sender selectedSegmentIndex]==3)
     {
-        viewl=@"RLF";
+        viewl=@"rpo";
     }
     if ([sender selectedSegmentIndex]==4)
     {
-        viewl=@"LLF";
+        viewl=@"lpo";
     }
     if ([sender selectedSegmentIndex]==5)
     {
-        viewl=@"RPO";
+        viewl=@"P-A Chest";
     }
     if ([sender selectedSegmentIndex]==6)
     {
-        viewl=@"LPO";
-    }
-    if ([sender selectedSegmentIndex]==7)
-    {
-        viewl=@"P-A Chest";
-    }
-    if ([sender selectedSegmentIndex]==8)
-    {
-        viewl=@"Lateral chest";
+        viewl=@"Lateral Chest";
     }
     
 }
@@ -191,15 +183,15 @@
 - (IBAction)oster:(id)sender {
     if ([sender selectedSegmentIndex]==0)
     {
-        ostersegl=@"Mild";
+        ostersegl=@"mild";
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        ostersegl=@"Moderate";
+        ostersegl=@"moderate";
     }
     if ([sender selectedSegmentIndex]==2)
     {
-        ostersegl=@"Severe";
+        ostersegl=@"severe";
     }
     
 }
@@ -380,7 +372,7 @@
     if(neg.selected)
     {
         
-        [recorddict setValue:@"Negative for recent fracture, dislocation or gross Osteopathology"forKey:@"T_negative1"];
+        [recorddict setValue:@"Negative for Osteopathology"forKey:@"T_negative1"];
     }
     else
     {
@@ -430,7 +422,7 @@
     {
         
         
-        [recorddict setValue:@"Degenerative joint disease at" forKey:@"T_degen1"];
+        [recorddict setValue:@"Degenerative joint disease at:" forKey:@"T_degen1"];
     }
     else
     {
@@ -442,7 +434,7 @@
     {
         
         
-        [recorddict  setValue:@"mild" forKey:@"T_mild1"];
+        [recorddict  setValue:@"Mild" forKey:@"T_mild1"];
     }
     else
     {
@@ -453,7 +445,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"T_moderate1"];
+        [recorddict  setValue:@"Moderate" forKey:@"T_moderate1"];
     }
     else
     {
@@ -464,7 +456,7 @@
     if(severe.selected)
     {
         
-        [recorddict setValue:@"severe" forKey:@"T_severe1"];
+        [recorddict setValue:@"Severe" forKey:@"T_severe1"];
     }
     else
     {
@@ -474,7 +466,7 @@
     {
         
         
-        [recorddict setValue:@"Narrowed disc space at" forKey:@"T_narrow11"];
+        [recorddict setValue:@"Narrowed disc space at:" forKey:@"T_narrow11"];
     }
     else
     {
@@ -486,7 +478,7 @@
     {
         
         
-        [recorddict  setValue:@"Anterior vertebral body osteophytes at"forKey:@"T_anterior11"];
+        [recorddict  setValue:@"Anterior body osteophytes at:"forKey:@"T_anterior11"];
     }
     else
     {
@@ -508,7 +500,7 @@
     if(sch.selected)
     {
         
-        [recorddict setValue:@"Schmorl's nodes at"
+        [recorddict setValue:@"Schmorls nodes at:"
                       forKey:@"T_sch11"];
     }
     else
@@ -532,7 +524,7 @@
     {
         
         
-        [recorddict setValue:@"mi1d" forKey:@"T_mild11T"];
+        [recorddict setValue:@"Mild" forKey:@"T_mild11T"];
     }
     else
     {
@@ -544,7 +536,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"T_moderate11T"];
+        [recorddict  setValue:@"Moderate" forKey:@"T_moderate11T"];
     }
     else
     {
@@ -555,7 +547,7 @@
     {
         
         
-        [recorddict  setValue:@"severe" forKey:@"T_severe11T"];
+        [recorddict  setValue:@"Severe" forKey:@"T_severe11T"];
     }
     else
     {
@@ -568,7 +560,7 @@
     {
         
         
-        [recorddict setValue:@"Apex at" forKey:@"T_apex11"];
+        [recorddict setValue:@"Apex at:" forKey:@"T_apex11"];
     }
     else
     {
@@ -591,7 +583,7 @@
     {
         
         
-        [recorddict  setValue:@"other" forKey:@"T_other11"];
+        [recorddict  setValue:@"Other" forKey:@"T_other11"];
     }
     else
     {
@@ -603,7 +595,7 @@
     {
         
         
-        [recorddict  setValue:@"foraminal enchroachment between" forKey:@"T_foraminal1"];
+        [recorddict  setValue:@"Foraminal enchroachment b/w:" forKey:@"T_foraminal1"];
     }
     else
     {
@@ -944,7 +936,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     //recorddict=[[NSMutableDictionary alloc]init];
     hyposeg.hidden=YES;
@@ -960,10 +952,10 @@
     apextext .hidden=YES;
     softtext .hidden=YES;
     othertext .hidden=YES;
-    viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    viewl=@"A-P";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     ostersegl=@"mild";
     dltsegl=@"Dextro";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -991,7 +983,7 @@
     [narrowtext resignFirstResponder];
     [anteriortext resignFirstResponder];
     [subtext resignFirstResponder];
-     printView.hidden = YES;
+    printView.hidden = YES;
     
 }
 - (void)didReceiveMemoryWarning
@@ -1034,10 +1026,10 @@
     apextext .hidden=YES;
     softtext .hidden=YES;
     othertext .hidden=YES;
-    viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    viewl=@"A-P";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     ostersegl=@"mild";
     dltsegl=@"Dextro";
     

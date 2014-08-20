@@ -290,7 +290,10 @@ NSString *t1,*t2,*t3,*t4;
     texty40=@"null";
     texty41=@"null";
     texty42=@"null";
-    
+    t1=@"Tonicity";
+    t2=@"Tonicity";
+    t3=@"Tonicity";
+    t4=@"Tonicity";
     texty49=@"null";
     texty50=@"null";
     texty51=@"null";
@@ -325,7 +328,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t2=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg2.selectedSegmentIndex==1)
     {
         t2=@"Normal";
     }
@@ -335,7 +338,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t3=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg3.selectedSegmentIndex==1)
     {
         t3=@"Normal";
     }
@@ -345,7 +348,7 @@ NSString *t1,*t2,*t3,*t4;
     {
         t4=@"Tonicity";
     }
-    else if(seg1.selectedSegmentIndex==1)
+    else if(seg4.selectedSegmentIndex==1)
     {
         t4=@"Normal";
     }
@@ -463,7 +466,7 @@ NSString *t1,*t2,*t3,*t4;
         texty49=@"null";
     }
     if(check24.selected){
-        texty50=@"No Fixations";
+        texty50=@"No_Fixations";
     }
     else{
         texty50=@"null";

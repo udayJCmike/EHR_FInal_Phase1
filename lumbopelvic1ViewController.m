@@ -226,7 +226,7 @@
         planother.hidden=NO;
     }
     else
-    { planother.text=@"null";
+    { planother.text=@"";
         planother.hidden=YES;
     }
     if(button1.selected)
@@ -286,7 +286,7 @@
     }
     if(button5.selected)
     {
-        other=@"other";
+        other=@"Other";
         [recorddict setValue:other forKey:@"other"];
         
     }
@@ -299,8 +299,8 @@
         fdother.hidden=NO;
     }
     else{
-        fdother.text=@"null";
-        //fdother.hidden=YES;
+        fdother.text=@"";
+        fdother.hidden=YES;
     }
     
     if(button6.selected)
@@ -453,7 +453,7 @@
     }
     if(button20.selected)
     {
-        other1=@"other";
+        other1=@"Other";
         [recorddict setValue:other1 forKey:@"other1"];
         
     }
@@ -1246,7 +1246,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -1437,7 +1437,7 @@
 }
 
 -(void)dismissKeyboard{
-      printView.hidden = YES;
+    printView.hidden = YES;
     [mo_l1l resignFirstResponder];
     [mol1r resignFirstResponder];
     [mo_l2l resignFirstResponder];
@@ -1521,7 +1521,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -1667,7 +1667,7 @@
             stairs=@"null";
             
         }
-        if ([[resultset objectForKey:@"otherfunctional"] isEqualToString:@"other"]) {
+        if ([[resultset objectForKey:@"otherfunctional"] isEqualToString:@"Other"]) {
             button5.selected=YES;
             [button5 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             fdother.hidden=NO;
@@ -1870,17 +1870,17 @@
             
         }
         
-        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"other"]) {
+        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"Other"]) {
             button20.selected=YES;
             [button20 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            fdother.hidden=NO;
+            planother.hidden=NO;
             
         }
         else
         {
             button20.selected=NO;
             [button20 setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-            fdother.hidden=YES;
+            planother.hidden=YES;
             
         }
         

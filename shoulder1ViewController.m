@@ -200,7 +200,7 @@
         [recorddict setValue:@"null" forKey:@"lifting"];
     }
     if (other.selected) {
-        [recorddict setValue:@"Other" forKey:@"fdother"];
+        [recorddict setValue:@"other" forKey:@"fdother"];
         [recorddict setValue:otherlabel forKey:@"fdothertext"];
     }
     else
@@ -223,7 +223,7 @@
         [recorddict setValue:@"null" forKey:@"chiro"];
     }
     if (physical.selected) {
-        [recorddict setValue:@"Physical Theraphy" forKey:@"phy"];
+        [recorddict setValue:@"Physical Therapy" forKey:@"phy"];
     }
     else
     {
@@ -307,7 +307,7 @@
         [recorddict setValue:@"null" forKey:@"dc"];
     }
     if (other1.selected) {
-        [recorddict setValue:@"Other" forKey:@"planother"];
+        [recorddict setValue:@"other" forKey:@"planother"];
         [recorddict setValue:other1label forKey:@"planothertext"];
     }
     else
@@ -877,7 +877,7 @@
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -1208,7 +1208,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     c5left.text=@"";
     c5right.text=@"";
@@ -1326,11 +1326,11 @@
             [recorddict setValue:@"null" forKey:@"lifting"];
             
         }
-        if ([[resultset objectForKey:@"other"] isEqualToString:@"Other"]) {
+        if ([[resultset objectForKey:@"other"] isEqualToString:@"other"]) {
             other.selected=YES;
             [other setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             othertext.hidden=NO;
-            [recorddict setValue:@"Other" forKey:@"fdother"];
+            [recorddict setValue:@"other" forKey:@"fdother"];
             [recorddict setValue:otherlabel forKey:@"fdothertext"];
             
         }
@@ -1371,10 +1371,10 @@
             [recorddict setValue:@"null" forKey:@"chiro"];
             
         }
-        if ([[resultset objectForKey:@"physicaltherapy"] isEqualToString:@"Physical Theraphy"]) {
+        if ([[resultset objectForKey:@"physicaltherapy"] isEqualToString:@"Physical Therapy"]) {
             physical.selected=YES;
             [physical setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            [recorddict setValue:@"Physical Theraphy" forKey:@"phy"];
+            [recorddict setValue:@"Physical Therapy" forKey:@"phy"];
             
         }
         else
@@ -1541,11 +1541,11 @@
             
         }
         
-        if ([[resultset objectForKey:@"others"] isEqualToString:@"Other"]) {
+        if ([[resultset objectForKey:@"others"] isEqualToString:@"other"]) {
             other1.selected=YES;
             [other1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
             othertext1.hidden=NO;
-            [recorddict setValue:@"Other" forKey:@"planother"];
+            [recorddict setValue:@"other" forKey:@"planother"];
             [recorddict setValue:other1label forKey:@"planothertext"];
             
         }
@@ -1564,7 +1564,7 @@
 }
 -(void)dismissKeyboard
 {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [c5left resignFirstResponder];
     [c5right resignFirstResponder];
     [c6left resignFirstResponder];

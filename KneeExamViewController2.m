@@ -128,7 +128,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     //temp=[[NSMutableDictionary alloc]init];
     //temp=recorddict;
@@ -391,11 +391,11 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
             
             
         }
-        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"Others"]) {
+        if ([[resultset objectForKey:@"otheraddress"] isEqualToString:@"Other"]) {
             checkbut15.selected=YES;
             othertext.hidden=NO;
             [checkbut15 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-            chec15=@"Others";
+            chec15=@"Other";
         }
         else
         {
@@ -520,7 +520,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     }
     if(checkbut15.selected){
         othertext.hidden=NO;
-        chec15=@"Others";
+        chec15=@"Other";
     }
     else{chec15=@"null";
         othertext.hidden=YES;
@@ -572,7 +572,7 @@ NSString *chec1,*chec2,*chec3,*chec4,*chec5,*chec6,*chec7,*chec8,*chec9,*chec10,
     
 }
 -(void)dismissKeyboard {
-       printView.hidden = YES;
+    printView.hidden = YES;
     [first resignFirstResponder];
     [second resignFirstResponder];
     [three resignFirstResponder];

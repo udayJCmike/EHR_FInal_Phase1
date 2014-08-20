@@ -188,7 +188,7 @@
     if (b1.selected)
     {
         
-        [recorddict setValue:@"HA" forKey:@"ha"];
+        [recorddict setValue:@"hacheck" forKey:@"ha"];
     }
     else
     {
@@ -197,7 +197,7 @@
     }
     if (b2.selected)
     {
-        [recorddict setValue:@"Wrist" forKey:@"wrist"];
+        [recorddict setValue:@"wrist" forKey:@"wrist"];
     }
     else
     {
@@ -213,7 +213,7 @@
     }
     if (b4.selected)
     {
-        [recorddict setValue:@"LBP" forKey:@"lbp"];
+        [recorddict setValue:@"Lbp" forKey:@"lbp"];
     }
     else
     {
@@ -229,7 +229,7 @@
     }
     if (b6.selected)
     {
-        [recorddict setValue:@"Hip" forKey:@"hip"];
+        [recorddict setValue:@"hip" forKey:@"hip"];
     }
     else
     {
@@ -237,7 +237,7 @@
     }
     if (b7.selected)
     {
-        [recorddict setValue:@"Ribs" forKey:@"ribs"];
+        [recorddict setValue:@"ribscheck" forKey:@"ribs"];
     }
     else
     {
@@ -253,7 +253,7 @@
     }
     if (b9.selected)
     {
-        [recorddict setValue:@"Shoulder" forKey:@"shoulder"];
+        [recorddict setValue:@"shoulder" forKey:@"shoulder"];
     }
     else
     {
@@ -261,7 +261,7 @@
     }
     if (b10.selected)
     {
-        [recorddict setValue:@"Knee" forKey:@"knee"];
+        [recorddict setValue:@"knee" forKey:@"knee"];
     }
     else
     {
@@ -269,7 +269,7 @@
     }
     if (b11.selected)
     {
-        [recorddict setValue:@"Elbow" forKey:@"elbow"];
+        [recorddict setValue:@"elbow" forKey:@"elbow"];
     }
     else
     {
@@ -277,7 +277,7 @@
     }
     if (b12.selected)
     {
-        [recorddict setValue:@"Foot" forKey:@"foot"];
+        [recorddict setValue:@"foot" forKey:@"foot"];
     }
     else
     {
@@ -285,7 +285,7 @@
     }
     if (b13.selected)
     {
-        [recorddict setValue:@"Hand" forKey:@"hand"];
+        [recorddict setValue:@"wrist" forKey:@"hand"];
     }
     else
     {
@@ -293,7 +293,7 @@
     }
     if (b14.selected)
     {
-        [recorddict setValue:@"Ankle" forKey:@"ankle"];
+        [recorddict setValue:@"foot" forKey:@"ankle"];
     }
     else
     {
@@ -381,7 +381,7 @@
     }
     if (b25.selected)
     {
-        [recorddict setValue:@"other" forKey:@"feelbetterother"];
+        [recorddict setValue:@"Other" forKey:@"feelbetterother"];
         //  [recorddict setValue:other1.text forKey:@"feel better othertext"];
     }
     else
@@ -423,7 +423,7 @@
     }
     if (b30.selected)
     {
-        [recorddict setValue:@"other" forKey:@"doneother"];
+        [recorddict setValue:@"Other" forKey:@"doneother"];
         // [recorddict setValue:other2.text forKey:@"done other text"];
     }
     else
@@ -473,7 +473,7 @@
     }
     if (b36.selected)
     {
-        [recorddict setValue:@"other" forKey:@"feelworseother"];
+        [recorddict setValue:@"Other" forKey:@"feelworseother"];
         //[recorddict setValue:other3.text forKey:@"feel worse other text"];
     }
     else
@@ -491,7 +491,7 @@
     }
     if (b38.selected)
     {
-        [recorddict setValue:@"Severe" forKey:@"severeone"];
+        [recorddict setValue:@"Severe/intolerable" forKey:@"severeone"];
     }
     else
     {
@@ -571,7 +571,7 @@
     }
     if (b48.selected)
     {
-        [recorddict setValue:@"other" forKey:@"painother"];
+        [recorddict setValue:@"Other" forKey:@"painother"];
         // [recorddict setValue:other4.text forKey:@"pain other text"];
     }
     else
@@ -581,7 +581,7 @@
     }
     if (but1.selected)
     {
-        [recorddict setValue:@"right" forKey:@"lumbr"];
+        [recorddict setValue:@"Right" forKey:@"lumbr"];
     }
     else
     {
@@ -589,7 +589,7 @@
     }
     if (but2.selected)
     {
-        [recorddict setValue:@"left" forKey:@"lumbl"];
+        [recorddict setValue:@"Left" forKey:@"lumbl"];
     }
     else
     {
@@ -597,7 +597,7 @@
     }
     if (but3.selected)
     {
-        [recorddict setValue:@"right" forKey:@"cervicr"];
+        [recorddict setValue:@"Right" forKey:@"cervicr"];
     }
     else
     {
@@ -606,7 +606,7 @@
     
     if (but4.selected)
     {
-        [recorddict setValue:@"left" forKey:@"cervicl"];
+        [recorddict setValue:@"Left" forKey:@"cervicl"];
     }
     else
     {
@@ -615,7 +615,7 @@
     
     if (but5.selected)
     {
-        [recorddict setValue:@"right" forKey:@"thoracicr"];
+        [recorddict setValue:@"Right" forKey:@"thoracicr"];
     }
     else
     {
@@ -623,7 +623,7 @@
     }
     if (but6.selected)
     {
-        [recorddict setValue:@"left" forKey:@"thoracicl"];
+        [recorddict setValue:@"Left" forKey:@"thoracicl"];
     }
     else
     {
@@ -631,7 +631,7 @@
     }
     if (but7.selected)
     {
-        [recorddict setValue:@"right" forKey:@"har"];
+        [recorddict setValue:@"Right" forKey:@"har"];
     }
     else
     {
@@ -639,7 +639,7 @@
     }
     if (but8.selected)
     {
-        [recorddict setValue:@"left" forKey:@"hal"];
+        [recorddict setValue:@"Left" forKey:@"hal"];
     }
     else
     {
@@ -647,7 +647,7 @@
     }
     if (but9.selected)
     {
-        [recorddict setValue:@"right" forKey:@"neckr"];
+        [recorddict setValue:@"Right" forKey:@"neckr"];
     }
     else
     {
@@ -655,7 +655,7 @@
     }
     if (but10.selected)
     {
-        [recorddict setValue:@"left" forKey:@"neckl"];
+        [recorddict setValue:@"Left" forKey:@"neckl"];
     }
     else
     {
@@ -663,7 +663,7 @@
     }
     if (but11.selected)
     {
-        [recorddict setValue:@"right" forKey:@"mbr"];
+        [recorddict setValue:@"Right" forKey:@"mbr"];
     }
     else
     {
@@ -671,14 +671,15 @@
     }
     if (but12.selected)
     {
-        [recorddict setValue:@"left" forKey:@"mbl"];
+        [recorddict setValue:@"Left" forKey:@"mbl"];
     }
     else
     {
         [recorddict setValue:@"null" forKey:@"mbl"];
     }if (but13.selected)
     {
-        [recorddict setValue:@"right" forKey:@"ribsr"];
+        //[recorddict setValue:@"Right" forKey:@"ribsr"];
+        [recorddict setValue:@"ribsr" forKey:@"ribsr"];
     }
     else
     {
@@ -686,7 +687,8 @@
     }
     if (but14.selected)
     {
-        [recorddict setValue:@"left" forKey:@"ribsl"];
+        //        [recorddict setValue:@"Left" forKey:@"ribsl"];
+        [recorddict setValue:@"ribsl" forKey:@"ribsl"];
     }
     else
     {
@@ -694,7 +696,7 @@
     }
     if (but15.selected)
     {
-        [recorddict setValue:@"right" forKey:@"shoulderr"];
+        [recorddict setValue:@"Right" forKey:@"shoulderr"];
     }
     else
     {
@@ -702,7 +704,7 @@
     }
     if (but16.selected)
     {
-        [recorddict setValue:@"left" forKey:@"shoulderl"];
+        [recorddict setValue:@"Left" forKey:@"shoulderl"];
     }
     else
     {
@@ -710,7 +712,7 @@
     }
     if (but17.selected)
     {
-        [recorddict setValue:@"right" forKey:@"elbr"];
+        [recorddict setValue:@"Right" forKey:@"elbr"];
     }
     else
     {
@@ -718,7 +720,7 @@
     }
     if (but18.selected)
     {
-        [recorddict setValue:@"left" forKey:@"elbl"];
+        [recorddict setValue:@"Left" forKey:@"elbl"];
     }
     else
     {
@@ -726,7 +728,7 @@
     }
     if (but19.selected)
     {
-        [recorddict setValue:@"right" forKey:@"handr"];
+        [recorddict setValue:@"Right" forKey:@"handr"];
     }
     else
     {
@@ -734,14 +736,14 @@
     }
     if (but20.selected)
     {
-        [recorddict setValue:@"left" forKey:@"handl"];
+        [recorddict setValue:@"Left" forKey:@"handl"];
     }
     else
     {
         [recorddict setValue:@"null" forKey:@"handl"];
     }if (but21.selected)
     {
-        [recorddict setValue:@"right" forKey:@"wristr"];
+        [recorddict setValue:@"Right" forKey:@"wristr"];
     }
     else
     {
@@ -749,7 +751,7 @@
     }
     if (but22.selected)
     {
-        [recorddict setValue:@"left" forKey:@"wristl"];
+        [recorddict setValue:@"Left" forKey:@"wristl"];
     }
     else
     {
@@ -757,7 +759,7 @@
     }
     if (but23.selected)
     {
-        [recorddict setValue:@"right" forKey:@"lbpr"];
+        [recorddict setValue:@"Right" forKey:@"lbpr"];
     }
     else
     {
@@ -765,7 +767,7 @@
     }
     if (but24.selected)
     {
-        [recorddict setValue:@"left" forKey:@"lbpl"];
+        [recorddict setValue:@"Left" forKey:@"lbpl"];
     }
     else
     {
@@ -773,7 +775,7 @@
     }
     if (but25.selected)
     {
-        [recorddict setValue:@"right" forKey:@"hipr"];
+        [recorddict setValue:@"Right" forKey:@"hipr"];
     }
     else
     {
@@ -781,7 +783,7 @@
     }
     if (but26.selected)
     {
-        [recorddict setValue:@"left" forKey:@"hipl"];
+        [recorddict setValue:@"Left" forKey:@"hipl"];
     }
     else
     {
@@ -789,7 +791,7 @@
     }
     if (but27.selected)
     {
-        [recorddict setValue:@"right" forKey:@"legr"];
+        [recorddict setValue:@"Right" forKey:@"legr"];
     }
     else
     {
@@ -797,7 +799,7 @@
     }
     if (but28.selected)
     {
-        [recorddict setValue:@"left" forKey:@"legl"];
+        [recorddict setValue:@"Left" forKey:@"legl"];
     }
     else
     {
@@ -805,7 +807,7 @@
     }
     if (but29.selected)
     {
-        [recorddict setValue:@"right" forKey:@"kneer"];
+        [recorddict setValue:@"Right" forKey:@"kneer"];
     }
     else
     {
@@ -813,7 +815,7 @@
     }
     if (but30.selected)
     {
-        [recorddict setValue:@"left" forKey:@"kneel"];
+        [recorddict setValue:@"Left" forKey:@"kneel"];
     }
     else
     {
@@ -821,7 +823,7 @@
     }
     if (but31.selected)
     {
-        [recorddict setValue:@"right" forKey:@"footr"];
+        [recorddict setValue:@"Right" forKey:@"footr"];
     }
     else
     {
@@ -829,14 +831,14 @@
     }
     if (but32.selected)
     {
-        [recorddict setValue:@"left" forKey:@"footl"];
+        [recorddict setValue:@"Left" forKey:@"footl"];
     }
     else
     {
         [recorddict setValue:@"null" forKey:@"footl"];
     }if (but33.selected)
     {
-        [recorddict setValue:@"right" forKey:@"ankler"];
+        [recorddict setValue:@"Right" forKey:@"ankler"];
     }
     else
     {
@@ -844,7 +846,7 @@
     }
     if (but34.selected)
     {
-        [recorddict setValue:@"left" forKey:@"anklel"];
+        [recorddict setValue:@"Left" forKey:@"anklel"];
     }
     else
     {
@@ -852,7 +854,7 @@
     }
     if (lumbo.selected)
     {
-        [recorddict setValue:@"Lumbopelvic" forKey:@"Lumbopelvic"];
+        [recorddict setValue:@"lumbo" forKey:@"Lumbopelvic"];
     }
     else
     {
@@ -860,14 +862,14 @@
     }
     if (cervical.selected)
     {
-        [recorddict setValue:@"Cervical" forKey:@"Cervical"];
+        [recorddict setValue:@"cervical" forKey:@"Cervical"];
     }
     else
     {
         [recorddict setValue:@"null" forKey:@"Cervical"];
     }if (thoracic.selected)
     {
-        [recorddict setValue:@"Thoracic" forKey:@"Thoracic"];
+        [recorddict setValue:@"thoracic" forKey:@"Thoracic"];
     }
     else
     {
@@ -1119,7 +1121,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     happen.delegate = self;
     [super viewDidLoad];
     other1.hidden=YES;

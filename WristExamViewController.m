@@ -104,17 +104,17 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     datefield.text=@"";
     muscle.text=@"";
     swell.text=@"";
-    texty1=@"";
-    texty2=@"Excellent";
-    texty3=@"";
-    texty4=@"";
-    texty5=@"";
-    texty6=@"";
-    texty7=@"";
-    texty8=@"";
-    texty9=@"";
-    texty10=@"";
-    texty11=@"";
+    texty1=@"null";
+    texty2=@"excellent";
+    texty3=@"null";
+    texty4=@"null";
+    texty5=@"null";
+    texty6=@"null";
+    texty7=@"null";
+    texty8=@"null";
+    texty9=@"null";
+    texty10=@"null";
+    texty11=@"null";
     patname.text=@"";
     datefield.text=@"";
     muscle.text=@"";
@@ -150,17 +150,17 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     checkstring2=@"";
     checkstring3=@"";
     
-    texty1=@"";
-    texty2=@"Excellent";
-    texty3=@"";
-    texty4=@"";
-    texty5=@"";
-    texty6=@"";
-    texty7=@"";
-    texty8=@"";
-    texty9=@"";
-    texty10=@"";
-    texty11=@"";
+    texty1=@"null";
+    texty2=@"excellent";
+    texty3=@"null";
+    texty4=@"null";
+    texty5=@"null";
+    texty6=@"null";
+    texty7=@"null";
+    texty8=@"null";
+    texty9=@"null";
+    texty10=@"null";
+    texty11=@"null";
     du=[[databaseurl alloc]init];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
     // Adding BarButton With Action Symbol
@@ -180,7 +180,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     resultset=[[NSMutableDictionary alloc]init] ;
     NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"patientname"];
     patname.text=username;
@@ -208,7 +208,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     NSDictionary *arrayList1;
     //     To check whether its having data or not
     //   NSLog(@"items1app %d",[items1App count]);
-  //  NSLog(@"items1app %@",items1App);
+    //  NSLog(@"items1app %@",items1App);
     if ([items1App count]>0)
     {
         
@@ -366,10 +366,10 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
             twentytwo.text=temp43;
             
             
-            if ([temp9 isEqualToString:@"All Soft Tissue Unremarkable"]) {
+            if ([temp9 isEqualToString:@"Unremarkable"]) {
                 check1.selected=YES;
                 [check1 setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-                checkstring1=@"All Soft Tissue Unremarkable";
+                checkstring1=@"Unremarkable";
                 
             }
             else
@@ -405,21 +405,21 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
             }
             
             
-            if ([temp6 isEqualToString:@"Excellent"] ) {
+            if ([temp6 isEqualToString:@"excellent"] ) {
                 [seg2 setSelectedSegmentIndex:0];
-                texty2=@"Excellent";
+                texty2=@"excellent";
             }
-            else if ([temp6 isEqualToString:@"Good"] ) {
+            else if ([temp6 isEqualToString:@"good"] ) {
                 [seg2 setSelectedSegmentIndex:1];
-                texty2=@"Good";
+                texty2=@"good";
             }
-            else if ([temp6 isEqualToString:@"Fair"] ) {
+            else if ([temp6 isEqualToString:@"fair"] ) {
                 [seg2 setSelectedSegmentIndex:2];
-                texty2=@"Fair";
+                texty2=@"fair";
             }
-            else if ([temp6 isEqualToString:@"Severe"] ) {
+            else if ([temp6 isEqualToString:@"severe"] ) {
                 [seg2 setSelectedSegmentIndex:3];
-                texty2=@"Severe";
+                texty2=@"severe";
             }
             
             
@@ -429,9 +429,9 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                 [seg1 setSelectedSegmentIndex:0];
                 texty1=@"Left";
             }
-            else if ([temp3 isEqualToString:@"Right"] ) {
+            else if ([temp3 isEqualToString:@"right"] ) {
                 [seg1 setSelectedSegmentIndex:1];
-                texty1=@"Right";
+                texty1=@"right";
             }
             else
             {
@@ -484,9 +484,9 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                 [seg6 setSelectedSegmentIndex:0];
                 texty6=@"Left";
             }
-            else if ([temp13 isEqualToString:@"Right"] ) {
+            else if ([temp13 isEqualToString:@"right"] ) {
                 [seg6 setSelectedSegmentIndex:1];
-                texty6=@"Right";
+                texty6=@"right";
             }
             else
             {
@@ -539,9 +539,9 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                 [seg10 setSelectedSegmentIndex:0];
                 texty10=@"Left";
             }
-            else if ([temp17 isEqualToString:@"Right"] ) {
+            else if ([temp17 isEqualToString:@"right"] ) {
                 [seg10 setSelectedSegmentIndex:1];
-                texty10=@"Right";
+                texty10=@"right";
             }
             else
             {
@@ -616,7 +616,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-   // NSLog(@"data %@",data);
+    // NSLog(@"data %@",data);
     
     return data;
     
@@ -624,7 +624,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
 
 
 -(void)dismissKeyboard {
-      printView.hidden = YES;
+    printView.hidden = YES;
     [muscle resignFirstResponder];
     [swell resignFirstResponder];
     [txtv1 resignFirstResponder];
@@ -830,7 +830,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
                                                                                                                     suc=1;
                                                                                                                     if(check1.selected)
                                                                                                                     {
-                                                                                                                        checkstring1=@"All Soft Tissue Unremarkable";
+                                                                                                                        checkstring1=@"Unremarkable";
                                                                                                                     }
                                                                                                                     else
                                                                                                                         checkstring1=@"null";
@@ -1339,7 +1339,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
         texty10=@"Left";
     }
     else if(seg10.selectedSegmentIndex==1){
-        texty10=@"Right";
+        texty10=@"right";
         
     }
 }
@@ -1379,7 +1379,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
         texty6=@"Left";
     }
     else if(seg6.selectedSegmentIndex==1){
-        texty6=@"Right";
+        texty6=@"right";
         
     }
 }
@@ -1405,18 +1405,18 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
 }
 - (IBAction)s2:(id)sender {
     if(seg2.selectedSegmentIndex==0){
-        texty2=@"Excellent";
+        texty2=@"excellent";
     }
     else if(seg2.selectedSegmentIndex==1){
-        texty2=@"Good";
+        texty2=@"good";
         
     }
     else if(seg2.selectedSegmentIndex==2){
-        texty2=@"Fair";
+        texty2=@"fair";
         
     }
     else if(seg2.selectedSegmentIndex==3){
-        texty2=@"Severe";
+        texty2=@"severe";
         
     }
 }
@@ -1426,7 +1426,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
         texty1=@"Left";
     }
     else if(seg1.selectedSegmentIndex==1){
-        texty1=@"Right";
+        texty1=@"right";
         
     }
     
@@ -1444,7 +1444,7 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-  //  NSLog(@"succc value in perform segue %i",suc);
+    //  NSLog(@"succc value in perform segue %i",suc);
     //NSLog(@"identifier %@",identifier);
     if([identifier isEqual:@"wrist1"])
     {
@@ -1469,11 +1469,11 @@ NSString *checkstring1,*checkstring2,*checkstring3,*checkstring4;
     if ([segue.identifier isEqualToString:@"wrist1"])
     {
         
-       // NSLog(@"succc value in prepre segue %i ",suc);
+        // NSLog(@"succc value in prepre segue %i ",suc);
         WristExamViewController1 *destViewController = [segue destinationViewController];
         destViewController.recorddict=recorddict;
         destViewController.resultset=resultset;
-       // NSLog(@"recorddict in knee exam controller %@",recorddict);
+        // NSLog(@"recorddict in knee exam controller %@",recorddict);
         // destViewController.delegate=self;
         
     }

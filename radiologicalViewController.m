@@ -159,7 +159,7 @@
     }
     if ([sender selectedSegmentIndex]==1)
     {
-        viewl=@"Apom";
+        viewl=@"APOM";
     }
     if ([sender selectedSegmentIndex]==2)
     {
@@ -579,7 +579,7 @@
     if(neg.selected)
     {
         
-        [recorddict setValue:@"Negative for recent fracture, dislocation or gross Osteopathology"forKey:@"c_Negative"];
+        [recorddict setValue:@"Negative for Osteopathology"forKey:@"c_Negative"];
     }
     else
     {
@@ -613,7 +613,7 @@
     {
         
         
-        [recorddict  setValue:@"Break in Georges line at " forKey:@"c_Break in Georges "];
+        [recorddict  setValue:@"Break in Georges" forKey:@"c_Break in Georges "];
     }
     else
     {
@@ -647,7 +647,7 @@
     {
         
         
-        [recorddict  setValue:@"Hyperlordosis" forKey:@"c_Hyperlor"];
+        [recorddict  setValue:@"Hyperlordosis:" forKey:@"c_Hyperlor"];
     }
     else
     {
@@ -658,7 +658,7 @@
     {
         
         
-        [recorddict  setValue:@"McGregor's line normal" forKey:@"c_McGregor's line"];
+        [recorddict  setValue:@"McGregors line normal" forKey:@"c_McGregor's line"];
     }
     else
     {
@@ -669,7 +669,7 @@
     if(mcinter.selected)
     {
         
-        [recorddict setValue:@"McGregor's line interupted more than 8-M or 10-F mm" forKey:@"c_McGregor's line interup"];
+        [recorddict setValue:@"McGregors line interupted" forKey:@"c_McGregor's line interup"];
     }
     else
     {
@@ -680,7 +680,7 @@
     {
         
         
-        [recorddict setValue:@"Degenerative joint disease at" forKey:@"c_Degenerative joint"];
+        [recorddict setValue:@"Degenerative joint disease at:" forKey:@"c_Degenerative joint"];
     }
     else
     {
@@ -692,7 +692,7 @@
     {
         
         
-        [recorddict  setValue:@"mild" forKey:@"c_mild"];
+        [recorddict  setValue:@"Mild" forKey:@"c_mild"];
     }
     else
     {
@@ -703,7 +703,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"c_moderate"];
+        [recorddict  setValue:@"Moderate" forKey:@"c_moderate"];
     }
     else
     {
@@ -714,7 +714,7 @@
     if(severe.selected)
     {
         
-        [recorddict setValue:@"severe" forKey:@"c_severe"];
+        [recorddict setValue:@"Severe" forKey:@"c_severe"];
     }
     else
     {
@@ -736,7 +736,7 @@
     {
         
         
-        [recorddict  setValue:@"Anterior vertebral body osteophytes at"forKey:@"c_Anterior vertebr"];
+        [recorddict  setValue:@"Anterior osteophytes at"forKey:@"c_Anterior vertebr"];
     }
     else
     {
@@ -758,7 +758,7 @@
     if(sch.selected)
     {
         
-        [recorddict setValue:@"Schmorl's nodes at"
+        [recorddict setValue:@"Schmorls nodes at:"
                       forKey:@"c_Schmorl's nodes"];
     }
     else
@@ -770,7 +770,7 @@
     {
         
         
-        [recorddict setValue:@"Foraminal enchroachment between"forKey:@"c_Foraminal ench"];
+        [recorddict setValue:@"Foraminal enchroachment b/w:"forKey:@"c_Foraminal ench"];
     }
     else
     {
@@ -793,7 +793,7 @@
     {
         
         
-        [recorddict  setValue:@"Decreased Flex/Ext" forKey:@"c_Decreased Flex/Ext1"];
+        [recorddict  setValue:@"Decreased Flex/Ext:" forKey:@"c_Decreased Flex/Ext1"];
     }
     else
     {
@@ -804,7 +804,7 @@
     if(decrl.selected)
     {
         
-        [recorddict setValue:@"Decreased R/L Flex" forKey:@"c_Decreased R/L Flex1"];
+        [recorddict setValue:@"Decreased R/L Flex:" forKey:@"c_Decreased R/L Flex1"];
     }
     else
     {
@@ -815,7 +815,7 @@
     {
         
         
-        [recorddict setValue:@"mi1d" forKey:@"c_mild11c"];
+        [recorddict setValue:@"Mild" forKey:@"c_mild11c"];
     }
     else
     {
@@ -827,7 +827,7 @@
     {
         
         
-        [recorddict  setValue:@"moderate" forKey:@"c_moderate11c"];
+        [recorddict  setValue:@"Moderate" forKey:@"c_moderate11c"];
     }
     else
     {
@@ -838,7 +838,7 @@
     {
         
         
-        [recorddict  setValue:@"severe" forKey:@"c_severe11c"];
+        [recorddict  setValue:@"Severe" forKey:@"c_severe11c"];
     }
     else
     {
@@ -851,7 +851,7 @@
     {
         
         
-        [recorddict setValue:@"Apex at" forKey:@"c_apex11"];
+        [recorddict setValue:@"Apex at:" forKey:@"c_apex11"];
     }
     else
     {
@@ -874,7 +874,7 @@
     {
         
         
-        [recorddict  setValue:@"other" forKey:@"c_other11"];
+        [recorddict  setValue:@"Other" forKey:@"c_other11"];
     }
     else
     {
@@ -1311,14 +1311,14 @@
     othertext .hidden=YES;
     recorddict=[[NSMutableDictionary alloc]init];
     viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     degsegl=@"C-2/3";
     foraminalsegl=@"C-2/3";
-    ostersegl=@"mild";
-    decsegl=@"mild";
-    decrlsegl=@"mild";
+    ostersegl=@"Mild";
+    decsegl=@"Mild";
+    decrlsegl=@"Mild";
     dltsegl=@"Dextro";
     du=[[databaseurl alloc]init];
     self.navigationItem.backBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil] autorelease];
@@ -1339,7 +1339,7 @@
     // default the subview was hidden
     printView.hidden = YES;
     self.picVisible = NO;
-
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -1357,7 +1357,7 @@
     
 }
 -(void)dismissKeyboard{
-     printView.hidden = YES;
+    printView.hidden = YES;
     [narrowtext resignFirstResponder];
     [pid resignFirstResponder];
     [pid resignFirstResponder];
@@ -1428,14 +1428,14 @@
     othertext .hidden=YES;
     
     viewl=@"A-P lower";
-    hyposegl=@"mild";
-    hypersegl=@"mild";
-    norsegl=@"mild";
+    hyposegl=@"Mild";
+    hypersegl=@"Mild";
+    norsegl=@"Mild";
     degsegl=@"C-2/3";
     foraminalsegl=@"C-2/3";
-    ostersegl=@"mild";
-    decsegl=@"mild";
-    decrlsegl=@"mild";
+    ostersegl=@"Mild";
+    decsegl=@"Mild";
+    decrlsegl=@"Mild";
     dltsegl=@"Dextro";
     [views setSelectedSegmentIndex:0];
     [dlt setSelectedSegmentIndex:0];
