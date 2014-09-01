@@ -198,12 +198,12 @@ static databaseurl * appInstance;
 }
 -(BOOL)zipcode:(NSString *)zip
 {
-    NSString *zipFormat1 =  @"[0-9]{5}?";
+    NSString *zipFormat1 =  @"[0-9A-Za-z]{4,10}?";
     
     NSPredicate *zipTest1 = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", zipFormat1];
     if ([zipTest1 evaluateWithObject:zip])
     {
-        if ([zip isEqualToString:@"00000"]) {
+        if (([zip isEqualToString:@"0000"])||([zip isEqualToString:@"0000000000"])) {
             return 0;
         }
         else

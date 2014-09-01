@@ -1089,22 +1089,22 @@
                                                                             temp21 = [workcity.text stringByReplacingOccurrencesOfString:@" " withString:@""];
                                                                             temp22 = [workstate.text stringByReplacingOccurrencesOfString:@" " withString:@""];
                                                                             temp23 = [workzip.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-                                                                            if((([temp17 length]>0)&&([self validateNames:temp17]==1))||([temp17 length]==0))
+                                                                            if((([temp17 length]>0)&&([du firstname:temp17]==1))||([temp17 length]==0))
                                                                             {
                                                                                 
-                                                                                if((([temp18 length]>0)&&([self validateNames:temp18]==1))||([temp18 length]==0))
+                                                                                if((([temp18 length]>0)&&([du otherfields:temp18]==1))||([temp18 length]==0))
                                                                                 {
-                                                                                    if((([temp19 length]>0)&&([self validateNames:temp19]==1))||([temp19 length]==0))
+                                                                                    if((([temp19 length]>0)&&([du address:temp19]==1))||([temp19 length]==0))
                                                                                         
                                                                                     {
-                                                                                        if((([temp20 length]>0)&&([self validateMobile:temp20]==1))||([temp20 length]==0))
+                                                                                        if((([temp20 length]>0)&&([du mobilenumber:temp20]==1))||([temp20 length]==0))
                                                                                         {
-                                                                                            if((([temp21 length]>0)&&([self validateNames:temp21]==1))||([temp21 length]==0))
+                                                                                            if((([temp21 length]>0)&&([du firstname:temp21]==1))||([temp21 length]==0))
                                                                                             {
                                                                                                 
-                                                                                                if((([temp22 length]>0)&&([self validateNames:temp22]==1))||([temp22 length]==0))
+                                                                                                if((([temp22 length]>0)&&([du firstname:temp22]==1))||([temp22 length]==0))
                                                                                                     
-                                                                                                {if((([temp23 length]>0)&&([self validateZip:temp23]==1))||([temp23 length]==0))
+                                                                                                {if((([temp23 length]>0)&&([du zipcode:temp23]==1))||([temp23 length]==0))
                                                                                                 {
                                                                                                     c=1;
                                                                                                     [recorddict setValue:empname.text forKey:@"empname"];
@@ -1321,7 +1321,7 @@
     {
         
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        NSString *rangeOfString = @"0123456789";
+        NSString *rangeOfString = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         NSCharacterSet *rangeOfCharacters = [NSCharacterSet characterSetWithCharactersInString:rangeOfString];
         
         
@@ -1338,13 +1338,13 @@
         
         
         
-        return (newLength > 5) ? NO : YES;
+        return (newLength > 10) ? NO : YES;
         
     }
     else if (textField.tag==21)
     {
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        NSString *rangeOfString = @"0123456789";
+        NSString *rangeOfString =@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         NSCharacterSet *rangeOfCharacters = [NSCharacterSet characterSetWithCharactersInString:rangeOfString];
         
         
@@ -1359,7 +1359,7 @@
             }
         }
         
-        return (newLength > 5) ? NO : YES;
+        return (newLength > 10) ? NO : YES;
     }
     else if (textField.tag==12) {
         // All digits entered
