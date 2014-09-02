@@ -471,11 +471,17 @@ int a;
     NSString *username=[[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
     NSString *resultResponse=[self HttpPostGetdetails:@"username" ForValue1:username  EntitySecond:@"authkey" ForValue2:@"rzTFevN099Km39PV"];
     NSError *error;
+     NSLog(@"result %@",resultResponse);
+    
+    
     SBJSON *json = [[SBJSON new] autorelease];
-    // NSLog(@"response %@",resultResponse);
+    
 	NSDictionary *luckyNumbers = [json objectWithString:resultResponse error:&error];
+    NSLog(@"result1 %@",luckyNumbers);
     NSDictionary *itemsApp = [luckyNumbers objectForKey:@"serviceresponse"];
+     NSLog(@"result2 %@",itemsApp);
     NSArray *items1App=[itemsApp objectForKey:@"Hardshipuser List"];
+     NSLog(@"result3 %@",items1App);
     
     NSDictionary *arrayList1;
     //     To check whether its having data or not
@@ -709,7 +715,7 @@ int a;
     NSURLResponse *response;
     NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *data=[[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"data %@",data);
+     NSLog(@"data %@",data);
     
     return data;
     

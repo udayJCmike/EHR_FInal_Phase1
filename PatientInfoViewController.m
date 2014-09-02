@@ -146,6 +146,17 @@
     if(segmarital.selectedSegmentIndex==0)
     {
         marital.text=@"Single";
+        sl1.hidden=YES;
+        sl2.hidden=YES;
+        sl3.hidden=YES;
+        spouseemp.hidden=YES;
+        spousename.hidden=YES;
+        spouseph.hidden=YES;
+    }
+    else if (segmarital.selectedSegmentIndex==1)
+    {
+        marital.text=@"Married";
+      
         sl1.hidden=NO;
         sl2.hidden=NO;
         sl3.hidden=NO;
@@ -153,25 +164,15 @@
         spousename.hidden=NO;
         spouseph.hidden=NO;
     }
-    else if (segmarital.selectedSegmentIndex==1)
-    {
-        marital.text=@"Married";
-        sl1.hidden=YES;
-        sl2.hidden=YES;
-        sl3.hidden=YES;
-        spouseemp.hidden=YES;
-        spousename.hidden=YES;
-        spouseph.hidden=YES;
-    }
     else if (segmarital.selectedSegmentIndex==2)
     {
         marital.text=@"Divorced";
-        sl1.hidden=YES;
-        sl2.hidden=YES;
-        sl3.hidden=YES;
-        spouseemp.hidden=YES;
-        spousename.hidden=YES;
-        spouseph.hidden=YES;
+        sl1.hidden=NO;
+        sl2.hidden=NO;
+        sl3.hidden=NO;
+        spouseemp.hidden=NO;
+        spousename.hidden=NO;
+        spouseph.hidden=NO;
     }
 }
 
@@ -413,12 +414,12 @@
     
     
     
-    sl1.hidden=NO;
-    sl2.hidden=NO;
-    sl3.hidden=NO;
-    spouseemp.hidden=NO;
-    spousename.hidden=NO;
-    spouseph.hidden=NO;
+    sl1.hidden=YES;
+    sl2.hidden=YES;
+    sl3.hidden=YES;
+    spouseemp.hidden=YES;
+    spousename.hidden=YES;
+    spouseph.hidden=YES;
     resLabel.text=@"FullTime";
     areyoulabel=@"Student";
     seg.text=@"Male";
@@ -977,15 +978,11 @@
         
         if  ([marital.text isEqualToString:@"Single"]) {
             
-            
-        }
-        else
-        {
             spouseemp.text=@"";
             spousename.text=@"";
             spouseph.text=@"";
-            
         }
+        
         
         
         
@@ -1024,19 +1021,11 @@
                                                                 {
                                                                     if ([self validateDate:temp16]==1)
                                                                     {
-                                                                        if  ([marital.text isEqualToString:@"Single"]) {
+                                                                       
                                                                             
                                                                             [recorddict setValue:spousename.text forKey:@"spousename"];
                                                                             [recorddict setValue:spouseemp.text forKey:@"spouseemp"];
                                                                             [recorddict setValue:spouseph.text forKey:@"spousephone"];
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            [recorddict setValue:@"" forKey:@"spousename"];
-                                                                            [recorddict setValue:@"" forKey:@"spouseemp"];
-                                                                            [recorddict setValue:@""  forKey:@"spousephone"];
-                                                                            
-                                                                        }
                                                                         
                                                                         
                                                                         [recorddict setValue:name.text forKey:@"name"];
@@ -1453,12 +1442,12 @@
     areyoulabel=@"Student";
     seg.text=@"Male";
     marital.text=@"Single";
-    sl1.hidden=NO;
-    sl2.hidden=NO;
-    sl3.hidden=NO;
-    spouseemp.hidden=NO;
-    spousename.hidden=NO;
-    spouseph.hidden=NO;
+    sl1.hidden=YES;
+    sl2.hidden=YES;
+    sl3.hidden=YES;
+    spouseemp.hidden=YES;
+    spousename.hidden=YES;
+    spouseph.hidden=YES;
 }
 
 - (BOOL)presentFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated completionHandler:(UIPrintInteractionCompletionHandler)completion {

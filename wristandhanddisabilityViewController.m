@@ -582,20 +582,24 @@
             temp1 =[arrayList1 objectForKey:@"name"];
             temp2 =[arrayList1 objectForKey:@"date"];
             temp3 =[arrayList1 objectForKey:@"painintensity"];
-            temp4 =[arrayList1 objectForKey:@"work"];
-            temp6=[arrayList1 objectForKey:@"numbness"];
-            temp7=[arrayList1 objectForKey:@"driving"];
+            temp4 =[arrayList1 objectForKey:@"numbness"];
+            temp6=[arrayList1 objectForKey:@"personal"];
+            temp7=[arrayList1 objectForKey:@"strength"];
             
-            temp8=[arrayList1 objectForKey:@"personal"];
-            temp9=[arrayList1 objectForKey:@"sleeping"];
-            temp10=[arrayList1 objectForKey:@"strength"];
-            temp11=[arrayList1 objectForKey:@"house"];
-            temp12=[arrayList1 objectForKey:@"writing"];
+            temp8=[arrayList1 objectForKey:@"writing"];
+            temp9=[arrayList1 objectForKey:@"work"];
+            temp10=[arrayList1 objectForKey:@"driving"];
+            temp11=[arrayList1 objectForKey:@"sleeping"];
+            temp12=[arrayList1 objectForKey:@"house"];
             
             temp13=[arrayList1 objectForKey:@"recreation"];
             temp14=[arrayList1 objectForKey:@"painscale"];
             temp15=[arrayList1 objectForKey:@"score"];
             temp16=[arrayList1 objectForKey:@"total"];
+            
+            /*
+            Please note passing values only changed in resultset.....key values not changed.
+             */
             
             
             

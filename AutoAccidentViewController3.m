@@ -1333,6 +1333,25 @@ int a,b,c,d;
         waswronglabel.hidden=NO;
         afteraccidentother.hidden=YES;
         afteraccidentother.text=@"";
+        if([[resultset objectForKey:@"hospitalget"]isEqualToString:@"Ambulance"]){
+            [hospitalgoingsegment setSelectedSegmentIndex:0];
+            hospitalgoingsegmentlabel.text=@"Ambulance";
+            hospitalgoingother.hidden=YES;
+            hospitalgoingother.text=@"";
+            _13=@"null";
+            
+            
+            
+        }
+        else if([[resultset objectForKey:@"hospitalget"]isEqualToString:@"Other"]){
+            hospitalgoingsegmentlabel.text=@"Other";
+            [hospitalgoingsegment setSelectedSegmentIndex:1];
+            hospitalgoingother.hidden=NO;
+            
+            hospitalgoingother.text=[resultset objectForKey:@"hospital1"];
+            _13=hospitalgoingother.text;
+        }
+        
         
     }
     else if([[resultset objectForKey:@"after_accident"]isEqualToString:@"Family"]){
@@ -1419,25 +1438,7 @@ int a,b,c,d;
         hospitalgoingother.text=@"";
         hospitalstay.text=@"";
     }
-    if([[resultset objectForKey:@"hospitalget"]isEqualToString:@"Ambulance"]){
-        [hospitalgoingsegment setSelectedSegmentIndex:0];
-        hospitalgoingsegmentlabel.text=@"Ambulance";
-        hospitalgoingother.hidden=YES;
-        hospitalgoingother.text=@"";
-        _13=@"null";
-        
-        
-        
-    }
-    else if([[resultset objectForKey:@"hospitalget"]isEqualToString:@"Other"]){
-        hospitalgoingsegmentlabel.text=@"Other";
-        [hospitalgoingsegment setSelectedSegmentIndex:1];
-        hospitalgoingother.hidden=NO;
-        
-        hospitalgoingother.text=[resultset objectForKey:@"hospital1"];
-        _13=hospitalgoingother.text;
-    }
-    
+ 
     
     
     if([[resultset objectForKey:@"headache"]isEqualToString:@"null"]){

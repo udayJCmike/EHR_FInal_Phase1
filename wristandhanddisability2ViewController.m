@@ -637,8 +637,8 @@
    NSString *post =[[NSString alloc] initWithFormat:@"%@=%@&symptom=%@&name=%@&date=%@&painintensity=%@&work=%@&numbness=%@&driving=%@&personal=%@&sleeping=%@&strength=%@&house=%@&writing=%@&recreation=%@&painscale=%@&score=%@&total=%@&%@=%@",firstEntity,value1,[recorddict objectForKey:@"symptomtext"],[recorddict objectForKey:@"patient name"],[recorddict objectForKey:@"date"],[recorddict objectForKey:@"sec1"],[recorddict objectForKey:@"sec6"],[recorddict objectForKey:@"sec2"],[recorddict objectForKey:@"sec7"],[recorddict objectForKey:@"sec3"],[recorddict objectForKey:@"sec8"],[recorddict objectForKey:@"sec4"],[recorddict objectForKey:@"sec9"],[recorddict objectForKey:@"sec5"],[recorddict objectForKey:@"sec10"],[recorddict objectForKey:@"painscale"],[recorddict objectForKey:@"total"],[recorddict objectForKey:@"painratio"],secondEntity,value2];
     
     NSURL *url = [NSURL URLWithString:url2];
-    
-    NSLog(post);
+//    
+//    NSLog(post);
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
